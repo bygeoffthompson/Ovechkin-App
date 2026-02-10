@@ -2938,7 +2938,10 @@
     "month": "April",
     "day": 1,
     "year": 2008,
-    "btn1": "April Fools Day",
+    "type": "4v4",
+    "btn1": "Post",
+    "btn2": "Slapshot",
+    "search": "360* April Fools Day",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "Third",
@@ -8608,6 +8611,7 @@
     "day": 26,
     "year": 2014,
     "type": "PPG",
+    "btn1": "Slapshot",
     "search": "Teammate",
     "season": "NHL Regular",
     "hoa": "Away",
@@ -8630,7 +8634,7 @@
     "btn2": "PPG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Throwback"
   },
   {
