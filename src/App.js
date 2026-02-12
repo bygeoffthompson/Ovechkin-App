@@ -374,7 +374,7 @@ function SearchForm({jsonData}) {
                         </div>
                         <div className="tags">
                             <span>{result.type} {result.btn1} {result.btn2} {result.btn3} {result.search} {result.primary} {result.secondary}</span>
-                            <strong className="link">ovechkin.cam/?{result.goal}</strong>
+                            <strong className="link">ovechkin.app/?{result.goal}</strong>
                         </div>
                     </div>
                 )).reverse().slice(0, 36)}
