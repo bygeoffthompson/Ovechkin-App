@@ -3,6 +3,13 @@ import ReactGA from 'react-ga4';
 
 //ReactGA.initialize('G-5RVBYX6N0S');
 
+ReactGA.send({
+    hitType: "pageview",
+    page: "www.ovechkin.app",
+    title: "Ovechkin App"
+});
+
+
 const totalGoals = 919;
 
 function SearchForm({jsonData}) {
@@ -19,9 +26,8 @@ function SearchForm({jsonData}) {
             const results = jsonData.filter(item => item.goal === goalQuery)
             setSearchResults(results);
             ReactGA.event({
+                category: 'Goal Requests',
                 action: 'Click',
-                category: new Date().getFullYear()  + ' Goals Served',
-                event: 'Goal #' + goalQuery,
                 label: 'Goal #' + goalQuery,
                 value: 1
             });
