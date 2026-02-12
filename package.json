@@ -1,7 +1,7 @@
 {
   "name": "ovechkin-app",
   "version": "1.0.0",
-  "homepage": "https://ovechkin.app",
+  "homepage": "https://www.ovechkin.app",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
