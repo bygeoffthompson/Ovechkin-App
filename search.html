@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Search | Ovechkin App</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Learn about searching the Ovechkin App">
+    <meta name="keywords" content="Alex Ovechkin App, NHL, KHL, goal highlight videos, catalog, index, log, career, goalscorer, greatest goal scorer, playoff goal, Washington Capitals, Caps, Moscow Dynamo, Russia, Gr8, Gr8 Chase, Ov, Ovi, Ovie, Ovy, Alexander, Sasha, Russian Machine, Ovechkam, OviCast">
+    <meta name="author" content="Geoff Thompson">
+    <meta property="og:image" content="/ovechkin.jpg">
+    <meta property="twitter:image" content="/ovechkin.jpg">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RVBYX6N0S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5RVBYX6N0S');
+    </script>
+  </head>
+  <body>
+  <div class="container">
+    <header>
+      <h1>Searching the Ovechkin App</h1>
+    </header>
+    <main>
+      <h2 id="assist">Assist Search</h2>
+      <p>Assist data is stored in format <code>[Primary Assist Full Name] [Secondary Assist Full Name]</code></p>
+      <ul>
+        <li>Nicklas Backstrom TJ Oshie</li>
+      </ul>
+      <h2 id="date">Date Search</h2>
+        <p>Dates are stored in format <code>[Month Name] [DD] [YYYY]</code></p>
+        <ul>
+            <li>January 13 2010</li>
+            <li>March 31 2015</li>
+            <li>November 5 2022</li>
+        </ul>
+      <h2 id="goal">Goal Search</h2>
+      <p>Goals are identified by a unique number. NHL regular season goals are indexed 1 to 919. All other goals are intertwined
+          as floats with format <code>[NHL Regular Goal].[Other Goal]</code></p>
+      <ul>
+        <li>0.02 is World Championship Goal #2 (2005)</li>
+        <li>36.04 is Olympic Goal #4 (2006)</li>
+        <li>288.05 is All Star Goal #5 (2011)</li>
+        <li>525.02 is World Cup Goal #2 (2016)</li>
+        <li>897.75 is Playoff Goal #75 (2025)</li>
+      </ul>
+      <p>In a few cases this cataloging produced duplicate floats which were resolved by incrementing the NHL regular season goal number by one.</p>
+      <h2>League Search</h2>
+      <ul>
+       <li>"All Star" for All Star Goals</li>
+       <li>"KHL" for KHL Goals</li>
+       <li>"Olympics" for Olympic Goals</li>
+       <li>"Playoffs" for NHL Playoff Goals</li>
+       <li>"Regular" for NHL Regular Season Goals</li>
+       <li>"World Championships" for World Championship Goals</li>
+       <li>"World Cup" for World Cup Goals</li>
+     </ul>
+      <h2 id="text">Text Search</h2>
+        <div class="table">
+        <table>
+            <tbody>
+                <tr><td><a href="/?20th">20th</a></td>
+                    <td>20th goals</td></tr>
+                <tr><td><a href="/?30th">30th</a></td>
+                    <td>30th goals</td></tr>
+                <tr><td><a href="/?40th">40th</a></td>
+                    <td>40th goals</td></tr>
+                <tr><td><a href="/?50th">50th</a></td>
+                    <td>50th goals</td></tr>
+                <tr><td><a href="/?60th">60th</a></td>
+                    <td>60th goals</td></tr>
+                <tr><td><a href="/?2nd">2nd</a></td>
+                    <td>Second goals of a game</td></tr>
+                <tr><td><a href="/?3rd">3rd</a></td>
+                    <td>Hat trick goals</td></tr>
+                <tr><td><a href="/?4th">4th</a></td>
+                    <td>Fourth goals of a game</td></tr>
+                <tr><td><a href="/?century">Century</a></td>
+                    <td>Century mark goals</td></tr>
+                <tr><td><a href="/?rocket">Rocket</a></td>
+                    <td>Rocket Richard clinching goals</td></tr>
+                <tr><td><a href="/?vezina">Vezina</a></td>
+                    <td>Goals against season's Vezina winner</td></tr>
+                <tr><td><a href="/?start">Start</a></td>
+                    <td>First goals of season</td></tr>
+                <tr><td><a href="/?end">End</a></td>
+                    <td>Last goals of season</td></tr>
+                <tr><td><a href="/?teammate">Teammate</a></td>
+                    <td>Goals against a former teammate</td></tr>
+                <tr><td><a href="/?gwg">GWG</a></td>
+                    <td>Game Winning Goals</td></tr>
+                <tr><td><a href="/?overtime">Overtime</a></td>
+                    <td>Overtime goals</td></tr>
+                <tr><td><a href="/?ppg">PPG</a></td>
+                    <td>Power Play Goals</td></tr>
+                <tr><td><a href="/?shg">SHG</a></td>
+                    <td>Shorthanded Goals</td></tr>
+                <tr><td><a href="/?empty-net">Empty Net</a></td>
+                    <td>Empty net goals</td></tr>
+                <tr><td><a href="/?rookie">Rookie</a></td>
+                    <td>Rookie season goals</td></tr>
+                <tr><td><a href="/?streak">Streak</a></td>
+                    <td>Career best 7 game goal streak</td></tr>
+                <tr><td><a href="/?home-opener">Home Opener</a></td>
+                    <td>Home Opener goals</td></tr>
+                <tr><td><a href="/?tuuks">TUUKs</a></td>
+                    <td>Goals wearing special TUUKs</td></tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr><td><a href="/?gr8-chase">Gr8 Chase</a></td>
+                    <td>Climbing the leaderboard</td></tr>
+                <tr><td><a href="/?super-swedes">Super Swedes</a></td>
+                    <td>A pair of Backstrom and Johansson assists</td></tr>
+                <tr><td><a href="/?young-guns">Young Guns</a></td>
+                    <td>A pair of assists from Backstrom, Green, or Semin</td></tr>
+                <tr><td><a href="/?opening-minute">Opening Minute</a></td>
+                    <td>Goals in opening minute</td></tr>
+                <tr><td><a href="/?final-minute">Final Minute</a></td>
+                    <td>Goals in final minute</td></tr>
+                <tr><td><a href="/?once">Once</a></td>
+                    <td>A goalie scored against just once</td></tr>
+                <tr><td><a href="/?5v3">5v3</a></td>
+                    <td>5 on 3 goals</td></tr>
+                <tr><td><a href="/?6v5">6v5</a></td>
+                    <td>6 on 5 goals</td></tr>
+                <tr><td><a href="/?penalty-shot">Penalty Shot</a></td>
+                    <td>Penalty Shot goals</td></tr>
+                <tr><td><a href="/?360*">360*</a></td>
+                    <td>Spin-o-rama goals</td></tr>
+                <tr><td><a href="/?halloween">Halloween</a></td>
+                    <td>Halloween goals</td></tr>
+                <tr><td><a href="/?thanksgiving">Thanksgiving</a></td>
+                    <td>Canadian Thanksgiving goals</td></tr>
+                <tr><td><a href="/?boxing-day">Boxing Day</a></td>
+                    <td>Boxing Day goals</td></tr>
+                <tr><td><a href="/?new-years">New Years</a></td>
+                    <td>New Years Eve and Day goals</td></tr>
+                <tr><td><a href="/?superbowl">Superbowl</a></td>
+                    <td>Superbowl Sunday goals</td></tr>
+                <tr><td><a href="/?valentine">Valentine</a></td>
+                    <td>Valentine's Day goals</td></tr>
+                <tr><td><a href="/?default">Default</a></td>
+                    <td>Red and White Default jersey</td></tr>
+                <tr><td><a href="/?capitol">Capitol</a></td>
+                    <td>Black Capitol jersey</td></tr>
+                <tr><td><a href="/?screagle">Screagle</a></td>
+                    <td>White Screagle jersey</td></tr>
+                <tr><td><a href="/?throwback">Throwback</a></td>
+                    <td>Red and White Throwback jersey</td></tr>
+                <tr><td><a href="/?navy-third">Navy Third</a></td>
+                    <td>Navy Third jersey</td></tr>
+                <tr><td><a href="/?reverse-retro">Reverse Retro</a></td>
+                    <td>Black and Red Reverse Retro jersey</td></tr>
+                <tr><td><a href="/?brick">Brick</a></td>
+                    <td>2015 Winter Classic jersey</td></tr>
+                <tr><td><a href="/?stadium">Stadium</a></td>
+                    <td>2018 Stadium Series jersey</td></tr>
+            </tbody>
+        </table>
+        </div>
+      <h2>URL Queries</h2>
+      <p>Ovechkin App accepts URL queries to return specific goals (<a href="/?1">?1</a> to <a href="/?919">?919</a>) or a set of filtered search results (<a href="/?fleury+golden-knights">?fleury+golden-knights</a>).</p>
+    </main>
+  </div>
+    <footer>
+        <a href="/">Home</a>
+        &nbsp;|&nbsp;
+        <a href="/about.html">About</a>
+        &nbsp;|&nbsp;
+        <a href="/goals.html">Goals</a>
+    </footer>
+  </body>
+</html>

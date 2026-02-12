@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Goal List | Ovechkin App</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="A chronological and comprehensive list of Ovechkin goals with supporting details.">
+    <meta name="keywords" content="Alex Ovechkin App, NHL, KHL, goal highlight videos, catalog, index, log, career, goalscorer, greatest goal scorer, playoff goal, Washington Capitals, Caps, Moscow Dynamo, Russia, Gr8, Gr8 Chase, Ov, Ovi, Ovie, Ovy, Alexander, Sasha, Russian Machine, Ovechkam, OviCast">
+    <meta name="author" content="Geoff Thompson">
+    <meta property="og:image" content="/ovechkin.jpg">
+    <meta property="twitter:image" content="/ovechkin.jpg">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RVBYX6N0S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5RVBYX6N0S');
+    </script>
+    <script>
+        async function fetchDataAndCreateTable() {
+            try {
+                const response = await fetch('/goals.json');
+                const data = await response.json();
+
+                const tableBody = document.querySelector('tbody');
+
+                data.forEach(item => {
+                    const row = tableBody.insertRow();
+                    const goalCell = row.insertCell();
+                    goalCell.textContent = item.goal;
+                    const seasonCell = row.insertCell();
+                    seasonCell.textContent = item.season;
+                    const dateCell = row.insertCell();
+                    dateCell.textContent = item.month + ' ' + item.day + ', ' + item.year;
+                    const goalieCell = row.insertCell();
+                    goalieCell.textContent = item.goalie;
+                    const teamCell = row.insertCell();
+                    teamCell.textContent = item.team;
+                    const hoaCell = row.insertCell();
+                    hoaCell.textContent = item.hoa;
+                    const periodCell = row.insertCell();
+                    periodCell.textContent = item.period;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Call the function to fetch data and create the table when the page loads
+        document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
+  </head>
+  <body>
+  <div class="container">
+    <header>
+      <h1>The Complete List of Ovechkin Goals</h1>
+    </header>
+    <main>
+        <p style="margin-bottom:2rem;text-align:center;">A chronological and comprehensive list of Ovechkin goals with supporting details.</p>
+        <table id="ovechkin-goals">
+            <thead>
+              <tr>
+                  <th>Goal</th>
+                  <th>League/Season</th>
+                  <th>Date</th>
+                  <th>Goalie</th>
+                  <th>Opponent</th>
+                  <th>Home/Away</th>
+                  <th>Period</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+  </div>
+    <footer>
+        <a href="/">Home</a>
+        &nbsp;|&nbsp;
+        <a href="/about.html">About</a>
+        &nbsp;|&nbsp;
+        <a href="/search.html">Search</a>
+    </footer>
+  </body>
+  <script>
+      jQuery(window).on('load', function() {
+          let table = new DataTable('#ovechkin-goals', {
+              paging: false,
+              responsive: true,
+              order: [[ 0, 'asc' ]],
+              searching: false
+          });
+      });
+  </script>
+</html>
