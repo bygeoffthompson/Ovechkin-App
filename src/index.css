@@ -564,6 +564,8 @@ button {
     &[title="Throwback Third"] {
         background: #C8102E;
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
+        color: #FFF;
+        font-size: 18px;
     }
 
     &[title="Navy Third"] {

@@ -278,11 +278,11 @@ function SearchForm({jsonData}) {
                                 <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" />
                             </span>
                         </button>
-                        <button onClick={(event) => filterGoal(['Red Capitals', 'White Capitals'])} className="jersey-button" title="Capitals" type="button">
+                        <button onClick={(event) => filterGoal(['Red Default', 'White Default'])} className="jersey-button" title="Capitals" type="button">
                             <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
                         </button>
                         <button onClick={(event) => filterGoal(['Red Throwback', 'White Throwback'])} className="jersey-button" title="Throwback Third" type="button">
-                            <img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" />
+                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" />&nbsp;&nbsp;☆
                         </button>
                         <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
                             <span>
