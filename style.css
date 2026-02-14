@@ -28,6 +28,7 @@
 }
 
 #ovechkin-goals_wrapper {
+    margin: 0 0 4rem;
     max-height: 800px;
     overflow: scroll;
 }
@@ -146,7 +147,6 @@ header {
     margin: 2rem 0;
     position: relative;
     user-select: none;
-    text-align: center;
     z-index: 2;
 
     a:hover {
