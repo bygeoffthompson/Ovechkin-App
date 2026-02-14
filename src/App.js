@@ -250,10 +250,10 @@ function SearchForm({jsonData}) {
             </div>
             <form onSubmit={preventSubmit}>
                 <div>
-                <h2 className="number"><a href="/search.html#goal">Search by Number</a></h2>
+                <h2 className="number"><a href="/help.html#goal">Search by Number</a></h2>
                     <label className="hide" htmlFor="search-goal">Number</label>
                     <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                    <h2><a href="/search.html#text"><span className="hide">Search by </span>Text</a></h2>
+                    <h2><a href="/help.html#text"><span className="hide">Search by </span>Text</a></h2>
                     <label className="hide" htmlFor="search-text-1">Text</label>
                     <label className="hide" htmlFor="search-text-2">Text</label>
                     <label className="hide" htmlFor="search-text-3">Text</label>
