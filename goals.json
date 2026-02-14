@@ -3775,7 +3775,6 @@
     "year": 2009,
     "type": "GWG",
     "btn1": "Young Guns",
-    "search": "Valentine's Valentines Day",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "First",
@@ -4770,7 +4769,7 @@
     "search": "Teammate",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -6257,7 +6256,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -6573,6 +6572,7 @@
     "month": "May",
     "day": 5,
     "year": 2012,
+    "btn1": "Slapshot",
     "search": "Semifinals Game 5 Vezina",
     "season": "NHL Playoffs",
     "hoa": "Home",
@@ -9011,10 +9011,11 @@
     "month": "February",
     "day": 14,
     "year": 2015,
-    "search": "Valentine's Valentines Day",
+    "type": "4v4",
+    "btn1": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Throwback"
   },
   {
@@ -9549,6 +9550,7 @@
     "day": 7,
     "year": 2015,
     "type": "PPG",
+    "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "Second",
@@ -12706,7 +12708,6 @@
     "month": "February",
     "day": 14,
     "year": 2019,
-    "search": "Valentine's Valentines Day",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "First",
@@ -17436,7 +17437,6 @@
     "day": 27,
     "year": 2026,
     "type": "PPG",
-    "search": "",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "Third",
