@@ -720,7 +720,7 @@
     "search": "Turin Torino Italy",
     "btn1": "Tip",
     "season": "Olympics",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Russia"
   },
   {
@@ -3812,10 +3812,9 @@
     "type": "40th",
     "search": "2nd Teammate",
     "btn1": "GWG",
-    "btn2": "PPG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -3828,8 +3827,9 @@
     "year": 2009,
     "type": "3rd",
     "btn1": "Backhand",
-    "btn2": "Empty Net",
-    "btn3": "Hat Trick",
+    "btn2": "Hat Trick",
+    "btn3": "Post",
+    "search": "Empty Net",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "Third",
@@ -14752,6 +14752,7 @@
     "year": 2022,
     "type": "30th",
     "btn1": "PPG",
+    "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "First",
