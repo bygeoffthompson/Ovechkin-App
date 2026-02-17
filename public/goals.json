@@ -1248,6 +1248,8 @@
     "link": "/NtRs1L31zRs?si=zM0BgQV-LFNMY_Yi",
     "team": "Philadelphia Flyers",
     "goalie": "Robert Esche",
+    "primary": "Bryan Muir",
+    "secondary": "Matt Bradley",
     "month": "November",
     "day": 4,
     "year": 2006,
@@ -1261,8 +1263,8 @@
     "link": "/PY8NCTjaQ2k?si=r4Vkx3_FtmwtIJHT",
     "team": "Philadelphia Flyers",
     "goalie": "Robert Esche",
-    "primary": "Bryan Muir",
-    "secondary": "Matt Bradley",
+    "primary": "Chris Clark",
+    "secondary": "Jamie Heward",
     "month": "November",
     "day": 4,
     "year": 2006,
@@ -2438,7 +2440,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
