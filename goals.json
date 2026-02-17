@@ -333,7 +333,7 @@
     "search": "Rookie",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Capitol"
   },
   {
@@ -565,7 +565,7 @@
     "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "Screagle"
   },
   {
@@ -1997,7 +1997,7 @@
     "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -6158,7 +6158,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -7407,7 +7407,7 @@
     "btn1": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -7643,7 +7643,7 @@
     "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -7980,7 +7980,7 @@
     "search": "Super Swedes",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Throwback"
   },
   {
@@ -8851,7 +8851,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -9171,7 +9171,7 @@
     "btn3": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -12184,7 +12184,7 @@
     "btn2": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -12219,7 +12219,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -12282,7 +12282,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -12763,7 +12763,7 @@
     "btn3": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -12914,7 +12914,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -13254,7 +13254,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -14051,7 +14051,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Reverse Retro"
   },
   {
@@ -14296,7 +14296,7 @@
     "search": "Gr8 Chase Home Opener Marcel Dionne Opening Night Start",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -14315,7 +14315,7 @@
     "search": "Home Opener Opening Night",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -14757,7 +14757,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -14802,7 +14802,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -14911,7 +14911,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -15071,7 +15071,7 @@
     "btn1": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -15140,7 +15140,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -15219,7 +15219,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -16047,7 +16047,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Navy Third"
   },
   {
@@ -16145,7 +16145,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Secondf",
     "jersey": "Red Default"
   },
   {
@@ -16176,7 +16176,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -16224,7 +16224,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -16536,7 +16536,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -16583,7 +16583,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -16599,7 +16599,7 @@
     "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -16727,7 +16727,7 @@
     "type": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -16775,7 +16775,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -16887,7 +16887,7 @@
     "btn2": "Tip",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -17140,7 +17140,7 @@
     "btn1": "Backhand",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
