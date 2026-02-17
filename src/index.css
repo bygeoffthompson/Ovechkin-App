@@ -195,12 +195,12 @@ body {
     }
     95% {
         left: 50%;
-        top: 136px;
+        top: 160px;
         transform: scale(.5) translateX(-50%);
     }
     100% {
         left: 50%;
-        top: 160px;
+        top: 180px;
         transform: scale(.75) translateX(-50%);
     }
 }
@@ -708,12 +708,6 @@ form {
                 justify-content: space-between;
             }
         }
-    }
-}
-
-h1 {
-    @media (max-width: 576px) {
-        font-size: 1.25rem;
     }
 }
 
