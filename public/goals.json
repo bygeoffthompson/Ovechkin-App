@@ -2474,7 +2474,7 @@
     "search": "Teammate",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -2700,7 +2700,7 @@
     "btn1": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -2982,7 +2982,7 @@
     "btn2": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -4290,7 +4290,7 @@
     "search": "Opening Night Start",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -4895,7 +4895,8 @@
     "day": 5,
     "year": 2010,
     "type": "PPG",
-    "btn1": "Young Guns",
+    "btn1": "Slapshot",
+    "btn2": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "First",
@@ -5116,7 +5117,7 @@
     "btn2": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -5913,7 +5914,7 @@
     "search": "Start Teammate",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -6124,7 +6125,7 @@
     "btn1": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -6176,7 +6177,7 @@
     "search": "Super Swedes",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -7271,7 +7272,7 @@
     "btn1": "GWG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -7561,7 +7562,7 @@
     "search": "Home Opener Super Swedes",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -7611,7 +7612,7 @@
     "search": "Canadian Thanksgiving Once Super Swedes",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -7708,7 +7709,7 @@
     "search": "Super Swedes",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -7905,7 +7906,7 @@
     "year": 2013,
     "type": "2nd",
     "btn1": "PPG",
-    "search": "Major Penalty Super Swedes",
+    "search": "Super Swedes",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "Second",
@@ -7925,7 +7926,7 @@
     "btn1": "Hat Trick",
     "btn2": "PPG",
     "btn3": "Young Guns",
-    "search": "Major Penalty Slapshot",
+    "search": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "Second",
@@ -8182,10 +8183,11 @@
     "day": 6,
     "year": 2014,
     "type": "40th",
-    "btn1": "GWG",
+    "btn1": "Backhand",
+    "btn2": "GWG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -8300,10 +8302,11 @@
     "year": 2014,
     "type": "GWG",
     "search": "Once",
-    "btn2": "PPG",
+    "btn1": "PPG",
+    "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -8934,7 +8937,7 @@
     "btn2": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -8949,7 +8952,8 @@
     "year": 2015,
     "type": "30th",
     "btn1": "PPG Super Bowl",
-    "btn2": "Young Guns",
+    "btn2": "Slapshot",
+    "btn3": "Young Guns",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "First",
@@ -8985,7 +8989,7 @@
     "btn1": "Tip",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -9117,6 +9121,7 @@
     "year": 2015,
     "type": "40th",
     "btn1": "GWG",
+    "search": "Opening Minute",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "First",
@@ -9236,7 +9241,7 @@
     "btn1": "2nd",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -9895,7 +9900,7 @@
     "search": "Teammate",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Throwback"
   },
   {
@@ -11825,7 +11830,7 @@
     "search": "2nd End",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -12810,7 +12815,7 @@
     "btn1": "PPG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -12878,7 +12883,7 @@
     "search": "Brendan Shanahan Gr8 Chase",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Throwback"
   },
   {
@@ -13640,7 +13645,7 @@
     "btn1": "2nd",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -13973,7 +13978,7 @@
     "type": "GWG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -14083,7 +14088,7 @@
     "btn1": "2nd",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -14593,7 +14598,7 @@
     "btn1": "GWG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Navy Third"
   },
   {
@@ -16129,7 +16134,7 @@
     "btn2": "PPG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -16272,7 +16277,7 @@
     "btn1": "GWG",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -16418,7 +16423,7 @@
     "type": "GWG",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Black Reverse Retro"
   },
   {
@@ -16743,7 +16748,7 @@
     "btn1": "2nd",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -17187,7 +17192,7 @@
     "search": "Teammate",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
