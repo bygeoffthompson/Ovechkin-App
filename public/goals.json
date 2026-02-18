@@ -5348,7 +5348,7 @@
     "month": "October",
     "day": 28,
     "year": 2010,
-    "btn1": "Young Guns",
+    "type": "6v5",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "Third",
@@ -7829,7 +7829,7 @@
     "btn1": "Tip",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -10479,7 +10479,7 @@
     "btn1": "Tip",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -16261,7 +16261,7 @@
     "btn1": "Tip",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -16906,7 +16906,7 @@
     "day": 1,
     "year": 2025,
     "type": "PPG",
-    "btn1": "April Fools Day",
+    "search": "April Fools Day",
     "season": "NHL Regular",
     "hoa": "Away",
     "period": "First",
@@ -16927,7 +16927,7 @@
     "btn2": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
