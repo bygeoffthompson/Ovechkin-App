@@ -7140,7 +7140,7 @@
     "btn1": "Post",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Throwback"
   },
   {
@@ -7308,7 +7308,7 @@
     "search": "Super Swedes",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -8029,7 +8029,7 @@
     "btn1": "Post",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -12590,7 +12590,7 @@
     "btn1": "Post",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Second",
     "jersey": "White Default"
   },
   {
@@ -13435,7 +13435,7 @@
     "btn1": "Post",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Default"
   },
   {
@@ -13729,7 +13729,7 @@
     "btn3": "Slapshot",
     "season": "NHL Regular",
     "hoa": "Away",
-    "period": "First",
+    "period": "Third",
     "jersey": "White Default"
   },
   {
@@ -14335,7 +14335,7 @@
     "year": 2021,
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Second",
     "jersey": "Red Default"
   },
   {
@@ -16035,7 +16035,7 @@
     "year": 2024,
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Navy Third"
   },
   {
@@ -17113,7 +17113,7 @@
     "btn1": "Post",
     "season": "NHL Regular",
     "hoa": "Home",
-    "period": "First",
+    "period": "Third",
     "jersey": "Red Reverse Retro"
   },
   {
