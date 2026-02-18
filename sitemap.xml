@@ -4,9 +4,9 @@
 
     <url>
 
-        <loc>https://ovechkin.app</loc>
+        <loc>https://www.ovechkin.app</loc>
 
-        <lastmod>2026-2-1</lastmod>
+        <lastmod>2026-2-18</lastmod>
 
         <changefreq>monthly</changefreq>
 
@@ -16,21 +16,9 @@
 
     <url>
 
-        <loc>https://ovechkin.app/about.html</loc>
+        <loc>https://www.ovechkin.app/about.html</loc>
 
-        <lastmod>2026-2-1</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
-        <loc>https://ovechkin.app/goals.html</loc>
-
-        <lastmod>2026-2-1</lastmod>
+        <lastmod>2026-2-18</lastmod>
 
         <changefreq>monthly</changefreq>
 
@@ -40,9 +28,21 @@
 
     <url>
 
-        <loc>https://ovechkin.app/help.html</loc>
+        <loc>https://www.ovechkin.app/goals.html</loc>
 
-        <lastmod>2026-2-1</lastmod>
+        <lastmod>2026-2-18</lastmod>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.5</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.ovechkin.app/help.html</loc>
+
+        <lastmod>2026-2-18</lastmod>
 
         <changefreq>monthly</changefreq>
 
