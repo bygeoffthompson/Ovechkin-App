@@ -241,6 +241,15 @@ function SearchForm({jsonData}) {
         setSearchGoal(unassisted[random].goal)
     }
 
+    function youngGuns() {
+        const youngGuns = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
+        const youngGunsGoals = jsonData.filter(item => {
+            return youngGuns.includes(item.primary) && youngGuns.includes(item.secondary)
+        })
+        const random = Math.floor(Math.random() * youngGunsGoals.length);
+        setSearchGoal(youngGunsGoals[random].goal)
+    }
+
     return (
         <div>
             <div id="click-goal" onClick={clickGoal}></div>
@@ -320,7 +329,7 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Post'])} title="Post Goal" type="button">Post</button>
                         <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot Goal" type="button">Slapshot</button>
                         <button onClick={unassisted} title="Unassisted Goal" type="button">Unassisted</button>
-                        <button onClick={(event) => filterGoal(['Young Guns'])} title="Young Guns Goal" type="button">Young&nbsp;Guns</button>
+                        <button onClick={youngGuns} title="Young Guns Goal" type="button">Young&nbsp;Guns</button>
                     </div>
                 </div>
                 <button onClick={reset} title="Reset Filters" type="button">Reset</button>
