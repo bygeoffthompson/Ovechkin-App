@@ -33,18 +33,6 @@
     overflow: scroll;
 }
 
-#window {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-
-    > div {
-        padding: 0 .75rem;
-    }
-}
-
 .badge-flex {
     align-items: center;
     display: flex;

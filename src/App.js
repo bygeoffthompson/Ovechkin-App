@@ -101,23 +101,6 @@ function SearchForm({jsonData}) {
         setSearchGoal(canadian[random].goal)
     }
 
-    const clickGoal = () => {
-        document.getElementById('click-goal').addEventListener('click', function(event) {
-            const page = document.querySelector('body').getBoundingClientRect();
-            const x = event.clientX - page.left;
-            const y = event.clientY - page.top;
-            document.getElementById('puck').setAttribute('style', 'left:' + x + 'px;top:' + y + 'px;');
-            document.querySelector('body').classList.add('shot');
-            setTimeout(function() {
-                document.querySelector('body').classList.add('goal-lights');
-                document.querySelector('body').classList.remove('shot');
-                setTimeout(function() {
-                    document.querySelector('body').classList.remove('goal-lights');
-                }, 1000);
-            }, 500);
-        });
-    };
-
     function coach(first, last) {
         const league = ['NHL Regular', 'NHL Playoffs']
         const coach = jsonData.filter(item => item.goal >= first && item.goal < last && league.includes(item.season))
@@ -259,11 +242,6 @@ function SearchForm({jsonData}) {
 
     return (
         <div>
-            <div id="click-goal" onClick={clickGoal}></div>
-            <div id="goal">
-                <img alt="Goal Light" className="goal-light" src="/goal-light.gif"/>
-                <img alt="Goal Net" src="icons/net.svg"/>
-            </div>
             <form onSubmit={preventSubmit}>
                 <div>
                 <h2 className="number"><a href="/help.html#goal">Search by Number</a></h2>

@@ -56,34 +56,6 @@ body {
   }
 }
 
-#goal {
-  cursor: default;
-  height: 55px;
-  position: relative;
-  user-select: none;
-  width: 75px;
-  z-index: 1;
-
-    img[alt='Goal Net'] {
-        height: auto;
-        width: 100%;
-    }
-}
-
-#click-goal {
-  cursor: url('../public/icons/puck.png') 7 3, auto;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 1;
-
-    @media (max-width: 576px) {
-        display: none;
-    }
-}
-
 #count {
     &:not([data-count='1']):after {
       content: 's';
@@ -173,35 +145,6 @@ body {
 .column-3 {
     .frame {
         flex-basis: calc(100% / 3 - 43px);
-    }
-}
-
-#puck {
-  background: url('../public/icons/puck.png') no-repeat;
-  height: 8px;
-  left: initial;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  transform: translateX(-50%);
-  top: initial;
-  width: 14px;
-  z-index: 3;
-}
-
-@keyframes goalClick {
-    0% {
-        opacity: 1;
-    }
-    95% {
-        left: 50%;
-        top: 160px;
-        transform: scale(.5) translateX(-50%);
-    }
-    100% {
-        left: 50%;
-        top: 180px;
-        transform: scale(.75) translateX(-50%);
     }
 }
 
@@ -396,55 +339,6 @@ body {
 
 [data-season='World Cup'] .goal-count:before {
     content: 'World Cup';
-}
-
-.shot {
-    #click-goal {
-        cursor: auto;
-    }
-
-    #puck {
-        animation: goalClick 500ms ease-in 1;
-        opacity: 1;
-    }
-}
-
-.goal-lights {
-  animation: goalLights .5s linear infinite;
-
-    #click-goal {
-        cursor: auto;
-    }
-
-    #goal:before {
-        background: url('../public/icons/puck.png') no-repeat;
-        bottom: 2px;
-        content: '';
-        display: block;
-        left: 30px;
-        height: .5rem;
-        position: absolute;
-        transform: scale(.75);
-        width: 14px;
-    }
-}
-
-@keyframes goalLights {
-  0% {
-    background: rgba(200,16,46,.8);
-  }
-  25% {
-    background: rgba(200,16,46,.2);
-  }
-  50% {
-    background: rgba(200,16,46,.8);
-  }
-  75% {
-    background: rgba(200,16,46,.2);
-  }
-  100% {
-    background: rgba(200,16,46,.8);
-  }
 }
 
 button {
