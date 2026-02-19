@@ -118,6 +118,13 @@ function SearchForm({jsonData}) {
         });
     };
 
+    function coach(first, last) {
+        const league = ['NHL Regular', 'NHL Playoffs']
+        const coach = jsonData.filter(item => item.goal >= first && item.goal < last && league.includes(item.season))
+        const random = Math.floor(Math.random() * coach.length);
+        setSearchGoal(coach[random].goal)
+    }
+
     function cupRun() {
         const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
         const random = Math.floor(Math.random() * cupRun.length);
@@ -330,6 +337,16 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot Goal" type="button">Slapshot</button>
                         <button onClick={unassisted} title="Unassisted Goal" type="button">Unassisted</button>
                         <button onClick={youngGuns} title="Young Guns Goal" type="button">Young&nbsp;Guns</button>
+                    </div>
+                    <div>
+                        <button onClick={(event) => coach(1, 113)} title="Glen Hanlon Goal" type="button">Hanlon</button>
+                        <button onClick={(event) => coach(113, 310)} title="Bruce Boudreau Goal" type="button">Bruce</button>
+                        <button onClick={(event) => coach(310, 340)} title="Dale Hunter Goal" type="button">Hunter</button>
+                        <button onClick={(event) => coach(340, 423)} title="Adam Oates Goal" type="button">Oates</button>
+                        <button onClick={(event) => coach(423, 608)} title="Barry Trotz Goal" type="button">Trotz</button>
+                        <button onClick={(event) => coach(608, 707)} title="Todd Reirden Goal" type="button">Reirden</button>
+                        <button onClick={(event) => coach(707, 854)} title="Peter Laviolette Goal" type="button">Lavi</button>
+                        <button onClick={(event) => coach(854, totalGoals)} title="Spencer Carbery Goal" type="button">Carbery</button>
                     </div>
                 </div>
                 <button onClick={reset} title="Reset Filters" type="button">Reset</button>

@@ -604,6 +604,12 @@ button {
   margin-bottom: 1rem;
   max-width: 375px;
 
+    @media (max-width: 480px) {
+        button {
+            font-size: .625rem
+        }
+    }
+
     > div {
         align-items: center;
         display: flex;
