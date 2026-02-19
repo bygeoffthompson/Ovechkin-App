@@ -319,34 +319,34 @@ function SearchForm({jsonData}) {
                         </button>
                     </div>
                     <div>
-                        <button onClick={(event) => filterGoal(['Away'])} title="Away Goal" type="button">Away</button>
-                        <button onClick={(event) => filterGoal(['Home'])} title="Home Goal" type="button">Home</button>
-                        <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net Goal" type="button">ENG</button>
-                        <button onClick={(event) => filterGoal(['GWG', 'Overtime'])} title="Game Winning Goal" type="button">GWG</button>
-                        <button onClick={(event) => filterGoal(['Hat Trick'])} title="Hat Trick Goal" type="button">Hat&nbsp;Trick</button>
-                        <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play Goal" type="button">PPG</button>
-                        <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime Goal" type="button">OT</button>
-                        <button onClick={onThisDay} id="otd" title="On This Day Goals" type="button">On&nbsp;This&nbsp;Day</button>
+                        <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>
+                        <button onClick={(event) => filterGoal(['Home'])} title="Home" type="button">Home</button>
+                        <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
+                        <button onClick={(event) => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
+                        <button onClick={(event) => filterGoal(['Hat Trick'])} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
+                        <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
+                        <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
+                        <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                     </div>
                     <div>
-                        <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand Goal" type="button">Backhand</button>
-                        <button onClick={canadian} title="Canada Goal" type="button">Canadian</button>
+                        <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
+                        <button onClick={canadian} title="In Canada" type="button">In Canada</button>
                         <button onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                        <button onClick={fromNick} title="Nicklas Backstrom Primary Goals" type="button">From&nbsp;Nick</button>
-                        <button onClick={(event) => filterGoal(['Post'])} title="Post Goal" type="button">Post</button>
-                        <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot Goal" type="button">Slapshot</button>
-                        <button onClick={unassisted} title="Unassisted Goal" type="button">Unassisted</button>
-                        <button onClick={youngGuns} title="Young Guns Goal" type="button">Young&nbsp;Guns</button>
+                        <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                        <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
+                        <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
+                        <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
+                        <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                     </div>
                     <div>
-                        <button onClick={(event) => coach(1, 113)} title="Glen Hanlon Goal" type="button">Hanlon</button>
-                        <button onClick={(event) => coach(113, 310)} title="Bruce Boudreau Goal" type="button">Bruce</button>
-                        <button onClick={(event) => coach(310, 340)} title="Dale Hunter Goal" type="button">Hunter</button>
-                        <button onClick={(event) => coach(340, 423)} title="Adam Oates Goal" type="button">Oates</button>
-                        <button onClick={(event) => coach(423, 608)} title="Barry Trotz Goal" type="button">Trotz</button>
-                        <button onClick={(event) => coach(608, 707)} title="Todd Reirden Goal" type="button">Reirden</button>
-                        <button onClick={(event) => coach(707, 854)} title="Peter Laviolette Goal" type="button">Lavi</button>
-                        <button onClick={(event) => coach(854, totalGoals)} title="Spencer Carbery Goal" type="button">Carbery</button>
+                        <button onClick={(event) => coach(1, 113)} title="Glen Hanlon" type="button">Hanlon</button>
+                        <button onClick={(event) => coach(113, 310)} title="Bruce Boudreau" type="button">Bruce</button>
+                        <button onClick={(event) => coach(310, 340)} title="Dale Hunter" type="button">Hunter</button>
+                        <button onClick={(event) => coach(340, 423)} title="Adam Oates" type="button">Oates</button>
+                        <button onClick={(event) => coach(423, 608)} title="Barry Trotz" type="button">Trotz</button>
+                        <button onClick={(event) => coach(608, 707)} title="Todd Reirden" type="button">Reirden</button>
+                        <button onClick={(event) => coach(707, 854)} title="Peter Laviolette" type="button">Lavi</button>
+                        <button onClick={(event) => coach(854, totalGoals)} title="Spencer Carbery" type="button">Carbery</button>
                     </div>
                 </div>
                 <button onClick={reset} title="Reset Filters" type="button">Reset</button>
