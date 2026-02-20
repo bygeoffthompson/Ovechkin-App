@@ -73,6 +73,10 @@ body {
     padding: .625rem .25rem;
 }
 
+#window {
+    min-height: 100vh;
+}
+
 .goal-count {
   color: #111;
   font-size: 3rem !important;
