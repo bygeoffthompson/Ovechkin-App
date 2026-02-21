@@ -38,6 +38,7 @@ function SearchForm({jsonData}) {
             const results = jsonData.filter((item) => {
                 const search =
                     item.month + ' ' + item.day + ' ' + item.year + ' ' +
+                    item.month + ' ' + item.year + ' ' +
                     item.season + ' ' +
                     item.type + ' ' +
                     item.goalie + ' ' + item.goalie2 + ' ' +
