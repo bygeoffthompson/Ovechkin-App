@@ -389,7 +389,7 @@ button {
         background: #FFF;
     }
 
-    &[title="Cup Run"] {
+    &.cup {
         background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
         border: 1px solid #E0E0E0;
         color: #111;
