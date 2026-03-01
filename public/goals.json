@@ -17427,5 +17427,21 @@
     "hoa": "Away",
     "period": "First",
     "jersey": "White Default"
+  },
+  {
+    "goal": 921,
+    "link": "/gtlKF0bwqW4?si=LxnhffnVqSE-9Q4A",
+    "team": "Montreal Canadiens",
+    "goalie": "Jakub Dobes",
+    "primary": "Dylan Strome",
+    "secondary": "Anthony Beauvillier",
+    "month": "February",
+    "day": 28,
+    "year": 2026,
+    "type": "",
+    "season": "NHL Regular",
+    "hoa": "Away",
+    "period": "Third",
+    "jersey": "White Default"
   }
 ]
