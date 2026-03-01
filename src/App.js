@@ -10,7 +10,7 @@ ReactGA.send({
 });
 
 
-const totalGoals = 919;
+const totalGoals = 920;
 
 function SearchForm({jsonData}) {
     const [searchGoal, setSearchGoal] = useState('');
