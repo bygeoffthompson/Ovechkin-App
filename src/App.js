@@ -64,7 +64,7 @@ function SearchForm({jsonData}) {
             } else {
                 document.getElementById('count').innerHTML = results.length + '&nbsp;Result';
             }
-            setSearchResults(results.reverse().slice(0, 36));
+            setSearchResults(results.slice(0, 36));
         }
         if (search1Value === 0) {
             document.getElementById('advanced').classList.remove('show');
