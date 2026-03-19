@@ -204,7 +204,7 @@ function SearchForm({jsonData}) {
         setSearchGoal(fromNick[random].goal)
     }
 
-    function randomGoal(match) {
+    function shuffle(match) {
         resultsHide();
         const result = jsonData;
         const goal = Object.values(result[random(1, Object.keys(result).length)]);
@@ -259,7 +259,7 @@ function SearchForm({jsonData}) {
                     <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                     <div>
                         <strong>or</strong>
-                        <h3><button onClick={(event) => randomGoal()} title="Random Goal" type="button">Random</button></h3>
+                        <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
                     </div>
                 </div>
                 <div className="buttons-group">

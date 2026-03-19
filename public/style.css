@@ -171,6 +171,11 @@ main {
     margin-bottom: 1rem;
 }
 
+p {
+    font-size: 18px;
+    line-height: 1.375;
+}
+
 table {
     text-align: left;
     width: 100%;
