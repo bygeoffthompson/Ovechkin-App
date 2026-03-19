@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactGA from 'react-ga4';
 
-ReactGA.initialize('G-5RVBYX6N0S');
+ReactGA.initialize('G-K4X7EL6PW3');
 
 ReactGA.send({
     hitType: "pageview",
