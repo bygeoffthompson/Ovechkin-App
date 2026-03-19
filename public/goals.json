@@ -17454,5 +17454,19 @@
     "hoa": "Away",
     "period": "Third",
     "jersey": "White Default"
+  },
+  {
+    "goal": 922,
+    "link": "/gtlKF0bwqW4?si=LxnhffnVqSE-9Q4A",
+    "team": "Ottawa Senators",
+    "goalie": "Linus Ullmark",
+    "primary": "Rasmus Sandin",
+    "month": "March",
+    "day": 18,
+    "year": 2026,
+    "season": "NHL Regular",
+    "hoa": "Home",
+    "period": "Second",
+    "jersey": "Red Default"
   }
 ]
