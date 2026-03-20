@@ -498,7 +498,7 @@ button {
   align-items: start;
   flex-direction: row;
   margin-bottom: 1rem;
-  max-width: 375px;
+  max-width: 500px;
 
     @media (max-width: 480px) {
         button {
@@ -576,7 +576,7 @@ form {
   justify-content: center;
   margin: 0 auto 2rem;
   max-width: 1024px;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem;
   position: relative;
   user-select: none;
   z-index: 2;
@@ -598,8 +598,6 @@ form {
     }
 
     @media (min-width: 768px) {
-        padding: 2rem 2rem 1rem;
-
         > div {
             align-items: center;
             flex-direction: row;
@@ -647,6 +645,10 @@ iframe {
 
 .more {
     color: #C8102E;
+}
+
+.reset {
+    justify-content: space-between;
 }
 
 .shadow {

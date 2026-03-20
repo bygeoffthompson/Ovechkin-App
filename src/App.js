@@ -317,7 +317,7 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Hat Trick'])} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
                         <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                         <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
-                        <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
+                        <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                     </div>
                     <div>
                         <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
@@ -326,11 +326,14 @@ function SearchForm({jsonData}) {
                         <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                         <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
                         <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
-                        <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
+                        <button onClick={(event) => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
                         <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                     </div>
                 </div>
-                <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                <div className="reset">
+                    <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
+                    <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                </div>
             </form>
 
             <div className="search-accordion" id="minimum">
