@@ -373,10 +373,13 @@ button {
     transform: scale(1.05);
   }
 
-    &[disabled] {
-        opacity: .25;
-        pointer-events: none;
-    }
+  &[disabled] {
+    background: initial;
+    box-shadow: 0 .5rem 1rem rgba(41,41,41,.25);
+    color: initial;
+    opacity: .25;
+    transform: none;
+  }
 
     &[title="Red"] {
         background: #C8102E;

@@ -97,6 +97,17 @@ function SearchForm({jsonData}) {
         }
     },[]);
 
+    useEffect(() => {
+        const month = new Date().toLocaleString('default', { month: 'long' })
+        const day = new Date().getDate()
+        const checkDay = jsonData.filter(item => item.month === month && item.day === day)
+
+        if (!checkDay[0]) {
+            document.getElementById('otd').disabled = true;
+            document.getElementById('otd').title = 'No Goals on ' + month + ' ' + day;
+        }
+    }, []);
+
     function canadian() {
         const canada = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
         const canadian = jsonData.filter(item => item.hoa === 'Away' && canada.includes(item.team))
@@ -159,14 +170,8 @@ function SearchForm({jsonData}) {
         const month = new Date().toLocaleString('default', { month: 'long' })
         const day = new Date().getDate()
         const onThisDay = jsonData.filter(item => item.month === month && item.day === day)
-
-        if (!onThisDay[0]) {
-            document.getElementById('otd').disabled = true;
-            document.getElementById('otd').textContent = 'None'
-        } else {
-            const random = Math.floor(Math.random() * onThisDay.length);
-            setSearchGoal(onThisDay[random].goal)
-        }
+        const random = Math.floor(Math.random() * onThisDay.length);
+        setSearchGoal(onThisDay[random].goal)
     }
 
     const outdoor = () => {
