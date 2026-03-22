@@ -17469,5 +17469,21 @@
     "hoa": "Home",
     "period": "Second",
     "jersey": "Red Default"
+  },
+  {
+    "goal": 923,
+    "link": "/b65J3OfLiQY?si=-TDCMds6DqqFLq1d",
+    "team": "Colorado Avalanche",
+    "goalie": "Mackenzie Blackwood",
+    "primary": "Dylan Strome",
+    "secondary": "Cole Hutson",
+    "month": "March",
+    "day": 22,
+    "year": 2026,
+    "type": "PPG",
+    "season": "NHL Regular",
+    "hoa": "Home",
+    "period": "Third",
+    "jersey": "Red Reverse Retro"
   }
 ]
