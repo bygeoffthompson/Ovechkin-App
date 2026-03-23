@@ -263,15 +263,29 @@ function SearchForm({jsonData}) {
                     </div>
                 </div>
                 <div className="buttons-group">
-                    <div>
-                        <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">NHL</button>
-                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">Playoffs</button>
+                    <div className="league-buttons">
+                        <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
+                            <img alt="NHL logo" src="/teams/NHL.svg" />NHL
+                        </button>
+                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
+                            <img alt="NHL logo" src="/teams/NHL.svg" />Playoffs
+                        </button>
                         <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                        <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">All Star</button>
-                        <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">KHL</button>
-                        <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">Olympics</button>
-                        <button onClick={(event) => filterGoal(['World Championships'])} title="World Championships" type="button">Worlds</button>
-                        <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">World Cup</button>
+                        <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">
+                            <img alt="NHL logo" src="/teams/NHL.svg" />All Star
+                        </button>
+                        <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
+                            <img alt="KHL logo" src="/teams/KHL.svg" />KHL
+                        </button>
+                        <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">
+                            <img alt="Olympics logo" src="/icons/Olympics.svg" />Olympics
+                        </button>
+                        <button onClick={(event) => filterGoal(['World Championships'])} title="World Championships" type="button">
+                            <img alt="Trophy logo" src="/icons/Trophy.svg" />Worlds
+                        </button>
+                        <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">
+                            <img alt="Cup logo" src="/icons/Cup.svg" />World Cup
+                        </button>
                     </div>
                     <div>
                         <button onClick={(event) => filterGoal(['Red Russia', 'White Russia'])} className="jersey-button" title="Russia" type="button">
@@ -315,8 +329,8 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
                         <button onClick={(event) => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
                         <button onClick={(event) => filterGoal(['Hat Trick'])} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
-                        <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                         <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
+                        <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                         <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                     </div>
                     <div>

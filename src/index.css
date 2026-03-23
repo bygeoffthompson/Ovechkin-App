@@ -547,6 +547,19 @@ button {
     max-width: 2.25rem;
 }
 
+.league-buttons {
+    button {
+        align-items: center;
+        display: flex;
+        gap: .25rem;
+        justify-content: center;
+    }
+
+    img {
+        max-width: 1rem;
+    }
+}
+
 [src="/jerseys/russia.svg"] {
     max-width: 1.33rem;
 }
