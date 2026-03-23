@@ -265,7 +265,7 @@ function SearchForm({jsonData}) {
                 <div className="buttons-group">
                     <div>
                         <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">NHL</button>
-                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">Playoff</button>
+                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">Playoffs</button>
                         <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
                         <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">All Star</button>
                         <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">KHL</button>
