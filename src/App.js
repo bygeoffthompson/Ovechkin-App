@@ -105,6 +105,8 @@ function SearchForm({jsonData}) {
         if (!checkDay[0]) {
             document.getElementById('otd').disabled = true;
             document.getElementById('otd').title = 'No Goals on ' + month + ' ' + day;
+        } else {
+            document.getElementById('otd').title = 'Goals on ' + month + ' ' + day;
         }
     }, []);
 
@@ -113,13 +115,6 @@ function SearchForm({jsonData}) {
         const canadian = jsonData.filter(item => item.hoa === 'Away' && canada.includes(item.team))
         const random = Math.floor(Math.random() * canadian.length);
         setSearchGoal(canadian[random].goal)
-    }
-
-    function coach(first, last) {
-        const league = ['NHL Regular', 'NHL Playoffs']
-        const coach = jsonData.filter(item => item.goal >= first && item.goal < last && league.includes(item.season))
-        const random = Math.floor(Math.random() * coach.length);
-        setSearchGoal(coach[random].goal)
     }
 
     function cupRun() {
@@ -269,6 +264,16 @@ function SearchForm({jsonData}) {
                 </div>
                 <div className="buttons-group">
                     <div>
+                        <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">NHL</button>
+                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">Playoff</button>
+                        <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                        <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">All Star</button>
+                        <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">KHL</button>
+                        <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">Olympics</button>
+                        <button onClick={(event) => filterGoal(['World Chmapionships'])} title="World Championships" type="button">Worlds</button>
+                        <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">World Cup</button>
+                    </div>
+                    <div>
                         <button onClick={(event) => filterGoal(['Red Russia', 'White Russia'])} className="jersey-button" title="Russia" type="button">
                             <img alt="Throwback logo" className="jersey-logo" src="/jerseys/russia.svg" />
                         </button>
@@ -305,16 +310,6 @@ function SearchForm({jsonData}) {
                         </button>
                     </div>
                     <div>
-                        <button onClick={(event) => coach(1, 113)} title="Glen Hanlon" type="button">Hanlon</button>
-                        <button onClick={(event) => coach(113, 310)} title="Bruce Boudreau" type="button">Bruce</button>
-                        <button onClick={(event) => coach(310, 340)} title="Dale Hunter" type="button">Hunter</button>
-                        <button onClick={(event) => coach(340, 423)} title="Adam Oates" type="button">Oates</button>
-                        <button className="cup" onClick={(event) => coach(423, 608)} title="Barry Trotz" type="button">Trotz</button>
-                        <button onClick={(event) => coach(608, 707)} title="Todd Reirden" type="button">Reirden</button>
-                        <button onClick={(event) => coach(707, 854)} title="Peter Laviolette" type="button">Lavi</button>
-                        <button onClick={(event) => coach(854, totalGoals)} title="Spencer Carbery" type="button">Carbery</button>
-                    </div>
-                    <div>
                         <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>
                         <button onClick={(event) => filterGoal(['Home'])} title="Home" type="button">Home</button>
                         <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
@@ -327,8 +322,8 @@ function SearchForm({jsonData}) {
                     <div>
                         <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                         <button onClick={canadian} title="In Canada" type="button">In Canada</button>
-                        <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
                         <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                        <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                         <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
                         <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
                         <button onClick={(event) => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
@@ -336,7 +331,6 @@ function SearchForm({jsonData}) {
                     </div>
                 </div>
                 <div className="reset">
-                    <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                     <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                 </div>
             </form>

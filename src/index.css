@@ -489,11 +489,6 @@ button {
 
     &[title='Random Goal'] {
         width: 100px;
-
-        &:hover,
-        &:active {
-            background: #3B8132;
-        }
     }
 }
 
@@ -579,7 +574,7 @@ form {
   justify-content: center;
   margin: 0 auto 2rem;
   max-width: 1024px;
-  padding: 2rem;
+  padding: 1rem 2rem;
   position: relative;
   user-select: none;
   z-index: 2;
@@ -651,7 +646,7 @@ iframe {
 }
 
 .reset {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .shadow {
