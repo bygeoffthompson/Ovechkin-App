@@ -270,7 +270,7 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">All Star</button>
                         <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">KHL</button>
                         <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">Olympics</button>
-                        <button onClick={(event) => filterGoal(['World Chmapionships'])} title="World Championships" type="button">Worlds</button>
+                        <button onClick={(event) => filterGoal(['World Championships'])} title="World Championships" type="button">Worlds</button>
                         <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">World Cup</button>
                     </div>
                     <div>
