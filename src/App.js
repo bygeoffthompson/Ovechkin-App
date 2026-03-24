@@ -272,7 +272,7 @@ function SearchForm({jsonData}) {
                         </button>
                         <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
                         <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">
-                            <img alt="NHL logo" src="/teams/NHL.svg" />All Star
+                            <img alt="NHL logo" src="/teams/NHL.svg" />All&nbsp;Star
                         </button>
                         <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
                             <img alt="KHL logo" src="/teams/KHL.svg" />KHL
@@ -284,7 +284,7 @@ function SearchForm({jsonData}) {
                             <img alt="Trophy logo" src="/icons/Trophy.svg" />Worlds
                         </button>
                         <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">
-                            <img alt="Cup logo" src="/icons/Cup.svg" />World Cup
+                            <img alt="Cup logo" src="/icons/Cup.svg" />World&nbsp;Cup
                         </button>
                     </div>
                     <div>
@@ -335,7 +335,7 @@ function SearchForm({jsonData}) {
                     </div>
                     <div>
                         <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
-                        <button onClick={canadian} title="In Canada" type="button">In Canada</button>
+                        <button onClick={canadian} title="In Canada" type="button">In&nbsp;Canada</button>
                         <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                         <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                         <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
