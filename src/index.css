@@ -382,14 +382,6 @@ button {
     transform: none;
   }
 
-    &[title="Red"] {
-        background: #C8102E;
-    }
-
-    &[title="White"] {
-        background: #FFF;
-    }
-
     &.cup {
         background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
         border: 1px solid #E0E0E0;
@@ -448,7 +440,6 @@ button {
     &[title="Russia"] {
         background: #C8102E;
         background-image: linear-gradient(-75deg, #C8102E 28%, #FFF 29%, #FFF 71%, #C8102E 72%);
-
     }
 
     &[title="HC Dynamo Moscow"] {
@@ -490,6 +481,13 @@ button {
 
     &[title='Random Goal'] {
         width: 100px;
+    }
+
+    &[title*="NHL"] {
+        &:hover,
+        &:active {
+            background: rgba(0,0,0,.8);
+        }
     }
 }
 
