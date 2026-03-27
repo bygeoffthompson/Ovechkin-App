@@ -17487,5 +17487,52 @@
     "hoa": "Home",
     "period": "Third",
     "jersey": "Red Reverse Retro"
+  },
+  {
+    "goal": 924,
+    "link": "/UemPT-hnmmw?si=cc66G315hEt_0opB",
+    "team": "Utah Mammoth",
+    "goalie": "Vítek Vaněček",
+    "goalie2": "Vitek Vanacek",
+    "primary": "Rasmus Sandin",
+    "secondary": "Martin Fehervary",
+    "month": "March",
+    "day": 26,
+    "year": 2026,
+    "season": "NHL Regular",
+    "hoa": "Away",
+    "period": "Second",
+    "jersey": "White Default"
+  },
+  {
+    "goal": 925,
+    "link": "/V7U8YVyG1bg?si=_ibok8aGs0CzF0j3",
+    "team": "Utah Mammoth",
+    "goalie": "Vítek Vaněček",
+    "goalie2": "Vitek Vanacek",
+    "primary": "Dylan Strome",
+    "secondary": "Trevor van Riemsdyk",
+    "month": "March",
+    "day": 26,
+    "year": 2026,
+    "type": "2nd",
+    "season": "NHL Regular",
+    "hoa": "Away",
+    "period": "Second",
+    "jersey": "White Default"
+  },
+  {
+    "goal": 925,
+    "link": "/MMt-O_ZSkzU?si=gcCXNkQDe5Bhs3hX&amp;start=58",
+    "team": "Utah Mammoth",
+    "primary": "Dylan Strome",
+    "month": "March",
+    "day": 26,
+    "year": 2026,
+    "type": "ENG",
+    "season": "NHL Regular",
+    "hoa": "Away",
+    "period": "Third",
+    "jersey": "White Default"
   }
 ]
