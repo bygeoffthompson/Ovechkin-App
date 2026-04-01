@@ -17320,6 +17320,7 @@
     "month": "January",
     "day": 5,
     "year": 2026,
+    "type": "GWG",
     "season": "NHL Regular",
     "hoa": "Home",
     "period": "Second",
@@ -17555,7 +17556,7 @@
   },
   {
     "goal": 928,
-    "link": "/7KPE76K0wzI?si=Z2ZGPaVvSPvZKQyI&amp;start=14",
+    "link": "/2VlA3lzJL2M?si=gGR2GOKkoBbYm39b",
     "team": "Philadelphia Flyers",
     "goalie": "Dan Vladar",
     "primary": "Connor McMichael",
