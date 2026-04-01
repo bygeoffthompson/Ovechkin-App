@@ -108,7 +108,7 @@ function SearchForm({jsonData}) {
         } else {
             document.getElementById('otd').title = 'Goals on ' + month + ' ' + day;
         }
-    }, []);
+    });
 
     function canadian() {
         const canada = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
