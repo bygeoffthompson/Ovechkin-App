@@ -17536,5 +17536,20 @@
     "hoa": "Away",
     "period": "Third",
     "jersey": "White Default"
+  },
+  {
+    "goal": 927,
+    "link": "/MMt-O_ZSkzU?si=gcCXNkQDe5Bhs3hX&amp;start=58",
+    "team": "Philadelphia Flyers",
+    "primary": "Matt Roy",
+    "secondary": "Connor McMichael",
+    "month": "March",
+    "day": 31,
+    "year": 2026,
+    "type": "30th",
+    "season": "NHL Regular",
+    "hoa": "Home",
+    "period": "First",
+    "jersey": "Red Default"
   }
 ]
