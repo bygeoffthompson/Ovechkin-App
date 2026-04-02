@@ -60,13 +60,6 @@ body {
     &:not([data-count='1']):after {
       content: 's';
     }
-
-    &[data-count='0'],
-    &[data-count='1'] {
-        ~ .column-control  {
-            display: none;
-        }
-    }
 }
 
 #otd {
@@ -96,58 +89,6 @@ body {
 
 .goalie {
   text-align: end !important;
-}
-
-#wrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin: 0 auto 1rem;
-  max-width: 1500px;
-    padding: 0 .5rem;
-  position: relative;
-}
-
-.multi-column {
-    align-items: end !important;
-
-    .goal-count:before {
-        bottom: .75rem;
-        color: #111;
-        min-width: 0;
-        position: relative;
-    }
-
-    .note {
-        flex-direction: column-reverse !important;
-
-        strong {
-            font-size: 1.25rem;
-        }
-    }
-
-    .frame,
-    .shadow {
-        margin-bottom: 0;
-    }
-
-    @media (min-width:992px) {
-        flex-direction: row !important;
-        flex-wrap: wrap;
-    }
-}
-
-.column-2 {
-    .frame {
-        flex-basis: calc(50% - 32px);
-    }
-}
-
-.column-3 {
-    .frame {
-        flex-basis: calc(100% / 3 - 43px);
-    }
 }
 
 #search-text-1,
@@ -192,25 +133,18 @@ body {
     }
 }
 
-.column-control {
-  display: none;
-
-    @media (min-width:992px) {
-        display: block;
-    }
-}
-
 .frame {
-    margin: 0 0 2rem;
-    max-width: 894px;
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: calc(100% - 2rem);
     position: relative;
-
-    &:last-of-type {
-        margin: 0;
-    }
 
     &:not([data-season='NHL Regular']) .goal-count span:first-of-type {
         display: none;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 768px;
     }
 }
 
@@ -343,7 +277,7 @@ body {
     content: 'World Cup';
 }
 
-button {
+form button {
   backface-visibility: hidden;
   background: #FFF;
   border: 0;
@@ -577,7 +511,7 @@ button {
 form {
   align-items: center;
   background: rgba(203,236,255,.2);
-  border-radius: 4rem;
+  border-radius: 1rem;
   box-shadow: 0 .5rem 1rem rgba(75,75,75,.2);
   cursor: default !important;
   display: flex;
@@ -585,7 +519,7 @@ form {
   font-size: 1.25rem;
   justify-content: center;
   margin: 0 auto 2rem;
-  max-width: 1024px;
+  max-width: calc(100% - 2rem);
   padding: 1rem 2rem;
   position: relative;
   user-select: none;
@@ -608,6 +542,8 @@ form {
     }
 
     @media (min-width: 768px) {
+        max-width: 1024px;
+
         > div {
             align-items: center;
             flex-direction: row;
@@ -679,6 +615,23 @@ iframe {
         z-index: 3;
     }
 }
+
+.slick-arrow {
+    &:before {
+        color: #000 !important;
+        font-size: 1.75rem !important;
+    }
+    &.slick-next {
+        right: 1rem;
+    }
+
+    &.slick-prev {
+        left: 1rem;
+    }
+}
+
+
+
 
 [data-jersey*='Brick'] {
     .shadow {
