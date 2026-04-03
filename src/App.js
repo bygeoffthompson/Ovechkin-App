@@ -247,20 +247,18 @@ function SearchForm({jsonData}) {
         <div>
             <form onSubmit={preventSubmit}>
                 <div>
-                <h2 className="h5 number">Search by Number</h2>
+                <h2 className="h5 m-0 number">Search by Number</h2>
                     <label className="hide" htmlFor="search-goal">Number</label>
                     <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                    <h2 className="h5"><span className="hide">Search by </span>Text</h2>
+                    <h2 className="h5 m-0"><span className="hide">Search by </span>Text</h2>
                     <label className="hide" htmlFor="search-text-1">Text</label>
                     <label className="hide" htmlFor="search-text-2">Text</label>
                     <label className="hide" htmlFor="search-text-3">Text</label>
                     <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                     <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                     <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
-                    <div>
-                        <strong className="h5">or</strong>
-                        <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
-                    </div>
+                    <strong className="h5 m-0">or</strong>
+                    <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
                 </div>
                 <div className="buttons-group">
                     <div className="league-buttons">
@@ -375,13 +373,13 @@ function SearchForm({jsonData}) {
                     <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
                         <Accordion.Header onClick={dataSrc}>
                                 <div className="align-items-center d-flex gap-2 justify-content-start w-100">
-                                    <strong className="goal-count">
+                                    <strong className="align-items-center d-flex goal-count">
                                         <span>{result.goal.toString().split('.')[0]}</span>
                                         <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
                                     </strong>
-                                    <div className="goal-siren">
+                                    <div className="align-items-center d-none d-sm-flex justify-content-center goal-siren">
                                         <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
-                                        <strong className="type">{result.type}</strong>
+                                        <strong className="position-absolute type">{result.type}</strong>
                                     </div>
                                     <img alt={result.team + ' logo'} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
                                     <strong className="d-none d-sm-block">{result.month} {result.day} {result.year}</strong>
@@ -392,7 +390,7 @@ function SearchForm({jsonData}) {
                             <div>
                                 <iframe width="560" height="315" {...(index === 0 ? {'src': 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} : {})} data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen loading="lazy"></iframe>
                                 <div className="d-flex flex-column">
-                                    <small>{result.type} {result.btn1} {result.btn2} {result.btn3} {result.search} {result.primary} {result.secondary}</small>
+                                    <small>{result.btn1} {result.btn2} {result.btn3} {result.search} {result.primary} {result.secondary}</small>
                                     <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
                                 </div>
                             </div>
@@ -421,7 +419,7 @@ function App() {
     }, []);
 
     if (!data) {
-        return <div className="loading">Loading...</div>;
+        return <div className="opacity-25">Loading...</div>;
     }
 
     return (

@@ -61,23 +61,11 @@ body {
     padding: .625rem .25rem;
 }
 
-#window {
-    min-height: 100vh;
-}
-
 .goal-count {
-  color: #111;
-  font-size: 1.25rem;
-  position: relative;
-  text-align: end;
+    font-size: 2rem;
 
     &:before {
-        font-size: 1rem;
-        margin-right: 3px;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 2.5rem;
+        font-size: .875rem;
     }
 }
 
@@ -138,40 +126,45 @@ body {
 }
 
 .goal-siren {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
     img {
         height: auto;
-        width: 48px;
+        width: 36px;
+
+        @media (min-width: 768px) {
+            width: 48px;
+        }
     }
 }
 
-.loading {
-    opacity: .25;
+.type {
+    background: radial-gradient(#EF4933 40%, transparent);
+    color: #FFD2C7;
+    font-size: .875rem;
+    letter-spacing: -1px;
+
+    @media (min-width: 768px) {
+        font-size: 1.125rem;
+    }
 }
 
 .logo {
-    height: 36px;
-    width: auto;
+    height: auto;
+    width: 36px;
+
+    @media (min-width:768px) {
+        width: 60px;
+    }
 }
 
 .accordion-button {
     box-shadow: none !important;
+    font-size: .875rem !important;
     padding-bottom: .25rem;
     padding-top: .25rem;
     user-select: none;
-}
 
-.accordion-header {
-    .type {
-        background: radial-gradient(#EF4933 40%, transparent);
-        color: #FFD2C7;
+    @media (min-width:768px) {
         font-size: 1.125rem !important;
-        letter-spacing: -1px;
-        margin: 0;
-        position: absolute;
     }
 }
 

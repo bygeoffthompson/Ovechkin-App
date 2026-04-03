@@ -42,6 +42,10 @@ footer a {
     overflow: scroll;
 }
 
+#window {
+    min-height: 100vh;
+}
+
 .badge-flex {
     align-items: center;
     display: flex;
