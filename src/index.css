@@ -475,18 +475,11 @@ form button {
 }
 
 form {
-  align-items: center;
   background: rgba(203,236,255,.2);
   border-radius: 1rem;
-  box-shadow: 0 .5rem 1rem rgba(75,75,75,.2);
   cursor: default !important;
-  display: flex;
-  flex-direction: column;
   font-size: 1.25rem;
-  justify-content: center;
-  margin: 0 auto 2rem;
   max-width: 1024px;
-  padding: 1rem 2rem;
   position: relative;
   user-select: none;
   z-index: 2;

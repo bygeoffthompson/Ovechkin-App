@@ -39,8 +39,7 @@ function SearchForm({jsonData}) {
         if (search1Value > 2) {
             const results = jsonData.filter((item) => {
                 const search =
-                    item.month + ' ' + item.day + ' ' + item.year + ' ' +
-                    item.month + ' ' + item.year + ' ' +
+                    item.month + '/' + item.day + '/' + item.year + ' ' +
                     item.season + ' ' +
                     item.type + ' ' +
                     item.goalie + ' ' + item.goalie2 + ' ' +
@@ -96,7 +95,7 @@ function SearchForm({jsonData}) {
     },[]);
 
     useEffect(() => {
-        const month = new Date().toLocaleString('default', { month: 'long' })
+        const month = new Date().getMonth() + 1
         const day = new Date().getDate()
         const checkDay = jsonData.filter(item => item.month === month && item.day === day)
 
@@ -164,7 +163,7 @@ function SearchForm({jsonData}) {
     };
 
     function onThisDay() {
-        const month = new Date().toLocaleString('default', { month: 'long' })
+        const month = new Date().getMonth() + 1
         const day = new Date().getDate()
         const onThisDay = jsonData.filter(item => item.month === month && item.day === day)
         const random = Math.floor(Math.random() * onThisDay.length);
@@ -245,8 +244,8 @@ function SearchForm({jsonData}) {
 
     return (
         <div>
-            <form onSubmit={preventSubmit}>
-                <div className="align-items-center d-flex justify-content-between mb-4">
+            <form className="align-items-center d-flex justify-content-center flex-column mb-5 mx-auto p-1 p-sm-3 py-3 shadow" onSubmit={preventSubmit}>
+                <div className="align-items-center d-flex justify-content-between flex-column flex-md-row gap-3 mb-3">
                     <h2 className="h5 m-0">Search by Number</h2>
                     <label className="hide" htmlFor="search-goal">Number</label>
                     <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
@@ -260,7 +259,7 @@ function SearchForm({jsonData}) {
                     <strong className="h5 m-0">or</strong>
                     <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
                 </div>
-                <div className="align-items-start buttons-group d-flex flex-row flex-md-column mb-3">
+                <div className="align-items-start buttons-group d-flex flex-row flex-md-column gap-3 mb-3">
                     <div className="league-buttons">
                         <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                             <img alt="NHL logo" src="/teams/NHL.svg" />NHL
@@ -361,7 +360,7 @@ function SearchForm({jsonData}) {
                 <strong id="count"></strong>
             </div>
 
-            <div id="wrapper">
+            <div className="p-1 p-sm-3" id="wrapper">
                 <Accordion defaultActiveKey="0" flush>
                 {searchResults.map((result, index) => (
                     <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
@@ -372,7 +371,7 @@ function SearchForm({jsonData}) {
                                         <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
                                     </strong>
                                     <img alt={result.team + ' logo'} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
-                                    <strong className="d-none d-sm-block">{result.month} {result.day} {result.year}</strong>
+                                    <strong className="d-none d-sm-block">{result.month}/{result.day}/{result.year}</strong>
                                     <strong>{result.goalie}</strong>
                                 </div>
                             <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
