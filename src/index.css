@@ -164,7 +164,9 @@ body {
 .accordion-button {
     box-shadow: none !important;
     font-size: .875rem !important;
+    position: relative;
     user-select: none;
+    z-index: auto !important;
 
     @media (max-width:768px) {
         padding: 1rem .625rem !important;
@@ -172,6 +174,27 @@ body {
 
     @media (min-width:768px) {
         font-size: 1.125rem !important;
+    }
+
+    &:hover {
+        background: rgb(207, 226, 255) !important;
+    }
+
+    &:before {
+        background: rgb(207, 226, 255);
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: margin-right 350ms ease;
+        width: 2rem;
+        z-index: -1;
+    }
+
+    &:hover:before,
+    &[aria-expanded='true']:before {
+        margin-right: -2rem;
     }
 }
 
