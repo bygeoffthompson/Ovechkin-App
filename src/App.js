@@ -352,8 +352,6 @@ function SearchForm({jsonData}) {
             </div>
 
             <div className="search-accordion" id="advanced">
-                <strong id="count"></strong>
-                <strong>for</strong>
                 <label htmlFor="type" hidden>Type</label>
                 <select id="type" name="Type" onChange={handleSeasonChange}>
                     <option name="All Goals" value="" selected>All Goals</option>
@@ -365,6 +363,7 @@ function SearchForm({jsonData}) {
                     <option name="World Championships" value="World Championships">Worlds</option>
                     <option name="World Cup" value="World Cup">World Cup</option>
                 </select>
+                <strong id="count"></strong>
             </div>
 
             <div id="wrapper">
@@ -377,14 +376,15 @@ function SearchForm({jsonData}) {
                                         <span>{result.goal.toString().split('.')[0]}</span>
                                         <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
                                     </strong>
-                                    <div className="align-items-center d-none d-sm-flex justify-content-center goal-siren">
-                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
-                                        <strong className="position-absolute type">{result.type}</strong>
-                                    </div>
                                     <img alt={result.team + ' logo'} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
                                     <strong className="d-none d-sm-block">{result.month} {result.day} {result.year}</strong>
                                     <strong>{result.goalie}</strong>
                                 </div>
+                            <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
+                                <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
+                                <strong className="position-absolute type">{result.type}</strong>
+                            </div>
+                                <strong className="bottom-0 end-0 indexer p-1 position-absolute">{index + 1}</strong>
                         </Accordion.Header>
                         <Accordion.Body>
                             <div>

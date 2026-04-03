@@ -66,7 +66,12 @@ body {
 
     &:before {
         font-size: .875rem;
+        margin-right: 2px;
     }
+}
+
+.indexer {
+    opacity: .15;
 }
 
 #wrapper {
@@ -159,9 +164,11 @@ body {
 .accordion-button {
     box-shadow: none !important;
     font-size: .875rem !important;
-    padding-bottom: .25rem;
-    padding-top: .25rem;
     user-select: none;
+
+    @media (max-width:768px) {
+        padding: 1rem .625rem !important;
+    }
 
     @media (min-width:768px) {
         font-size: 1.125rem !important;
