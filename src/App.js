@@ -246,8 +246,8 @@ function SearchForm({jsonData}) {
     return (
         <div>
             <form onSubmit={preventSubmit}>
-                <div>
-                <h2 className="h5 m-0 number">Search by Number</h2>
+                <div className="align-items-center d-flex justify-content-between mb-4">
+                    <h2 className="h5 m-0">Search by Number</h2>
                     <label className="hide" htmlFor="search-goal">Number</label>
                     <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                     <h2 className="h5 m-0"><span className="hide">Search by </span>Text</h2>
@@ -260,7 +260,7 @@ function SearchForm({jsonData}) {
                     <strong className="h5 m-0">or</strong>
                     <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
                 </div>
-                <div className="buttons-group">
+                <div className="align-items-start buttons-group d-flex flex-row flex-md-column mb-3">
                     <div className="league-buttons">
                         <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                             <img alt="NHL logo" src="/teams/NHL.svg" />NHL
@@ -315,9 +315,6 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
                             <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
                         </button>
-
-
-
                     </div>
                     <div>
                         <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>
@@ -340,7 +337,7 @@ function SearchForm({jsonData}) {
                         <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                     </div>
                 </div>
-                <div className="reset">
+                <div className="d-flex justify-content-center">
                     <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                 </div>
             </form>
