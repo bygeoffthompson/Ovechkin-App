@@ -286,16 +286,11 @@ function SearchForm({jsonData}) {
                         </button>
                     </div>
                     <div>
-                        <button onClick={(event) => filterGoal(['Red Russia', 'White Russia'])} className="jersey-button" title="Russia" type="button">
-                            <img alt="Throwback logo" className="jersey-logo" src="/jerseys/russia.svg" />
+                        <button onClick={(event) => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
+                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" />
                         </button>
-                        <button onClick={(event) => filterGoal(['Capitol', 'Screagle'])} className="jersey-button multi-logo" title="Capitol / Screagle" type="button">
-                            <span>
-                                <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" />
-                            </span>
-                            <span>
-                                <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" />
-                            </span>
+                        <button onClick={(event) => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
+                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" />
                         </button>
                         <button onClick={(event) => filterGoal(['Red Default', 'White Default'])} className="jersey-button" title="Capitals" type="button">
                             <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
@@ -314,12 +309,15 @@ function SearchForm({jsonData}) {
                         <button onClick={(event) => filterGoal(['Navy Third'])} className="jersey-button" title="Navy Third" type="button">
                             <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" />
                         </button>
-                        <button onClick={(event) => filterGoal(['Black Reverse Retro', 'Red Reverse Retro'])} className="jersey-button" title="Reverse Retro" type="button">
-                            <img alt="Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
+                        <button onClick={(event) => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
+                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
                         </button>
-                        <button onClick={(event) => filterGoal(['Blue Dynamo', 'White Dynamo'])} className="jersey-button" title="HC Dynamo Moscow" type="button">
-                            <img alt="HC Dynamo Moscow logo" className="jersey-logo" src="/jerseys/dynamo.svg" />
+                        <button onClick={(event) => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
+                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
                         </button>
+
+
+
                     </div>
                     <div>
                         <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>

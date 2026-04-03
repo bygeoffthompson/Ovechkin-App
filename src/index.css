@@ -308,37 +308,37 @@ form button {
         }
     }
 
-    &[title="Capitol / Screagle"] {
+    &[title="Black Reverse Retro"] {
         background: #111;
-        background-image: linear-gradient(-75deg, #FFF 48%, #111 49%);
+
+        &:hover {
+            box-shadow: 0 .25rem .75rem #132660;
+        }
+    }
+
+    &[title="Capitol"] {
+        background: #111;
 
         &:hover {
             box-shadow: 0 .25rem .75rem #CE8946;
-            color: #333;
         }
+    }
 
-        span:after {
-            display: none !important;
+    &[title="Red Reverse Retro"] {
+        background: #C81020;
+    }
+
+    &[title="Screagle"] {
+        background: #FFF;
+
+        &:hover {
+            box-shadow: 0 .25rem .75rem #132660;
         }
     }
 
     &[title="Capitals"] {
         background: #C81020;
         background-image: linear-gradient(-75deg, #C81020 30%, #FFF 31%, #FFF 69%, #C81020 70%);
-    }
-
-    &[title="Russia"] {
-        background: #C8102E;
-        background-image: linear-gradient(-75deg, #C8102E 28%, #FFF 29%, #FFF 71%, #C8102E 72%);
-    }
-
-    &[title="HC Dynamo Moscow"] {
-        background: #FFF;
-        background-image: linear-gradient(-75deg, #0033A0 30%, #FFF 31%, #FFF 69%, #0033A0 70%);
-
-        &:hover {
-            box-shadow: 0 .25rem .75rem #0033A0;
-        }
     }
 
     &[title="Throwback Third"] {
@@ -351,11 +351,6 @@ form button {
     &[title="Navy Third"] {
         background: #062D60;
         background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%);
-    }
-
-    &[title="Reverse Retro"] {
-        background: #C81020;
-        background-image: linear-gradient(-75deg, #111 30%, #C81020 31%, #C81020 69%, #111 70%);
     }
 
     &[title="Reset Filters"] {
@@ -449,17 +444,12 @@ form button {
     }
 }
 
-[src="/jerseys/russia.svg"] {
-    max-width: 1.33rem;
-}
-
 [src="/jerseys/capitals.svg"],
 [src="/jerseys/throwback.svg"] {
     max-width: 2.25rem;
 }
 
 [src="/jerseys/brick.svg"],
-[src="/jerseys/dynamo.svg"],
 [src="/jerseys/navy.svg"] {
     max-width: 1.5rem;
 }
