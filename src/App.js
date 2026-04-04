@@ -345,13 +345,13 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="p-1 p-sm-3" id="wrapper">
-                    <div className="search-accordion text-center" id="minimum">
+                    <div className="search-accordion" id="minimum">
                         <strong>Search Requires 3 Letters Minimum</strong>
                     </div>
-                    <div className="align-items-center d-flex gap-2 justify-content-center search-accordion" id="advanced">
+                    <div className="align-items-center d-flex gap-2 justify-content-start search-accordion" id="advanced">
                         <label htmlFor="type" hidden>Type</label>
                         <select id="type" name="Type" onChange={handleSeasonChange}>
-                            <option name="All Goals" value="" selected>All Goals</option>
+                            <option name="All" value="" selected>All</option>
                             <option name="NHL Regular" value="NHL Regular">NHL Regular</option>
                             <option name="NHL Playoff" value="NHL Playoffs">NHL Playoffs</option>
                             <option name="All Star" value="All Star">All Star</option>

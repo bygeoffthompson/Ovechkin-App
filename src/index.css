@@ -247,7 +247,11 @@ form button {
   position: relative;
   transition: transform .2s;
   user-select: none;
-  width: 100px;
+  width: 80px;
+
+    @media (min-width: 500px) {
+        width: 100px;
+    }
 
   &:hover,
   &:active {
@@ -370,7 +374,10 @@ form button {
 }
 
 .buttons-group {
-    @media (max-width: 480px) {
+    @media (max-width: 420px) {
+        overflow-x: scroll;
+        padding-bottom: 1rem;
+
         button {
             font-size: .625rem
         }
