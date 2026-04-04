@@ -6,7 +6,6 @@ body {
 }
 
 .search-accordion {
-    color: #111;
     font-size: 1.25rem;
     height: 0;
     opacity: 0;
@@ -14,6 +13,7 @@ body {
 
     &.show {
         height: auto;
+        margin-bottom: 1rem;
         opacity: 1;
     }
 }
@@ -82,9 +82,7 @@ body {
 #search-text-3:focus {
   height: auto;
   margin-top: 0;
-  max-width: 325px;
-  padding: .325rem .5rem;
-
+  max-width: 350px;
 }
 
 #search-text-3 + div {
@@ -103,7 +101,6 @@ body {
   height: auto;
   margin-top: 0;
   max-width: 75px;
-  padding: .325rem .5rem;
   text-align: center;
 }
 
@@ -172,23 +169,6 @@ body {
     &:hover {
         background: rgb(207, 226, 255) !important;
     }
-
-    &:before {
-        background: rgb(207, 226, 255);
-        content: '';
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: margin-right 350ms ease;
-        width: 2rem;
-        z-index: -1;
-    }
-
-    &:hover:before,
-    &[aria-expanded='true']:before {
-        margin-right: -2rem;
-    }
 }
 
 [data-float='1'],
@@ -248,7 +228,6 @@ body {
     }
 }
 
-
 form button {
   backface-visibility: hidden;
   background: #FFF;
@@ -262,15 +241,13 @@ form button {
   font-size: .875rem;
   font-weight: 700;
   line-height: 1.3;
-  max-width: 100px;
   min-height: 40px;
-  min-width: 40px;
   overflow: hidden;
   padding: .625rem .25rem;
   position: relative;
   transition: transform .2s;
   user-select: none;
-  width: 100%;
+  width: 100px;
 
   &:hover,
   &:active {
@@ -578,68 +555,34 @@ iframe {
 }
 
 input {
-  position: relative;
-  z-index: 1;
-
-    &[placeholder] {
-        background: transparent;
-        border-left: 0;
-        border-radius: 0;
-        border-right: 0;
-        border-top: 0;
-        outline: 0;
-        padding: 3px;
-        width: 100%;
-    }
-
-    &[type="number"] {
-        font-size: 1.5rem;
-
-        &::placeholder {
-            font-weight: 400;
-        }
-    }
+    background: transparent;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    caret-color: #C8102E;
+    color: #C8102E;
+    font-size: 1.375rem !important;
+    font-weight: 400 !important;
+    outline: 0;
+    padding: 3px;
+    position: relative;
+    text-transform: uppercase !important;
+    width: 100%;
+    z-index: 1;
 
     &[type="text"] {
-        caret-color: #C8102E;
-        color: #C8102E;
-        font-weight: bold;
         height: 0;
         margin-top: -1rem;
         max-width: 0;
         overflow: hidden;
         padding: 0;
-        text-transform: uppercase;
         width: 100%;
-
-        &::placeholder {
-            font-weight: normal;
-            text-transform: none;
-        }
 
         &:not(:placeholder-shown) {
             height: auto;
             margin-top: 0;
-            max-width: 325px;
-            padding: .325rem .5rem;
+            max-width: 350px;
         }
-
-        @media (min-width:768px) {
-            text-align: left;
-        }
-    }
-}
-
-.hide {
-    color: transparent;
-    font-size: 0;
-    height: 0;
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    z-index: -999;
-
-    @media (min-width:768px) {
-        margin-right: -1rem;
     }
 }
