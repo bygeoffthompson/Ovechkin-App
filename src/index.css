@@ -442,12 +442,15 @@ form {
   background: rgba(203,236,255,.2);
   border-radius: 1rem;
   max-width: 500px;
+  width: 100%;
 
     a {
         color: #111;
     }
 
     @media (min-width: 768px) {
+        width: 500px;
+
         > div {
             align-items: center;
             flex-direction: row;

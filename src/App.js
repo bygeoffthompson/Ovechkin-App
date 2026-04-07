@@ -197,6 +197,10 @@ function SearchForm({jsonData}) {
         );
         const goal = Object.values(result[random(1, Object.keys(result).length)]);
         setSearchGoal(goal[0]);
+        const collapsed = document.querySelector('.accordion-button.collapsed')
+        if (collapsed) {setTimeout(() => {
+            collapsed.click();
+        }, 500);}
     }
 
     function fromNick() {
