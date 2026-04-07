@@ -144,10 +144,22 @@ body {
 
 .logo {
     height: auto;
-    width: 36px;
+    width: 48px;
 
-    @media (min-width:768px) {
-        width: 60px;
+    &[alt='Seattle Kraken'] {
+        width: 24px;
+    }
+
+    &[alt='Atlantic'],
+    &[alt='Lidstrom'],
+    &[alt='West'] {
+        width: 32px;
+    }
+
+    &[alt='Atlanta Thrashers'],
+    &[alt='Phoenix Coyotes'],
+    &[alt='Utah Mammoth'] {
+        width: 36px;
     }
 }
 
@@ -193,20 +205,38 @@ body {
     content: 'All Star';
 }
 
-[data-season='World Championships'] .goal-count:before {
-    content: 'Worlds';
-}
+[data-season='World Championships'] {
+    .goal-count:before {
+        content: 'Worlds';
+    }
 
-[data-season='KHL'] .goal-count {
-    color: #0033A0;
-
-    &:before {
-        content: 'KHL';
+    .logo {
+        width: 32px;
     }
 }
 
-[data-season='Olympics'] .goal-count:before {
-    content: 'Olympic';
+[data-season='KHL'] {
+    .goal-count {
+        color: #0033A0;
+
+        &:before {
+            content: 'KHL';
+        }
+    }
+
+    .logo {
+        width: 32px;
+    }
+}
+
+[data-season='Olympics'] {
+    .goal-count:before {
+        content: 'Olympic';
+    }
+
+    .logo {
+        width: 32px;
+    }
 }
 
 [data-season='NHL Playoffs'] .goal-count {
@@ -217,8 +247,14 @@ body {
     }
 }
 
-[data-season='World Cup'] .goal-count:before {
-    content: 'World Cup';
+[data-season='World Cup'] {
+    .goal-count:before {
+        content: 'World Cup';
+    }
+
+    .logo {
+        width: 32px;
+    }
 }
 
 .accordion {

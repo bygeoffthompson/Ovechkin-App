@@ -376,7 +376,7 @@ function SearchForm({jsonData}) {
                                             <span>{result.goal.toString().split('.')[0]}</span>
                                             <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
                                         </strong>
-                                        <img alt={result.team + ' logo'} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
+                                        <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
                                         <strong className="d-none d-sm-block">{result.month}/{result.day}/{result.year}</strong>
                                         <strong>{result.goalie}</strong>
                                     </div>
