@@ -2,6 +2,7 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
+    user-select: none !important;
     width: 100%;
 }
 
@@ -9,7 +10,6 @@ body {
     font-size: 1.25rem;
     height: 0;
     opacity: 0;
-    user-select: none;
 
     &.show {
         height: auto;
@@ -30,7 +30,7 @@ body {
 }
 
 #cracked-ice {
-  animation: iceChange 8s infinite alternate ease-in-out;
+  animation: iceChange 6s infinite alternate ease;
 }
 
 @keyframes iceChange {
@@ -40,7 +40,7 @@ body {
   }
   100% {
     opacity: .66;
-    transform: rotate(180deg) scale(1.125);
+    transform: rotate(180deg) scale(1.25);
   }
 }
 
@@ -112,7 +112,6 @@ body {
         font-weight: bold;
         min-width: 3.5rem;
         padding: .25rem;
-        user-select: none;
     }
 }
 
@@ -167,7 +166,6 @@ body {
     box-shadow: none !important;
     font-size: .875rem !important;
     position: relative;
-    user-select: none;
     z-index: auto !important;
 
     @media (max-width:768px) {
@@ -282,7 +280,6 @@ form button {
   padding: .625rem .25rem;
   position: relative;
   transition: transform .2s;
-  user-select: none;
   width: 80px;
 
     @media (min-width: 500px) {
@@ -514,6 +511,7 @@ iframe {
     min-height: 0;
     position: relative;
     width: 100% !important;
+    user-select: none !important;
     z-index: 2;
 }
 
@@ -524,7 +522,6 @@ iframe {
 .body {
   box-shadow: rgba(200, 16, 46, 0.4) -5px -5px, rgba(200, 16, 46, 0.2) -5px -5px, rgba(200, 16, 46, 0.1) -15px -15px;
   position: relative;
-  user-select: none;
 
     &:before {
         content: "";
