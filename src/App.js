@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import ReactGA from 'react-ga4';
-import Accordion from 'react-bootstrap/Accordion';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useState, useEffect} from 'react'
+import ReactGA from 'react-ga4'
+import Accordion from 'react-bootstrap/Accordion'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-ReactGA.initialize('G-K4X7EL6PW3');
+ReactGA.initialize('G-K4X7EL6PW3')
 
 ReactGA.send({
     hitType: "pageview",
@@ -12,30 +12,30 @@ ReactGA.send({
 });
 
 
-const totalGoals = 928;
+const totalGoals = 928
 
 function SearchForm({jsonData}) {
-    const [searchGoal, setSearchGoal] = useState('');
-    const [searchText1, setSearchText1] = useState('');
-    const [searchText2, setSearchText2] = useState('');
-    const [searchText3, setSearchText3] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchGoal, setSearchGoal] = useState('')
+    const [searchText1, setSearchText1] = useState('')
+    const [searchText2, setSearchText2] = useState('')
+    const [searchText3, setSearchText3] = useState('')
+    const [searchResults, setSearchResults] = useState([])
 
     useEffect(() => {
         if (searchGoal) {
             resultsHide();
-            const goalQuery = parseFloat(searchGoal);
+            const goalQuery = parseFloat(searchGoal)
             const results = jsonData.filter(item => item.goal === goalQuery)
-            setSearchResults(results);
+            setSearchResults(results)
             ReactGA.event({
                 category: 'Goal Requests',
                 action: 'Click',
                 label: 'Goal #' + goalQuery,
                 value: 1
-            });
+            })
         }
 
-        const search1Value = document.getElementById('search-text-1').value.length;
+        const search1Value = document.getElementById('search-text-1').value.length
         if (search1Value > 2) {
             const results = jsonData.filter((item) => {
                 const search =
@@ -57,40 +57,40 @@ function SearchForm({jsonData}) {
                     item.season.includes(document.getElementById('type').value)
                 );
             });
-            document.getElementById('advanced').classList.add('show');
-            document.getElementById('minimum').classList.remove('show');
-            document.getElementById('count').setAttribute('data-count', results.length);
-            document.getElementById('count').innerHTML = results.length + '&nbsp;Result';
-            setSearchResults(results);
+            document.getElementById('advanced').classList.add('show')
+            document.getElementById('minimum').classList.remove('show')
+            document.getElementById('count').setAttribute('data-count', results.length)
+            document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
+            setSearchResults(results)
         }
         if (search1Value === 0) {
-            document.getElementById('advanced').classList.remove('show');
-            document.getElementById('minimum').classList.remove('show');
+            document.getElementById('advanced').classList.remove('show')
+            document.getElementById('minimum').classList.remove('show')
         } else if (search1Value < 3) {
-            document.getElementById('advanced').classList.remove('show');
-            document.getElementById('minimum').classList.add('show');
-            setSearchResults([]);
+            document.getElementById('advanced').classList.remove('show')
+            document.getElementById('minimum').classList.add('show')
+            setSearchResults([])
         }
-    }, [searchGoal, searchText1, searchText2, searchText3, jsonData]);
+    }, [searchGoal, searchText1, searchText2, searchText3, jsonData])
 
     useEffect(() => {
-        const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase();
-        const queryInteger = parseFloat(query);
+        const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
+        const queryInteger = parseFloat(query)
         if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4', '360*'].includes(query) && queryInteger > 0 && queryInteger <= totalGoals) {
-            setSearchGoal(queryInteger);
+            setSearchGoal(queryInteger)
         } else if (query.includes('fbclid')) {
             setSearchText1(query.split('&fbclid')[0].split('+')[0])
         } else if (query.includes('+')) {
-            const multipleSearch = query.split('+');
-            setSearchText1(multipleSearch[0].split('&', 1));
-            setSearchText2(multipleSearch[1].split('&', 1));
+            const multipleSearch = query.split('+')
+            setSearchText1(multipleSearch[0].split('&', 1))
+            setSearchText2(multipleSearch[1].split('&', 1))
             if (multipleSearch[2]) {
-                setSearchText3(multipleSearch[2].split('&', 1));
+                setSearchText3(multipleSearch[2].split('&', 1))
             }
         } else if (query) {
-            setSearchText1(query.split('&', 1));
-            setSearchText2('');
-            setSearchText3('');
+            setSearchText1(query.split('&', 1))
+            setSearchText2('')
+            setSearchText3('')
         }
     },[]);
 
@@ -100,24 +100,26 @@ function SearchForm({jsonData}) {
         const checkDay = jsonData.filter(item => item.month === month && item.day === day)
 
         if (!checkDay[0]) {
-            document.getElementById('otd').disabled = true;
-            document.getElementById('otd').title = 'No Goals on ' + month + ' ' + day;
+            document.getElementById('otd').disabled = true
+            document.getElementById('otd').title = 'No Goals on ' + month + ' ' + day
         } else {
-            document.getElementById('otd').title = 'Goals on ' + month + ' ' + day;
+            document.getElementById('otd').title = 'Goals on ' + month + ' ' + day
         }
-    });
+    })
 
     function canadian() {
         const canada = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
         const canadian = jsonData.filter(item => item.hoa === 'Away' && canada.includes(item.team))
-        const random = Math.floor(Math.random() * canadian.length);
+        const random = Math.floor(Math.random() * canadian.length)
         setSearchGoal(canadian[random].goal)
+        singleClosedAccordion()
     }
 
     function cupRun() {
         const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
-        const random = Math.floor(Math.random() * cupRun.length);
+        const random = Math.floor(Math.random() * cupRun.length)
         setSearchGoal(cupRun[random].goal)
+        singleClosedAccordion()
     }
 
     function dataSrc() {
@@ -129,45 +131,46 @@ function SearchForm({jsonData}) {
                     document.querySelector('.accordion-collapse.show iframe').setAttribute('src', dataSrc)
                 }
             }
-        }, 500);
+        }, 500)
     }
 
     const handleGoalChange = (event) => {
         if (event.target.value < totalGoals + 1) {
-            setSearchGoal(event.target.value);
+            setSearchGoal(event.target.value)
         }
-    };
+    }
 
     const handleSeasonChange = (event) => {
-        const searchText1 = document.getElementById('search-text-1').value;
-        const searchText2 = document.getElementById('search-text-2').value;
-        const searchText3 = document.getElementById('search-text-3').value;
-        setSearchText1([searchText1]);
-        setSearchText2([searchText2]);
-        setSearchText3([searchText3]);
-    };
+        const searchText1 = document.getElementById('search-text-1').value
+        const searchText2 = document.getElementById('search-text-2').value
+        const searchText3 = document.getElementById('search-text-3').value
+        setSearchText1([searchText1])
+        setSearchText2([searchText2])
+        setSearchText3([searchText3])
+    }
 
     const handleText1 = (event) => {
-        setSearchGoal('');
-        setSearchText1(event.target.value.toLowerCase());
-    };
+        setSearchGoal('')
+        setSearchText1(event.target.value.toLowerCase())
+    }
 
     const handleText2 = (event) => {
-        setSearchGoal('');
-        setSearchText2(event.target.value.toLowerCase());
-    };
+        setSearchGoal('')
+        setSearchText2(event.target.value.toLowerCase())
+    }
 
     const handleText3 = (event) => {
-        setSearchGoal('');
-        setSearchText3(event.target.value.toLowerCase());
-    };
+        setSearchGoal('')
+        setSearchText3(event.target.value.toLowerCase())
+    }
 
     function onThisDay() {
         const month = new Date().getMonth() + 1
         const day = new Date().getDate()
         const onThisDay = jsonData.filter(item => item.month === month && item.day === day)
-        const random = Math.floor(Math.random() * onThisDay.length);
+        const random = Math.floor(Math.random() * onThisDay.length)
         setSearchGoal(onThisDay[random].goal)
+        singleClosedAccordion()
     }
 
     const outdoor = () => {
@@ -176,65 +179,81 @@ function SearchForm({jsonData}) {
         else if (input === 475) {setSearchGoal(602)}
         else if (input === 598) {setSearchGoal(475)}
         else {setSearchGoal(440)}
-    };
+        singleClosedAccordion()
+    }
 
     const preventSubmit = (event) => {
-        event.preventDefault();
-    };
+        event.preventDefault()
+    }
 
     function random(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min
     }
 
     function filterGoal(match) {
-        resultsHide();
+        resultsHide()
         const result = jsonData.filter(item =>
             Object.values(item).some(value =>
                 match.includes(value)
             )
-        );
-        const goal = Object.values(result[random(1, Object.keys(result).length)]);
-        setSearchGoal(goal[0]);
-        const collapsed = document.querySelector('.accordion-button.collapsed')
-        if (collapsed) {setTimeout(() => {
-            collapsed.click();
-        }, 500);}
+        )
+        const goal = Object.values(result[random(1, Object.keys(result).length)])
+        setSearchGoal(goal[0])
+        singleClosedAccordion()
     }
 
     function fromNick() {
         const fromNick = jsonData.filter(item => item.primary === "Nicklas Backstrom")
-        const random = Math.floor(Math.random() * fromNick.length);
+        const random = Math.floor(Math.random() * fromNick.length)
         setSearchGoal(fromNick[random].goal)
-    }
-
-    function shuffle(match) {
-        resultsHide();
-        const result = jsonData;
-        const goal = Object.values(result[random(1, Object.keys(result).length)]);
-        setSearchGoal(goal[0]);
+        singleClosedAccordion()
     }
 
     const reset = () => {
-        resultsHide();
-        setSearchGoal('');
-        setSearchResults([]);
-    };
+        resultsHide()
+        setSearchGoal('')
+        setSearchResults([])
+    }
 
     function resultsHide() {
-        document.getElementById('advanced').classList.remove('show');
-        document.getElementById('minimum').classList.remove('show');
-        document.getElementById('type').value = '';
-        setSearchText1('');
-        setSearchText2('');
-        setSearchText3('');
+        document.getElementById('advanced').classList.remove('show')
+        document.getElementById('minimum').classList.remove('show')
+        document.getElementById('type').value = ''
+        setSearchText1('')
+        setSearchText2('')
+        setSearchText3('')
+    }
+
+    function shuffle(match) {
+        resultsHide()
+        const result = jsonData
+        const goal = Object.values(result[random(1, Object.keys(result).length)])
+        setSearchGoal(goal[0])
+        singleClosedAccordion()
+    }
+
+    function singleClosedAccordion() {
+        const collapsed = document.querySelector('.accordion-button.collapsed')
+        if (collapsed) {
+            setTimeout(() => {
+                collapsed.click()
+            }, 500)
+        }
     }
 
     function unassisted() {
         const unassisted = jsonData.filter(item => item.primary === undefined)
-        const random = Math.floor(Math.random() * unassisted.length);
+        const random = Math.floor(Math.random() * unassisted.length)
         setSearchGoal(unassisted[random].goal)
+    }
+
+    const worldCup = () => {
+        const input = parseFloat(document.querySelector('#search-goal').value)
+        if (input === 1.01) {setSearchGoal(525.02)}
+        else {setSearchGoal(1.01)}
+        singleClosedAccordion()
     }
 
     function youngGuns() {
@@ -242,8 +261,9 @@ function SearchForm({jsonData}) {
         const youngGunsGoals = jsonData.filter(item => {
             return youngGuns.includes(item.primary) && youngGuns.includes(item.secondary)
         })
-        const random = Math.floor(Math.random() * youngGunsGoals.length);
+        const random = Math.floor(Math.random() * youngGunsGoals.length)
         setSearchGoal(youngGunsGoals[random].goal)
+        singleClosedAccordion()
     }
 
     return (
@@ -286,7 +306,7 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['World Championships'])} title="World Championships" type="button">
                                     <img alt="Trophy logo" src="/icons/Trophy.svg" />Worlds
                                 </button>
-                                <button onClick={(event) => filterGoal(['World Cup'])} title="World Cup" type="button">
+                                <button onClick={worldCup} title="World Cup" type="button">
                                     <img alt="Cup logo" src="/icons/Cup.svg" />World&nbsp;Cup
                                 </button>
                             </div>
