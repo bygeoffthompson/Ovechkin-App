@@ -127,7 +127,7 @@ function SearchForm({jsonData}) {
             let visibleFrame = document.querySelector('.accordion-collapse.show iframe')
             if (visibleFrame) {
                 let dataSrc = document.querySelector('.accordion-collapse.show iframe').getAttribute('data-src')
-                if (!visibleFrame.hasAttribute('src')) {
+                if (visibleFrame.getAttribute('src') === 'about:blank') {
                     document.querySelector('.accordion-collapse.show iframe').setAttribute('src', dataSrc)
                 }
             }
@@ -408,7 +408,7 @@ function SearchForm({jsonData}) {
                             </Accordion.Header>
                             <Accordion.Body>
                                 <div>
-                                    <iframe width="560" height="315" {...(index === 0 ? {'src': 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} : {})} data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen loading="lazy"></iframe>
+                                    <iframe width="560" height="315" src={index === 0 ? 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1' : 'about:blank'} data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
                                     <div className="d-flex flex-column">
                                         <small>{result.btn1} {result.btn2} {result.btn3} {result.search} {result.primary} {result.secondary}</small>
                                         <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
