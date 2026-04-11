@@ -408,7 +408,7 @@ function SearchForm({jsonData}) {
                                 <div>
                                     <iframe width="560" height="315" src={index === 0 ? 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1' : 'about:blank'} data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
                                     <div className="d-flex flex-column">
-                                        <small>{result.btn1} {result.btn2} {result.btn3} {result.search} {result.primary} {result.secondary}</small>
+                                        <small>{result.primary} {result.secondary} {result.btn1} {result.btn2} {result.btn3} {result.search}</small>
                                         <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
                                     </div>
                                 </div>
