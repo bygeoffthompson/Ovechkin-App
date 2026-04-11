@@ -39,10 +39,8 @@ function SearchForm({jsonData}) {
         const search1Value = document.getElementById('search-text-1').value.length
         if (search1Value > 2) {
             const results = jsonData.filter((item) => {
-                const date = new Date(item.year, item.month - 1, item.day);
-                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 const search =
-                    item.month + '/' + item.day + '/' + item.year + ' ' +
+                    item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
                     item.season + ' ' +
                     item.type + ' ' +
                     item.goalie + ' ' + item.goalie2 + ' ' +
@@ -52,8 +50,7 @@ function SearchForm({jsonData}) {
                     item.jersey + ' ' +
                     item.search + ' ' +
                     item.btn1 + ' ' + item.btn2 + ' ' + item.btn3 + ' ' +
-                    item.primary + ' ' + item.secondary + ' ' +
-                    daysOfWeek[date.getDay()]
+                    item.primary + ' ' + item.secondary
                 return (
                     search.toLowerCase().includes(searchText1) &&
                     search.toLowerCase().includes(searchText2) &&
