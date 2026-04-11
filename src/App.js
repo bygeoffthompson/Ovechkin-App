@@ -272,13 +272,11 @@ function SearchForm({jsonData}) {
                 <div id="remote">
                     <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-1 p-sm-3 py-3 shadow" onSubmit={preventSubmit}>
                         <div className="align-items-center d-flex justify-content-between flex-column gap-3 mb-3">
-                            <h2 className="h5 m-0">Search by Number</h2>
-                            <label className="d-none" htmlFor="search-goal">Number</label>
+                            <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
                             <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                            <h2 className="h5 m-0">Search by Text</h2>
-                            <label className="d-none" htmlFor="search-text-1">Text</label>
-                            <label className="d-none" htmlFor="search-text-2">Text</label>
-                            <label className="d-none" htmlFor="search-text-3">Text</label>
+                            <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
+                            <label className="d-none" htmlFor="search-text-2">Search by Text</label>
+                            <label className="d-none" htmlFor="search-text-3">Search by Text</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
