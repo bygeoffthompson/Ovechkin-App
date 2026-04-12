@@ -92,6 +92,8 @@ function SearchForm({jsonData}) {
             setSearchText1(query.split('&', 1))
             setSearchText2('')
             setSearchText3('')
+        } else {
+            shuffle()
         }
     },[]);
 
