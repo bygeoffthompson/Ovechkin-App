@@ -125,7 +125,7 @@ function SearchForm({jsonData}) {
         singleClosedAccordion()
     }
 
-    function dataSrc() {
+    function lazyLoadFrame() {
         setTimeout(() => {
             let visibleFrame = document.querySelector('.accordion-collapse.show iframe')
             if (visibleFrame) {
@@ -391,7 +391,7 @@ function SearchForm({jsonData}) {
                     <Accordion defaultActiveKey="0" flush>
                     {searchResults.map((result, index) => (
                         <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
-                            <Accordion.Header onClick={dataSrc}>
+                            <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-2 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             <span>{result.goal.toString().split('.')[0]}</span>

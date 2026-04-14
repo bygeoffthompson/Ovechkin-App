@@ -288,9 +288,9 @@ form button {
 
   &:hover,
   &:active {
-    background: #C8102E;
-    color: #EFEFEF;
-    box-shadow: 0 .25rem .75rem #111;
+    background: #E4C376 !important;
+    border-color: #E4C376 !important;
+    box-shadow: 0 .25rem .75rem #333 !important;
     transform: scale(1.05);
   }
 
@@ -340,30 +340,14 @@ form button {
 
     &[title="Black Reverse Retro"] {
         background: #111;
-
-        &:hover {
-            box-shadow: 0 .25rem .75rem #132660;
-        }
     }
 
     &[title="Capitol"] {
         background: #111;
-
-        &:hover {
-            box-shadow: 0 .25rem .75rem #CE8946;
-        }
     }
 
     &[title="Red Reverse Retro"] {
         background: #C81020;
-    }
-
-    &[title="Screagle"] {
-        background: #FFF;
-
-        &:hover {
-            box-shadow: 0 .25rem .75rem #132660;
-        }
     }
 
     &[title="Capitals"] {
@@ -375,7 +359,6 @@ form button {
         background: #C8102E;
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
         color: #FFF;
-        font-size: 18px;
     }
 
     &[title="Navy Third"] {
@@ -384,8 +367,8 @@ form button {
     }
 
     &[title="Reset Filters"] {
-        background: transparent;
-        box-shadow: none;
+        background: transparent !important;
+        box-shadow: none !important;
 
         &:hover,
         &:active {
@@ -396,13 +379,6 @@ form button {
 
     &[title='Random Goal'] {
         width: 100px;
-    }
-
-    &[title*="NHL"] {
-        &:hover,
-        &:active {
-            background: rgba(0,0,0,.8);
-        }
     }
 }
 
