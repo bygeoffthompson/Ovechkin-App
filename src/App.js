@@ -95,7 +95,7 @@ function SearchForm({jsonData}) {
         } else {
             shuffle()
         }
-    },[]);
+    });
 
     useEffect(() => {
         const month = new Date().getMonth() + 1
