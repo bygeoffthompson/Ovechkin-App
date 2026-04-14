@@ -104,9 +104,9 @@ function SearchForm({jsonData}) {
 
         if (!checkDay[0]) {
             document.getElementById('otd').disabled = true
-            document.getElementById('otd').title = 'No Goals on ' + month + ' ' + day
+            document.getElementById('otd').title = 'No Goals on ' + month + '/' + day
         } else {
-            document.getElementById('otd').title = 'Goals on ' + month + ' ' + day
+            document.getElementById('otd').title = 'Goals on ' + month + '/' + day
         }
     })
 
