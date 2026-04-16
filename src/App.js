@@ -129,9 +129,9 @@ function SearchForm({jsonData}) {
         setTimeout(() => {
             let visibleFrame = document.querySelector('.accordion-collapse.show iframe')
             if (visibleFrame) {
-                let dataSrc = document.querySelector('.accordion-collapse.show iframe').getAttribute('data-src')
+                let dataSrc = visibleFrame.getAttribute('data-src')
                 if (visibleFrame.getAttribute('src') === 'about:blank') {
-                    document.querySelector('.accordion-collapse.show iframe').setAttribute('src', dataSrc)
+                    visibleFrame.setAttribute('src', dataSrc)
                 }
             }
         }, 500)
