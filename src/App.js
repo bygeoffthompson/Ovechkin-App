@@ -21,60 +21,7 @@ function SearchForm({jsonData}) {
     const [searchText3, setSearchText3] = useState('')
     const [searchResults, setSearchResults] = useState([])
 
-    useEffect(() => {
-        if (searchGoal) {
-            resultsHide();
-            const goalQuery = parseFloat(searchGoal)
-            const results = jsonData.filter(item => item.goal === goalQuery)
-            setSearchResults(results)
-            ReactGA.event({
-                category: 'Goal Requests',
-                action: 'Click',
-                label: 'Goal #' + goalQuery,
-                value: 1
-            })
-        }
-
-
-        const search1Value = document.getElementById('search-text-1').value.length
-        if (search1Value > 2) {
-            const results = jsonData.filter((item) => {
-                const search =
-                    item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
-                    item.season + ' ' +
-                    item.type + ' ' +
-                    item.goalie + ' ' + item.goalie2 + ' ' +
-                    item.team + ' ' +
-                    item.period + ' ' +
-                    item.hoa + ' ' +
-                    item.jersey + ' ' +
-                    item.search + ' ' +
-                    item.btn1 + ' ' + item.btn2 + ' ' + item.btn3 + ' ' +
-                    item.primary + ' ' + item.secondary
-                return (
-                    search.toLowerCase().includes(searchText1) &&
-                    search.toLowerCase().includes(searchText2) &&
-                    search.toLowerCase().includes(searchText3) &&
-                    item.season.includes(document.getElementById('type').value)
-                );
-            });
-            document.getElementById('advanced').classList.add('show')
-            document.getElementById('minimum').classList.remove('show')
-            document.getElementById('count').setAttribute('data-count', results.length)
-            document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
-            setSearchResults(results)
-        }
-        if (search1Value === 0) {
-            document.getElementById('advanced').classList.remove('show')
-            document.getElementById('minimum').classList.remove('show')
-        } else if (search1Value < 3) {
-            document.getElementById('advanced').classList.remove('show')
-            document.getElementById('minimum').classList.add('show')
-            setSearchResults([])
-        }
-    }, [searchGoal, searchText1, searchText2, searchText3, jsonData])
-
-    useEffect(() => {
+/*    useEffect(() => {
         const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
         const queryInteger = parseFloat(query)
         if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4', '360*'].includes(query) && !query.includes('/') && queryInteger > 0 && queryInteger <= totalGoals) {
@@ -92,10 +39,11 @@ function SearchForm({jsonData}) {
             setSearchText1(query.split('&', 1))
             setSearchText2('')
             setSearchText3('')
+            document.querySelector('#form-submit').click()
         } else {
             shuffle()
         }
-    },[]);
+    },[]);*/
 
     useEffect(() => {
         const month = new Date().getMonth() + 1
@@ -246,6 +194,50 @@ function SearchForm({jsonData}) {
         }
     }
 
+    const submit = () => {
+        const goalInput = document.querySelector('#search-goal').value
+        const textInput = document.querySelector('#search-text-1').value
+
+        if (goalInput.length > 0) {
+            if (searchGoal) {
+                resultsHide();
+                const goalQuery = parseFloat(goalInput)
+                const results = jsonData.filter(item => item.goal === goalQuery)
+                setSearchResults(results)
+            }
+
+        } else if (textInput.length > 0) {
+            const results = jsonData.filter((item) => {
+                const search =
+                    item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
+                    item.season + ' ' +
+                    item.type + ' ' +
+                    item.goalie + ' ' + item.goalie2 + ' ' +
+                    item.team + ' ' +
+                    item.period + ' ' +
+                    item.hoa + ' ' +
+                    item.jersey + ' ' +
+                    item.search + ' ' +
+                    item.btn1 + ' ' + item.btn2 + ' ' + item.btn3 + ' ' +
+                    item.primary + ' ' + item.secondary
+                return (
+                    search.toLowerCase().includes(searchText1) &&
+                    search.toLowerCase().includes(searchText2) &&
+                    search.toLowerCase().includes(searchText3) &&
+                    item.season.includes(document.getElementById('type').value)
+                );
+            });
+
+            document.getElementById('advanced').classList.add('show')
+            document.getElementById('minimum').classList.remove('show')
+            document.getElementById('count').setAttribute('data-count', results.length)
+            document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
+            setSearchResults(results)
+        }
+
+
+    }
+
     function unassisted() {
         const unassisted = jsonData.filter(item => item.primary === undefined)
         const random = Math.floor(Math.random() * unassisted.length)
@@ -365,6 +357,7 @@ function SearchForm({jsonData}) {
                         </div>
                         <div className="d-flex justify-content-center">
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                            <button id="form-submit" onClick={submit} type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
