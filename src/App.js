@@ -64,7 +64,6 @@ function SearchForm({jsonData}) {
         const random = Math.floor(Math.random() * canadian.length)
         setSearchGoal(canadian[random].goal)
         submitForm()
-        singleClosedAccordion()
     }
 
     function cupRun() {
@@ -72,7 +71,6 @@ function SearchForm({jsonData}) {
         const random = Math.floor(Math.random() * cupRun.length)
         setSearchGoal(cupRun[random].goal)
         submitForm()
-        singleClosedAccordion()
     }
 
     function lazyLoadFrame() {
@@ -121,7 +119,7 @@ function SearchForm({jsonData}) {
         const onThisDay = jsonData.filter(item => item.month === month && item.day === day)
         const random = Math.floor(Math.random() * onThisDay.length)
         setSearchGoal(onThisDay[random].goal)
-        singleClosedAccordion()
+        submitForm()
     }
 
     const outdoor = () => {
@@ -130,7 +128,7 @@ function SearchForm({jsonData}) {
         else if (input === 475) {setSearchGoal(602)}
         else if (input === 598) {setSearchGoal(475)}
         else {setSearchGoal(440)}
-        singleClosedAccordion()
+        submitForm()
     }
 
     const preventSubmit = (event) => {
@@ -153,7 +151,6 @@ function SearchForm({jsonData}) {
         const goal = Object.values(result[random(1, Object.keys(result).length)])
         setSearchGoal(goal[0])
         submitForm()
-        singleClosedAccordion()
     }
 
     function fromNick() {
@@ -161,7 +158,6 @@ function SearchForm({jsonData}) {
         const random = Math.floor(Math.random() * fromNick.length)
         setSearchGoal(fromNick[random].goal)
         submitForm()
-        singleClosedAccordion()
     }
 
     const reset = () => {
@@ -178,19 +174,16 @@ function SearchForm({jsonData}) {
         setSearchText3('')
     }
 
-    function singleClosedAccordion() {
+    function submitForm() {
+        setTimeout(() => {
+            document.querySelector('#search-submit').click()
+        }, 50)
         const collapsed = document.querySelector('.accordion-button.collapsed')
         if (collapsed) {
             setTimeout(() => {
                 collapsed.click()
             }, 500)
         }
-    }
-
-    function submitForm() {
-        setTimeout(() => {
-            document.querySelector('#search-submit').click()
-        }, 50)
     }
 
     function searchSubmit() {
@@ -227,6 +220,15 @@ function SearchForm({jsonData}) {
                 );
             });
 
+            if (results.length > 200) {
+                const confirmAlert = window.confirm(
+                    `This search loads 200+ results. Proceed?`
+                );
+                if (!confirmAlert) {
+                    return;
+                }
+            }
+
             document.getElementById('advanced').classList.add('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
@@ -238,6 +240,7 @@ function SearchForm({jsonData}) {
         const unassisted = jsonData.filter(item => item.primary === undefined)
         const random = Math.floor(Math.random() * unassisted.length)
         setSearchGoal(unassisted[random].goal)
+        submitForm()
     }
 
     const worldCup = () => {
@@ -245,7 +248,6 @@ function SearchForm({jsonData}) {
         if (input === 1.01) {setSearchGoal(525.02)}
         else {setSearchGoal(1.01)}
         submitForm()
-        singleClosedAccordion()
     }
 
     function youngGuns() {
@@ -255,7 +257,7 @@ function SearchForm({jsonData}) {
         })
         const random = Math.floor(Math.random() * youngGunsGoals.length)
         setSearchGoal(youngGunsGoals[random].goal)
-        singleClosedAccordion()
+        submitForm()
     }
 
     function shuffle() {
