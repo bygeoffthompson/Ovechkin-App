@@ -11,7 +11,6 @@ ReactGA.send({
     title: "Ovechkin App"
 });
 
-
 const totalGoals = 929
 
 function SearchForm({jsonData}) {
@@ -167,8 +166,6 @@ function SearchForm({jsonData}) {
     }
 
     function resultsHide() {
-        document.getElementById('advanced').classList.remove('show')
-        document.getElementById('type').value = ''
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
@@ -188,7 +185,9 @@ function SearchForm({jsonData}) {
 
     function searchSubmit() {
         const goalInput = document.querySelector('#search-goal').value
-        const textInput = document.querySelector('#search-text-1').value
+        const textInput1 = document.querySelector('#search-text-1').value
+        const textInput2 = document.querySelector('#search-text-2').value
+        const textInput3 = document.querySelector('#search-text-3').value
 
         if (goalInput.length > 0) {
             if (searchGoal) {
@@ -198,7 +197,7 @@ function SearchForm({jsonData}) {
                 setSearchResults(results)
             }
 
-        } else if (textInput.length > 0) {
+        } else if (textInput1.length > 0 || textInput2.length > 0 || textInput3.length > 0) {
             const results = jsonData.filter((item) => {
                 const search =
                     item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
@@ -215,8 +214,7 @@ function SearchForm({jsonData}) {
                 return (
                     search.toLowerCase().includes(searchText1) &&
                     search.toLowerCase().includes(searchText2) &&
-                    search.toLowerCase().includes(searchText3) &&
-                    item.season.includes(document.getElementById('type').value)
+                    search.toLowerCase().includes(searchText3)
                 );
             });
 
@@ -228,8 +226,7 @@ function SearchForm({jsonData}) {
                     return;
                 }
             }
-
-            document.getElementById('advanced').classList.add('show')
+            document.getElementById('results').classList.add('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
             setSearchResults(results)
@@ -271,7 +268,7 @@ function SearchForm({jsonData}) {
             <div className="align-items-start d-flex flex-column flex-lg-row justify-content-center">
                 <div id="remote">
                     <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
-                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-5">
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-4">
                             <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
                             <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                             <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
@@ -280,11 +277,14 @@ function SearchForm({jsonData}) {
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
+                        </div>
+                        <div className="align-items-center d-flex flex-column flex-sm-row-reverse justify-content-between mb-5">
                             <button id="search-submit" onClick={searchSubmit} type="submit">Submit</button>
+                            <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
                             <div className="d-flex flex-column gap-3 league-buttons">
-                                <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
+                                <button onClick={(event) => filterGoal(['NHL RS'])} title="NHL Regular Season" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />NHL
                                 </button>
                                 <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
@@ -359,25 +359,11 @@ function SearchForm({jsonData}) {
                                 <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                             </div>
                         </div>
-                        <div className="d-flex justify-content-center">
-                            <button onClick={reset} title="Reset Filters" type="button">Reset</button>
-                        </div>
                     </form>
                 </div>
 
                 <div className="p-1 p-sm-3" id="wrapper">
-                    <div className="align-items-center d-flex gap-2 justify-content-start search-accordion" id="advanced">
-                        <label htmlFor="type" hidden>Type</label>
-                        <select id="type" name="Type" onChange={handleSeasonChange}>
-                            <option name="All" value="" selected>All</option>
-                            <option name="NHL Regular" value="NHL Regular">NHL Regular</option>
-                            <option name="NHL Playoff" value="NHL Playoffs">NHL Playoffs</option>
-                            <option name="All Star" value="All Star">All Star</option>
-                            <option name="KHL" value="KHL">KHL</option>
-                            <option name="Olympics" value="Olympics">Olympics</option>
-                            <option name="World Championships" value="World Championships">Worlds</option>
-                            <option name="World Cup" value="World Cup">World Cup</option>
-                        </select>
+                    <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
                         <strong id="count"></strong>
                     </div>
 
