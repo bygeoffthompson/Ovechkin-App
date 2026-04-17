@@ -245,7 +245,7 @@ form button {
   width: 80px;
 
     @media (min-width: 500px) {
-        width: 108px;
+        width: 100px;
     }
 
   &:hover,
@@ -526,15 +526,6 @@ iframe {
   user-select: all;
 }
 
-#search-goal {
-  caret-color: #C8102E;
-  color: #C8102E;
-  font-weight: bold;
-  max-width: 100px;
-  text-align: center;
-  text-indent: .75rem;
-}
-
 input {
     background: transparent;
     border-left: 0;
@@ -554,6 +545,12 @@ input {
 
     &[placeholder='And']::placeholder {
         font-size: 1rem;
+    }
+
+    &[type='number'] {
+        max-width: 100px;
+        text-align: center;
+        text-indent: .75rem;
     }
 
     &[type='text'] {

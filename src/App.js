@@ -166,6 +166,7 @@ function SearchForm({jsonData}) {
     }
 
     function resultsHide() {
+        document.getElementById('results').classList.remove('show')
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
@@ -200,8 +201,9 @@ function SearchForm({jsonData}) {
         } else if (textInput1.length > 0 || textInput2.length > 0 || textInput3.length > 0) {
             const results = jsonData.filter((item) => {
                 const search =
-                    item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
                     item.season + ' ' +
+                    item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
+                    new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
                     item.type + ' ' +
                     item.goalie + ' ' + item.goalie2 + ' ' +
                     item.team + ' ' +
@@ -218,14 +220,15 @@ function SearchForm({jsonData}) {
                 );
             });
 
-            if (results.length > 200) {
+            if (results.length > 500) {
                 const confirmAlert = window.confirm(
-                    `This search loads 200+ results. Proceed?`
+                    `This search loads 500+ results. Proceed?`
                 );
                 if (!confirmAlert) {
                     return;
                 }
             }
+
             document.getElementById('results').classList.add('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
