@@ -77,33 +77,6 @@ body {
   position: relative;
 }
 
-#search-text-1,
-#search-text-2:focus,
-#search-text-3:focus {
-  height: auto;
-  margin-top: 0;
-  max-width: 350px;
-}
-
-#search-text-3 + div {
-    align-items: center;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: 0;
-    width: auto;
-}
-
-#search-text-1:active + input,
-#search-text-1:focus + input,
-#search-text-2:active + input,
-#search-text-2:focus + input {
-  height: auto;
-  margin-top: 0;
-  max-width: 75px;
-  text-align: center;
-}
-
 #advanced {
     select {
         background-color: transparent;
@@ -326,7 +299,7 @@ form button {
             &:first-of-type:after {
                 bottom: -.875rem;
                 color: #FFF;
-                content: "|||||";
+                content: '|||||';
                 font-size: 1.125rem;
                 left: 0;
                 letter-spacing: 2px;
@@ -338,35 +311,35 @@ form button {
         }
     }
 
-    &[title="Black Reverse Retro"] {
+    &[title='Black Reverse Retro'] {
         background: #111;
     }
 
-    &[title="Capitol"] {
+    &[title='Capitol'] {
         background: #111;
     }
 
-    &[title="Red Reverse Retro"] {
+    &[title='Red Reverse Retro'] {
         background: #C81020;
     }
 
-    &[title="Capitals"] {
+    &[title='Capitals'] {
         background: #C81020;
         background-image: linear-gradient(-75deg, #C81020 30%, #FFF 31%, #FFF 69%, #C81020 70%);
     }
 
-    &[title="Throwback Third"] {
+    &[title='Throwback Third'] {
         background: #C8102E;
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
         color: #FFF;
     }
 
-    &[title="Navy Third"] {
+    &[title='Navy Third'] {
         background: #062D60;
         background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%);
     }
 
-    &[title="Reset Filters"] {
+    &[title='Reset Filters'] {
         background: transparent !important;
         box-shadow: none !important;
 
@@ -437,18 +410,18 @@ form button {
     }
 }
 
-[src="/jerseys/capitals.svg"],
-[src="/jerseys/throwback.svg"] {
+[src='/jerseys/capitals.svg'],
+[src='/jerseys/throwback.svg'] {
     max-width: 2.25rem;
 }
 
-[src="/jerseys/brick.svg"],
-[src="/jerseys/navy.svg"] {
+[src='/jerseys/brick.svg'],
+[src='/jerseys/navy.svg'] {
     max-width: 1.5rem;
 }
 
 form {
-  background: rgba(203,236,255,.2);
+  background: rgb(207, 226, 255, .5);
   border-radius: 1rem;
   max-width: 500px;
   width: 100%;
@@ -500,7 +473,7 @@ iframe {
   position: relative;
 
     &:before {
-        content: "";
+        content: '';
         cursor: default;
         display: block;
         height: 60px;
@@ -568,7 +541,7 @@ iframe {
   caret-color: #C8102E;
   color: #C8102E;
   font-weight: bold;
-  max-width: 125px;
+  max-width: 100px;
   text-align: center;
   text-indent: .75rem;
 }
@@ -590,18 +563,12 @@ input {
     width: 100%;
     z-index: 1;
 
-    &[type="text"] {
-        height: 0;
-        margin-top: -1rem;
-        max-width: 0;
-        overflow: hidden;
-        padding: 0;
-        width: 100%;
+    &[placeholder='And']::placeholder {
+        font-size: 1rem;
+    }
 
-        &:not(:placeholder-shown) {
-            height: auto;
-            margin-top: 0;
-            max-width: 350px;
-        }
+    &[type='text'] {
+        height: auto;
+        width: 100%;
     }
 }

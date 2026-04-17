@@ -21,7 +21,7 @@ function SearchForm({jsonData}) {
     const [searchText3, setSearchText3] = useState('')
     const [searchResults, setSearchResults] = useState([])
 
-/*    useEffect(() => {
+    useEffect(() => {
         const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
         const queryInteger = parseFloat(query)
         if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4', '360*'].includes(query) && !query.includes('/') && queryInteger > 0 && queryInteger <= totalGoals) {
@@ -39,11 +39,11 @@ function SearchForm({jsonData}) {
             setSearchText1(query.split('&', 1))
             setSearchText2('')
             setSearchText3('')
-            document.querySelector('#form-submit').click()
         } else {
             shuffle()
         }
-    },[]);*/
+        submitForm()
+    },[]);
 
     useEffect(() => {
         const month = new Date().getMonth() + 1
@@ -63,6 +63,7 @@ function SearchForm({jsonData}) {
         const canadian = jsonData.filter(item => item.hoa === 'Away' && canada.includes(item.team))
         const random = Math.floor(Math.random() * canadian.length)
         setSearchGoal(canadian[random].goal)
+        submitForm()
         singleClosedAccordion()
     }
 
@@ -70,6 +71,7 @@ function SearchForm({jsonData}) {
         const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
         const random = Math.floor(Math.random() * cupRun.length)
         setSearchGoal(cupRun[random].goal)
+        submitForm()
         singleClosedAccordion()
     }
 
@@ -86,9 +88,7 @@ function SearchForm({jsonData}) {
     }
 
     const handleGoalChange = (event) => {
-        if (event.target.value < totalGoals + 1) {
-            setSearchGoal(event.target.value)
-        }
+        setSearchGoal(event.target.value)
     }
 
     const handleSeasonChange = (event) => {
@@ -152,6 +152,7 @@ function SearchForm({jsonData}) {
         )
         const goal = Object.values(result[random(1, Object.keys(result).length)])
         setSearchGoal(goal[0])
+        submitForm()
         singleClosedAccordion()
     }
 
@@ -159,6 +160,7 @@ function SearchForm({jsonData}) {
         const fromNick = jsonData.filter(item => item.primary === "Nicklas Backstrom")
         const random = Math.floor(Math.random() * fromNick.length)
         setSearchGoal(fromNick[random].goal)
+        submitForm()
         singleClosedAccordion()
     }
 
@@ -170,19 +172,10 @@ function SearchForm({jsonData}) {
 
     function resultsHide() {
         document.getElementById('advanced').classList.remove('show')
-        document.getElementById('minimum').classList.remove('show')
         document.getElementById('type').value = ''
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
-    }
-
-    function shuffle(match) {
-        resultsHide()
-        const result = jsonData
-        const goal = Object.values(result[random(1, Object.keys(result).length)])
-        setSearchGoal(goal[0])
-        singleClosedAccordion()
     }
 
     function singleClosedAccordion() {
@@ -194,7 +187,13 @@ function SearchForm({jsonData}) {
         }
     }
 
-    const submit = () => {
+    function submitForm() {
+        setTimeout(() => {
+            document.querySelector('#search-submit').click()
+        }, 50)
+    }
+
+    function searchSubmit() {
         const goalInput = document.querySelector('#search-goal').value
         const textInput = document.querySelector('#search-text-1').value
 
@@ -229,13 +228,10 @@ function SearchForm({jsonData}) {
             });
 
             document.getElementById('advanced').classList.add('show')
-            document.getElementById('minimum').classList.remove('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
             setSearchResults(results)
         }
-
-
     }
 
     function unassisted() {
@@ -248,6 +244,7 @@ function SearchForm({jsonData}) {
         const input = parseFloat(document.querySelector('#search-goal').value)
         if (input === 1.01) {setSearchGoal(525.02)}
         else {setSearchGoal(1.01)}
+        submitForm()
         singleClosedAccordion()
     }
 
@@ -261,22 +258,27 @@ function SearchForm({jsonData}) {
         singleClosedAccordion()
     }
 
+    function shuffle() {
+        const goal = Object.values(jsonData[random(1, Object.keys(jsonData).length)])
+        setSearchGoal(goal[0])
+        submitForm()
+    }
+
     return (
         <div className="container">
             <div className="align-items-start d-flex flex-column flex-lg-row justify-content-center">
                 <div id="remote">
-                    <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-1 p-sm-3 py-3 shadow" onSubmit={preventSubmit}>
-                        <div className="align-items-center d-flex justify-content-between flex-column gap-3 mb-3">
+                    <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-5">
                             <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
-                            <input id="search-goal" min="1" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                            <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                             <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-3">Search by Text</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
-                            <strong className="h5 m-0">or</strong>
-                            <h3><button onClick={(event) => shuffle()} title="Random Goal" type="button">Shuffle</button></h3>
+                            <button id="search-submit" onClick={searchSubmit} type="submit">Submit</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
                             <div className="d-flex flex-column gap-3 league-buttons">
@@ -357,15 +359,11 @@ function SearchForm({jsonData}) {
                         </div>
                         <div className="d-flex justify-content-center">
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
-                            <button id="form-submit" onClick={submit} type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
 
                 <div className="p-1 p-sm-3" id="wrapper">
-                    <div className="search-accordion" id="minimum">
-                        <strong>Search Requires 3 Letters Minimum</strong>
-                    </div>
                     <div className="align-items-center d-flex gap-2 justify-content-start search-accordion" id="advanced">
                         <label htmlFor="type" hidden>Type</label>
                         <select id="type" name="Type" onChange={handleSeasonChange}>
