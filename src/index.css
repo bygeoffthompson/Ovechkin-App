@@ -142,7 +142,7 @@ body {
     }
 }
 
-[data-season='NHL RS'] .goal-count {
+[data-season='NHL Regular'] .goal-count {
   color: #F34133;
 }
 
