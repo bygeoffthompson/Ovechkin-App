@@ -66,7 +66,7 @@ function SearchForm({jsonData}) {
     }
 
     function cupRun() {
-        const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
+        const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoff')
         const random = Math.floor(Math.random() * cupRun.length)
         setSearchGoal(cupRun[random].goal)
         submitForm()
@@ -86,15 +86,6 @@ function SearchForm({jsonData}) {
 
     const handleGoalChange = (event) => {
         setSearchGoal(event.target.value)
-    }
-
-    const handleSeasonChange = (event) => {
-        const searchText1 = document.getElementById('search-text-1').value
-        const searchText2 = document.getElementById('search-text-2').value
-        const searchText3 = document.getElementById('search-text-3').value
-        setSearchText1([searchText1])
-        setSearchText2([searchText2])
-        setSearchText3([searchText3])
     }
 
     const handleText1 = (event) => {
@@ -174,7 +165,7 @@ function SearchForm({jsonData}) {
 
     function submitForm() {
         setTimeout(() => {
-            document.querySelector('#search-submit').click()
+            document.querySelector('button[type="submit"]').click()
         }, 50)
         const collapsed = document.querySelector('.accordion-button.collapsed')
         if (collapsed) {
@@ -186,6 +177,7 @@ function SearchForm({jsonData}) {
 
     function searchSubmit() {
         const goalInput = document.querySelector('#search-goal').value
+        const season = document.querySelector('#season').value
         const textInput1 = document.querySelector('#search-text-1').value
         const textInput2 = document.querySelector('#search-text-2').value
         const textInput3 = document.querySelector('#search-text-3').value
@@ -216,7 +208,8 @@ function SearchForm({jsonData}) {
                 return (
                     search.toLowerCase().includes(searchText1) &&
                     search.toLowerCase().includes(searchText2) &&
-                    search.toLowerCase().includes(searchText3)
+                    search.toLowerCase().includes(searchText3) &&
+                    search.toLowerCase().includes(season.replace('All', '').toLowerCase())
                 );
             });
 
@@ -274,23 +267,34 @@ function SearchForm({jsonData}) {
                         <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-4">
                             <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
                             <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                            <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
+                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
+                                <label className="h5 mb-3 mb-sm-0 me-sm-2" htmlFor="search-text-1">Search by Text</label>
+                                <select className="form-select w-auto" id="season" name="Season">
+                                    <option value="All" selected>All</option>
+                                    <option value="NHL Regular">NHL Regular</option>
+                                    <option value="NHL Playoff">NHL Playoff</option>
+                                    <option value="KHL">KHL</option>
+                                    <option value="Olympic">Olympic</option>
+                                    <option value="World Championship">World Championship</option>
+                                    <option value="World Cup">World Cup</option>
+                                </select>
+                            </div>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-3">Search by Text</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                         </div>
-                        <div className="align-items-center d-flex flex-column flex-sm-row-reverse justify-content-between mb-5">
-                            <button id="search-submit" onClick={searchSubmit} type="submit">Submit</button>
+                        <div className="align-items-center d-flex flex-column flex-sm-row-reverse justify-content-between mb-4">
+                            <button onClick={searchSubmit} type="submit">Search</button>
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
                             <div className="d-flex flex-column gap-3 league-buttons">
-                                <button onClick={(event) => filterGoal(['NHL RS'])} title="NHL Regular Season" type="button">
+                                <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />NHL
                                 </button>
-                                <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
+                                <button onClick={(event) => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />Playoffs
                                 </button>
                                 <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
@@ -300,10 +304,10 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
                                     <img alt="KHL logo" src="/teams/KHL.svg" />KHL
                                 </button>
-                                <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">
+                                <button onClick={(event) => filterGoal(['Olympic'])} title="Olympic" type="button">
                                     <img alt="Olympics logo" src="/icons/Olympics.svg" />Olympics
                                 </button>
-                                <button onClick={(event) => filterGoal(['World Championships'])} title="World Championships" type="button">
+                                <button onClick={(event) => filterGoal(['World Championship'])} title="World Championship" type="button">
                                     <img alt="Trophy logo" src="/icons/Trophy.svg" />Worlds
                                 </button>
                                 <button onClick={worldCup} title="World Cup" type="button">
@@ -371,9 +375,9 @@ function SearchForm({jsonData}) {
                     </div>
 
                     <Accordion defaultActiveKey="0" flush>
-                    {searchResults.map((result, index) => (
-                        <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
-                            <Accordion.Header onClick={lazyLoadFrame}>
+                        {searchResults.map((result, index) => (
+                            <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
+                                <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-2 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             <span>{result.goal.toString().split('.')[0]}</span>
@@ -383,26 +387,32 @@ function SearchForm({jsonData}) {
                                         <strong className="d-none d-sm-block">{result.month}/{result.day}/{result.year}</strong>
                                         <strong>{result.goalie}</strong>
                                     </div>
-                                <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
-                                    <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
-                                    <strong className="position-absolute type">{result.type}</strong>
-                                </div>
-                                    <strong className="bottom-0 end-0 indexer p-1 position-absolute">{index + 1}</strong>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <div>
-                                    <iframe width="560" height="315" src={index === 0 ? 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1' : 'about:blank'} data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
-                                    <div className="d-flex flex-column">
-                                        <small>{result.primary} {result.secondary} {result.btn1} {result.btn2} {result.btn3} {result.search}</small>
-                                        <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
+                                    <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
+                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
+                                        <strong className="position-absolute type">{result.type}</strong>
                                     </div>
-                                </div>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    ))}
+                                    <strong className="bottom-0 end-0 indexer p-1 position-absolute">{index + 1}</strong>
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    <div>
+                                        <iframe width="560" height="315"
+                                                src={index === 0 ? 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1' : 'about:blank'}
+                                                data-src={'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'}
+                                                title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
+                                        <div className="d-flex flex-column">
+                                            <small>{result.primary} {result.secondary} {result.btn1} {result.btn2} {result.btn3} {result.search}</small>
+                                            <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
+                                        </div>
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        ))}
                     </Accordion>
                     <div className="my-3" id="auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="139" height="250" viewBox="0 0 249 453"><path fill="#c8102e" d="M90 8q-10 8-18 26l-2 5-3 12-3 12a347 347 0 0 0-8 59l-2 16-1 72a610 610 0 0 0 5 108v22l-2 14-2 19-7 42c-3 13-4 15-5 15-2 0-8-5-10-9l-2-9-7-24-11-85 2 5 3 11 2 10q6 21 16 23 6 0 1-4c-3-2-7-9-7-12l-1-3-4-15-8-23q-3-3-5-3-4 0-5 3-4 7 0 31a227 227 0 0 1 6 43l2 9 2 9v4l1 2 3 9q5 18 9 24c3 4 11 9 14 9 7 0 10-6 15-27l7-49 3 12 3 13 12 37 3 2 4 2q10 2 13-12l1-7 1-4q1-3 3 0l5 1 3-1v12l2 11 3 18q2 7 5 6h3l1-12 3-28 3-21 4-40 9-45 4-17 23-95 3-9 7-22 7-22 15-35c0-4 8-20 14-28q10-13 13-14c2 0-1 16-5 27l-2 5-4 11-1 3-1 2-1 1v3l-2 6-4 15-7 21a476 476 0 0 0-17 105l-8 57q-4 3-13 5-5 3-5-12 1-9 3-16 7-16 10-18l3-4 2-3-3-1q-1-3-7 4c-5 5-8 9-12 20q-6 16-4 24 1 9 6 11 6 2 14-1l6-1-1 8c-2 9-2 37 0 38l3 1c2-1 3-4 3-20l2-24c0-7-1-6 13-14l18-9c5-1 5 8 0 19a346 346 0 0 1-28 45l-21 39-2 6q-3 8-2 9 3 3 7-3l2-3 1-2 1-2 1-3 1-2 1-1q-1-2 5-12l44-75 2-9q1-6-3-9-7-6-26 3l-8 5q-5 4-4-1l1-6 1-8 2-9 5-46 1-11a311 311 0 0 1 9-51 142 142 0 0 1 9-34l1-5 2-5 1-4 3-8 3-10c14-35 17-50 13-55q-3-3-11-2c-5 2-17 15-23 27l-3 5-13 28a336 336 0 0 0-24 74l-7 26-6 24-11 47-6 26-1 6-1 7-6 35-4 29-3 22-1-11q-1-17 2-29l1-11 5-32 1-12 9-61 5-40 9-71c2-11 1-37-1-42q0-5-6-4-3-1-7 4l-7 12-4 8c-3 5-7 20-8 29l-8 43-1 9-1 9-1 16-1 10v1a1095 1095 0 0 1 1 116l2 18q2 21-1 21t-4-15q1-13-6-12l-2-1-1-1-1 17-3 27q-1 9-4 11c-1 0-4-10-5-17l-3-15-2-25c0-17-1-23-2-28q-1-4-5-3l-5 1q-1 2-1-3l1-7 2-12a793 793 0 0 0 12-81l7-42 11-69 3-20 3-15 2-15c6-28 7-50 3-57s-5-8-12-8q-6-1-10 4m15 5q2 4 1 14a276 276 0 0 1-7 55l-1 9-4 21-2 11-1 7-1 4-2 20-2 8-2 15-3 14-4 27-4 30-3 18-2 10v10l-3 13q-2 9-2-8a3260 3260 0 0 1 1-166l2-16q6-56 17-80l10-16q4-5 8-5 2 0 4 5m43 123-3 32-3 19-5 36-2 12-6 57-3 18-2 11-1 10-2 7-1 2v13l-1-6V232l2-22c0-10 1-15 4-32l2-14a168 168 0 0 1 18-57l3-3v33"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="139" height="250" viewBox="0 0 249 453">
+                            <path fill="#c8102e"
+                                  d="M90 8q-10 8-18 26l-2 5-3 12-3 12a347 347 0 0 0-8 59l-2 16-1 72a610 610 0 0 0 5 108v22l-2 14-2 19-7 42c-3 13-4 15-5 15-2 0-8-5-10-9l-2-9-7-24-11-85 2 5 3 11 2 10q6 21 16 23 6 0 1-4c-3-2-7-9-7-12l-1-3-4-15-8-23q-3-3-5-3-4 0-5 3-4 7 0 31a227 227 0 0 1 6 43l2 9 2 9v4l1 2 3 9q5 18 9 24c3 4 11 9 14 9 7 0 10-6 15-27l7-49 3 12 3 13 12 37 3 2 4 2q10 2 13-12l1-7 1-4q1-3 3 0l5 1 3-1v12l2 11 3 18q2 7 5 6h3l1-12 3-28 3-21 4-40 9-45 4-17 23-95 3-9 7-22 7-22 15-35c0-4 8-20 14-28q10-13 13-14c2 0-1 16-5 27l-2 5-4 11-1 3-1 2-1 1v3l-2 6-4 15-7 21a476 476 0 0 0-17 105l-8 57q-4 3-13 5-5 3-5-12 1-9 3-16 7-16 10-18l3-4 2-3-3-1q-1-3-7 4c-5 5-8 9-12 20q-6 16-4 24 1 9 6 11 6 2 14-1l6-1-1 8c-2 9-2 37 0 38l3 1c2-1 3-4 3-20l2-24c0-7-1-6 13-14l18-9c5-1 5 8 0 19a346 346 0 0 1-28 45l-21 39-2 6q-3 8-2 9 3 3 7-3l2-3 1-2 1-2 1-3 1-2 1-1q-1-2 5-12l44-75 2-9q1-6-3-9-7-6-26 3l-8 5q-5 4-4-1l1-6 1-8 2-9 5-46 1-11a311 311 0 0 1 9-51 142 142 0 0 1 9-34l1-5 2-5 1-4 3-8 3-10c14-35 17-50 13-55q-3-3-11-2c-5 2-17 15-23 27l-3 5-13 28a336 336 0 0 0-24 74l-7 26-6 24-11 47-6 26-1 6-1 7-6 35-4 29-3 22-1-11q-1-17 2-29l1-11 5-32 1-12 9-61 5-40 9-71c2-11 1-37-1-42q0-5-6-4-3-1-7 4l-7 12-4 8c-3 5-7 20-8 29l-8 43-1 9-1 9-1 16-1 10v1a1095 1095 0 0 1 1 116l2 18q2 21-1 21t-4-15q1-13-6-12l-2-1-1-1-1 17-3 27q-1 9-4 11c-1 0-4-10-5-17l-3-15-2-25c0-17-1-23-2-28q-1-4-5-3l-5 1q-1 2-1-3l1-7 2-12a793 793 0 0 0 12-81l7-42 11-69 3-20 3-15 2-15c6-28 7-50 3-57s-5-8-12-8q-6-1-10 4m15 5q2 4 1 14a276 276 0 0 1-7 55l-1 9-4 21-2 11-1 7-1 4-2 20-2 8-2 15-3 14-4 27-4 30-3 18-2 10v10l-3 13q-2 9-2-8a3260 3260 0 0 1 1-166l2-16q6-56 17-80l10-16q4-5 8-5 2 0 4 5m43 123-3 32-3 19-5 36-2 12-6 57-3 18-2 11-1 10-2 7-1 2v13l-1-6V232l2-22c0-10 1-15 4-32l2-14a168 168 0 0 1 18-57l3-3v33"/>
+                        </svg>
                     </div>
                 </div>
             </div>
