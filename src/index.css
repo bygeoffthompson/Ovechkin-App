@@ -2,7 +2,6 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    user-select: none !important;
     width: 100%;
 }
 
@@ -49,7 +48,7 @@ body {
 }
 
 .indexer {
-    opacity: .15;
+    opacity: .1;
 }
 
 #wrapper {
@@ -235,9 +234,10 @@ form button {
 
   &:hover,
   &:active {
-    background: #E4C376 !important;
-    border-color: #E4C376 !important;
+    background: #C81020;
+    border-color: #C81020 !important;
     box-shadow: 0 .25rem .75rem #333 !important;
+      color: #FFF !important;
     transform: scale(1.05);
   }
 
@@ -251,8 +251,8 @@ form button {
 
     &.cup {
         background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
-        border: 1px solid #E0E0E0;
-        color: #111;
+        border: 1px solid #E0E0E0 !important;
+        color: #111 !important;
         font-family: Georgia, serif;
         letter-spacing: 1px;
     }
@@ -298,12 +298,14 @@ form button {
     }
 
     &[title='Capitals'] {
-        background: #C81020;
         background-image: linear-gradient(-75deg, #C81020 30%, #FFF 31%, #FFF 69%, #C81020 70%);
     }
 
+    &[title='Screagle'] {
+        background: #FFF;
+    }
+
     &[title='Throwback Third'] {
-        background: #C8102E;
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
         color: #FFF;
     }
@@ -319,7 +321,7 @@ form button {
 
         &:hover,
         &:active {
-            color: #111;
+            color: #111 !important;
             text-decoration: underline;
         }
     }
@@ -429,7 +431,6 @@ iframe {
     aspect-ratio: 16 / 9;
     background: #111;
     border: 0;
-    box-shadow: rgba(255, 255, 255, 0.6) 5px 5px, rgba(255, 255, 255, 0.4) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px;
     height: auto;
     min-height: 0;
     position: relative;
@@ -456,54 +457,6 @@ iframe {
         top: 0;
         width: 100%;
         z-index: 3;
-    }
-}
-
-[data-jersey*='Brick'] {
-    .body {
-        box-shadow: rgba(152, 1, 46, 0.4) -5px -5px, rgba(152, 1, 46, 0.2) -10px -10px, rgba(152, 1, 46, 0.1) -15px -15px;
-    }
-}
-
-[data-jersey='Capitol'] {
-    .body {
-        box-shadow: rgba(0, 0, 0, 0.4) -5px -5px, rgba(0, 0, 0, 0.2) -10px -10px, rgba(0, 0, 0, 0.1) -15px -15px;
-    }
-
-    iframe {
-        box-shadow: rgba(206, 137, 70, 0.4) 5px 5px, rgba(206, 137, 70, 0.2) 10px 10px, rgba(206, 137, 70, 0.1) 15px 15px;
-    }
-}
-
-[data-jersey*='Dynamo'] {
-    .body {
-        box-shadow: rgba(0, 51, 160, 0.4) -5px -5px, rgba(0, 51, 160, 0.2) -10px -10px, rgba(0, 51, 160, 0.1) -15px -15px;
-    }
-}
-
-[data-jersey='Screagle'] {
-    .body {
-        box-shadow: rgba(6, 45, 96, 0.4) -5px -5px, rgba(6, 45, 96, 0.2) -10px -10px, rgba(6, 45, 96, 0.1) -15px -15px;
-    }
-}
-
-[data-jersey*='Reverse Retro'] {
-    .body {
-        box-shadow: rgba(0, 0, 0, 0.4) -5px -5px, rgba(0, 0, 0, 0.2) -10px -10px, rgba(0, 0, 0, 0.1) -15px -15px;
-    }
-
-    iframe {
-        box-shadow: rgba(200, 16, 46, 0.4) 5px 5px, rgba(200, 16, 46, 0.2) 10px 10px, rgba(200, 16, 46, 0.1) 15px 15px;
-    }
-}
-
-[data-jersey*='Navy'] {
-    .body {
-        box-shadow: rgba(6, 45, 96, 0.4) -5px -5px, rgba(6, 45, 96, 0.2) -10px -10px, rgba(6, 45, 96, 0.1) -15px -15px;
-    }
-
-    iframe {
-        box-shadow: rgba(255, 255, 255, 0.6) 5px 5px, rgba(255, 255, 255, 0.4) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px;
     }
 }
 
@@ -541,5 +494,11 @@ input {
     &[type='text'] {
         height: auto;
         width: 100%;
+    }
+}
+
+label {
+    &[for='season'] {
+        min-width: 95px;
     }
 }

@@ -209,14 +209,12 @@ function SearchForm({jsonData}) {
                     search.toLowerCase().includes(searchText1) &&
                     search.toLowerCase().includes(searchText2) &&
                     search.toLowerCase().includes(searchText3) &&
-                    search.toLowerCase().includes(season.replace('All', '').toLowerCase())
+                    search.toLowerCase().includes(season.replace('All Goals', '').toLowerCase())
                 );
             });
 
             if (results.length > 500) {
-                const confirmAlert = window.confirm(
-                    `This search loads 500+ results. Proceed?`
-                );
+                const confirmAlert = window.confirm('This search loads 500+ results. Continue?');
                 if (!confirmAlert) {
                     return;
                 }
@@ -264,29 +262,37 @@ function SearchForm({jsonData}) {
             <div className="align-items-start d-flex flex-column flex-lg-row justify-content-center">
                 <div id="remote">
                     <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
-                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-4">
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
                             <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
                             <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
-                                <label className="h5 mb-3 mb-sm-0 me-sm-2" htmlFor="search-text-1">Search by Text</label>
-                                <select className="form-select w-auto" id="season" name="Season">
-                                    <option value="All" selected>All</option>
-                                    <option value="NHL Regular">NHL Regular</option>
-                                    <option value="NHL Playoff">NHL Playoff</option>
-                                    <option value="KHL">KHL</option>
-                                    <option value="Olympic">Olympic</option>
-                                    <option value="World Championship">World Championship</option>
-                                    <option value="World Cup">World Cup</option>
-                                </select>
+                                <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
                             </div>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-3">Search by Text</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
+                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                    <label className="h6 m-0" htmlFor="season">Search Filter</label>
+                                    <select className="form-select w-auto" id="season" name="Season">
+                                        <option value="" selected>All</option>
+                                        <option value="NHL Regular">NHL Regular</option>
+                                        <option value="NHL Playoff">NHL Playoff</option>
+                                        <option value="All Star">All Star</option>
+                                        <option value="KHL">KHL</option>
+                                        <option value="Olympic">Olympic</option>
+                                        <option value="World Championship">World Championship</option>
+                                        <option value="World Cup">World Cup</option>
+                                    </select>
+                                </div>
+                                <div className="text-sm-end">
+                                    <button onClick={searchSubmit} type="submit">Search</button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="align-items-center d-flex flex-column flex-sm-row-reverse justify-content-between mb-4">
-                            <button onClick={searchSubmit} type="submit">Search</button>
+                        <div className="align-items-center d-flex flex-column mb-5">
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
@@ -391,7 +397,7 @@ function SearchForm({jsonData}) {
                                         <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
                                         <strong className="position-absolute type">{result.type}</strong>
                                     </div>
-                                    <strong className="bottom-0 end-0 indexer p-1 position-absolute">{index + 1}</strong>
+                                    <strong className="bottom-0 indexer p-1 position-absolute start-0">{index + 1}</strong>
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     <div>
@@ -401,7 +407,7 @@ function SearchForm({jsonData}) {
                                                 title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
                                         <div className="d-flex flex-column">
                                             <small>{result.primary} {result.secondary} {result.btn1} {result.btn2} {result.btn3} {result.search}</small>
-                                            <small className="link"><strong>ovechkin.app/?{result.goal}</strong></small>
+                                            <small className="link user-select-all"><strong>ovechkin.app/?{result.goal}</strong></small>
                                         </div>
                                     </div>
                                 </Accordion.Body>

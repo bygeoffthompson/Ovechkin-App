@@ -14,9 +14,8 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="stylesheet" href="/style.css">
   </head>
-  <body class="overflow-x-hidden" id="bg-ice">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="ice" id="cracked-ice"></div>
+  <body class="overflow-x-hidden user-select-none">
+    <noscript>You need to enable JavaScript to run Ovechkin App.</noscript>
     <div class="ice"></div>
     <div id="window">
         <header class="my-4 text-center">
@@ -24,27 +23,37 @@
                 <h1 class="mb-2"><a href="/">Ovechkin App</a></h1>
                 <p><strong><i>Relive Every Red Light</i></strong></p>
             </hgroup>
-            <div class="align-items-center d-flex gap-1 justify-content-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-                </svg>
-                <small><strong>NHL</strong></small>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-                </svg>
-                <small><strong>Playoffs</strong></small>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-                </svg>
-                <small><strong>IIHF</strong></small>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-                </svg>
-                <small><strong>KHL</strong></small>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-                </svg>
-                <small><strong>World Cup</strong></small>
+            <div class="align-items-center d-flex flex-column flex-sm-row justify-content-center mb-3">
+                <div class="m-0 w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg>
+                    <small><strong>NHL</strong></small>
+                </div>
+                <div class="m-0 w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg>
+                    <small><strong>Playoffs</strong></small>
+                </div>
+                <div class="m-0 w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg>
+                    <small><strong>KHL</strong></small>
+                </div>
+                <div class="m-0 w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg>
+                    <small><strong>World&nbsp;Championship</strong></small>
+                </div>
+                <div class="m-0 w-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#C81020" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg>
+                    <small><strong>World&nbsp;Cup</strong></small>
+                </div>
             </div>
         </header>
         <main>
