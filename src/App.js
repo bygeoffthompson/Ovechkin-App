@@ -150,14 +150,6 @@ function SearchForm({jsonData}) {
         submitForm()
     }
 
-    function randomGoal(match) {
-        resultsHide();
-        const result = jsonData;
-        const goal = Object.values(result[random(1, Object.keys(result).length)]);
-        setSearchGoal(goal[0]);
-        submitForm()
-    }
-
     const reset = () => {
         resultsHide()
         setSearchGoal('')
@@ -169,6 +161,14 @@ function SearchForm({jsonData}) {
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
+    }
+
+    function shuffle(match) {
+        resultsHide();
+        const result = jsonData;
+        const goal = Object.values(result[random(1, Object.keys(result).length)]);
+        setSearchGoal(goal[0]);
+        submitForm()
     }
 
     function submitForm() {
@@ -271,10 +271,10 @@ function SearchForm({jsonData}) {
                 <div id="remote">
                     <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
                         <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
-                            <label className="h5 m-0" htmlFor="search-goal">Search by Number</label>
+                            <label htmlFor="search-goal"><h2 className="h5 m-0">Search by Number</h2></label>
                             <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
-                                <label className="h5 m-0" htmlFor="search-text-1">Search by Text</label>
+                                <label htmlFor="search-text-1"><h2 className="h5 m-0">Search by Text</h2></label>
                             </div>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-3">Search by Text</label>
@@ -304,8 +304,11 @@ function SearchForm({jsonData}) {
                         <div className="align-items-center d-flex flex-column mb-5">
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
                         </div>
+                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-between gap-3">
+                            <h2 className="h5 m-0">or Randomize</h2>
+                            <button onClick={(event) => shuffle()} title="Shuffle" type="button">Shuffle</button>
+                        </div>
                         <div className="align-items-center d-flex flex-column mb-3">
-                            <button onClick={(event) => randomGoal()} title="Random" type="button">Random</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
                             <div className="d-flex flex-column gap-3 league-buttons">

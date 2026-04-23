@@ -232,6 +232,10 @@ form button {
         width: 100px;
     }
 
+    @media (min-width: 768px) {
+        width: 105px;
+    }
+
   &:hover,
   &:active {
     background: #C81020;
@@ -293,9 +297,10 @@ form button {
         background: #111;
     }
 
-    &[title='Random'] {
+    &[title='Shuffle'] {
         font-size: 1rem;
         padding: .75rem 1rem;
+        width: 105px !important;
     }
 
     &[title='Red Reverse Retro'] {
@@ -334,10 +339,6 @@ form button {
             color: #111 !important;
             text-decoration: underline;
         }
-    }
-
-    &[title='Random Goal'] {
-        width: 100px;
     }
 }
 
@@ -408,7 +409,6 @@ form button {
 
 form {
   background: rgb(207, 226, 255, .5);
-  border-radius: 1rem;
   max-width: 500px;
   width: 100%;
 
