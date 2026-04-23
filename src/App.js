@@ -150,6 +150,14 @@ function SearchForm({jsonData}) {
         submitForm()
     }
 
+    function randomGoal(match) {
+        resultsHide();
+        const result = jsonData;
+        const goal = Object.values(result[random(1, Object.keys(result).length)]);
+        setSearchGoal(goal[0]);
+        submitForm()
+    }
+
     const reset = () => {
         resultsHide()
         setSearchGoal('')
@@ -289,12 +297,15 @@ function SearchForm({jsonData}) {
                                     </select>
                                 </div>
                                 <div className="text-sm-end">
-                                    <button onClick={searchSubmit} type="submit">Search</button>
+                                    <button onClick={searchSubmit} title="Search" type="submit">Search</button>
                                 </div>
                             </div>
                         </div>
                         <div className="align-items-center d-flex flex-column mb-5">
                             <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                        </div>
+                        <div className="align-items-center d-flex flex-column mb-3">
+                            <button onClick={(event) => randomGoal()} title="Random" type="button">Random</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
                             <div className="d-flex flex-column gap-3 league-buttons">
