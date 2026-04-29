@@ -66,7 +66,7 @@ function SearchForm({jsonData}) {
     }
 
     function cupRun() {
-        const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoff')
+        const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
         const random = Math.floor(Math.random() * cupRun.length)
         setSearchGoal(cupRun[random].goal)
         submitForm()
@@ -315,7 +315,7 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />NHL
                                 </button>
-                                <button onClick={(event) => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
+                                <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />Playoffs
                                 </button>
                                 <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
@@ -325,10 +325,10 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
                                     <img alt="KHL logo" src="/teams/KHL.svg" />KHL
                                 </button>
-                                <button onClick={(event) => filterGoal(['Olympic'])} title="Olympic" type="button">
+                                <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">
                                     <img alt="Olympics logo" src="/icons/Olympics.svg" />Olympics
                                 </button>
-                                <button onClick={(event) => filterGoal(['World Championship'])} title="World Championship" type="button">
+                                <button onClick={(event) => filterGoal(['World Championships'])} title="World Championship" type="button">
                                     <img alt="Trophy logo" src="/icons/Trophy.svg" />Worlds
                                 </button>
                                 <button onClick={worldCup} title="World Cup" type="button">

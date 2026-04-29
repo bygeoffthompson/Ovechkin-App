@@ -149,7 +149,7 @@ body {
     content: 'All Star';
 }
 
-[data-season='World Championship'] {
+[data-season='World Championships'] {
     .goal-count:before {
         content: 'Worlds';
     }
@@ -173,7 +173,7 @@ body {
     }
 }
 
-[data-season='Olympic'] {
+[data-season='Olympics'] {
     .goal-count:before {
         content: 'Olympic';
     }
@@ -183,7 +183,7 @@ body {
     }
 }
 
-[data-season='NHL Playoff'] .goal-count {
+[data-season='NHL Playoffs'] .goal-count {
     color: #C28E4D;
 
     &:before {
