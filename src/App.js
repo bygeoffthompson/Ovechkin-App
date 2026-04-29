@@ -163,14 +163,6 @@ function SearchForm({jsonData}) {
         setSearchText3('')
     }
 
-    function shuffle(match) {
-        resultsHide();
-        const result = jsonData;
-        const goal = Object.values(result[random(1, Object.keys(result).length)]);
-        setSearchGoal(goal[0]);
-        submitForm()
-    }
-
     function submitForm() {
         setTimeout(() => {
             document.querySelector('button[type="submit"]').click()
