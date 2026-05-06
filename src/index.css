@@ -47,6 +47,10 @@ body {
     }
 }
 
+.goalie {
+  color: #F34133;
+}
+
 .indexer {
     opacity: .1;
 }

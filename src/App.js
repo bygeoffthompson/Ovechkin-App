@@ -213,8 +213,8 @@ function SearchForm({jsonData}) {
                 );
             });
 
-            if (results.length > 500) {
-                const confirmAlert = window.confirm('This search loads 500+ results. Continue?');
+            if (results.length > 200) {
+                const confirmAlert = window.confirm('This search loads ' + results.length + ' results. Continue?');
                 if (!confirmAlert) {
                     return;
                 }
@@ -398,7 +398,7 @@ function SearchForm({jsonData}) {
                                         </strong>
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
                                         <strong className="d-none d-sm-block">{result.month}/{result.day}/{result.year}</strong>
-                                        <strong>{result.goalie}</strong>
+                                        <strong className="goalie">{result.goalie}</strong>
                                     </div>
                                     <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
                                         <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
