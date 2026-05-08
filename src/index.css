@@ -251,9 +251,9 @@ form button {
 
   &[disabled] {
     background: initial;
-    box-shadow: 0 .5rem 1rem rgba(41,41,41,.25);
-    color: initial;
-    opacity: .25;
+    box-shadow: none !important;
+    color: initial !important;
+    opacity: .3;
     transform: none;
   }
 
