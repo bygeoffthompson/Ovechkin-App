@@ -5,12 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 ReactGA.initialize('G-K4X7EL6PW3')
 
-ReactGA.send({
-    hitType: "pageview",
-    page: "www.ovechkin.app",
-    title: "Ovechkin App"
-});
-
 const totalGoals = 929
 
 function SearchForm({jsonData}) {
@@ -181,6 +175,13 @@ function SearchForm({jsonData}) {
         const textInput1 = document.querySelector('#search-text-1').value
         const textInput2 = document.querySelector('#search-text-2').value
         const textInput3 = document.querySelector('#search-text-3').value
+        const searchString = textInput1 + ' ' + textInput2 + ' ' + textInput3
+
+        ReactGA.event({
+            category: 'Search',
+            action: 'Form Submitted',
+            label: searchString
+        });
 
         if (goalInput.length > 0) {
             if (searchGoal) {
