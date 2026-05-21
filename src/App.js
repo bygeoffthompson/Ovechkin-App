@@ -34,7 +34,7 @@ function SearchForm({jsonData}) {
             setSearchText3('')
             ReactGA.event({
                 category: 'Search',
-                action: 'URL Query Parameter',
+                action: 'Form Submitted',
                 label: query.split('&', 1)
             });
         } else {
