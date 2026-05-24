@@ -182,11 +182,13 @@ function SearchForm({jsonData}) {
         const textInput3 = document.querySelector('#search-text-3').value
         const searchString = textInput1 + ' ' + textInput2 + ' ' + textInput3
 
-        ReactGA.event({
-            category: 'Search',
-            action: 'Form Submitted',
-            label: searchString
-        });
+        if (searchString !== '  ') {
+            ReactGA.event({
+                category: 'Search',
+                action: 'Form Submitted',
+                label: searchString
+            });
+        }
 
         if (goalInput.length > 0) {
             if (searchGoal) {
