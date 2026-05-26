@@ -32,11 +32,6 @@ function SearchForm({jsonData}) {
             setSearchText1(query.split('&', 1))
             setSearchText2('')
             setSearchText3('')
-            ReactGA.event({
-                category: 'Search',
-                action: 'Form Submitted',
-                label: query.split('&', 1)
-            });
         } else {
             shuffle()
         }
@@ -182,14 +177,6 @@ function SearchForm({jsonData}) {
         const textInput3 = document.querySelector('#search-text-3').value
         const searchString = textInput1 + ' ' + textInput2 + ' ' + textInput3
 
-        if (searchString !== '  ') {
-            ReactGA.event({
-                category: 'Search',
-                action: 'Form Submitted',
-                label: searchString
-            });
-        }
-
         if (goalInput.length > 0) {
             if (searchGoal) {
                 resultsHide();
@@ -199,6 +186,11 @@ function SearchForm({jsonData}) {
             }
 
         } else if (textInput1.length > 0 || textInput2.length > 0 || textInput3.length > 0) {
+            ReactGA.event({
+                category: 'Search',
+                action: 'Form Submitted',
+                label: searchString
+            });
             const results = jsonData.filter((item) => {
                 const search =
                     item.season + ' ' +
