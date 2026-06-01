@@ -263,47 +263,11 @@ function SearchForm({jsonData}) {
             <div className="align-items-start d-flex flex-column flex-lg-row justify-content-center">
                 <div id="remote">
                     <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
-                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
-                            <label htmlFor="search-goal"><h2 className="h5 m-0">Search by Number</h2></label>
-                            <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
-                                <label htmlFor="search-text-1"><h2 className="h5 m-0">Search by Text</h2></label>
-                            </div>
-                            <label className="d-none" htmlFor="search-text-2">Search by Text</label>
-                            <label className="d-none" htmlFor="search-text-3">Search by Text</label>
-                            <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
-                            <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
-                            <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
-                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                    <label className="h6 m-0" htmlFor="season">Search Filter</label>
-                                    <select className="form-select w-auto" id="season" name="Season">
-                                        <option value="" selected>All</option>
-                                        <option className="fw-bold" value="NHL">NHL</option>
-                                        <option value="NHL Regular">&nbsp;&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoffs">&nbsp;&nbsp;NHL Playoff</option>
-                                        <option value="NHL All Star">&nbsp;&nbsp;NHL All Star</option>
-                                        <option value="KHL">KHL</option>
-                                        <option value="Olympics">Olympic</option>
-                                        <option value="World Championships">World Championship</option>
-                                        <option value="World Cup">World Cup</option>
-                                    </select>
-                                </div>
-                                <div className="text-sm-end">
-                                    <button onClick={searchSubmit} title="Search" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="align-items-center d-flex flex-column mb-5">
-                            <button onClick={reset} title="Reset Filters" type="button">Reset</button>
-                        </div>
-                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-between gap-3">
-                            <h2 className="h5 m-0">or Randomize</h2>
+                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-between gap-3 mb-4">
+                            <h2 className="h5 m-0">Goal Randomizer</h2>
                             <button onClick={(event) => shuffle()} title="Shuffle" type="button">Shuffle</button>
                         </div>
-                        <div className="align-items-center d-flex flex-column mb-3">
-                        </div>
-                        <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-3">
+                        <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-5">
                             <div className="d-flex flex-column gap-3 league-buttons">
                                 <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />NHL
@@ -380,6 +344,40 @@ function SearchForm({jsonData}) {
                                 <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                             </div>
                         </div>
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
+                            <label htmlFor="search-goal"><h2 className="h5 m-0">Goal by Number</h2></label>
+                            <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
+                                <label htmlFor="search-text-1"><h2 className="h5 m-0">Search Goals by Text</h2></label>
+                            </div>
+                            <label className="d-none" htmlFor="search-text-2">Search by Text</label>
+                            <label className="d-none" htmlFor="search-text-3">Search by Text</label>
+                            <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
+                            <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
+                            <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
+                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                    <label className="h6 m-0" htmlFor="season">Search Filter</label>
+                                    <select className="form-select w-auto" id="season" name="Season">
+                                        <option value="" selected>All</option>
+                                        <option className="fw-bold" value="NHL">NHL</option>
+                                        <option value="NHL Regular">&nbsp;&nbsp;NHL Regular</option>
+                                        <option value="NHL Playoffs">&nbsp;&nbsp;NHL Playoff</option>
+                                        <option value="NHL All Star">&nbsp;&nbsp;NHL All Star</option>
+                                        <option value="KHL">KHL</option>
+                                        <option value="Olympics">Olympic</option>
+                                        <option value="World Championships">World Championship</option>
+                                        <option value="World Cup">World Cup</option>
+                                    </select>
+                                </div>
+                                <div className="text-sm-end">
+                                    <button onClick={searchSubmit} title="Search" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="align-items-center d-flex flex-column">
+                            <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                        </div>
                     </form>
                 </div>
 
@@ -387,7 +385,6 @@ function SearchForm({jsonData}) {
                     <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
                         <strong id="count"></strong>
                     </div>
-
                     <Accordion defaultActiveKey="0" flush>
                         {searchResults.map((result, index) => (
                             <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
