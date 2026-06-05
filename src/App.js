@@ -361,9 +361,9 @@ function SearchForm({jsonData}) {
                                     <select className="form-select w-auto" id="season" name="Season">
                                         <option value="" selected>All</option>
                                         <option className="fw-bold" value="NHL">NHL</option>
-                                        <option value="NHL Regular">&nbsp;&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoffs">&nbsp;&nbsp;NHL Playoff</option>
-                                        <option value="NHL All Star">&nbsp;&nbsp;NHL All Star</option>
+                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                        <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
+                                        <option value="NHL All Star">•&nbsp;NHL All Star</option>
                                         <option value="KHL">KHL</option>
                                         <option value="Olympics">Olympic</option>
                                         <option value="World Championships">World Championship</option>
