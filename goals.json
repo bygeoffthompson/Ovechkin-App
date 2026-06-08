@@ -11568,7 +11568,7 @@
     },
     {
         "goal": 558.42,
-        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=2184",
+        "link": "/Jtruh7lqK3o?si=T0EmiYztL6Omx_cL",
         "team": "Toronto Maple Leafs",
         "goalie": "Frederik Andersen",
         "primary": "TJ Oshie",
@@ -11586,7 +11586,7 @@
     },
     {
         "goal": 558.43,
-        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=2237",
+        "link": "/h0CSmXI8cUw?si=7QxV1q4zPzcG0VcR",
         "team": "Toronto Maple Leafs",
         "goalie": "Frederik Andersen",
         "primary": "Nicklas Backstrom",
@@ -11595,6 +11595,7 @@
         "day": 17,
         "year": 2017,
         "search": "Quarterfinals Game 3",
+        "btn1": "Slapshot",
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
@@ -11603,7 +11604,7 @@
     },
     {
         "goal": 558.44,
-        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=2285",
+        "link": "/vFxqZ3cEFiM?si=ThQpwvdWrfZA5nmp",
         "team": "Toronto Maple Leafs",
         "goalie": "Frederik Andersen",
         "primary": "Kevin Shattenkirk",
@@ -11613,6 +11614,7 @@
         "type": "PPG",
         "search": "Quarterfinals Game 4",
         "btn1": "Post",
+        "btn2": "Slapshot",
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
