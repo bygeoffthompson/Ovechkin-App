@@ -215,7 +215,7 @@ function SearchForm({jsonData}) {
             });
 
             if (results.length > 200) {
-                const confirmAlert = window.confirm('This search loads ' + results.length + ' results. Continue?');
+                const confirmAlert = window.confirm('This search loads ' + results.length + ' goals. Continue?');
                 if (!confirmAlert) {
                     return;
                 }
