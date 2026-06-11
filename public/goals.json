@@ -2024,7 +2024,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2042,7 +2042,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -2059,7 +2059,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2074,7 +2074,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -2090,7 +2090,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -2108,7 +2108,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -2124,7 +2124,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -2142,7 +2142,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -2158,7 +2158,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -2174,7 +2174,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -2190,7 +2190,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2207,7 +2207,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -2223,7 +2223,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -2240,7 +2240,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -2257,7 +2257,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2274,7 +2274,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2289,7 +2289,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2305,7 +2305,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -2322,7 +2322,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -2341,7 +2341,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2359,7 +2359,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2375,7 +2375,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -2392,7 +2392,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -2409,7 +2409,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -2426,7 +2426,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2441,7 +2441,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -2458,7 +2458,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2475,7 +2475,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2493,7 +2493,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2509,7 +2509,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2525,7 +2525,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2541,7 +2541,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -2557,7 +2557,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -2575,7 +2575,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -2591,7 +2591,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -2609,7 +2609,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2626,7 +2626,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -2643,7 +2643,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -2659,7 +2659,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -2708,7 +2708,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2726,7 +2726,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2745,7 +2745,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2764,7 +2764,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2779,7 +2779,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -2798,7 +2798,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -2815,7 +2815,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -2832,7 +2832,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -2848,7 +2848,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -2863,7 +2863,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -2880,7 +2880,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2898,7 +2898,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2917,7 +2917,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -2934,7 +2934,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -2951,7 +2951,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -2968,7 +2968,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -2987,7 +2987,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -3004,7 +3004,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3019,7 +3019,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3035,7 +3035,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -3053,7 +3053,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -3069,7 +3069,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3086,7 +3086,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -3106,7 +3106,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -3122,7 +3122,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3141,7 +3141,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3157,7 +3157,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3174,7 +3174,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -3192,7 +3192,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -3209,7 +3209,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -3323,7 +3323,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -3341,7 +3341,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -3358,7 +3358,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -3374,7 +3374,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -3391,7 +3391,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3407,7 +3407,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -3425,7 +3425,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -3442,7 +3442,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -3458,7 +3458,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -3475,7 +3475,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -3493,7 +3493,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -3512,7 +3512,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -3528,7 +3528,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3545,7 +3545,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3562,7 +3562,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -3579,7 +3579,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3597,7 +3597,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3613,7 +3613,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3631,7 +3631,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3650,7 +3650,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3666,7 +3666,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3681,7 +3681,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -3698,7 +3698,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -3715,7 +3715,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -3732,7 +3732,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -3748,7 +3748,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3765,7 +3765,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -3782,7 +3782,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -3798,7 +3798,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -3817,7 +3817,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -3837,7 +3837,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -3868,7 +3868,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -3886,7 +3886,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -3904,7 +3904,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -3922,7 +3922,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -3940,7 +3940,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -3955,7 +3955,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -3972,7 +3972,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -3990,7 +3990,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -4008,7 +4008,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -4027,7 +4027,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -4042,7 +4042,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -4059,7 +4059,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -4073,7 +4073,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -4090,7 +4090,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4107,7 +4107,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -4125,7 +4125,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -4141,7 +4141,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4158,7 +4158,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4176,7 +4176,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4194,7 +4194,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -4213,7 +4213,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4229,7 +4229,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4246,7 +4246,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -4263,7 +4263,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4280,7 +4280,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4297,7 +4297,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -4314,7 +4314,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4333,7 +4333,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -4352,7 +4352,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4369,7 +4369,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -4388,7 +4388,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -4409,7 +4409,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -4425,7 +4425,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -4441,7 +4441,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4459,7 +4459,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4474,7 +4474,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -4492,7 +4492,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4510,7 +4510,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4527,7 +4527,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4544,7 +4544,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -4561,7 +4561,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -4578,7 +4578,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -4595,7 +4595,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -4612,7 +4612,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4629,7 +4629,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4645,7 +4645,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -4663,7 +4663,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -4680,7 +4680,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4696,7 +4696,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -4713,7 +4713,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4730,7 +4730,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -4746,7 +4746,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4763,7 +4763,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -4780,7 +4780,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4796,7 +4796,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -4815,7 +4815,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -4832,7 +4832,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4848,7 +4848,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4864,7 +4864,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -4883,7 +4883,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -4899,7 +4899,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -4914,7 +4914,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -4932,7 +4932,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -4947,7 +4947,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -4963,7 +4963,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -4980,7 +4980,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -4998,7 +4998,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5013,7 +5013,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5030,7 +5030,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5047,7 +5047,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -5064,7 +5064,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5080,7 +5080,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -5096,7 +5096,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5113,7 +5113,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5131,7 +5131,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -5148,7 +5148,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5166,7 +5166,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5185,7 +5185,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5234,7 +5234,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -5251,7 +5251,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -5267,7 +5267,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5284,7 +5284,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5301,7 +5301,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -5317,7 +5317,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -5332,7 +5332,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -5351,7 +5351,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -5368,7 +5368,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5385,7 +5385,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -5403,7 +5403,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -5420,7 +5420,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -5437,7 +5437,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -5529,7 +5529,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5546,7 +5546,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5565,7 +5565,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -5580,7 +5580,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -5596,7 +5596,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5615,7 +5615,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5634,7 +5634,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5651,7 +5651,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -5667,7 +5667,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -5683,7 +5683,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -5699,7 +5699,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5716,7 +5716,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -5733,7 +5733,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -5749,7 +5749,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -5766,7 +5766,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5782,7 +5782,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -5798,7 +5798,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5816,7 +5816,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5834,7 +5834,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -5869,7 +5869,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -5883,7 +5883,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -5899,7 +5899,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -5916,7 +5916,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -5934,7 +5934,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -5952,7 +5952,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -5970,7 +5970,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -5987,7 +5987,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -6004,7 +6004,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6020,7 +6020,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -6039,7 +6039,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -6059,7 +6059,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -6077,7 +6077,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -6094,7 +6094,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -6112,7 +6112,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -6130,7 +6130,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -6148,7 +6148,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -6167,7 +6167,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -6184,7 +6184,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -6200,7 +6200,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -6218,7 +6218,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -6234,7 +6234,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -6252,7 +6252,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -6269,7 +6269,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -6285,7 +6285,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -6303,7 +6303,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6321,7 +6321,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -6339,7 +6339,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -6356,7 +6356,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -6374,7 +6374,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -6390,7 +6390,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6407,7 +6407,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6423,7 +6423,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -6443,7 +6443,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -6462,7 +6462,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -6480,7 +6480,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6532,7 +6532,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -6548,7 +6548,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -6565,7 +6565,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -6583,7 +6583,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -6599,7 +6599,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6615,7 +6615,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -6633,7 +6633,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -6649,7 +6649,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -6666,7 +6666,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -6751,7 +6751,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6768,7 +6768,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -6784,7 +6784,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -6800,7 +6800,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -6834,7 +6834,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -6850,7 +6850,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -6867,7 +6867,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -6883,7 +6883,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -6901,7 +6901,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -7277,7 +7277,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -7294,7 +7294,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -7311,7 +7311,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -7329,7 +7329,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -7346,7 +7346,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -7362,7 +7362,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7380,7 +7380,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7399,7 +7399,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7416,7 +7416,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7433,7 +7433,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -7450,7 +7450,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -7554,7 +7554,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -7571,7 +7571,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -7588,7 +7588,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -7607,7 +7607,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -7624,7 +7624,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -7643,7 +7643,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -7664,7 +7664,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -7681,7 +7681,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -7697,7 +7697,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -7713,7 +7713,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -7729,7 +7729,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7748,7 +7748,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -7802,7 +7802,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -7820,7 +7820,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7838,7 +7838,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7871,7 +7871,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -7889,7 +7889,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7908,7 +7908,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7925,7 +7925,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7943,7 +7943,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -7961,7 +7961,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -7978,7 +7978,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -7994,7 +7994,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -8010,7 +8010,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -8027,7 +8027,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -8043,7 +8043,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8062,7 +8062,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8080,7 +8080,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -8098,7 +8098,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8116,7 +8116,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -8133,7 +8133,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -8152,7 +8152,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -8169,7 +8169,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -8187,7 +8187,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -8203,7 +8203,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -8221,7 +8221,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -8239,7 +8239,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -8254,7 +8254,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8273,7 +8273,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8293,7 +8293,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8312,7 +8312,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8329,7 +8329,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -8382,7 +8382,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -8399,7 +8399,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -8415,7 +8415,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -8431,7 +8431,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8544,7 +8544,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -8563,7 +8563,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -8596,7 +8596,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -8668,7 +8668,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -8688,7 +8688,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -8705,7 +8705,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8723,7 +8723,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8739,7 +8739,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -8758,7 +8758,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -8777,7 +8777,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -8862,7 +8862,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -8879,7 +8879,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -8895,7 +8895,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8913,7 +8913,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8930,7 +8930,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -8948,7 +8948,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -8967,7 +8967,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -8985,7 +8985,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -9003,7 +9003,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9059,7 +9059,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -9076,7 +9076,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9092,7 +9092,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9108,7 +9108,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -9177,7 +9177,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9192,7 +9192,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -9211,7 +9211,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9230,7 +9230,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -9247,7 +9247,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -9266,7 +9266,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -9281,7 +9281,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -9297,7 +9297,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -9315,7 +9315,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -9333,7 +9333,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -9351,7 +9351,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -9370,7 +9370,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9387,7 +9387,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9405,7 +9405,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9422,7 +9422,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9507,7 +9507,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -9525,7 +9525,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -9544,7 +9544,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9562,7 +9562,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -9579,7 +9579,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9599,7 +9599,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9617,7 +9617,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -9634,7 +9634,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -9651,7 +9651,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9668,7 +9668,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9719,7 +9719,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -9790,7 +9790,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -9890,7 +9890,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -9906,7 +9906,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -9920,7 +9920,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -9938,7 +9938,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9955,7 +9955,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -9970,7 +9970,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -9986,7 +9986,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -10004,7 +10004,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10020,7 +10020,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -10036,7 +10036,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10053,7 +10053,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -10071,7 +10071,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -10089,7 +10089,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -10106,7 +10106,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10123,7 +10123,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -10141,7 +10141,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -10160,7 +10160,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -10177,7 +10177,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -10225,7 +10225,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10242,7 +10242,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10257,7 +10257,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10275,7 +10275,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10293,7 +10293,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -10310,7 +10310,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -10345,7 +10345,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -10398,7 +10398,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -10415,7 +10415,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10433,7 +10433,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10451,7 +10451,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10468,7 +10468,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10484,7 +10484,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10503,7 +10503,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10519,7 +10519,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10535,7 +10535,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -10554,7 +10554,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -10570,7 +10570,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -10605,7 +10605,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -10622,7 +10622,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -10640,7 +10640,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -10656,7 +10656,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -10673,7 +10673,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -10689,7 +10689,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10706,7 +10706,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10726,7 +10726,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -10744,7 +10744,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10761,7 +10761,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -10781,7 +10781,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -10798,7 +10798,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -10818,7 +10818,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10851,7 +10851,7 @@
         "btn1": "Post",
         "season": "World Cup",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -10870,7 +10870,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -10887,7 +10887,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -10903,7 +10903,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10919,7 +10919,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -10973,7 +10973,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -10988,7 +10988,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11006,7 +11006,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -11023,7 +11023,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11040,7 +11040,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11057,7 +11057,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11076,7 +11076,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -11093,7 +11093,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -11128,7 +11128,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11145,7 +11145,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11163,7 +11163,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -11181,7 +11181,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -11199,7 +11199,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11217,7 +11217,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11235,7 +11235,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11250,7 +11250,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -11282,7 +11282,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11299,7 +11299,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11317,7 +11317,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -11334,7 +11334,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -11350,7 +11350,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -11367,7 +11367,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -11386,7 +11386,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11404,7 +11404,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11422,7 +11422,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11442,7 +11442,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11460,7 +11460,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11478,7 +11478,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -11497,7 +11497,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -11514,7 +11514,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -11531,7 +11531,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11547,7 +11547,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -11565,7 +11565,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -11584,7 +11584,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -11602,7 +11602,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11621,7 +11621,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11641,7 +11641,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11660,7 +11660,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11677,7 +11677,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11696,7 +11696,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -11716,7 +11716,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -11732,7 +11732,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11750,7 +11750,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -11766,7 +11766,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11784,7 +11784,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11801,7 +11801,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -11816,7 +11816,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11834,7 +11834,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11853,7 +11853,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -11871,7 +11871,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11888,7 +11888,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -11905,7 +11905,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -11921,7 +11921,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -11939,7 +11939,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -11957,7 +11957,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -11973,7 +11973,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -11991,7 +11991,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -12009,7 +12009,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12025,7 +12025,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -12043,7 +12043,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12061,7 +12061,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12090,7 +12090,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -12107,7 +12107,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -12124,7 +12124,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12139,7 +12139,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12156,7 +12156,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -12171,7 +12171,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -12188,7 +12188,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -12205,7 +12205,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -12221,7 +12221,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12257,7 +12257,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -12275,7 +12275,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -12293,7 +12293,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -12332,7 +12332,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12349,7 +12349,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12366,7 +12366,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -12382,7 +12382,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -12398,7 +12398,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -12416,7 +12416,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12435,7 +12435,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12452,7 +12452,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12470,7 +12470,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12490,7 +12490,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12507,7 +12507,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -12522,7 +12522,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -12540,7 +12540,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -12558,7 +12558,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -12575,7 +12575,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -12593,7 +12593,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -12612,7 +12612,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -12630,7 +12630,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -12648,7 +12648,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -12666,7 +12666,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12685,7 +12685,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12702,7 +12702,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12719,7 +12719,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12736,7 +12736,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12754,7 +12754,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12773,7 +12773,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12791,7 +12791,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12810,7 +12810,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12826,7 +12826,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12843,7 +12843,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -12860,7 +12860,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -12877,7 +12877,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -12894,7 +12894,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -12910,7 +12910,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12928,7 +12928,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -12945,7 +12945,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -12962,7 +12962,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -12980,7 +12980,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -13012,7 +13012,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -13028,7 +13028,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13044,7 +13044,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13061,7 +13061,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13078,7 +13078,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13096,7 +13096,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13112,7 +13112,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -13129,7 +13129,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -13148,7 +13148,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -13164,7 +13164,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -13181,7 +13181,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13198,7 +13198,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13213,7 +13213,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13232,7 +13232,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -13249,7 +13249,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13266,7 +13266,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13284,7 +13284,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -13300,7 +13300,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -13317,7 +13317,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -13333,7 +13333,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13350,7 +13350,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -13367,7 +13367,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -13387,7 +13387,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -13404,7 +13404,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13419,7 +13419,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13437,7 +13437,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -13454,7 +13454,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -13472,7 +13472,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13490,7 +13490,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13526,7 +13526,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13546,7 +13546,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13564,7 +13564,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -13582,7 +13582,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13600,7 +13600,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -13617,7 +13617,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -13663,7 +13663,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -13680,7 +13680,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13699,7 +13699,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13716,7 +13716,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13734,7 +13734,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -13750,7 +13750,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -13766,7 +13766,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -13782,7 +13782,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13800,7 +13800,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13817,7 +13817,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -13837,7 +13837,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -13854,7 +13854,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13871,7 +13871,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -13889,7 +13889,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -13906,7 +13906,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -13921,7 +13921,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -13940,7 +13940,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -13956,7 +13956,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13973,7 +13973,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -13990,7 +13990,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14023,7 +14023,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -14039,7 +14039,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -14056,7 +14056,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14073,7 +14073,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14092,7 +14092,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14108,7 +14108,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -14126,7 +14126,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -14196,7 +14196,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14214,7 +14214,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14232,7 +14232,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14246,7 +14246,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -14263,7 +14263,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -14280,7 +14280,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -14295,7 +14295,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14312,7 +14312,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14330,7 +14330,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14345,7 +14345,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -14364,7 +14364,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14381,7 +14381,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14401,7 +14401,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14418,7 +14418,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14435,7 +14435,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -14453,7 +14453,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -14469,7 +14469,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -14487,7 +14487,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -14506,7 +14506,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -14524,7 +14524,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -14541,7 +14541,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -14559,7 +14559,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14578,7 +14578,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -14594,7 +14594,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -14665,7 +14665,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14681,7 +14681,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14696,7 +14696,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -14713,7 +14713,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14729,7 +14729,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -14764,7 +14764,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -14782,7 +14782,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -14798,7 +14798,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -14847,7 +14847,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -14864,7 +14864,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -14901,7 +14901,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -14918,7 +14918,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -14935,7 +14935,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14954,7 +14954,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -14971,7 +14971,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -14990,7 +14990,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15008,7 +15008,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -15028,7 +15028,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -15044,7 +15044,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -15061,7 +15061,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -15075,7 +15075,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -15089,7 +15089,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -15105,7 +15105,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -15122,7 +15122,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -15138,7 +15138,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -15153,7 +15153,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -15171,7 +15171,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -15187,7 +15187,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15204,7 +15204,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15220,7 +15220,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15237,7 +15237,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -15310,7 +15310,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -15344,7 +15344,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -15361,7 +15361,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15380,7 +15380,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15398,7 +15398,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15416,7 +15416,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15449,7 +15449,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -15500,7 +15500,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -15515,7 +15515,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -15531,7 +15531,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -15548,7 +15548,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -15565,7 +15565,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -15579,7 +15579,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -15596,7 +15596,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -15612,7 +15612,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -15629,7 +15629,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -15645,7 +15645,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -15663,7 +15663,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -15678,7 +15678,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -15712,7 +15712,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -15730,7 +15730,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15764,7 +15764,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -15779,7 +15779,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15797,7 +15797,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -15814,7 +15814,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -15833,7 +15833,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -15851,7 +15851,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -15906,7 +15906,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -15922,7 +15922,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -15940,7 +15940,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -15955,7 +15955,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -15990,7 +15990,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -16005,7 +16005,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -16023,7 +16023,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -16054,7 +16054,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16072,7 +16072,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16089,7 +16089,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -16106,7 +16106,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -16139,7 +16139,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -16156,7 +16156,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16174,7 +16174,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16193,7 +16193,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16243,7 +16243,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -16347,7 +16347,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -16378,7 +16378,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16395,7 +16395,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -16426,7 +16426,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -16442,7 +16442,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16459,7 +16459,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16480,7 +16480,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -16497,7 +16497,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -16514,7 +16514,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -16532,7 +16532,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -16549,7 +16549,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -16564,7 +16564,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -16583,7 +16583,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16601,7 +16601,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -16616,7 +16616,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -16632,7 +16632,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16649,7 +16649,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16665,7 +16665,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -16685,7 +16685,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -16719,7 +16719,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -16736,7 +16736,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16769,7 +16769,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -16786,7 +16786,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16803,7 +16803,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -16820,7 +16820,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -16869,7 +16869,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -16886,7 +16886,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -16903,7 +16903,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -16921,7 +16921,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -16940,7 +16940,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -16957,7 +16957,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Secondf",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -16973,7 +16973,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -16990,7 +16990,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -17006,7 +17006,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17024,7 +17024,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17041,7 +17041,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -17057,7 +17057,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -17075,7 +17075,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -17092,7 +17092,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -17110,7 +17110,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -17127,7 +17127,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17144,7 +17144,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -17160,7 +17160,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -17177,7 +17177,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -17194,7 +17194,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -17210,7 +17210,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -17229,7 +17229,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17263,7 +17263,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17281,7 +17281,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17299,7 +17299,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17316,7 +17316,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17334,7 +17334,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17351,7 +17351,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -17371,7 +17371,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -17388,7 +17388,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17404,7 +17404,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17420,7 +17420,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -17437,7 +17437,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -17452,7 +17452,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17470,7 +17470,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Overtime",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -17487,7 +17487,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -17505,7 +17505,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -17539,7 +17539,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -17555,7 +17555,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -17572,7 +17572,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17589,7 +17589,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17605,7 +17605,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17623,7 +17623,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -17638,7 +17638,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Saturday"
     },
     {
@@ -17655,7 +17655,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -17674,7 +17674,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17691,7 +17691,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -17707,7 +17707,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Thursday"
     },
     {
@@ -17724,7 +17724,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -17742,7 +17742,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Sunday"
     },
     {
@@ -17760,7 +17760,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -17779,7 +17779,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -17797,7 +17797,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -17816,7 +17816,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Friday"
     },
     {
@@ -17834,7 +17834,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -17867,7 +17867,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -17885,7 +17885,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -17904,7 +17904,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "Overtime",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -17921,7 +17921,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -17938,7 +17938,7 @@
         "season": "NHL Playoffs",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -17959,7 +17959,7 @@
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Monday"
     },
     {
@@ -17992,7 +17992,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -18010,7 +18010,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -18026,7 +18026,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -18060,7 +18060,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -18077,7 +18077,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -18093,7 +18093,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18109,7 +18109,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18126,7 +18126,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18142,7 +18142,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -18159,7 +18159,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -18174,7 +18174,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -18192,7 +18192,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Wednesday"
     },
     {
@@ -18208,7 +18208,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -18225,7 +18225,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -18241,7 +18241,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Monday"
     },
     {
@@ -18276,7 +18276,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -18296,7 +18296,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Sunday"
     },
     {
@@ -18313,7 +18313,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Friday"
     },
     {
@@ -18330,7 +18330,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Tuesday"
     },
     {
@@ -18347,7 +18347,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -18364,7 +18364,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     },
     {
@@ -18380,7 +18380,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Wednesday"
     },
     {
@@ -18414,7 +18414,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18431,7 +18431,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18448,7 +18448,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Thursday"
     },
     {
@@ -18465,7 +18465,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -18483,7 +18483,7 @@
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
-        "jersey": "Red Default",
+        "jersey": "Red",
         "dotw": "Tuesday"
     },
     {
@@ -18500,7 +18500,7 @@
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
-        "jersey": "White Default",
+        "jersey": "White",
         "dotw": "Saturday"
     }
 ]

@@ -202,15 +202,11 @@ function SearchForm({jsonData}) {
                     item.team + ' ' +
                     item.period + ' ' +
                     (item.hoa ? item.hoa + ' ' : '') +
-                    item.jersey + ' ' +
+                    item.jersey + ' Jersey ' +
                     (item.search ? item.search + ' ' : '') +
                     (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
                     (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
                 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-
-                console.log(search)
-
-
                 return (
                     search.toLowerCase().includes(normalize(searchText1)) &&
                     search.toLowerCase().includes(normalize(searchText2)) &&
