@@ -3,7 +3,7 @@ import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-if (!localStorage.getItem('ovechkin_app_opt_out')) ReactGA.initialize('G-K4X7EL6PW3')
+ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 
