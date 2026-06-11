@@ -3,7 +3,7 @@ import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-ReactGA.initialize('G-K4X7EL6PW3')
+if (!localStorage.getItem('ovechkin_app_opt_out')) ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 
@@ -269,7 +269,13 @@ function SearchForm({jsonData}) {
         <div className="container">
             <div className="align-items-start d-flex flex-column flex-lg-row justify-content-center">
                 <div id="remote">
-                    <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit}>
+                    <form className="align-items-start d-flex justify-content-center flex-column mx-auto my-3 p-3 shadow" onSubmit={preventSubmit} onClick={(e) => {
+                            const btn = e.target.closest('button')
+                            if (!btn) return
+                            const title = btn.title
+                            if (title === 'Search' || title === 'Reset' || title === 'Find') return
+                            ReactGA.event('goal_button_click', { button_name: title })
+                        }}>
                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-between gap-3 mb-4">
                             <h2 className="h5 m-0">Goal Randomizer</h2>
                             <button onClick={(event) => shuffle()} title="Shuffle" type="button">Shuffle</button>
@@ -384,11 +390,11 @@ function SearchForm({jsonData}) {
                             <label htmlFor="search-goal"><h2 className="h5 m-0">Goal by Number</h2></label>
                             <div className="align-items-center d-flex gap-3">
                                 <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                                <button onClick={() => searchSubmit()} title="Search" type="submit">Find</button>
+                                <button onClick={() => searchSubmit()} title="Find" type="submit">Find</button>
                             </div>
                         </div>
                         <div className="align-items-center d-flex flex-column">
-                            <button onClick={reset} title="Reset Filters" type="button">Reset</button>
+                            <button onClick={reset} title="Reset" type="button">Reset</button>
                         </div>
                     </form>
                 </div>
