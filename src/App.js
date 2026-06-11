@@ -6,6 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
+const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
+const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
+const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+
+function random(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 function SearchForm({jsonData}) {
     const [searchGoal, setSearchGoal] = useState('')
@@ -76,8 +85,7 @@ function SearchForm({jsonData}) {
     })
 
     function canadian() {
-        const canada = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
-        const canadian = jsonData.filter(item => item.hoa === 'Away' && canada.includes(item.team))
+        const canadian = jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team))
         const random = Math.floor(Math.random() * canadian.length)
         const goal = canadian[random].goal
         setSearchGoal(goal)
@@ -148,12 +156,6 @@ function SearchForm({jsonData}) {
         event.preventDefault()
     }
 
-    function random(min, max) {
-        min = Math.ceil(min)
-        max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
     function filterGoal(match) {
         resultsHide()
         const result = jsonData.filter(item =>
@@ -204,7 +206,6 @@ function SearchForm({jsonData}) {
                 action: 'Form Submitted',
                 label: [currentText1, currentText2, currentText3].join(' ').trim()
             });
-            const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
             const t1 = normalize(currentText1)
             const t2 = normalize(currentText2)
             const t3 = normalize(currentText3)
@@ -249,9 +250,8 @@ function SearchForm({jsonData}) {
     }
 
     function youngGuns() {
-        const youngGuns = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
         const youngGunsGoals = jsonData.filter(item => {
-            return youngGuns.includes(item.primary) && youngGuns.includes(item.secondary)
+            return youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)
         })
         const random = Math.floor(Math.random() * youngGunsGoals.length)
         const goal = youngGunsGoals[random].goal
