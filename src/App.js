@@ -171,7 +171,6 @@ function SearchForm({jsonData}) {
 
     function searchSubmit() {
         const goalInput = document.querySelector('#search-goal').value
-        const season = document.querySelector('#season').value
         const textInput1 = document.querySelector('#search-text-1').value
         const textInput2 = document.querySelector('#search-text-2').value
         const textInput3 = document.querySelector('#search-text-3').value
@@ -196,21 +195,26 @@ function SearchForm({jsonData}) {
                 const search =
                     item.season + ' ' +
                     item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
+                    new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.year + ' ' +
                     new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
-                    item.type + ' ' +
-                    item.goalie + ' ' + item.goalie2 + ' ' +
+                    (item.type ? item.type + ' ' : '') +
+                    (item.goalie ? item.goalie.normalize('NFD').replace(/[̀-ͯ]/g, '') + ' ' : '') +
                     item.team + ' ' +
                     item.period + ' ' +
-                    item.hoa + ' ' +
+                    (item.hoa ? item.hoa + ' ' : '') +
                     item.jersey + ' ' +
-                    item.search + ' ' +
-                    item.btn1 + ' ' + item.btn2 + ' ' + item.btn3 + ' ' +
-                    item.primary + ' ' + item.secondary
+                    (item.search ? item.search + ' ' : '') +
+                    (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
+                    (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
+                const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+
+                console.log(search)
+
+
                 return (
-                    search.toLowerCase().includes(searchText1) &&
-                    search.toLowerCase().includes(searchText2) &&
-                    search.toLowerCase().includes(searchText3) &&
-                    search.toLowerCase().includes(season.replace('All Goals', '').toLowerCase())
+                    search.toLowerCase().includes(normalize(searchText1)) &&
+                    search.toLowerCase().includes(normalize(searchText2)) &&
+                    search.toLowerCase().includes(normalize(searchText3))
                 );
             });
 
@@ -267,7 +271,7 @@ function SearchForm({jsonData}) {
                             <h2 className="h5 m-0">Goal Randomizer</h2>
                             <button onClick={(event) => shuffle()} title="Shuffle" type="button">Shuffle</button>
                         </div>
-                        <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-5">
+                        <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-4">
                             <div className="d-flex flex-column gap-3 league-buttons">
                                 <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                     <img alt="NHL logo" src="/teams/NHL.svg" />NHL
@@ -344,9 +348,7 @@ function SearchForm({jsonData}) {
                                 <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                             </div>
                         </div>
-                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
-                            <label htmlFor="search-goal"><h2 className="h5 m-0">Goal by Number</h2></label>
-                            <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-4">
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
                                 <label htmlFor="search-text-1"><h2 className="h5 m-0">Search Goals by Text</h2></label>
                             </div>
@@ -358,21 +360,28 @@ function SearchForm({jsonData}) {
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                     <label className="h6 m-0" htmlFor="season">Search Filter</label>
-                                    <select className="form-select w-auto" id="season" name="Season">
-                                        <option value="" selected>All</option>
-                                        <option className="fw-bold" value="NHL">NHL</option>
-                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
-                                        <option value="NHL All Star">•&nbsp;NHL All Star</option>
-                                        <option value="KHL">KHL</option>
-                                        <option value="Olympics">Olympic</option>
-                                        <option value="World Championships">World Championship</option>
-                                        <option value="World Cup">World Cup</option>
-                                    </select>
+                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-between">
+                                        <select className="form-select w-auto" id="season" name="Season">
+                                            <option value="" selected>All</option>
+                                            <option className="fw-bold" value="NHL">NHL</option>
+                                            <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                            <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
+                                            <option value="NHL All Star">•&nbsp;NHL All Star</option>
+                                            <option value="KHL">KHL</option>
+                                            <option value="Olympics">Olympic</option>
+                                            <option value="World Championships">World Championship</option>
+                                            <option value="World Cup">World Cup</option>
+                                        </select>
+                                        <button onClick={searchSubmit} title="Search" type="submit">Search</button>
+                                    </div>
                                 </div>
-                                <div className="text-sm-end">
-                                    <button onClick={searchSubmit} title="Search" type="submit">Search</button>
-                                </div>
+                            </div>
+                        </div>
+                        <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
+                            <label htmlFor="search-goal"><h2 className="h5 m-0">Goal by Number</h2></label>
+                            <div className="align-items-center d-flex gap-3">
+                                <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                <button onClick={searchSubmit} title="Search" type="submit">Find</button>
                             </div>
                         </div>
                         <div className="align-items-center d-flex flex-column">

@@ -334,6 +334,19 @@ form button {
         background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%);
     }
 
+    &[title*='KHL']:hover {
+        background: #0033A0;
+        color: #FFF;
+    }
+
+    &[title*='NHL']:hover {
+        background: #111;
+    }
+
+    &[title='NHL All Star']:hover {
+        background: #FA5200;
+    }
+
     &[title='Reset Filters'] {
         background: transparent !important;
         box-shadow: none !important;
