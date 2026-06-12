@@ -230,7 +230,7 @@ function SearchForm({jsonData}) {
             document.getElementById('results').classList.add('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
-            setShowSort(true)
+            setShowSort(results.length > 1)
             setSearchResults(results)
         }
     }
