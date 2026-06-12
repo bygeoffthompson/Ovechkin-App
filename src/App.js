@@ -22,6 +22,12 @@ function SearchForm({jsonData}) {
     const [searchText2, setSearchText2] = useState('')
     const [searchText3, setSearchText3] = useState('')
     const [searchResults, setSearchResults] = useState([])
+    const [sortOrder, setSortOrder] = useState('asc')
+    const [showSort, setShowSort] = useState(true)
+
+    const sortedResults = useMemo(() =>
+        [...searchResults].sort((a, b) => sortOrder === 'asc' ? a.goal - b.goal : b.goal - a.goal),
+    [searchResults, sortOrder])
 
     const searchStrings = useMemo(() =>
         jsonData.map(item => (
@@ -224,15 +230,26 @@ function SearchForm({jsonData}) {
             document.getElementById('results').classList.add('show')
             document.getElementById('count').setAttribute('data-count', results.length)
             document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
+            setShowSort(true)
             setSearchResults(results)
         }
+    }
 
-        const collapsed = document.querySelector('.accordion-button.collapsed')
-        if (collapsed) {
-            setTimeout(() => {
-                collapsed.click()
-            }, 500)
-        }
+    function hatTrick() {
+        const hatTrickGoals = jsonData.filter(item =>
+            [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
+        )
+        const picked = hatTrickGoals[Math.floor(Math.random() * hatTrickGoals.length)]
+        const idx = jsonData.findIndex(item => item.goal === picked.goal)
+        const results = jsonData.slice(Math.max(0, idx - 2), idx + 1)
+        resultsHide()
+        setSortOrder('desc')
+        setShowSort(false)
+        setSearchGoal(picked.goal)
+        setSearchResults(results)
+        document.getElementById('results').classList.add('show')
+        document.getElementById('count').setAttribute('data-count', 3)
+        document.getElementById('count').innerHTML = '3&nbsp;Result'
     }
 
     function unassisted() {
@@ -341,7 +358,7 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['Home'])} title="Home" type="button">Home</button>
                                 <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
                                 <button onClick={(event) => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
-                                <button onClick={(event) => filterGoal(['Hat Trick'])} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
+                                <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
                                 <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
                                 <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                                 <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
@@ -402,9 +419,13 @@ function SearchForm({jsonData}) {
                 <div className="p-1 p-sm-3" id="wrapper">
                     <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
                         <strong id="count"></strong>
+                        {showSort && <select className="form-select w-auto" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>}
                     </div>
                     <Accordion defaultActiveKey="0" flush>
-                        {searchResults.map((result, index) => (
+                        {sortedResults.map((result, index) => (
                             <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-2 justify-content-start w-100">
