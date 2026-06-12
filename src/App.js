@@ -3,7 +3,7 @@ import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-ReactGA.initialize('G-K4X7EL6PW3')
+if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
