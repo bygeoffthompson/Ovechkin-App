@@ -419,9 +419,9 @@ function SearchForm({jsonData}) {
                 <div className="p-1 p-sm-3" id="wrapper">
                     <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
                         <strong id="count"></strong>
-                        {showSort && <select className="form-select w-auto" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-                            <option value="asc">Ascending</option>
-                            <option value="desc">Descending</option>
+                        {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <option value="asc">Ascend</option>
+                            <option value="desc">Descend</option>
                         </select>}
                     </div>
                     <Accordion defaultActiveKey="0" flush>
