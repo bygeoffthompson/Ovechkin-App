@@ -319,9 +319,16 @@ form button {
         background: #FFF;
     }
 
+    &[title='Find'],
     &[title='Search'] {
         background: #B88648;
         color: #FFF;
+    }
+
+    &[title='Reset'] {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: initial !important;
     }
 
     &[title='Throwback Third'] {

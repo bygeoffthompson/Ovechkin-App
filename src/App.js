@@ -376,8 +376,14 @@ function SearchForm({jsonData}) {
                         </div>
                         <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-4">
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-start">
-                                <label htmlFor="search-text-1"><h2 className="h5 m-0">Search Goals by Text</h2></label>
+                                <h2 className="h5 m-0">Search Goals</h2>
                             </div>
+                            <label htmlFor="search-goal"><span class="d-none">Search by </span>Number</label>
+                            <div className="align-items-center d-flex gap-3">
+                                <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                <button onClick={() => searchSubmit()} title="Find" type="submit">Find</button>
+                            </div>
+                            <label className="" htmlFor="search-text-1"><span class="d-none">Search by </span>Text</label>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                             <label className="d-none" htmlFor="search-text-3">Search by Text</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
@@ -404,11 +410,7 @@ function SearchForm({jsonData}) {
                             </div>
                         </div>
                         <div className="align-items-start d-flex justify-content-between flex-column gap-3 mb-3">
-                            <label htmlFor="search-goal"><h2 className="h5 m-0">Goal by Number</h2></label>
-                            <div className="align-items-center d-flex gap-3">
-                                <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                                <button onClick={() => searchSubmit()} title="Find" type="submit">Find</button>
-                            </div>
+
                         </div>
                         <div className="align-items-center d-flex flex-column">
                             <button onClick={reset} title="Reset" type="button">Reset</button>
