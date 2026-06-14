@@ -8462,7 +8462,7 @@
         "day": 19,
         "year": 2014,
         "type": "5v3",
-        "btn": "PPG",
+        "btn1": "PPG",
         "btn2": "Slapshot",
         "season": "NHL Regular",
         "hoa": "Away",
@@ -8773,7 +8773,7 @@
         "year": 2014,
         "type": "GWG",
         "search": "End",
-        "btn2": "PPG",
+        "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -9037,7 +9037,7 @@
         "year": 2014,
         "type": "2nd",
         "search": "Teammate",
-        "btn2": "PPG",
+        "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
@@ -9226,7 +9226,7 @@
         "year": 2015,
         "type": "GWG",
         "search": "Teammate",
-        "btn2": "PPG",
+        "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
@@ -10550,7 +10550,7 @@
         "year": 2016,
         "type": "40th",
         "search": "Teammate",
-        "btn2": "PPG",
+        "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -14482,7 +14482,7 @@
         "month": 8,
         "day": 14,
         "year": 2020,
-        "search": "Quarterfinals Game 2 Opening Minute Teammate",
+        "search": "Covid Quarterfinals Game 2 Opening Minute Teammate",
         "btn1": "Backhand",
         "season": "NHL Playoffs",
         "hoa": "Home",
@@ -14501,7 +14501,7 @@
         "day": 14,
         "year": 2020,
         "type": "2nd",
-        "search": "Quarterfinals Game 2 Teammate",
+        "search": "Covid Quarterfinals Game 2 Teammate",
         "btn1": "Tip",
         "season": "NHL Playoffs",
         "hoa": "Home",
@@ -14520,7 +14520,7 @@
         "day": 18,
         "year": 2020,
         "type": "PPG",
-        "search": "Quarterfinals Game 4 Teammate",
+        "search": "Covid Quarterfinals Game 4 Teammate",
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Second",
@@ -14537,7 +14537,7 @@
         "day": 18,
         "year": 2020,
         "type": "2nd",
-        "search": "Quarterfinals Game 4 Teammate",
+        "search": "Covid Quarterfinals Game 4 Teammate",
         "season": "NHL Playoffs",
         "hoa": "Away",
         "period": "Third",
@@ -14554,7 +14554,7 @@
         "month": 1,
         "day": 17,
         "year": 2021,
-        "search": "Start",
+        "search": "Covid Start",
         "btn1": "Backhand",
         "season": "NHL Regular",
         "hoa": "Away",
@@ -14573,7 +14573,7 @@
         "day": 30,
         "year": 2021,
         "type": "OT",
-        "search": "Gr8 Chase Home Opener Mike Gartner",
+        "search": "Covid Gr8 Chase Home Opener Mike Gartner",
         "btn1": "GWG",
         "season": "NHL Regular",
         "hoa": "Home",
@@ -14595,7 +14595,8 @@
         "hoa": "Away",
         "period": "Third",
         "jersey": "White",
-        "dotw": "Thursday"
+        "dotw": "Thursday",
+        "search": "Covid"
     },
     {
         "goal": 710,
@@ -14608,7 +14609,7 @@
         "day": 7,
         "year": 2021,
         "type": "PPG",
-        "search": "Super Bowl",
+        "search": "Covid Super Bowl",
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -14626,7 +14627,7 @@
         "day": 7,
         "year": 2021,
         "type": "2nd",
-        "search": "Super Bowl",
+        "search": "Covid Super Bowl",
         "season": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -14649,7 +14650,8 @@
         "hoa": "Home",
         "period": "Third",
         "jersey": "Navy Third",
-        "dotw": "Sunday"
+        "dotw": "Sunday",
+        "search": "Covid"
     },
     {
         "goal": 713,
@@ -14666,7 +14668,8 @@
         "hoa": "Away",
         "period": "Second",
         "jersey": "White",
-        "dotw": "Sunday"
+        "dotw": "Sunday",
+        "search": "Covid"
     },
     {
         "goal": 714,
@@ -14682,7 +14685,8 @@
         "hoa": "Away",
         "period": "First",
         "jersey": "White",
-        "dotw": "Sunday"
+        "dotw": "Sunday",
+        "search": "Covid"
     },
     {
         "goal": 715,
@@ -14697,7 +14701,8 @@
         "hoa": "Away",
         "period": "First",
         "jersey": "White",
-        "dotw": "Thursday"
+        "dotw": "Thursday",
+        "search": "Covid"
     },
     {
         "goal": 716,
@@ -14714,7 +14719,8 @@
         "hoa": "Away",
         "period": "Second",
         "jersey": "White",
-        "dotw": "Saturday"
+        "dotw": "Saturday",
+        "search": "Covid"
     },
     {
         "goal": 717,
@@ -14725,7 +14731,7 @@
         "month": 3,
         "day": 15,
         "year": 2021,
-        "search": "Gr8 Chase Phil Esposito",
+        "search": "Covid Gr8 Chase Phil Esposito",
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
@@ -14743,7 +14749,7 @@
         "day": 16,
         "year": 2021,
         "type": "GWG",
-        "search": "1300th Career Point Teammate",
+        "search": "Covid 1300th Career Point Teammate",
         "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Home",
@@ -14765,7 +14771,8 @@
         "hoa": "Home",
         "period": "Third",
         "jersey": "Red",
-        "dotw": "Friday"
+        "dotw": "Friday",
+        "search": "Covid"
     },
     {
         "goal": 720,
@@ -14783,7 +14790,8 @@
         "hoa": "Home",
         "period": "Third",
         "jersey": "Red",
-        "dotw": "Friday"
+        "dotw": "Friday",
+        "search": "Covid"
     },
     {
         "goal": 721,
@@ -14799,7 +14807,8 @@
         "hoa": "Home",
         "period": "Second",
         "jersey": "Red",
-        "dotw": "Thursday"
+        "dotw": "Thursday",
+        "search": "Covid"
     },
     {
         "goal": 722,
@@ -14815,7 +14824,8 @@
         "hoa": "Home",
         "period": "First",
         "jersey": "Navy Third",
-        "dotw": "Friday"
+        "dotw": "Friday",
+        "search": "Covid"
     },
     {
         "goal": 723,
@@ -14832,7 +14842,8 @@
         "hoa": "Home",
         "period": "Third",
         "jersey": "Navy Third",
-        "dotw": "Friday"
+        "dotw": "Friday",
+        "search": "Covid"
     },
     {
         "goal": 724,
@@ -14848,7 +14859,8 @@
         "hoa": "Home",
         "period": "Second",
         "jersey": "Red",
-        "dotw": "Sunday"
+        "dotw": "Sunday",
+        "search": "Covid"
     },
     {
         "goal": 725,
@@ -14865,7 +14877,8 @@
         "hoa": "Away",
         "period": "Second",
         "jersey": "White",
-        "dotw": "Sunday"
+        "dotw": "Sunday",
+        "search": "Covid"
     },
     {
         "goal": 726,
@@ -14878,7 +14891,7 @@
         "day": 8,
         "year": 2021,
         "type": "5v3",
-        "search": "20th",
+        "search": "Covid 20th",
         "btn1": "PPG",
         "btn2": "Slapshot",
         "season": "NHL Regular",
@@ -14902,7 +14915,8 @@
         "hoa": "Away",
         "period": "First",
         "jersey": "White",
-        "dotw": "Friday"
+        "dotw": "Friday",
+        "search": "Covid"
     },
     {
         "goal": 728,
@@ -14919,7 +14933,8 @@
         "hoa": "Home",
         "period": "Third",
         "jersey": "Red",
-        "dotw": "Tuesday"
+        "dotw": "Tuesday",
+        "search": "Covid"
     },
     {
         "goal": 729,
@@ -14936,7 +14951,8 @@
         "hoa": "Away",
         "period": "First",
         "jersey": "White",
-        "dotw": "Saturday"
+        "dotw": "Saturday",
+        "search": "Covid"
     },
     {
         "goal": 730,
@@ -14949,8 +14965,8 @@
         "day": 17,
         "year": 2021,
         "type": "2nd",
-        "search": "End",
-        "btn2": "PPG",
+        "search": "Covid End",
+        "btn1": "PPG",
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
@@ -17106,7 +17122,7 @@
         "day": 16,
         "year": 2024,
         "search": "End",
-        "btn2": "Tip",
+        "btn1": "Tip",
         "season": "NHL Regular",
         "hoa": "Away",
         "period": "First",
