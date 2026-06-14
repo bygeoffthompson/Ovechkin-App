@@ -78,17 +78,19 @@ function SearchForm({jsonData}) {
     }, [])
 
     useEffect(() => {
-        const month = new Date().getMonth() + 1
-        const day = new Date().getDate()
+        const now = new Date()
+        const month = now.getMonth() + 1
+        const day = now.getDate()
         const checkDay = jsonData.filter(item => item.month === month && item.day === day)
 
         if (!checkDay[0]) {
-            document.getElementById('otd').disabled = true
-            document.getElementById('otd').title = 'No Goals on ' + month + '/' + day
+            const otd = document.getElementById('otd')
+            otd.disabled = true
+            otd.title = 'No Goals on ' + month + '/' + day
         } else {
             document.getElementById('otd').title = 'Goals on ' + month + '/' + day
         }
-    })
+    }, [jsonData])
 
     function canadian() {
         const canadian = jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team))
@@ -138,8 +140,9 @@ function SearchForm({jsonData}) {
     }
 
     function onThisDay() {
-        const month = new Date().getMonth() + 1
-        const day = new Date().getDate()
+        const now = new Date()
+        const month = now.getMonth() + 1
+        const day = now.getDate()
         const onThisDay = jsonData.filter(item => item.month === month && item.day === day)
         const random = Math.floor(Math.random() * onThisDay.length)
         const goal = onThisDay[random].goal
@@ -228,8 +231,9 @@ function SearchForm({jsonData}) {
             }
 
             document.getElementById('results').classList.add('show')
-            document.getElementById('count').setAttribute('data-count', results.length)
-            document.getElementById('count').innerHTML = results.length + '&nbsp;Result'
+            const count = document.getElementById('count')
+            count.setAttribute('data-count', results.length)
+            count.innerHTML = results.length + '&nbsp;Result'
             setShowSort(results.length > 1)
             setSearchResults(results)
         }
@@ -248,8 +252,9 @@ function SearchForm({jsonData}) {
         setSearchGoal(picked.goal)
         setSearchResults(results)
         document.getElementById('results').classList.add('show')
-        document.getElementById('count').setAttribute('data-count', 3)
-        document.getElementById('count').innerHTML = '3&nbsp;Result'
+        const count = document.getElementById('count')
+        count.setAttribute('data-count', 3)
+        count.innerHTML = '3 Result'
     }
 
     function unassisted() {
