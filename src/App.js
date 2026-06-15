@@ -7,6 +7,7 @@ if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
+const hhofList = ['Ed Belfour', 'Martin Brodeur', 'Zdeno Chara', 'Pavel Datsyuk', 'Sergei Federov', 'Dominik Hasek', 'Henrik Lundqvist', 'Roberto Luongo']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
@@ -104,6 +105,14 @@ function SearchForm({jsonData}) {
         const cupRun = jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs')
         const random = Math.floor(Math.random() * cupRun.length)
         const goal = cupRun[random].goal
+        setSearchGoal(goal)
+        searchSubmit(goal)
+    }
+
+    function hhof() {
+        const hhof = jsonData.filter(item => hhofList.includes(item.goalie) || hhofList.includes(item.primary) || hhofList.includes(item.secondary))
+        const random = Math.floor(Math.random() * hhof.length)
+        const goal = hhof[random].goal
         setSearchGoal(goal)
         searchSubmit(goal)
     }
@@ -295,20 +304,25 @@ function SearchForm({jsonData}) {
                             const btn = e.target.closest('button')
                             if (!btn) return
                             const title = btn.title
-                            if (title === 'Search' || title === 'Reset' || title === 'Find') return
+                            if (title === 'Search' || title === 'Reset') return
                             ReactGA.event('goal_button_click', { button_name: title })
                         }}>
                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row justify-content-between gap-3 mb-4">
                             <h2 className="h5 m-0">Goal Randomizer</h2>
-                            <button onClick={(event) => shuffle()} title="Shuffle" type="button">Shuffle</button>
                         </div>
                         <div className="align-items-start buttons-group d-flex flex-row gap-3 mb-4">
                             <div className="d-flex flex-column gap-3 league-buttons">
+                                <button onClick={(event) => shuffle()} title="Shuffle" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-shuffle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
+                                        <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/>
+                                    </svg>Shuffle
+                                </button>
                                 <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
-                                    <img alt="NHL logo" src="/teams/NHL.svg" />NHL
+                                    <img alt="NHL logo" src="/teams/NHL.svg"/>NHL
                                 </button>
                                 <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
-                                    <img alt="NHL logo" src="/teams/NHL.svg" />Playoffs
+                                    <img alt="NHL logo" src="/teams/NHL.svg"/>Playoffs
                                 </button>
                                 <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                 <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">
@@ -334,10 +348,13 @@ function SearchForm({jsonData}) {
                                 <button onClick={(event) => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
                                     <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" />
                                 </button>
-                                <button onClick={(event) => filterGoal(['Red Default', 'White Default'])} className="jersey-button" title="Capitals" type="button">
+                                <button onClick={(event) => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
                                     <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
                                 </button>
-                                <button onClick={(event) => filterGoal(['Red Throwback', 'White Throwback'])} className="jersey-button" title="Throwback Third" type="button">
+                                <button onClick={(event) => filterGoal(['White'])} className="jersey-button" title="White" type="button">
+                                    <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
+                                </button>
+                                <button onClick={(event) => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
                                     ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" />&nbsp;&nbsp;☆
                                 </button>
                                 <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
@@ -348,7 +365,7 @@ function SearchForm({jsonData}) {
                                         <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" />
                                     </span>
                                 </button>
-                                <button onClick={(event) => filterGoal(['Navy Third'])} className="jersey-button" title="Navy Third" type="button">
+                                <button onClick={(event) => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
                                     <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" />
                                 </button>
                                 <button onClick={(event) => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
@@ -366,12 +383,14 @@ function SearchForm({jsonData}) {
                                 <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
                                 <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
                                 <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
+                                <button onClick={(event) => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
                                 <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                             </div>
                             <div className="d-flex flex-column gap-3">
                                 <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                                 <button onClick={canadian} title="In Canada" type="button">In&nbsp;Canada</button>
                                 <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                                <button onClick={hhof} title="Hockey Hall of Fame" type="button">HHoF</button>
                                 <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                                 <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
                                 <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
@@ -386,7 +405,6 @@ function SearchForm({jsonData}) {
                             <label htmlFor="search-goal"><span class="d-none">Search by </span>Number</label>
                             <div className="align-items-center d-flex gap-3">
                                 <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                                <button onClick={() => searchSubmit()} title="Find" type="submit">Find</button>
                             </div>
                             <label className="" htmlFor="search-text-1"><span class="d-none">Search by </span>Text</label>
                             <label className="d-none" htmlFor="search-text-2">Search by Text</label>

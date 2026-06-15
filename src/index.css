@@ -301,25 +301,15 @@ form button {
         background: #111;
     }
 
-    &[title='Shuffle'] {
-        font-size: 1rem;
-        padding: .75rem 1rem;
-        width: 105px !important;
-    }
-
-    &[title='Red Reverse Retro'] {
+    &[title*='Red'] {
         background: #C81020;
     }
 
-    &[title='Capitals'] {
-        background-image: linear-gradient(-75deg, #C81020 30%, #FFF 31%, #FFF 69%, #C81020 70%);
-    }
-
-    &[title='Screagle'] {
+    &[title='Screagle'],
+    &[title='White'] {
         background: #FFF;
     }
 
-    &[title='Find'],
     &[title='Search'] {
         background: #B88648;
         color: #FFF;
@@ -331,12 +321,12 @@ form button {
         color: initial !important;
     }
 
-    &[title='Throwback Third'] {
+    &[title='Throwback'] {
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
         color: #FFF;
     }
 
-    &[title='Navy Third'] {
+    &[title='Navy'] {
         background: #062D60;
         background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%);
     }
