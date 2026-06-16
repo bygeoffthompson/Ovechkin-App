@@ -366,12 +366,6 @@ form div > button {
     }
 }
 
-#remote {
-    @media (min-width: 768px) {
-        flex-basis: 33%;
-    }
-}
-
 
 .jersey-button {
     align-items: center;
@@ -421,8 +415,6 @@ form {
     }
 
     @media (min-width: 768px) {
-        width: 500px;
-
         > div {
             align-items: center;
             flex-direction: row;
@@ -516,6 +508,6 @@ label {
     }
 }
 
-.nav-tabs {
-    border-bottom: .2rem solid #C81020 !important;
+.tab-pane {
+    border: .2rem solid #C81020 !important;
 }
