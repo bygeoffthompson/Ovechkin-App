@@ -34,7 +34,7 @@ function SearchForm({jsonData}) {
 
     const searchStrings = useMemo(() =>
         jsonData.map(item => (
-            item.season + ' ' +
+            item.league + ' ' +
             item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.year + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
@@ -100,7 +100,7 @@ function SearchForm({jsonData}) {
     }
 
     function cupRun() {
-        randomGoal(jsonData.filter(item => item.year === 2018 && item.season === 'NHL Playoffs'))
+        randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))
     }
 
     function hhof() {
@@ -192,13 +192,13 @@ function SearchForm({jsonData}) {
         const currentText2 = text2Override !== undefined ? text2Override : searchText2
         const currentText3 = text3Override !== undefined ? text3Override : searchText3
 
-        const seasonFilter = normalize(document.getElementById('season').value)
+        const leagueFilter = normalize(document.getElementById('league').value)
 
         if (currentGoal) {
             resultsHide()
             const goalQuery = parseFloat(currentGoal)
             const results = jsonData.filter((item, i) =>
-                item.goal === goalQuery && (!seasonFilter || searchStrings[i].includes(seasonFilter))
+                item.goal === goalQuery && (!leagueFilter || searchStrings[i].includes(leagueFilter))
             )
             setSearchResults(results)
         } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0) {
@@ -212,7 +212,7 @@ function SearchForm({jsonData}) {
             const t3 = normalize(currentText3)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
-                return search.includes(t1) && search.includes(t2) && search.includes(t3) && (!seasonFilter || search.includes(seasonFilter))
+                return search.includes(t1) && search.includes(t2) && search.includes(t3) && (!leagueFilter || search.includes(leagueFilter))
             });
 
             if (results.length > 200) {
@@ -291,9 +291,9 @@ function SearchForm({jsonData}) {
                                 <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
                                 <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                    <label className="h6 m-0" htmlFor="season">Search Filter</label>
+                                    <label className="h6 m-0" htmlFor="league">Search Filter</label>
                                     <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-between">
-                                        <select className="form-select w-auto" id="season" name="Season">
+                                        <select className="form-select w-auto" id="league" name="League">
                                             <option value="" selected>All</option>
                                             <option className="fw-bold" value="NHL">NHL</option>
                                             <option value="NHL Regular">•&nbsp;NHL Regular</option>
@@ -414,7 +414,7 @@ function SearchForm({jsonData}) {
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             return (
-                            <Accordion.Item data-jersey={result.jersey} data-season={result.season} eventKey={index.toString()}>
+                            <Accordion.Item data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-2 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">

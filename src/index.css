@@ -67,7 +67,7 @@ body {
   position: relative;
 }
 
-.accordion-item:not([data-season='NHL Regular']) .goal-count span:first-of-type {
+.accordion-item:not([data-league='NHL Regular']) .goal-count span:first-of-type {
     display: none;
 }
 
@@ -147,15 +147,15 @@ body {
     }
 }
 
-[data-season='NHL Regular'] .goal-count {
+[data-league='NHL Regular'] .goal-count {
   color: #F34133;
 }
 
-[data-season='All Star'] .goal-count:before {
+[data-league='All Star'] .goal-count:before {
     content: 'All Star';
 }
 
-[data-season='World Championships'] {
+[data-league='World Championships'] {
     .goal-count:before {
         content: 'Worlds';
     }
@@ -165,7 +165,7 @@ body {
     }
 }
 
-[data-season='KHL'] {
+[data-league='KHL'] {
     .goal-count {
         color: #0033A0;
 
@@ -179,7 +179,7 @@ body {
     }
 }
 
-[data-season='Olympics'] {
+[data-league='Olympics'] {
     .goal-count:before {
         content: 'Olympic';
     }
@@ -189,7 +189,7 @@ body {
     }
 }
 
-[data-season='NHL Playoffs'] .goal-count {
+[data-league='NHL Playoffs'] .goal-count {
     color: #C28E4D;
 
     &:before {
@@ -197,7 +197,7 @@ body {
     }
 }
 
-[data-season='World Cup'] {
+[data-league='World Cup'] {
     .goal-count:before {
         content: 'World Cup';
     }
@@ -484,7 +484,7 @@ input {
 }
 
 label {
-    &[for='season'] {
+    &[for='league'] {
         min-width: 95px;
     }
 }
