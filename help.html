@@ -31,34 +31,43 @@
   </head>
   <body>
   <div class="container">
-    <header>
+    <header class="my-4">
       <h1>Ovechkin App Help</h1>
     </header>
     <main>
       <h2 id="assist">Assist Search</h2>
-      <p>Assist data is stored in format <code>[Primary Assist Full Name] [Secondary Assist Full Name]</code></p>
+        <p>Assist data is stored in format</p>
+        <p><code>[Primary Assist Full Name] [Secondary Assist Full Name]</code></p>
       <ul>
         <li>Nicklas Backstrom TJ Oshie</li>
         <li>Dylan Strome Pierre Luc Dubois</li>
         <li>Kevin Shattenkirk</li>
       </ul>
       <h2 id="date">Date Search</h2>
-        <p>Dates are stored in two formats without leading zeros:</p>
-        <p><code>[Month]/[Day]/[Year]</code></p>
+        <p>Dates are stored in three formats:</p>
+        <p><code>[Month]/[Day]/[Year]</code> (no leading zeros)</p>
         <ul>
             <li>1/13/2010</li>
             <li>11/5/2022</li>
         </ul>
-        <p>and <code>[Month Name] [Day] [Year]</code></p>
+        <p><code>[Month Name] [Day] [Year]</code> (no leading zeros)</p>
         <ul>
             <li>December 10 2013</li>
             <li>March 20 2025</li>
         </ul>
+        <p>and <code>[Month Name] [Year]</code></p>
+        <ul>
+            <li>November 2018</li>
+            <li>March 2024</li>
+        </ul>
       <h2 id="goal">Goal Search</h2>
-      <p>Goals are identified by a unique number. NHL regular season goals are indexed 1 to 929. All other goals are intertwined
-          as floats with format <code>[NHL Regular Goal].[Other Goal]</code></p>
+      <p>Goals are identified by a unique number.</p>
+      <p>NHL regular season goals are indexed 1 to 929. All other goals are intertwined
+          as floats with format</p>
+        <p><code>[NHL Regular Goal].[Other Goal]</code></p>
       <ul>
         <li>0.02 is World Championship Goal #2 (2005)</li>
+        <li>21 is NHL Goal #21 (2005)</li>
         <li>36.04 is Olympic Goal #4 (2006)</li>
         <li>288.05 is All Star Goal #5 (2011)</li>
         <li>525.02 is World Cup Goal #2 (2016)</li>
@@ -67,14 +76,14 @@
       <p>In a few cases this cataloging produced duplicate floats which were resolved by incrementing the NHL regular season goal number by one.</p>
       <h2>League Search</h2>
       <ul>
-       <li>"All Star" for All Star Goals</li>
-       <li>"KHL" for KHL Goals</li>
+       <li>"All Star"</li>
+       <li>"KHL"</li>
        <li>"NHL" for NHL Goals</li>
-       <li>"Regular" for NHL Regular Season Goals</li>
-       <li>"Playoff" for NHL Playoff Goals</li>
-       <li>"Olympics" for Olympic Goals</li>
-       <li>"World Championship" for World Championship Goals</li>
-       <li>"World Cup" for World Cup Goals</li>
+       <li>"Regular" for Regular Season Goals</li>
+       <li>"Playoff" for Playoff Goals</li>
+       <li>"Olympics"</li>
+       <li>"World Championship"</li>
+       <li>"World Cup"</li>
      </ul>
       <h2 id="text">Text Search</h2>
         <div class="table">
