@@ -214,7 +214,7 @@ body {
     }
 }
 
-form button {
+form div > button {
   backface-visibility: hidden;
   background: #FFF;
   border: 0;
@@ -242,8 +242,8 @@ form button {
         width: 105px;
     }
 
-  &:not(.accordion-button):hover,
-  &:not(.accordion-button):active {
+  &:hover,
+  &:active {
     background: #C81020;
     border-color: #C81020;
     box-shadow: 0 .25rem .75rem #333;
@@ -494,5 +494,12 @@ input {
 label {
     &[for='season'] {
         min-width: 95px;
+    }
+}
+
+.nav-link {
+    &.active {
+        background: #C81020 !important;
+        color: #FFF !important;
     }
 }

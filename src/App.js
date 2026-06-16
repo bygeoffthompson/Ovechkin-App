@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useMemo} from 'react'
 import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3')
@@ -278,10 +280,9 @@ function SearchForm({jsonData}) {
                             if (title === 'Search' || title === 'Reset') return
                             ReactGA.event('goal_button_click', { button_name: title })
                         }}>
-                        <Accordion defaultActiveKey={['0']} alwaysOpen flush>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header>Random</Accordion.Header>
-                                <Accordion.Body className="p-3">
+                        <Tabs defaultActiveKey="search" fill className="w-100">
+                            <Tab eventKey="buttons" title="Buttons">
+                                <div className="p-3">
                                     <div className="align-items-start buttons-group d-flex flex-row gap-3">
                                         <div className="d-flex flex-column gap-3 league-buttons">
                                             <button onClick={(event) => shuffle()} title="Shuffle" type="button">
@@ -367,11 +368,10 @@ function SearchForm({jsonData}) {
                                             <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                         </div>
                                     </div>
-                                </Accordion.Body>
-                            </Accordion.Item>
-                            <Accordion.Item eventKey="1">
-                                <Accordion.Header>Search</Accordion.Header>
-                                <Accordion.Body className="align-items-start d-flex flex-column gap-3 p-3">
+                                </div>
+                            </Tab>
+                            <Tab eventKey="search" title="Search">
+                                <div className="align-items-start d-flex flex-column gap-3 p-3">
                                     <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
                                     <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
                                     <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
@@ -398,9 +398,9 @@ function SearchForm({jsonData}) {
                                         </div>
                                     </div>
                                     <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion>
+                                </div>
+                            </Tab>
+                        </Tabs>
                     </form>
                 </div>
 
