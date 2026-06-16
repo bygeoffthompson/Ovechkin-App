@@ -20,22 +20,6 @@ footer a {
     }
 }
 
-#auto {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: -2;
-
-    svg {
-        max-width: 150px;
-    }
-}
-
-#bg-ice {
-    background: #D4D5DA;
-}
-
 #ovechkin-goals_wrapper {
     margin: 0 0 4rem;
     max-height: 800px;
@@ -75,15 +59,6 @@ footer a {
 .dt-empty,
 .dt-info {
     display: none;
-}
-
-.goal-light {
-    height: auto;
-    left: 32px;
-    position: absolute;
-    top: -20px;
-    width: 12px;
-    z-index: -1;
 }
 
 .loading {
