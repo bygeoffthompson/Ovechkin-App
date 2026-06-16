@@ -508,6 +508,10 @@ label {
     }
 }
 
+.tab-content {
+    width: 100%;
+}
+
 .tab-pane {
     border: .2rem solid #C81020 !important;
 }

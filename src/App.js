@@ -271,7 +271,7 @@ function SearchForm({jsonData}) {
 
     return (
         <div className="container">
-            <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row justify-content-center">
+            <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row">
                 <form className="align-items-start d-flex justify-content-center flex-column my-3 shadow" onSubmit={preventSubmit} onClick={(e) => {
                         const btn = e.target.closest('button')
                         if (!btn) return
@@ -402,7 +402,7 @@ function SearchForm({jsonData}) {
                     </Tabs>
                 </form>
 
-                <div className="p-1 p-sm-3" id="wrapper">
+                <div className="p-1 p-sm-3 w-100" id="wrapper">
                     <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
                         <strong id="count"></strong>
                         {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
@@ -410,7 +410,7 @@ function SearchForm({jsonData}) {
                             <option value="desc">Descend</option>
                         </select>}
                     </div>
-                    <Accordion defaultActiveKey="0" flush>
+                    <Accordion className="w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             return (

@@ -50,12 +50,6 @@ footer a {
     }
 }
 
-.container {
-    max-width: 1024px;
-    padding: 0 1rem;
-    text-align: start;
-}
-
 .dt-empty,
 .dt-info {
     display: none;
@@ -63,19 +57,6 @@ footer a {
 
 .loading {
     text-align: center;
-}
-
-a {
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-div {
-    margin: 0 auto;
-    width: 100%;
 }
 
 footer {
