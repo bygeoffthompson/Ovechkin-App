@@ -497,9 +497,25 @@ label {
     }
 }
 
+.nav-item {
+    width: 50% !important;
+}
+
 .nav-link {
+    color: #111 !important;
+    font-size: 1.125rem !important;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
     &.active {
         background: #C81020 !important;
         color: #FFF !important;
+        text-decoration: none !important;
     }
+}
+
+.nav-tabs {
+    border-bottom: .2rem solid #C81020 !important;
 }

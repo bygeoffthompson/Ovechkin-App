@@ -281,7 +281,37 @@ function SearchForm({jsonData}) {
                             ReactGA.event('goal_button_click', { button_name: title })
                         }}>
                         <Tabs defaultActiveKey="search" fill className="w-100">
-                            <Tab eventKey="buttons" title="Buttons">
+                            <Tab eventKey="search" tabClassName="border-0 fw-bold p-2" title="Search">
+                                <div className="align-items-start d-flex flex-column gap-3 p-3">
+                                    <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
+                                    <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                    <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
+                                    <label className="d-none" htmlFor="search-text-2">Search by Text</label>
+                                    <label className="d-none" htmlFor="search-text-3">Search by Text</label>
+                                    <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
+                                    <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
+                                    <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
+                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                        <label className="h6 m-0" htmlFor="season">Search Filter</label>
+                                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-between">
+                                            <select className="form-select w-auto" id="season" name="Season">
+                                                <option value="" selected>All</option>
+                                                <option className="fw-bold" value="NHL">NHL</option>
+                                                <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                                <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
+                                                <option value="NHL All Star">•&nbsp;NHL All Star</option>
+                                                <option value="KHL">KHL</option>
+                                                <option value="Olympics">Olympic</option>
+                                                <option value="World Championships">World Championship</option>
+                                                <option value="World Cup">World Cup</option>
+                                            </select>
+                                            <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                    <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
+                                </div>
+                            </Tab>
+                            <Tab eventKey="buttons" tabClassName="border-0 fw-bold p-2" title="Buttons">
                                 <div className="p-3">
                                     <div className="align-items-start buttons-group d-flex flex-row gap-3">
                                         <div className="d-flex flex-column gap-3 league-buttons">
@@ -368,36 +398,6 @@ function SearchForm({jsonData}) {
                                             <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                         </div>
                                     </div>
-                                </div>
-                            </Tab>
-                            <Tab eventKey="search" title="Search">
-                                <div className="align-items-start d-flex flex-column gap-3 p-3">
-                                    <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
-                                    <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
-                                    <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
-                                    <label className="d-none" htmlFor="search-text-2">Search by Text</label>
-                                    <label className="d-none" htmlFor="search-text-3">Search by Text</label>
-                                    <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
-                                    <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
-                                    <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
-                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                        <label className="h6 m-0" htmlFor="season">Search Filter</label>
-                                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-between">
-                                            <select className="form-select w-auto" id="season" name="Season">
-                                                <option value="" selected>All</option>
-                                                <option className="fw-bold" value="NHL">NHL</option>
-                                                <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                                <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
-                                                <option value="NHL All Star">•&nbsp;NHL All Star</option>
-                                                <option value="KHL">KHL</option>
-                                                <option value="Olympics">Olympic</option>
-                                                <option value="World Championships">World Championship</option>
-                                                <option value="World Cup">World Cup</option>
-                                            </select>
-                                            <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
-                                        </div>
-                                    </div>
-                                    <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
                                 </div>
                             </Tab>
                         </Tabs>
