@@ -403,7 +403,7 @@ function SearchForm({jsonData}) {
                 </form>
 
                 <div className="p-1 p-sm-3 w-100" id="wrapper">
-                    <div className="align-items-center d-flex gap-2 justify-content-start" id="results">
+                    <div className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
                         <strong id="count"></strong>
                         {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                             <option value="asc">Ascend</option>
