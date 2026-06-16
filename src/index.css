@@ -2,6 +2,8 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -240,25 +242,25 @@ form button {
         width: 105px;
     }
 
-  &:hover,
-  &:active {
+  &:not(.accordion-button):hover,
+  &:not(.accordion-button):active {
     background: #C81020;
-    border-color: #C81020 !important;
-    box-shadow: 0 .25rem .75rem #333 !important;
-      color: #FFF !important;
+    border-color: #C81020;
+    box-shadow: 0 .25rem .75rem #333;
+    color: #FFF;
     transform: scale(1.05);
   }
 
   &[disabled] {
-    background: initial;
+    background: initial !important;
     box-shadow: none !important;
     color: initial !important;
     opacity: .3;
-    transform: none;
+    transform: none !important;
   }
 
     &.cup {
-        background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
+        background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100% !important;
         border: 1px solid #E0E0E0 !important;
         color: #111 !important;
         font-family: Georgia, serif;
@@ -267,7 +269,7 @@ form button {
 
     &.multi-logo {
         background: #98012E;
-        background-image: linear-gradient(-75deg, #062D60 48%, #98012E 49%);
+        background-image: linear-gradient(-75deg, #062D60 48%, #98012E 49%) !important;
 
         span {
             align-items: center;
@@ -293,12 +295,9 @@ form button {
         }
     }
 
-    &[title='Black Reverse Retro'] {
-        background: #111;
-    }
-
+    &[title='Black Reverse Retro'],
     &[title='Capitol'] {
-        background: #111;
+        background: #111 !important;
     }
 
     &[title*='Red'] {
@@ -307,7 +306,7 @@ form button {
 
     &[title='Screagle'],
     &[title='White'] {
-        background: #FFF;
+        background: #FFF !important;
     }
 
     &[title='Search'] {
@@ -319,6 +318,13 @@ form button {
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
+        width: auto;
+
+        &:hover,
+        &:active {
+            border-color: #C81020 !important;
+            transform: none;
+        }
     }
 
     &[title='Shuffle']:hover img {
@@ -326,13 +332,13 @@ form button {
     }
 
     &[title='Throwback'] {
-        background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%);
+        background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%) !important;
         color: #FFF;
     }
 
     &[title='Navy'] {
         background: #062D60;
-        background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%);
+        background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%) !important;
     }
 
     &[title*='KHL']:hover {
@@ -346,17 +352,6 @@ form button {
 
     &[title='NHL All Star']:hover {
         background: #FA5200;
-    }
-
-    &[title='Reset Filters'] {
-        background: transparent !important;
-        box-shadow: none !important;
-
-        &:hover,
-        &:active {
-            color: #111 !important;
-            text-decoration: underline;
-        }
     }
 }
 
@@ -377,15 +372,6 @@ form button {
     }
 }
 
-.coach-button:nth-child(odd) {
-    background: #C8102E;
-    color: #FFF;
-
-    &:hover {
-        background: #FFF;
-        color: #111;
-    }
-}
 
 .jersey-button {
     align-items: center;
@@ -467,26 +453,6 @@ iframe {
     z-index: 2;
 }
 
-.more {
-    color: #C8102E;
-}
-
-.body {
-  box-shadow: rgba(200, 16, 46, 0.4) -5px -5px, rgba(200, 16, 46, 0.2) -5px -5px, rgba(200, 16, 46, 0.1) -15px -15px;
-  position: relative;
-
-    &:before {
-        content: '';
-        cursor: default;
-        display: block;
-        height: 60px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 3;
-    }
-}
 
 .link {
   user-select: all;
