@@ -35,6 +35,7 @@ function SearchForm({jsonData}) {
     const searchStrings = useMemo(() =>
         jsonData.map(item => (
             item.league + ' ' +
+            ' Season ' + item.season + ' ' +
             item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.year + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
