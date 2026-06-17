@@ -35,7 +35,7 @@ function SearchForm({jsonData}) {
     const searchStrings = useMemo(() =>
         jsonData.map(item => (
             item.league + ' ' +
-            ' Season ' + item.season + ' ' +
+            'S' + item.season + ' ' +
             item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.year + ' ' +
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
@@ -311,7 +311,7 @@ function SearchForm({jsonData}) {
                                 <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
                             </div>
                         </Tab>
-                        <Tab eventKey="buttons" tabClassName="border-0 fw-bold p-3" title="Buttons">
+                        <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                             <div className="p-3">
                                 <div className="align-items-start buttons-group d-flex flex-row gap-3">
                                     <div className="d-flex flex-column gap-3 league-buttons">

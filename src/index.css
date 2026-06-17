@@ -309,11 +309,6 @@ form div > button {
         background: #FFF !important;
     }
 
-    &[title='Search'] {
-        background: #B88648;
-        color: #FFF;
-    }
-
     &[title='Reset'] {
         background: transparent !important;
         box-shadow: none !important;
@@ -494,6 +489,7 @@ label {
 }
 
 .nav-link {
+    border-radius: 0 !important;
     color: #111 !important;
     font-size: 1.125rem !important;
 
@@ -513,5 +509,6 @@ label {
 }
 
 .tab-pane {
+    background: #FFF !important;
     border: .2rem solid #C81020 !important;
 }
