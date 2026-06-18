@@ -95,6 +95,7 @@ h1 {
 
 main {
     margin-bottom: 1rem;
+    min-height: 80vh;
 }
 
 p {
