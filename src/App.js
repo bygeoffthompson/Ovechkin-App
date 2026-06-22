@@ -293,20 +293,18 @@ function SearchForm({jsonData}) {
                                 <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                     <label className="h6 m-0" htmlFor="league">Search Filter</label>
-                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-between">
-                                        <select className="form-select w-auto" id="league" name="League">
-                                            <option value="" selected>All</option>
-                                            <option className="fw-bold" value="NHL">NHL</option>
-                                            <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                            <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
-                                            <option value="NHL All Star">•&nbsp;NHL All Star</option>
-                                            <option value="KHL">KHL</option>
-                                            <option value="Olympics">Olympic</option>
-                                            <option value="World Championships">World Championship</option>
-                                            <option value="World Cup">World Cup</option>
-                                        </select>
-                                        <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
-                                    </div>
+                                    <select className="form-select w-auto" id="league" name="League">
+                                        <option value="" selected>All</option>
+                                        <option className="fw-bold" value="NHL">NHL</option>
+                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                        <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
+                                        <option value="NHL All Star">•&nbsp;NHL All Star</option>
+                                        <option value="KHL">KHL</option>
+                                        <option value="Olympics">Olympic</option>
+                                        <option value="World Championships">World Championship</option>
+                                        <option value="World Cup">World Cup</option>
+                                    </select>
+                                    <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
                                 </div>
                                 <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
                             </div>
