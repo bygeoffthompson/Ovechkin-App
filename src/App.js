@@ -9,7 +9,7 @@ if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
-const hhofList = ['Ed Belfour', 'Martin Brodeur', 'Zdeno Chara', 'Pavel Datsyuk', 'Sergei Federov', 'Dominik Hasek', 'Henrik Lundqvist', 'Roberto Luongo']
+const hhofList = ['Carey Price', 'Ed Belfour', 'Martin Brodeur', 'Dominik Hasek', 'Henrik Lundqvist', 'Roberto Luongo', 'Pekka Rinne']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
