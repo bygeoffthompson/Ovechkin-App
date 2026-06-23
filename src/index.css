@@ -41,7 +41,11 @@ body {
 }
 
 .goal-count {
-    font-size: 2rem;
+    font-size: 1.25rem;
+
+    @media (min-width: 500px) {
+        font-size: 2rem;
+    }
 
     &:before {
         font-size: .875rem;
@@ -55,16 +59,6 @@ body {
 
 .indexer {
     opacity: .1;
-}
-
-#wrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto 1rem;
-  max-width: 1024px;
-  padding: 0 .5rem;
-  position: relative;
 }
 
 .accordion-item:not([data-league='NHL Regular']) .goal-count span:first-of-type {
@@ -380,8 +374,6 @@ form div > button {
 
 form {
   background: rgb(207, 226, 255, .5);
-  max-width: 500px;
-  width: 100%;
 
     a {
         color: #111;
@@ -399,28 +391,17 @@ form {
             }
         }
     }
-}
 
-select {
-  position: relative;
-  z-index: 1;
+    @media (min-width: 992px) {
+        max-width: 475px;
+    }
 }
 
 iframe {
     aspect-ratio: 16 / 9;
     background: #111;
-    border: 0;
-    height: auto;
     min-height: 0;
-    position: relative;
-    width: 100% !important;
-    user-select: none !important;
     z-index: 2;
-}
-
-
-.link {
-  user-select: all;
 }
 
 input {

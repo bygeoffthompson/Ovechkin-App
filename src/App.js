@@ -272,8 +272,8 @@ function SearchForm({jsonData}) {
 
     return (
         <div className="container">
-            <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row">
-                <form className="align-items-start d-flex justify-content-center flex-column my-3 shadow" onSubmit={preventSubmit} onClick={(e) => {
+            <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
+                <form className="align-items-start d-flex justify-content-center flex-column shadow w-100" onSubmit={preventSubmit} onClick={(e) => {
                         const btn = e.target.closest('button')
                         if (!btn) return
                         const title = btn.title
@@ -293,7 +293,7 @@ function SearchForm({jsonData}) {
                                 <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                     <label className="h6 m-0" htmlFor="league">Search Filter</label>
-                                    <select className="form-select w-auto" id="league" name="League">
+                                    <select className="form-select position-relative w-auto" id="league" name="League">
                                         <option value="" selected>All</option>
                                         <option className="fw-bold" value="NHL">NHL</option>
                                         <option value="NHL Regular">•&nbsp;NHL Regular</option>
@@ -311,8 +311,8 @@ function SearchForm({jsonData}) {
                         </Tab>
                         <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                             <div className="p-3">
-                                <div className="align-items-start buttons-group d-flex flex-row gap-3">
-                                    <div className="d-flex flex-column gap-3 league-buttons">
+                                <div className="align-items-start buttons-group d-flex flex-row gap-2">
+                                    <div className="d-flex flex-column gap-2 league-buttons">
                                         <button onClick={(event) => shuffle()} title="Shuffle" type="button">
                                            <img alt="Shuffle icon" src="/icons/shuffle.svg"/>Shuffle
                                         </button>
@@ -339,7 +339,7 @@ function SearchForm({jsonData}) {
                                             <img alt="Cup logo" src="/icons/cup.svg"/>World&nbsp;Cup
                                         </button>
                                     </div>
-                                    <div className="d-flex flex-column gap-3">
+                                    <div className="d-flex flex-column gap-2">
                                         <button onClick={(event) => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
                                             <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" />
                                         </button>
@@ -373,7 +373,7 @@ function SearchForm({jsonData}) {
                                             <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
                                         </button>
                                     </div>
-                                    <div className="d-flex flex-column gap-3">
+                                    <div className="d-flex flex-column gap-2">
                                         <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>
                                         <button onClick={(event) => filterGoal(['Home'])} title="Home" type="button">Home</button>
                                         <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
@@ -384,7 +384,7 @@ function SearchForm({jsonData}) {
                                         <button onClick={(event) => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
                                         <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                                     </div>
-                                    <div className="d-flex flex-column gap-3">
+                                    <div className="d-flex flex-column gap-2">
                                         <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                                         <button onClick={canadian} title="In Canada" type="button">In&nbsp;Canada</button>
                                         <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
@@ -401,10 +401,10 @@ function SearchForm({jsonData}) {
                     </Tabs>
                 </form>
 
-                <div className="p-1 p-sm-3 w-100" id="wrapper">
+                <div className="w-100">
                     <div className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
                         <strong id="count"></strong>
-                        {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                        {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                             <option value="asc">Ascend</option>
                             <option value="desc">Descend</option>
                         </select>}
@@ -415,23 +415,25 @@ function SearchForm({jsonData}) {
                             return (
                             <Accordion.Item data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
                                 <Accordion.Header onClick={lazyLoadFrame}>
-                                    <div className="align-items-center d-flex gap-2 justify-content-start w-100">
+                                    <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             <span>{result.goal.toString().split('.')[0]}</span>
                                             <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
                                         </strong>
+                                        <div className="align-items-center d-flex justify-content-center goal-siren">
+                                            <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
+                                            <strong className="position-absolute type">{result.type}</strong>
+                                        </div>
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
-                                        <strong className="d-none d-sm-block">{result.month}/{result.day}/{result.year}</strong>
-                                        <strong className="goalie">{result.goalie}</strong>
-                                    </div>
-                                    <div className="align-items-center d-flex justify-content-center goal-siren me-md-3">
-                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
-                                        <strong className="position-absolute type">{result.type}</strong>
+                                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
+                                            <strong>{result.month}/{result.day}/{result.year}</strong>
+                                            <strong className="goalie">{result.goalie}</strong>
+                                        </div>
                                     </div>
                                     <strong className="bottom-0 indexer p-1 position-absolute start-0">{index + 1}</strong>
                                 </Accordion.Header>
                                 <Accordion.Body>
-                                    <iframe width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
+                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
                                     <div className="d-flex flex-column">
                                         <small>
                                             {result.primary && result.primary + ' '}
