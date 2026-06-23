@@ -238,9 +238,10 @@ form div > button {
 
   &:hover,
   &:active {
-    background: #B88747;
-    border-color: #B88747;
+    background: rgba(17,17,17,.8);
+    border-color: rgba(17,17,17,.8);
     box-shadow: 0 .25rem .75rem #333;
+    color: #FFF;
     transform: scale(1.05);
   }
 
