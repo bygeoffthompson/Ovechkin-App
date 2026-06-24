@@ -65,6 +65,10 @@ body {
     display: none;
 }
 
+.badge {
+  background: #C81020;
+}
+
 .goal-siren {
     img {
         height: auto;
@@ -111,7 +115,7 @@ body {
 .accordion-button {
     box-shadow: none !important;
     font-size: .875rem !important;
-    position: relative;
+    padding: 1rem !important;
     z-index: auto !important;
 
     @media (max-width:768px) {
@@ -298,6 +302,10 @@ form div > button {
         background: #C81020;
     }
 
+    &[title*='Shuffle']:hover img {
+        filter: invert(1);
+    }
+
     &[title='Screagle'],
     &[title='White'] {
         background: #FFF;
@@ -401,6 +409,7 @@ form {
 iframe {
     aspect-ratio: 16 / 9;
     background: #111;
+    margin-bottom: -6px;
     min-height: 0;
     z-index: 2;
 }

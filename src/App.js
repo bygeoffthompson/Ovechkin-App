@@ -273,7 +273,7 @@ function SearchForm({jsonData}) {
     return (
         <div className="container">
             <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
-                <form className="align-items-start d-flex justify-content-center flex-column shadow w-100" onSubmit={preventSubmit} onClick={(e) => {
+                <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={preventSubmit} onClick={(e) => {
                         const btn = e.target.closest('button')
                         if (!btn) return
                         const title = btn.title
@@ -409,7 +409,7 @@ function SearchForm({jsonData}) {
                             <option value="desc">Descend</option>
                         </select>}
                     </div>
-                    <Accordion className="w-100" defaultActiveKey="0" flush>
+                    <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             return (
@@ -432,17 +432,19 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <strong className="bottom-0 indexer p-1 position-absolute start-0">{index + 1}</strong>
                                 </Accordion.Header>
-                                <Accordion.Body>
-                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
-                                    <div className="d-flex flex-column">
-                                        <small>
-                                            {result.primary && result.primary + ' '}
-                                            {result.secondary && result.secondary + ' '}
+                                <Accordion.Body className="p-0">
+                                    <div className="d-flex flex-column p-3 py-2">
+                                        <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
+                                            <span className="badge">{result.primary && result.primary + ' '}</span>
+                                            <span className="badge">{result.secondary && result.secondary + ' '}</span>
                                             {result.btn1 && result.btn1 + ' '}
                                             {result.btn2 && result.btn2 + ' '}
                                             {result.btn3 && result.btn3 + ' '}
                                             {result.search}
                                         </small>
+                                    </div>
+                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
+                                    <div className="p-3 py-1">
                                         <small className="link user-select-all"><strong>ovechkin.app/?{result.goal}</strong></small>
                                     </div>
                                 </Accordion.Body>
