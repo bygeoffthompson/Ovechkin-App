@@ -80,6 +80,10 @@ body {
     }
 }
 
+.link {
+    z-index: 2;
+}
+
 .type {
     background: radial-gradient(#EF4933 40%, transparent);
     color: #FFD2C7;

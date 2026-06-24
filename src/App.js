@@ -432,7 +432,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <strong className="bottom-0 indexer p-1 position-absolute start-0">{index + 1}</strong>
                                 </Accordion.Header>
-                                <Accordion.Body className="p-0">
+                                <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">
                                         <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
                                             <span className="badge">{result.primary && result.primary + ' '}</span>
@@ -444,9 +444,7 @@ function SearchForm({jsonData}) {
                                         </small>
                                     </div>
                                     <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
-                                    <div className="p-3 py-1">
-                                        <small className="link user-select-all"><strong>ovechkin.app/?{result.goal}</strong></small>
-                                    </div>
+                                    <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark user-select-all"><strong>ovechkin.app/?{result.goal}</strong></small>
                                 </Accordion.Body>
                             </Accordion.Item>
                             )
