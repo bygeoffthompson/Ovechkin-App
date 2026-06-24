@@ -538,7 +538,7 @@
         "search": "New Years Eve Rookie",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Capitol",
         "dotw": "Saturday",
         "season": 1
@@ -2325,7 +2325,7 @@
         "year": 2007,
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 3
@@ -5111,7 +5111,7 @@
         "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Monday",
         "season": 5
@@ -5216,7 +5216,7 @@
         "year": 2009,
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 5
@@ -5660,7 +5660,7 @@
         "year": 2010,
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 5
@@ -8264,7 +8264,7 @@
         "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "Throwback",
         "dotw": "Saturday",
         "season": 8
@@ -10206,7 +10206,7 @@
         "btn1": "Rocket Richard",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 10
@@ -10333,7 +10333,7 @@
         "btn1": "Vezina",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "Throwback",
         "dotw": "Thursday",
         "season": 10,
@@ -11202,7 +11202,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 11
@@ -11328,7 +11328,7 @@
         "btn2": "Rocket Richard",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Tuesday",
         "season": 11
