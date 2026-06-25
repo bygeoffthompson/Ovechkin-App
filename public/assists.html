@@ -54,7 +54,7 @@
                     const playerCell = row.insertCell();
                     const link = document.createElement('a');
                     link.textContent = player;
-                    link.href = '/?' + player.toLowerCase().replace(/\s+/g, '-');
+                    link.href = '/?' + player.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
                     playerCell.appendChild(link);
                     row.insertCell().textContent = c.primary;
                     row.insertCell().textContent = c.secondary;
@@ -91,15 +91,17 @@
         </table>
     </main>
   </div>
-    <footer>
-        <a href="/">Home</a>
-        &nbsp;|&nbsp;
-        <a href="/about.html">About</a>
-        &nbsp;|&nbsp;
-        <a href="/goals.html">Goals</a>
-        &nbsp;|&nbsp;
-        <a href="/help.html">Help</a>
-    </footer>
+      <footer>
+          <a href="/">Home</a>
+          &nbsp;|&nbsp;
+          <a href="/about.html">About</a>
+          &nbsp;|&nbsp;
+          <a href="/goals.html">Goals</a>
+          &nbsp;|&nbsp;
+          <a href="/goalies.html">Goalies</a>
+          &nbsp;|&nbsp;
+          <a href="/help.html">Help</a>
+      </footer>
   </body>
   <script>
       jQuery(window).on('load', function() {
