@@ -20,7 +20,7 @@ footer a {
     }
 }
 
-#ovechkin-goals_wrapper {
+.dt-container {
     margin: 0 0 4rem;
     max-height: 800px;
     overflow: scroll;
