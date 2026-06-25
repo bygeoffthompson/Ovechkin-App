@@ -466,6 +466,7 @@ label {
 }
 
 .nav-link {
+    background: #FFF !important;
     border-radius: 0 !important;
     color: #111 !important;
     font-size: 1.125rem !important;
@@ -478,6 +479,12 @@ label {
         background: #C81020 !important;
         color: #FFF !important;
         text-decoration: none !important;
+    }
+}
+
+.nav-tabs {
+    @media (min-width: 768px) {
+        min-width: 475px;
     }
 }
 
