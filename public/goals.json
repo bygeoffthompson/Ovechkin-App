@@ -3511,7 +3511,7 @@
         "year": 2008,
         "search": "Flag Tuuks",
         "league": "World Championships",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red Russia",
         "dotw": "Wednesday",
         "season": 3
@@ -5786,7 +5786,7 @@
         "day": 9,
         "year": 2010,
         "league": "World Championships",
-        "period": "First",
+        "period": "Second",
         "jersey": "White Russia",
         "dotw": "Sunday",
         "season": 5
@@ -6173,7 +6173,7 @@
         "btn1": "2nd",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Saturday",
         "season": 6
@@ -7726,7 +7726,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 8
@@ -10981,7 +10981,7 @@
         "search": "Peter Bondra",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 11
@@ -11055,7 +11055,7 @@
         "btn1": "Jean Beliveau",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 11
