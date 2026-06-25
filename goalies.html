@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Goalies | Ovechkin App</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="A list of goalies Ovechkin has scored against.">
+    <meta name="keywords" content="Ovechkin App, NHL, KHL, goal highlight videos, catalog, index, log, career, goalscorer, greatest goal scorer, playoff goal, Washington Capitals, Caps, Moscow Dynamo, Russia, Gr8, Gr8 Chase, Ov, Ovi, Ovie, Ovy, Alexander, Sasha, Russian Machine, Ovechkam, OviCast">
+    <meta name="author" content="Geoff Thompson">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ovechkin App">
+    <meta property="og:url" content="https://www.ovechkin.app/goalies.html">
+    <meta property="og:title" content="Goalies | Ovechkin App">
+    <meta property="og:description" content="A list of goalies Ovechkin has scored against.">
+    <meta property="og:image" content="https://www.ovechkin.app/ovechkin.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Goalies | Ovechkin App">
+    <meta name="twitter:description" content="A list of goalies Ovechkin has scored against.">
+    <meta name="twitter:image" content="https://www.ovechkin.app/ovechkin.jpg">
+    <link rel="canonical" href="https://www.ovechkin.app/goalies.html">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4X7EL6PW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K4X7EL6PW3');
+    </script>
+    <script>
+        async function fetchDataAndCreateTable() {
+            try {
+                const response = await fetch('/goals.json');
+                const data = await response.json();
+
+                const counts = {};
+                data.forEach(item => {
+                    if (!item.goalie) return;
+                    if (!counts[item.goalie]) counts[item.goalie] = { first: null, last: null, nhl: 0, khl: 0, international: 0, total: 0 };
+                    const dateVal = item.year * 10000 + item.month * 100 + item.day;
+                    const dateStr = item.month + '/' + item.day + '/' + item.year;
+                    if (!counts[item.goalie].first) counts[item.goalie].first = { val: dateVal, str: dateStr };
+                    counts[item.goalie].last = { val: dateVal, str: dateStr };
+                    if (item.league === 'NHL Regular' || item.league === 'NHL Playoffs') counts[item.goalie].nhl++;
+                    else if (item.league === 'KHL') counts[item.goalie].khl++;
+                    else if (['World Championships', 'World Cup', 'Olympics'].includes(item.league)) counts[item.goalie].international++;
+                    counts[item.goalie].total++;
+                });
+
+                const tableBody = document.querySelector('tbody');
+                Object.entries(counts).forEach(([goalie, c]) => {
+                    const row = tableBody.insertRow();
+                    const goalieCell = row.insertCell();
+                    const link = document.createElement('a');
+                    link.textContent = goalie;
+                    link.href = '/?' + goalie.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
+                    goalieCell.appendChild(link);
+                    const firstCell = row.insertCell();
+                    firstCell.textContent = c.first.str;
+                    firstCell.dataset.sort = c.first.val;
+                    const lastCell = row.insertCell();
+                    if (c.last.val !== c.first.val) {
+                        lastCell.textContent = c.last.str;
+                        lastCell.dataset.sort = c.last.val;
+                    }
+                    row.insertCell().textContent = c.nhl;
+                    row.insertCell().textContent = c.international;
+                    row.insertCell().textContent = c.khl;
+                    row.insertCell().textContent = c.total;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
+  </head>
+  <body>
+  <div class="container">
+    <header class="my-4">
+      <h1>Ovechkin Goal Goalies</h1>
+    </header>
+    <main>
+        <p>A list of goalies who have been scored on by Ovechkin.</p>
+        <table id="ovechkin-goalies">
+            <thead>
+              <tr>
+                  <th>Goalie</th>
+                  <th>First</th>
+                  <th>Last</th>
+                  <th>NHL</th>
+                  <th>International</th>
+                  <th>KHL</th>
+                  <th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+  </div>
+      <footer>
+          <a href="/">Home</a>
+          &nbsp;|&nbsp;
+          <a href="/about.html">About</a>
+          &nbsp;|&nbsp;
+          <a href="/assists.html">Assists</a>
+          &nbsp;|&nbsp;
+          <a href="/goals.html">Goals</a>
+          &nbsp;|&nbsp;
+          <a href="/help.html">Help</a>
+      </footer>
+  </body>
+  <script>
+      jQuery(window).on('load', function() {
+          let table = new DataTable('#ovechkin-goalies', {
+              paging: false,
+              responsive: true,
+              order: [[ 6, 'desc' ]],
+              searching: false,
+              stateSave: false,
+              columnDefs: [
+                  { type: 'num', orderSequence: ['desc', 'asc'], targets: [3, 4, 5, 6] },
+                  { type: 'num', orderSequence: ['asc', 'desc'], targets: [1, 2] },
+                  { orderable: false, targets: [0] }
+              ]
+          });
+      });
+  </script>
+</html>
