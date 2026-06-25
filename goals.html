@@ -41,7 +41,10 @@
                 data.forEach(item => {
                     const row = tableBody.insertRow();
                     const goalCell = row.insertCell();
-                    goalCell.textContent = item.goal;
+                    const link = document.createElement('a');
+                    link.textContent = item.goal;
+                    link.href = '/?' + item.goal;
+                    goalCell.appendChild(link);
                     const seasonCell = row.insertCell();
                     seasonCell.textContent = item.league;
                     const dateCell = row.insertCell();

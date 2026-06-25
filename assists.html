@@ -51,7 +51,11 @@
                 const tableBody = document.querySelector('tbody');
                 Object.entries(counts).forEach(([player, c]) => {
                     const row = tableBody.insertRow();
-                    row.insertCell().textContent = player;
+                    const playerCell = row.insertCell();
+                    const link = document.createElement('a');
+                    link.textContent = player;
+                    link.href = '/?' + player.toLowerCase().replace(/\s+/g, '-');
+                    playerCell.appendChild(link);
                     row.insertCell().textContent = c.primary;
                     row.insertCell().textContent = c.secondary;
                     row.insertCell().textContent = c.primary + c.secondary;
