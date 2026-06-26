@@ -117,6 +117,7 @@ body {
 }
 
 .accordion-button {
+    background: #FFF !important;
     box-shadow: none !important;
     font-size: .875rem !important;
     padding: 1rem !important;
@@ -130,6 +131,7 @@ body {
         font-size: 1.125rem !important;
     }
 
+    &.collapsed,
     &:hover {
         background: rgb(207, 226, 255) !important;
     }
