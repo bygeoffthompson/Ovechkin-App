@@ -283,8 +283,10 @@ function SearchForm({jsonData}) {
                     <Tabs defaultActiveKey="search" fill className="w-100">
                         <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                             <div className="align-items-start d-flex flex-column gap-3 p-3">
-                                <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
-                                <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                <div className="align-items-center d-flex flex-row justify-content-start mb-3">
+                                    <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
+                                    <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                </div>
                                 <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
                                 <label className="d-none" htmlFor="search-text-2">Search by Text</label>
                                 <label className="d-none" htmlFor="search-text-3">Search by Text</label>
@@ -311,10 +313,14 @@ function SearchForm({jsonData}) {
                         </Tab>
                         <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                             <div className="p-3">
+                                <div className="align-items-center d-flex flex-row justify-content-start mb-3">
+                                    <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
+                                    <input className="pe-none" id="random-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                </div>
                                 <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
                                     <div className="d-flex flex-column gap-2 league-buttons">
                                         <button onClick={(event) => shuffle()} title="Shuffle" type="button">
-                                           <img alt="Shuffle icon" src="/icons/shuffle.svg"/>Shuffle
+                                            <img alt="Shuffle icon" src="/icons/shuffle.svg"/>Shuffle
                                         </button>
                                         <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>NHL
@@ -341,36 +347,36 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="d-flex flex-column gap-2">
                                         <button onClick={(event) => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
-                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" />
+                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
-                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" />
+                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
+                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['White'])} className="jersey-button" title="White" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" />
+                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
-                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" />&nbsp;&nbsp;☆
+                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg"/>&nbsp;&nbsp;☆
                                         </button>
                                         <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
                                             <span>
-                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" />
+                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg"/>
                                             </span>
                                             <span>
-                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" />
+                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg"/>
                                             </span>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
-                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" />
+                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
-                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
+                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
                                         </button>
                                         <button onClick={(event) => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
-                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" />
+                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">

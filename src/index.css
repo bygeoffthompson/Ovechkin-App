@@ -466,18 +466,13 @@ label {
 }
 
 .nav-link {
-    background: #FFF !important;
+    background: rgb(207, 226, 255) !important;
     border-radius: 0 !important;
-    color: #111 !important;
     font-size: 1.125rem !important;
 
-    &:hover {
-        text-decoration: underline;
-    }
-
     &.active {
-        background: #C81020 !important;
-        color: #FFF !important;
+        background: #FFF !important;
+        color: #111 !important;
         text-decoration: none !important;
     }
 }
@@ -494,5 +489,4 @@ label {
 
 .tab-pane {
     background: #FFF !important;
-    border: .2rem solid #C81020 !important;
 }
