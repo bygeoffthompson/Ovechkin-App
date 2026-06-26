@@ -145,6 +145,7 @@ body {
         width: 100%;
     }
 
+    &:not(.collapsed):hover,
     &.collapsed {
         background: rgb(207, 226, 255) !important;
     }
