@@ -37,11 +37,12 @@
                 const response = await fetch('/goals.json');
                 const data = await response.json();
 
-                const counts = { nhl: 0, playoff: 0, worldChamp: 0, worldCup: 0, olympic: 0 };
+                const counts = { nhl: 0, playoff: 0, khl: 0, worldChamp: 0, worldCup: 0, olympic: 0 };
                 data.forEach(item => {
                     switch (item.league) {
                         case 'NHL Regular':         counts.nhl++;        break;
                         case 'NHL Playoffs':        counts.playoff++;    break;
+                        case 'KHL':                 counts.khl++;        break;
                         case 'World Championships': counts.worldChamp++; break;
                         case 'World Cup':           counts.worldCup++;   break;
                         case 'Olympics':            counts.olympic++;    break;
@@ -52,9 +53,10 @@
                 const row = tableBody.insertRow();
                 row.insertCell().textContent = counts.nhl;
                 row.insertCell().textContent = counts.playoff;
+                row.insertCell().textContent = counts.khl;
+                row.insertCell().textContent = counts.olympic;
                 row.insertCell().textContent = counts.worldChamp;
                 row.insertCell().textContent = counts.worldCup;
-                row.insertCell().textContent = counts.olympic;
                 row.insertCell().textContent = data.length;
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -78,10 +80,11 @@
             <thead>
               <tr>
                   <th>NHL Regular</th>
-                  <th>NHL Playoffs</th>
+                  <th>NHL Playoff</th>
+                  <th>KHL</th>
+                  <th>Olympic</th>
                   <th>World Championship</th>
                   <th>World Cup</th>
-                  <th>Olympic</th>
                   <th>Total</th>
               </tr>
             </thead>

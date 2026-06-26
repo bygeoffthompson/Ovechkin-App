@@ -121,7 +121,7 @@ body {
 }
 
 .accordion-button {
-    background: #FFF !important;
+    background: rgba(207, 226, 255, .5) !important;
     box-shadow: none !important;
     font-size: .875rem !important;
     padding: 1rem !important;
@@ -145,14 +145,16 @@ body {
         width: 100%;
     }
 
-    &:not(.collapsed):hover,
     &.collapsed {
         background: rgb(207, 226, 255) !important;
     }
 }
 
-.accordion-item:first-of-type .accordion-button:before {
-    display: none;
+.accordion-item:first-of-type {
+    .accordion-button:before,
+    .indexer {
+        display: none;
+    }
 }
 
 [data-float='1'],
