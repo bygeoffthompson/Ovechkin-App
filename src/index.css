@@ -116,6 +116,10 @@ body {
     }
 }
 
+.team-logo {
+    width: 50px !important;
+}
+
 .accordion-button {
     background: #FFF !important;
     box-shadow: none !important;
@@ -131,10 +135,23 @@ body {
         font-size: 1.125rem !important;
     }
 
-    &.collapsed,
-    &:hover {
+    &:before {
+        background: rgba(17,17,17,.15);
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    &.collapsed {
         background: rgb(207, 226, 255) !important;
     }
+}
+
+.accordion-item:first-of-type .accordion-button:before {
+    display: none;
 }
 
 [data-float='1'],

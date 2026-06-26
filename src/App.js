@@ -300,7 +300,6 @@ function SearchForm({jsonData}) {
                                         <option className="fw-bold" value="NHL">NHL</option>
                                         <option value="NHL Regular">•&nbsp;NHL Regular</option>
                                         <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
-                                        <option value="NHL All Star">•&nbsp;NHL All Star</option>
                                         <option value="KHL">KHL</option>
                                         <option value="Olympics">Olympic</option>
                                         <option value="World Championships">World Championship</option>
@@ -328,10 +327,10 @@ function SearchForm({jsonData}) {
                                         <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>Playoffs
                                         </button>
-                                        <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                                        <button onClick={(event) => filterGoal(['All Star'])} title="NHL All Star" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg"/>All&nbsp;Star
+                                        <button onClick={(event) => filterGoal(['Rookie'])} title="Rookie" type="button">
+                                            <img alt="NHL logo" src="/teams/NHL.svg"/>Rookie
                                         </button>
+                                        <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
                                             <img alt="KHL logo" src="/teams/KHL.svg"/>KHL
                                         </button>
@@ -387,7 +386,7 @@ function SearchForm({jsonData}) {
                                         <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
                                         <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
                                         <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
-                                        <button onClick={(event) => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
+                                        <button onClick={(event) => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
                                         <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
@@ -430,9 +429,11 @@ function SearchForm({jsonData}) {
                                             <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
                                             <strong className="position-absolute type">{result.type}</strong>
                                         </div>
-                                        <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
+                                        <div className="align-items-center d-flex justify-content-center team-logo">
+                                            <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
+                                        </div>
                                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                            <strong>{result.month}/{result.day}/{result.year}</strong>
+                                            <strong>{result.month}/{result.day}/{String(result.year).slice(-2)}</strong>
                                             <strong className="goalie">{result.goalie}</strong>
                                         </div>
                                     </div>
