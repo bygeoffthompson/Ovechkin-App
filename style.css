@@ -26,6 +26,18 @@ footer a {
     overflow: scroll;
 }
 
+#ovechkin-totals,
+#ovechkin-totals_wrapper {
+    margin: 0 0 1rem;
+    max-width: 768px;
+    overflow: hidden;
+    overflow-x: scroll;
+
+    @media (min-width:768px) {
+        overflow-x: hidden;
+    }
+}
+
 .badge-flex {
     align-items: center;
     display: flex;
