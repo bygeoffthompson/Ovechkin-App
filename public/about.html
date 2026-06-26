@@ -22,6 +22,7 @@
     <link rel="canonical" href="https://www.ovechkin.app/about.html">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
     <link rel="manifest" href="/manifest.json">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4X7EL6PW3"></script>
     <script>
@@ -30,6 +31,41 @@
         gtag('js', new Date());
         gtag('config', 'G-K4X7EL6PW3');
     </script>
+    <script>
+        async function fetchDataAndCreateTable() {
+            try {
+                const response = await fetch('/goals.json');
+                const data = await response.json();
+
+                const counts = { nhl: 0, playoff: 0, worldChamp: 0, worldCup: 0, olympic: 0 };
+                data.forEach(item => {
+                    switch (item.league) {
+                        case 'NHL Regular':         counts.nhl++;        break;
+                        case 'NHL Playoffs':        counts.playoff++;    break;
+                        case 'World Championships': counts.worldChamp++; break;
+                        case 'World Cup':           counts.worldCup++;   break;
+                        case 'Olympics':            counts.olympic++;    break;
+                    }
+                });
+
+                const tableBody = document.querySelector('#ovechkin-totals tbody');
+                const row = tableBody.insertRow();
+                row.insertCell().textContent = counts.nhl;
+                row.insertCell().textContent = counts.playoff;
+                row.insertCell().textContent = counts.worldChamp;
+                row.insertCell().textContent = counts.worldCup;
+                row.insertCell().textContent = counts.olympic;
+                row.insertCell().textContent = data.length;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+    <style>th{white-space:nowrap;}</style>
   </head>
   <body>
   <div class="container">
@@ -37,7 +73,20 @@
       <h1>About Ovechkin App</h1>
     </header>
     <main>
-      <p><a href="/">Ovechkin App</a> is a catalog of Gr8 goal videos from first to last that includes Playoff (77), World Championship (35), World Cup (2), KHL (19), and Olympic (8) goals for a total of 1,070.</p>
+      <p><a href="/">Ovechkin App</a> is a complete catalog of goal videos from first to last including Playoff, World Championship, World Cup, KHL, and Olympic goals.</p>
+        <table id="ovechkin-totals">
+            <thead>
+              <tr>
+                  <th>NHL Regular</th>
+                  <th>NHL Playoffs</th>
+                  <th>World Championship</th>
+                  <th>World Cup</th>
+                  <th>Olympic</th>
+                  <th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
       <p>Our searchable and sequential index allows users to find Ovi goals in a new and useful way. Specific goals and curated sets of goals can be retrieved by date, opponent, goaltender, period, points, jersey, and other tags.</p>
       <h2>Thank You</h2>
       <p>@NHL895, @EveryOvechkinGoal, @Capitals, @KHL, @Sportsnet, @WolfHockey and all other embedded Youtube channels.</p>
@@ -66,4 +115,15 @@
       <a href="/help.html">Help</a>
   </footer>
   </body>
+  <script>
+      jQuery(window).on('load', function() {
+          new DataTable('#ovechkin-totals', {
+              paging: false,
+              responsive: true,
+              ordering: false,
+              searching: false,
+              stateSave: false
+          });
+      });
+  </script>
 </html>
