@@ -41,6 +41,7 @@ function SearchForm({jsonData}) {
             new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
             (item.type ? item.type + ' ' : '') +
             (item.goalie ? item.goalie + ' ' : '') +
+            (item.goalie2 ? item.goalie2 + ' ' : '') +
             item.team + ' ' +
             item.period + ' ' +
             (item.hoa ? item.hoa + ' ' : '') +
