@@ -836,7 +836,7 @@
         "year": 2006,
         "search": "Turin Torino Italy",
         "league": "Olympics",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red Russia",
         "dotw": "Sunday",
         "season": 1
@@ -9108,10 +9108,11 @@
         "year": 2014,
         "type": "2nd",
         "search": "800th Career Point",
-        "btn1": "PPG Vezina",
+        "btn1": "PPG",
+        "search": "Vezina",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "Throwback",
         "dotw": "Saturday",
         "season": 9
