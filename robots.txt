@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /
-Allow: /$
-Allow: /favicon.ico
-Allow: /about.html
-Allow: /goals.html
-Allow: /help.html
+Allow: /
+
+Sitemap: https://www.ovechkin.app/sitemap.xml
