@@ -5,7 +5,6 @@ import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3')
 
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
@@ -468,6 +467,8 @@ function App() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
+        if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3');
+
         async function fetchData() {
             const response = await fetch('goals.json');
             const json = await response.json();
