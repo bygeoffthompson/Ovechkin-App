@@ -19,6 +19,10 @@ body {
     }
 }
 
+.loading {
+    min-height: 560px;
+}
+
 .ice {
   background: url('../public/bg/ice.jpg');
   height: 100vh;
