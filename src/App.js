@@ -248,7 +248,7 @@ function SearchForm({jsonData}) {
         document.getElementById('results').classList.add('show')
         const count = document.getElementById('count')
         count.setAttribute('data-count', 3)
-        count.innerHTML = '3 Result'
+        count.innerHTML = '3 Results'
     }
 
     function unassisted() {
