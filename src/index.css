@@ -34,12 +34,6 @@ body {
   z-index: -1;
 }
 
-#count {
-    &:not([data-count='1']):after {
-      content: 's';
-    }
-}
-
 #otd {
     padding: .625rem .25rem;
 }
