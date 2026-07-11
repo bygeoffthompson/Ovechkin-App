@@ -3483,7 +3483,7 @@
         "search": "Home Opener Start",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 4
@@ -4739,7 +4739,7 @@
         "search": "Opening Night",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 5
@@ -5615,6 +5615,7 @@
         "month": 4,
         "day": 9,
         "year": 2010,
+        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
@@ -6171,7 +6172,7 @@
         "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Friday",
         "season": 6
@@ -7726,7 +7727,7 @@
         "search": "Teammate",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Tuesday",
         "season": 8
@@ -10516,6 +10517,7 @@
         "day": 22,
         "year": 2015,
         "type": "GWG",
+        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
@@ -14050,7 +14052,7 @@
         "year": 2019,
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 14
