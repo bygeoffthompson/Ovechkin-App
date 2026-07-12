@@ -2263,7 +2263,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Monday",
         "season": 3
@@ -3775,7 +3775,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 4
@@ -5827,7 +5827,7 @@
         "search": "Home Opener Start HHOF",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 6
@@ -15465,7 +15465,7 @@
         "search": "Covid Super Bowl",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Navy Third",
         "dotw": "Sunday",
         "season": 16
@@ -16016,9 +16016,11 @@
         "month": 10,
         "day": 29,
         "year": 2021,
+        "type": "ENG",
+        "btn1": "Empty Net",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 17
@@ -16556,7 +16558,7 @@
         "type": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Friday",
         "season": 17
