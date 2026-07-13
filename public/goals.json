@@ -1294,7 +1294,7 @@
         "search": "Home Opener Start",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Capitol",
         "dotw": "Saturday",
         "season": 2
@@ -1495,7 +1495,7 @@
         "type": "GWG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "Screagle",
         "dotw": "Monday",
         "season": 2
@@ -2454,7 +2454,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Friday",
         "season": 3
@@ -6862,7 +6862,7 @@
         "type": "20th",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "Throwback",
         "dotw": "Sunday",
         "season": 7
@@ -8880,7 +8880,7 @@
         "year": 2014,
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 9
@@ -14873,7 +14873,7 @@
         "search": "Teammate",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Tuesday",
         "season": 15
