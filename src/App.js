@@ -205,8 +205,8 @@ function SearchForm({jsonData}) {
         } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0) {
             ReactGA.event({
                 category: 'Search',
-                action: 'Form Submitted',
-                label: [currentText1, currentText2, currentText3].join(' ').trim()
+                action: 'Text Search',
+                label: [currentText1, currentText2, currentText3].filter(Boolean).join(' + ')
             });
             const t1 = normalize(currentText1)
             const t2 = normalize(currentText2)
@@ -279,7 +279,11 @@ function SearchForm({jsonData}) {
                         if (!btn) return
                         const title = btn.title
                         if (title === 'Search' || title === 'Reset') return
-                        ReactGA.event('goal_button_click', { button_name: title })
+                        ReactGA.event({
+                            category: 'Click',
+                            action: 'Button Click',
+                            label: title
+                        });
                     }}>
                     <Tabs defaultActiveKey="search" fill className="w-100">
                         <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
