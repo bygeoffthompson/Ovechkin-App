@@ -64,18 +64,6 @@
 
     <url>
 
-        <loc>https://www.ovechkin.app/goals.json</loc>
-
-        <lastmod>2026-6-27</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-
         <loc>https://www.ovechkin.app/help.html</loc>
 
         <lastmod>2026-6-24</lastmod>
