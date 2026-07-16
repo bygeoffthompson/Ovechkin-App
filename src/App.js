@@ -278,7 +278,7 @@ function SearchForm({jsonData}) {
                         const btn = e.target.closest('button')
                         if (!btn) return
                         const title = btn.title
-                        if (title === 'Search' || title === 'Reset') return
+                        if (title === 'Search' || title === 'Reset' || !title) return
                         ReactGA.event({
                             category: 'Click',
                             action: 'Button Click',
