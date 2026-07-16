@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useMemo} from 'react'
-import goalsData from './goals.json'
 import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
 import Tab from 'react-bootstrap/Tab'
@@ -470,12 +469,25 @@ function SearchForm({jsonData}) {
 }
 
 function App() {
+    const [data, setData] = useState(null);
+
     useEffect(() => {
         if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3');
+
+        async function fetchData() {
+            const response = await fetch('goals.json');
+            const json = await response.json();
+            setData(json);
+        }
+        fetchData();
     }, []);
 
+    if (!data) {
+        return <div className="loading opacity-25">Loading...</div>;
+    }
+
     return (
-        <SearchForm jsonData={goalsData}/>
+        <SearchForm jsonData={data}/>
     );
 }
 
