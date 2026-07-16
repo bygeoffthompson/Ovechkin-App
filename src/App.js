@@ -278,14 +278,14 @@ function SearchForm({jsonData}) {
                         const btn = e.target.closest('button')
                         if (!btn) return
                         const title = btn.title
-                        if (title === 'Search' || title === 'Reset' || !title) return
+                        if (['', 'Reset', 'Search'].includes(title)) return
                         ReactGA.event({
                             category: 'Click',
                             action: 'Button Click',
                             label: title
                         });
                     }}>
-                    <Tabs defaultActiveKey="search" fill className="w-100">
+                    <Tabs defaultActiveKey="random" fill className="w-100">
                         <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                             <div className="align-items-start d-flex flex-column gap-3 p-3">
                                 <div className="align-items-center d-flex flex-row justify-content-start mb-3">
