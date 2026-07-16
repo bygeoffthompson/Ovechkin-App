@@ -227,7 +227,7 @@ function SearchForm({jsonData}) {
             const count = document.getElementById('count')
             count.setAttribute('data-count', results.length)
             count.innerHTML = results.length + '&nbsp;Result'
-            results.length != 1 ? count.append('s') :
+            results.length !== 1 ? count.append('s') :
             setShowSort(results.length > 1)
             setSearchResults(results)
         }
