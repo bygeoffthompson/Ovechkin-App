@@ -47,6 +47,7 @@
 
                 const counts = {};
                 data.forEach(item => {
+                    if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
                     const key = leagueMap[item.league];
                     if (!key) return;
                     if (item.primary) {
@@ -62,7 +63,7 @@
                 function formulaCell(row, p, s) {
                     const cell = row.insertCell();
                     cell.setAttribute('data-order', p + s);
-                    cell.innerHTML = p + s > 0 ? `<small><small title="Primary">${p}</small> + <small title="Secondary">${s}</small> =</small> <strong title="Total">${p + s}</strong>` : '<span class="opacity-25">0</span>';
+                    cell.innerHTML = p + s > 0 ? `<small><small title="Primary">${p}</small> + <small title="Secondary">${s}</small> =</small> <strong>${p + s}</strong>` : '<span class="opacity-25">0</span>';
                 }
 
                 const tableBody = document.querySelector('tbody');

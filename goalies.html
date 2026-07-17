@@ -47,6 +47,7 @@
 
                 const counts = {};
                 data.forEach(item => {
+                    if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
                     if (!item.goalie) return;
                     const key = leagueMap[item.league];
                     if (!key) return;
