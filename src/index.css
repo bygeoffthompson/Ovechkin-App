@@ -103,14 +103,14 @@ body {
 
     &[alt='Atlantic'],
     &[alt='FC Amkal'],
-    &[alt='Lidstrom'],
-    &[alt='West'] {
+    &[alt='Staal'] {
         width: 32px;
     }
 
     &[alt='Atlanta Thrashers'],
     &[alt='Phoenix Coyotes'],
-    &[alt='Utah Mammoth'] {
+    &[alt='Utah Mammoth'],
+    &[alt='West'] {
         width: 36px;
     }
 }
