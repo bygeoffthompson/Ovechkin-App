@@ -102,6 +102,7 @@ body {
     }
 
     &[alt='Atlantic'],
+    &[alt='FC Amkal'],
     &[alt='Lidstrom'],
     &[alt='West'] {
         width: 32px;
