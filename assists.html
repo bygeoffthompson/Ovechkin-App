@@ -36,17 +36,34 @@
                 const response = await fetch('/goals.json');
                 const data = await response.json();
 
+                const leagueMap = {
+                    'NHL Regular':        'nhlReg',
+                    'NHL Playoffs':       'nhlPlayoff',
+                    'KHL':                'khl',
+                    'Olympics':           'olympic',
+                    'World Championships':'wc',
+                    'World Cup':          'wcup'
+                };
+
                 const counts = {};
                 data.forEach(item => {
+                    const key = leagueMap[item.league];
+                    if (!key) return;
                     if (item.primary) {
-                        if (!counts[item.primary]) counts[item.primary] = { primary: 0, secondary: 0 };
-                        counts[item.primary].primary++;
+                        if (!counts[item.primary]) counts[item.primary] = {};
+                        counts[item.primary][key + 'Primary'] = (counts[item.primary][key + 'Primary'] || 0) + 1;
                     }
                     if (item.secondary) {
-                        if (!counts[item.secondary]) counts[item.secondary] = { primary: 0, secondary: 0 };
-                        counts[item.secondary].secondary++;
+                        if (!counts[item.secondary]) counts[item.secondary] = {};
+                        counts[item.secondary][key + 'Secondary'] = (counts[item.secondary][key + 'Secondary'] || 0) + 1;
                     }
                 });
+
+                function formulaCell(row, p, s) {
+                    const cell = row.insertCell();
+                    cell.setAttribute('data-order', p + s);
+                    cell.innerHTML = p + s > 0 ? `<small><small title="Primary">${p}</small> + <small title="Secondary">${s}</small> =</small> <strong title="Total">${p + s}</strong>` : '<span class="opacity-25">0</span>';
+                }
 
                 const tableBody = document.querySelector('tbody');
                 Object.entries(counts).forEach(([player, c]) => {
@@ -56,9 +73,24 @@
                     link.textContent = player;
                     link.href = '/?' + player.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
                     playerCell.appendChild(link);
-                    row.insertCell().textContent = c.primary;
-                    row.insertCell().textContent = c.secondary;
-                    row.insertCell().textContent = c.primary + c.secondary;
+                    formulaCell(row, c.nhlRegPrimary || 0,    c.nhlRegSecondary || 0);
+                    formulaCell(row, c.nhlPlayoffPrimary || 0, c.nhlPlayoffSecondary || 0);
+                    formulaCell(row, c.khlPrimary || 0,       c.khlSecondary || 0);
+                    formulaCell(row, c.olympicPrimary || 0,   c.olympicSecondary || 0);
+                    formulaCell(row, c.wcPrimary || 0,        c.wcSecondary || 0);
+                    formulaCell(row, c.wcupPrimary || 0,      c.wcupSecondary || 0);
+                });
+
+                new DataTable('#ovechkin-assists', {
+                    paging: false,
+                    responsive: true,
+                    order: [[ 1, 'desc' ]],
+                    searching: false,
+                    stateSave: false,
+                    columnDefs: [
+                        { type: 'num', orderSequence: ['desc', 'asc'], targets: [1, 2, 3, 4, 5, 6] },
+                        { orderable: false, targets: [0] }
+                    ]
                 });
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -82,9 +114,12 @@
             <thead>
               <tr>
                   <th>Player</th>
-                  <th>Primary</th>
-                  <th>Secondary</th>
-                  <th>Total</th>
+                  <th>NHL Regular</th>
+                  <th>NHL Playoff</th>
+                  <th>KHL</th>
+                  <th>Olympic</th>
+                  <th>World Championship</th>
+                  <th>World Cup</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -103,19 +138,4 @@
           <a href="/help.html">Help</a>
       </footer>
   </body>
-  <script>
-      jQuery(window).on('load', function() {
-          let table = new DataTable('#ovechkin-assists', {
-              paging: false,
-              responsive: true,
-              order: [[ 3, 'desc' ]],
-              searching: false,
-              stateSave: false,
-              columnDefs: [
-                  { type: 'num', orderSequence: ['desc', 'asc'], targets: [1, 2, 3] },
-                  { orderable: false, targets: [0] }
-              ]
-          });
-      });
-  </script>
 </html>

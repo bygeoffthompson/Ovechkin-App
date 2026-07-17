@@ -67,6 +67,10 @@ footer a {
     display: none;
 }
 
+.loading {
+    text-align: center;
+}
+
 footer {
     align-items: center;
     background: #041E42;
