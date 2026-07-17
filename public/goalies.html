@@ -36,18 +36,25 @@
                 const response = await fetch('/goals.json');
                 const data = await response.json();
 
+                const leagueMap = {
+                    'NHL Regular':         'nhlReg',
+                    'NHL Playoffs':        'nhlPlayoff',
+                    'KHL':                 'khl',
+                    'Olympics':            'olympic',
+                    'World Championships': 'wc',
+                    'World Cup':           'wcup'
+                };
+
                 const counts = {};
                 data.forEach(item => {
                     if (!item.goalie) return;
-                    if (!counts[item.goalie]) counts[item.goalie] = { first: null, last: null, nhl: 0, khl: 0, international: 0, total: 0 };
+                    const key = leagueMap[item.league];
+                    if (!key) return;
+                    if (!counts[item.goalie]) counts[item.goalie] = { first: null };
                     const dateVal = item.year * 10000 + item.month * 100 + item.day;
                     const dateStr = item.month + '/' + item.day + '/' + item.year;
                     if (!counts[item.goalie].first) counts[item.goalie].first = { val: dateVal, str: dateStr };
-                    counts[item.goalie].last = { val: dateVal, str: dateStr };
-                    if (item.league === 'NHL Regular' || item.league === 'NHL Playoffs') counts[item.goalie].nhl++;
-                    else if (item.league === 'KHL') counts[item.goalie].khl++;
-                    else if (['World Championships', 'World Cup', 'Olympics'].includes(item.league)) counts[item.goalie].international++;
-                    counts[item.goalie].total++;
+                    counts[item.goalie][key] = (counts[item.goalie][key] || 0) + 1;
                 });
 
                 const tableBody = document.querySelector('tbody');
@@ -59,17 +66,14 @@
                     link.href = '/?' + goalie.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
                     goalieCell.appendChild(link);
                     const firstCell = row.insertCell();
-                    firstCell.textContent = c.first.str;
+                    firstCell.innerHTML = `<small>${c.first.str}</small>`;
                     firstCell.dataset.sort = c.first.val;
-                    const lastCell = row.insertCell();
-                    if (c.last.val !== c.first.val) {
-                        lastCell.textContent = c.last.str;
-                        lastCell.dataset.sort = c.last.val;
-                    }
-                    row.insertCell().textContent = c.nhl;
-                    row.insertCell().textContent = c.international;
-                    row.insertCell().textContent = c.khl;
-                    row.insertCell().textContent = c.total;
+                    Object.values(leagueMap).forEach(key => {
+                        const cell = row.insertCell();
+                        const val = c[key] || 0;
+                        cell.setAttribute('data-order', val);
+                        cell.innerHTML = val ? `<strong>${val}</strong>` : '<span class="opacity-25">0</span>';
+                    });
                 });
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -94,11 +98,12 @@
               <tr>
                   <th>Goalie</th>
                   <th>First</th>
-                  <th>Last</th>
-                  <th>NHL</th>
-                  <th>International</th>
+                  <th>NHL Regular</th>
+                  <th>NHL Playoff</th>
                   <th>KHL</th>
-                  <th>Total</th>
+                  <th>Olympic</th>
+                  <th>World Championship</th>
+                  <th>World Cup</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -122,12 +127,12 @@
           let table = new DataTable('#ovechkin-goalies', {
               paging: false,
               responsive: true,
-              order: [[ 6, 'desc' ]],
+              order: [[ 2, 'desc' ]],
               searching: false,
               stateSave: false,
               columnDefs: [
-                  { type: 'num', orderSequence: ['desc', 'asc'], targets: [3, 4, 5, 6] },
-                  { type: 'num', orderSequence: ['asc', 'desc'], targets: [1, 2] },
+                  { type: 'num', orderSequence: ['desc', 'asc'], targets: [2, 3, 4, 5, 6, 7] },
+                  { type: 'num', orderSequence: ['asc', 'desc'], targets: [1] },
                   { orderable: false, targets: [0] }
               ]
           });
