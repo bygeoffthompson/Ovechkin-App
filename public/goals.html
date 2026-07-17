@@ -39,6 +39,7 @@
                 const tableBody = document.querySelector('tbody');
 
                 data.forEach(item => {
+                    if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
                     const row = tableBody.insertRow();
                     const goalCell = row.insertCell();
                     const link = document.createElement('a');
@@ -63,7 +64,6 @@
             }
         }
 
-        // Call the function to fetch data and create the table when the page loads
         document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
