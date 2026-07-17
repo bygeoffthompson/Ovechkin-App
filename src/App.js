@@ -96,6 +96,16 @@ function SearchForm({jsonData}) {
         }
     }, [jsonData])
 
+    useEffect(() => {
+        searchResults.slice(0, 100).forEach(result => {
+            ReactGA.event({
+                category: 'Results',
+                action: 'Goal Results',
+                label: result.goal.toString().split('.')[0]
+            })
+        })
+    }, [searchResults])
+
     function canadian() {
         randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))
     }
