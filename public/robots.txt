@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /goals.json
 
 Sitemap: https://www.ovechkin.app/sitemap.xml
