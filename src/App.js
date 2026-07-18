@@ -282,7 +282,7 @@ function SearchForm({jsonData}) {
         searchSubmit(goal[0])
     }
 
-    const goalInputProps = { min: 0, max: totalGoals, step: 'any', type: 'number', placeholder: '#', value: searchGoal, onChange: handleGoalChange }
+    const goalInputProps = { min: 1, max: totalGoals, step: 'any', type: 'number', placeholder: '#', value: searchGoal, onChange: handleGoalChange }
 
     return (
         <div className="container">
