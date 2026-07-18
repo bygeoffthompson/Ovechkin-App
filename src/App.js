@@ -38,15 +38,13 @@ function SearchForm({jsonData}) {
                 item.league + ' ' +
                 'S' + item.season + ' ' +
                 item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
-                month + ' ' + item.year + ' ' +
-                month + ' ' + item.day + ' ' + item.year + ' ' +
+                month + ' ' + item.year + ' ' + month + ' ' + item.day + ' ' + item.year + ' ' +
                 (item.type ? item.type + ' ' : '') +
-                (item.goalie ? item.goalie + ' ' : '') +
-                (item.goalie2 ? item.goalie2 + ' ' : '') +
+                (item.goalie ? item.goalie + ' ' + item.goalie.replace('-', ' ') + ' ' : '') +
                 item.team + ' ' +
                 item.period + ' ' +
                 (item.hoa ? item.hoa + ' ' : '') +
-                item.jersey + ' Jersey ' +
+                item.jersey + ' ' +
                 (item.search ? item.search + ' ' : '') +
                 (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
                 (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
