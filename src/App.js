@@ -107,18 +107,6 @@ function SearchForm({jsonData}) {
         })
     }, [searchResults])
 
-    function canadian() {
-        randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))
-    }
-
-    function cupRun() {
-        randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))
-    }
-
-    function hhof() {
-        randomGoal(jsonData.filter(item => hhofList.includes(item.goalie) || hhofList.includes(item.primary) || hhofList.includes(item.secondary)))
-    }
-
     function lazyLoadFrame() {
         setTimeout(() => {
             let visibleFrame = document.querySelector('.accordion-collapse.show iframe')
@@ -131,10 +119,6 @@ function SearchForm({jsonData}) {
         }, 500)
     }
 
-    const handleGoalChange = (event) => {
-        setSearchGoal(event.target.value)
-    }
-
     const makeTextHandler = (setter) => (e) => {
         setSearchGoal('')
         setter(e.target.value.toLowerCase())
@@ -142,11 +126,6 @@ function SearchForm({jsonData}) {
     const handleText1 = makeTextHandler(setSearchText1)
     const handleText2 = makeTextHandler(setSearchText2)
     const handleText3 = makeTextHandler(setSearchText3)
-
-    function onThisDay() {
-        const now = new Date()
-        randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate()))
-    }
 
     const outdoor = () => {
         const input = parseInt(searchGoal)
@@ -157,10 +136,6 @@ function SearchForm({jsonData}) {
         else goal = 440
         setSearchGoal(goal)
         searchSubmit(goal)
-    }
-
-    const preventSubmit = (event) => {
-        event.preventDefault()
     }
 
     function randomGoal(filtered) {
@@ -179,10 +154,6 @@ function SearchForm({jsonData}) {
         const goal = Object.values(result[random(1, Object.keys(result).length)])
         setSearchGoal(goal[0])
         searchSubmit(goal[0])
-    }
-
-    function fromNick() {
-        randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))
     }
 
     const reset = () => {
@@ -262,32 +233,20 @@ function SearchForm({jsonData}) {
         showResults(3)
     }
 
-    function unassisted() {
-        randomGoal(jsonData.filter(item => item.primary === undefined))
-    }
-
     const worldCup = () => {
         const goal = parseFloat(searchGoal) === 1.01 ? 525.02 : 1.01
         setSearchGoal(goal)
         searchSubmit(goal)
     }
 
-    function youngGuns() {
-        randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))
-    }
+    const shuffle = () => randomGoal(jsonData)
 
-    function shuffle() {
-        const goal = Object.values(jsonData[random(1, Object.keys(jsonData).length)])
-        setSearchGoal(goal[0])
-        searchSubmit(goal[0])
-    }
-
-    const goalInputProps = { min: 1, max: totalGoals, step: 'any', type: 'number', placeholder: '#', value: searchGoal, onChange: handleGoalChange }
+    const goalInputProps = { min: 1, max: totalGoals, step: 'any', type: 'number', placeholder: '#', value: searchGoal, onChange: (e) => setSearchGoal(e.target.value) }
 
     return (
         <div className="container">
             <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
-                <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={preventSubmit} onClick={(e) => {
+                <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
                         const btn = e.target.closest('button')
                         if (!btn) return
                         const title = btn.title
@@ -348,7 +307,7 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>Rookie
                                         </button>
-                                        <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                        <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                                             <img alt="KHL logo" src="/teams/KHL.svg"/>KHL
                                         </button>
@@ -405,18 +364,18 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
                                         <button onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                                         <button onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
-                                        <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
+                                        <button onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
                                         <button onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
-                                        <button onClick={canadian} title="In Canada" type="button">In&nbsp;Canada</button>
-                                        <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
-                                        <button onClick={hhof} title="Hockey Hall of Fame" type="button">HHoF</button>
-                                        <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
+                                        <button onClick={() => randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
+                                        <button onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                                        <button onClick={() => randomGoal(jsonData.filter(item => hhofList.includes(item.goalie)))} title="Hockey Hall of Fame" type="button">HHoF</button>
+                                        <button onClick={() => { const now = new Date(); randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate())) }} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
                                         <button onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
                                         <button onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
                                         <button onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
-                                        <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
+                                        <button onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                     </div>
                                 </div>
                             </div>
