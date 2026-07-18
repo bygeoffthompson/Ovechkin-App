@@ -32,23 +32,26 @@ function SearchForm({jsonData}) {
     [searchResults, sortOrder])
 
     const searchStrings = useMemo(() =>
-        jsonData.map(item => (
-            item.league + ' ' +
-            'S' + item.season + ' ' +
-            item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
-            new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.year + ' ' +
-            new Date(0, item.month - 1).toLocaleString('default', { month: 'long' }) + ' ' + item.day + ' ' + item.year + ' ' +
-            (item.type ? item.type + ' ' : '') +
-            (item.goalie ? item.goalie + ' ' : '') +
-            (item.goalie2 ? item.goalie2 + ' ' : '') +
-            item.team + ' ' +
-            item.period + ' ' +
-            (item.hoa ? item.hoa + ' ' : '') +
-            item.jersey + ' Jersey ' +
-            (item.search ? item.search + ' ' : '') +
-            (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
-            (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
-        ).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()),
+        jsonData.map(item => {
+            const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
+            return (
+                item.league + ' ' +
+                'S' + item.season + ' ' +
+                item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
+                month + ' ' + item.year + ' ' +
+                month + ' ' + item.day + ' ' + item.year + ' ' +
+                (item.type ? item.type + ' ' : '') +
+                (item.goalie ? item.goalie + ' ' : '') +
+                (item.goalie2 ? item.goalie2 + ' ' : '') +
+                item.team + ' ' +
+                item.period + ' ' +
+                (item.hoa ? item.hoa + ' ' : '') +
+                item.jersey + ' Jersey ' +
+                (item.search ? item.search + ' ' : '') +
+                (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
+                (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
+            ).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+        }),
     [jsonData])
 
     useEffect(() => {
@@ -197,6 +200,13 @@ function SearchForm({jsonData}) {
         setSearchText3('')
     }
 
+    function showResults(n) {
+        document.getElementById('results').classList.add('show')
+        const count = document.getElementById('count')
+        count.setAttribute('data-count', n)
+        count.innerHTML = n + '&nbsp;Result' + (n !== 1 ? 's' : '')
+    }
+
     function searchSubmit(goalOverride, text1Override, text2Override, text3Override) {
         const currentGoal = goalOverride !== undefined ? goalOverride : searchGoal
         const currentText1 = text1Override !== undefined ? text1Override : searchText1
@@ -233,12 +243,8 @@ function SearchForm({jsonData}) {
                 }
             }
 
-            document.getElementById('results').classList.add('show')
-            const count = document.getElementById('count')
-            count.setAttribute('data-count', results.length)
-            count.innerHTML = results.length + '&nbsp;Result'
-            results.length !== 1 ? count.append('s') :
-            setShowSort(results.length > 1)
+            showResults(results.length)
+            if (results.length === 1) setShowSort(false)
             setSearchResults(results)
         }
     }
@@ -255,10 +261,7 @@ function SearchForm({jsonData}) {
         setShowSort(false)
         setSearchGoal(picked.goal)
         setSearchResults(results)
-        document.getElementById('results').classList.add('show')
-        const count = document.getElementById('count')
-        count.setAttribute('data-count', 3)
-        count.innerHTML = '3 Results'
+        showResults(3)
     }
 
     function unassisted() {
@@ -281,6 +284,8 @@ function SearchForm({jsonData}) {
         searchSubmit(goal[0])
     }
 
+    const goalInputProps = { min: 0, max: totalGoals, step: 'any', type: 'number', placeholder: '#', value: searchGoal, onChange: handleGoalChange }
+
     return (
         <div className="container">
             <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
@@ -300,7 +305,7 @@ function SearchForm({jsonData}) {
                             <div className="align-items-start d-flex flex-column gap-3 p-3">
                                 <div className="align-items-center d-flex flex-row justify-content-start mb-3">
                                     <label htmlFor="search-goal"><span className="d-none">Search by </span>Number</label>
-                                    <input id="search-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                    <input id="search-goal" {...goalInputProps}/>
                                 </div>
                                 <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
                                 <label className="d-none" htmlFor="search-text-2">Search by Text</label>
@@ -329,30 +334,30 @@ function SearchForm({jsonData}) {
                             <div className="p-3">
                                 <div className="align-items-center d-flex flex-row justify-content-start mb-3">
                                     <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
-                                    <input className="pe-none" id="random-goal" min="0" max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={handleGoalChange}/>
+                                    <input className="pe-none" id="random-goal" {...goalInputProps}/>
                                 </div>
                                 <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
                                     <div className="d-flex flex-column gap-2 league-buttons">
-                                        <button onClick={(event) => shuffle()} title="Shuffle" type="button">
+                                        <button onClick={() => shuffle()} title="Shuffle" type="button">
                                             <img alt="Shuffle icon" src="/icons/shuffle.svg"/>Shuffle
                                         </button>
-                                        <button onClick={(event) => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
+                                        <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>NHL
                                         </button>
-                                        <button onClick={(event) => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
+                                        <button onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>Playoffs
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Rookie'])} title="Rookie" type="button">
+                                        <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg"/>Rookie
                                         </button>
                                         <button className="cup" onClick={cupRun} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                                        <button onClick={(event) => filterGoal(['KHL'])} title="KHL" type="button">
+                                        <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                                             <img alt="KHL logo" src="/teams/KHL.svg"/>KHL
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Olympics'])} title="Olympic" type="button">
+                                        <button onClick={() => filterGoal(['Olympics'])} title="Olympic" type="button">
                                             <img alt="Olympics logo" src="/icons/olympics.svg"/>Olympics
                                         </button>
-                                        <button onClick={(event) => filterGoal(['World Championships'])} title="World Championship" type="button">
+                                        <button onClick={() => filterGoal(['World Championships'])} title="World Championship" type="button">
                                             <img alt="Trophy logo" src="/icons/trophy.svg"/>Worlds
                                         </button>
                                         <button onClick={worldCup} title="World Cup" type="button">
@@ -360,19 +365,19 @@ function SearchForm({jsonData}) {
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
-                                        <button onClick={(event) => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
+                                        <button onClick={() => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
                                             <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
+                                        <button onClick={() => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
                                             <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
+                                        <button onClick={() => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
                                             <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['White'])} className="jersey-button" title="White" type="button">
+                                        <button onClick={() => filterGoal(['White'])} className="jersey-button" title="White" type="button">
                                             <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
+                                        <button onClick={() => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
                                             ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg"/>&nbsp;&nbsp;☆
                                         </button>
                                         <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
@@ -383,36 +388,36 @@ function SearchForm({jsonData}) {
                                                 <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg"/>
                                             </span>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
+                                        <button onClick={() => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
                                             <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
+                                        <button onClick={() => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
                                             <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
                                         </button>
-                                        <button onClick={(event) => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
+                                        <button onClick={() => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
                                             <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
-                                        <button onClick={(event) => filterGoal(['Away'])} title="Away" type="button">Away</button>
-                                        <button onClick={(event) => filterGoal(['Home'])} title="Home" type="button">Home</button>
-                                        <button onClick={(event) => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
-                                        <button onClick={(event) => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
+                                        <button onClick={() => filterGoal(['Away'])} title="Away" type="button">Away</button>
+                                        <button onClick={() => filterGoal(['Home'])} title="Home" type="button">Home</button>
+                                        <button onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
+                                        <button onClick={() => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
                                         <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
-                                        <button onClick={(event) => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
-                                        <button onClick={(event) => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
-                                        <button onClick={(event) => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
+                                        <button onClick={() => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
+                                        <button onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
+                                        <button onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
                                         <button onClick={unassisted} title="Unassisted" type="button">Unassisted</button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
-                                        <button onClick={(event) => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
+                                        <button onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                                         <button onClick={canadian} title="In Canada" type="button">In&nbsp;Canada</button>
                                         <button onClick={fromNick} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                                         <button onClick={hhof} title="Hockey Hall of Fame" type="button">HHoF</button>
                                         <button onClick={onThisDay} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
-                                        <button onClick={(event) => filterGoal(['Post'])} title="Post" type="button">Post</button>
-                                        <button onClick={(event) => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
-                                        <button onClick={(event) => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
+                                        <button onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
+                                        <button onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
+                                        <button onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
                                         <button onClick={youngGuns} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                     </div>
                                 </div>
@@ -432,13 +437,14 @@ function SearchForm({jsonData}) {
                     <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
+                            const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
-                                            <span>{result.goal.toString().split('.')[0]}</span>
-                                            <span data-float={result.goal.toString().split('.')[1]}>{result.goal.toString().split('.')[1]}</span>
+                                            <span>{goalInt}</span>
+                                            <span data-float={goalDec}>{goalDec}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
                                             <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
