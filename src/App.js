@@ -32,7 +32,7 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
 
     const sortedResults = useMemo(() =>
-        [...searchResults].sort((a, b) => sortOrder === 'asc' ? a.goal - b.goal : b.goal - a.goal),
+        [...searchResults].sort((first, last) => sortOrder === 'asc' ? first.goal - last.goal : last.goal - first.goal),
     [searchResults, sortOrder])
 
     const searchStrings = useMemo(() =>
