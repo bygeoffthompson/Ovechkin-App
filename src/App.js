@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useMemo} from 'react'
-import ReactGA from 'react-ga4'
 import Accordion from 'react-bootstrap/Accordion'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
+let _ga = null
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const hhofList = ['Carey Price', 'Ed Belfour', 'Martin Brodeur', 'Dominik Hasek', 'Henrik Lundqvist', 'Roberto Luongo', 'Pekka Rinne']
@@ -19,11 +18,16 @@ function random(min, max) {
 }
 
 function SearchForm({jsonData}) {
-    const [searchGoal, setSearchGoal] = useState('')
+    const [initResult] = useState(() =>
+        window.location.search.length > 1
+            ? null
+            : jsonData[Math.floor(Math.random() * jsonData.length)]
+    )
+    const [searchGoal, setSearchGoal] = useState(initResult?.goal ?? '')
     const [searchText1, setSearchText1] = useState('')
     const [searchText2, setSearchText2] = useState('')
     const [searchText3, setSearchText3] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+    const [searchResults, setSearchResults] = useState(initResult ? [initResult] : [])
     const [sortOrder, setSortOrder] = useState('asc')
     const [showSort, setShowSort] = useState(true)
 
@@ -77,8 +81,6 @@ function SearchForm({jsonData}) {
             setSearchText2('')
             setSearchText3('')
             searchSubmit(undefined, text1)
-        } else {
-            shuffle()
         }
     }, [])
 
@@ -99,7 +101,7 @@ function SearchForm({jsonData}) {
 
     useEffect(() => {
         searchResults.slice(0, 100).forEach(result => {
-            ReactGA.event({
+            _ga?.event({
                 category: 'Results',
                 action: 'Goal Results',
                 label: result.goal.toString().split('.')[0]
@@ -192,7 +194,7 @@ function SearchForm({jsonData}) {
             )
             setSearchResults(results)
         } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0) {
-            ReactGA.event({
+            _ga?.event({
                 category: 'Search',
                 action: 'Text Search',
                 label: [currentText1, currentText2, currentText3].filter(Boolean).join(' + ')
@@ -251,7 +253,7 @@ function SearchForm({jsonData}) {
                         if (!btn) return
                         const title = btn.title
                         if (['', 'Reset', 'Search'].includes(title)) return
-                        ReactGA.event({
+                        _ga?.event({
                             category: 'Click',
                             action: 'Button Click',
                             label: title
@@ -296,63 +298,63 @@ function SearchForm({jsonData}) {
                                 <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
                                     <div className="d-flex flex-column gap-2 league-buttons">
                                         <button onClick={() => shuffle()} title="Shuffle" type="button">
-                                            <img alt="Shuffle icon" src="/icons/shuffle.svg"/>Shuffle
+                                            <img alt="Shuffle icon" src="/icons/shuffle.svg" width="16" height="16"/>Shuffle
                                         </button>
                                         <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg"/>NHL
+                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>NHL
                                         </button>
                                         <button onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg"/>Playoffs
+                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoffs
                                         </button>
                                         <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg"/>Rookie
+                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
                                         </button>
                                         <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
-                                            <img alt="KHL logo" src="/teams/KHL.svg"/>KHL
+                                            <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
                                         </button>
                                         <button onClick={() => filterGoal(['Olympics'])} title="Olympic" type="button">
-                                            <img alt="Olympics logo" src="/icons/olympics.svg"/>Olympics
+                                            <img alt="Olympics logo" src="/icons/olympics.svg" width="16" height="16"/>Olympics
                                         </button>
                                         <button onClick={() => filterGoal(['World Championships'])} title="World Championship" type="button">
-                                            <img alt="Trophy logo" src="/icons/trophy.svg"/>Worlds
+                                            <img alt="Trophy logo" src="/icons/trophy.svg" width="16" height="16"/>Worlds
                                         </button>
                                         <button onClick={worldCup} title="World Cup" type="button">
-                                            <img alt="Cup logo" src="/icons/cup.svg"/>World&nbsp;Cup
+                                            <img alt="Cup logo" src="/icons/cup.svg" width="16" height="16"/>World&nbsp;Cup
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
                                         <button onClick={() => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
-                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg"/>
+                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
-                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg"/>
+                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
+                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['White'])} className="jersey-button" title="White" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg"/>
+                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
-                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg"/>&nbsp;&nbsp;☆
+                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
                                         </button>
                                         <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
                                             <span>
-                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg"/>
+                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
                                             </span>
                                             <span>
-                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg"/>
+                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
                                             </span>
                                         </button>
                                         <button onClick={() => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
-                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg"/>
+                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
-                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
+                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
-                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg"/>
+                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
@@ -404,11 +406,11 @@ function SearchForm({jsonData}) {
                                             <span data-float={goalDec}>{goalDec}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
-                                            <img alt="Goal Siren icon" src="/icons/goal-siren.svg"/>
+                                            <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
                                             <strong className="position-absolute type">{result.type}</strong>
                                         </div>
                                         <div className="align-items-center d-flex justify-content-center team-logo">
-                                            <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} title={result.team}/>
+                                            <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                         </div>
                                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
                                             <strong>{result.month}/{result.day}/{String(result.year).slice(-2)}</strong>
@@ -445,7 +447,14 @@ function App() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        if (window.location.hostname !== 'localhost') ReactGA.initialize('G-K4X7EL6PW3');
+        if (window.location.hostname !== 'localhost') {
+            window.addEventListener('load', () => {
+                import('react-ga4').then(({ default: ReactGA }) => {
+                    _ga = ReactGA
+                    ReactGA.initialize('G-K4X7EL6PW3')
+                })
+            }, { once: true })
+        }
 
         async function fetchData() {
             const response = await fetch('goals.json');
