@@ -158,11 +158,11 @@ body {
     }
 
     .accordion-button {
-        border-left: 1rem solid #FFF;
+        border-right: 1rem solid #FFF;
     }
 
     .accordion-header {
-        border-left: 1rem solid #C81020 !important;
+        border-right: 1rem solid #C81020 !important;
     }
 
     &[data-jersey$='Reverse Retro'] {
@@ -215,7 +215,7 @@ body {
         }
     }
 
-    &[data-jersey='Navy Third'] {
+    &[data-jersey^='Navy'] {
         .accordion-button {
             border-color: #C81020 !important;
         }
