@@ -277,10 +277,10 @@ function SearchForm({jsonData}) {
                                         <option value="" selected>All</option>
                                         <option className="fw-bold" value="NHL">NHL</option>
                                         <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoffs">•&nbsp;NHL Playoff</option>
+                                        <option value="NHL Playoff">•&nbsp;NHL Playoff</option>
                                         <option value="KHL">KHL</option>
-                                        <option value="Olympics">Olympic</option>
-                                        <option value="World Championships">World Championship</option>
+                                        <option value="Olympic">Olympic</option>
+                                        <option value="World Championship">World Championship</option>
                                         <option value="World Cup">World Cup</option>
                                     </select>
                                     <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
@@ -302,8 +302,8 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>NHL
                                         </button>
-                                        <button onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoff" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoffs
+                                        <button onClick={() => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
+                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoff
                                         </button>
                                         <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
@@ -312,10 +312,10 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                                             <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
                                         </button>
-                                        <button onClick={() => filterGoal(['Olympics'])} title="Olympic" type="button">
-                                            <img alt="Olympics logo" src="/icons/olympics.svg" width="16" height="16"/>Olympics
+                                        <button onClick={() => filterGoal(['Olympic'])} title="Olympic" type="button">
+                                            <img alt="Olympic logo" src="/icons/olympics.svg" width="16" height="16"/>Olympic
                                         </button>
-                                        <button onClick={() => filterGoal(['World Championships'])} title="World Championship" type="button">
+                                        <button onClick={() => filterGoal(['World Championship'])} title="World Championship" type="button">
                                             <img alt="Trophy logo" src="/icons/trophy.svg" width="16" height="16"/>Worlds
                                         </button>
                                         <button onClick={worldCup} title="World Cup" type="button">
@@ -401,6 +401,7 @@ function SearchForm({jsonData}) {
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
+                                            <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? 'NHL' : result.league === 'NHL Playoffs' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
                                             <span>{goalInt}</span>
                                             <span data-float={goalDec}>{goalDec}</span>
                                         </strong>

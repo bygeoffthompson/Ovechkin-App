@@ -39,15 +39,12 @@ body {
 }
 
 .goal-count {
-    font-size: 1.25rem;
+    span {
+        font-size: 1.25rem;
 
-    @media (min-width: 500px) {
-        font-size: 2rem;
-    }
-
-    &:before {
-        font-size: .875rem;
-        margin-right: 2px;
+        @media (min-width: 576px) {
+            font-size: 2rem;
+        }
     }
 }
 
@@ -173,18 +170,18 @@ body {
     .accordion-button {
         border-bottom: .25rem solid #FFF;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
             border-bottom: none;
-            border-right: 1rem solid #FFF;
+            border-right: .75rem solid #FFF;
         }
     }
 
     .accordion-header {
         border-bottom: .25rem solid #C81020 !important;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
             border-bottom: none !important;
-            border-right: 1rem solid #C81020 !important;
+            border-right: .75rem solid #C81020 !important;
         }
     }
 
@@ -283,20 +280,6 @@ body {
   color: #F34133;
 }
 
-[data-league='All Star'] .goal-count:before {
-    content: 'All Star';
-}
-
-[data-league='World Championships'] {
-    .goal-count:before {
-        content: 'Worlds';
-    }
-
-    .logo {
-        width: 32px;
-    }
-}
-
 [data-league='KHL'] {
     .badge {
         background: #0033A0;
@@ -304,43 +287,17 @@ body {
 
     .goal-count {
         color: #0033A0;
-
-        &:before {
-            content: 'KHL';
-        }
     }
+}
 
+[data-league]:not([data-league*='NHL']) {
     .logo {
         width: 32px;
     }
 }
 
-[data-league='Olympics'] {
-    .goal-count:before {
-        content: 'Olympic';
-    }
-
-    .logo {
-        width: 32px;
-    }
-}
-
-[data-league='NHL Playoffs'] .goal-count {
+[data-league='NHL Playoff'] .goal-count {
     color: #C28E4D;
-
-    &:before {
-        content: 'Playoff';
-    }
-}
-
-[data-league='World Cup'] {
-    .goal-count:before {
-        content: 'World Cup';
-    }
-
-    .logo {
-        width: 32px;
-    }
 }
 
 .accordion {
