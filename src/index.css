@@ -57,10 +57,7 @@ body {
 
 .indexer {
     opacity: .1;
-}
-
-.accordion-item:not([data-league='NHL Regular']) .goal-count span:first-of-type {
-    display: none;
+    right: .75rem;
 }
 
 .badge {
@@ -150,6 +147,22 @@ body {
 }
 
 .accordion-item {
+    &:not([data-league='NHL Regular']) .goal-count span:first-of-type {
+        display: none;
+    }
+
+    &:nth-child(n+2):nth-child(-n+9) {
+      .indexer {
+          right: 1.125rem;
+      }
+    }
+
+    &:nth-child(n+100) {
+        .indexer {
+            right: .5rem;
+        }
+    }
+
     &:first-of-type {
         .accordion-button:before,
         .indexer {
