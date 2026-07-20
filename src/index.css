@@ -171,11 +171,21 @@ body {
     }
 
     .accordion-button {
-        border-right: 1rem solid #FFF;
+        border-bottom: .25rem solid #FFF;
+
+        @media (min-width: 768px) {
+            border-bottom: none;
+            border-right: 1rem solid #FFF;
+        }
     }
 
     .accordion-header {
-        border-right: 1rem solid #C81020 !important;
+        border-bottom: .25rem solid #C81020 !important;
+
+        @media (min-width: 768px) {
+            border-bottom: none !important;
+            border-right: 1rem solid #C81020 !important;
+        }
     }
 
     &[data-jersey$='Reverse Retro'] {
