@@ -165,11 +165,19 @@ body {
         border-left: 1rem solid #C81020 !important;
     }
 
-    &[data-jersey='Black Reverse Retro'] {
+    &[data-jersey$='Reverse Retro'] {
         .accordion-button {
             border-color: #223673 !important;
         }
+    }
 
+    &[data-jersey^='White'] {
+        .accordion-header {
+            border-color: #FFF !important;
+        }
+    }
+
+    &[data-jersey='Black Reverse Retro'] {
         .accordion-header {
             border-color: #111 !important;
         }
@@ -217,12 +225,6 @@ body {
         }
     }
 
-    &[data-jersey='Red Reverse Retro'] {
-        .accordion-button {
-            border-color: #223673 !important;
-        }
-    }
-
     &[data-jersey='Screagle'] {
         .accordion-button {
             border-color: #223673 !important;
@@ -236,10 +238,6 @@ body {
     &[data-jersey='White'] {
         .accordion-button {
             border-color: #C81020 !important;
-        }
-
-        .accordion-header {
-            border-color: #FFF !important;
         }
     }
 }
