@@ -308,7 +308,7 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
                                             <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
                                         </button>
-                                        <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                        <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoff'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                                             <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
                                         </button>
@@ -402,8 +402,7 @@ function SearchForm({jsonData}) {
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? '' : result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
-                                            <span>{goalInt}</span>
-                                            <span>{goalDec?.length === 1 ? goalDec + '0' : goalDec}</span>
+                                            <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : goalInt}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
                                             <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
