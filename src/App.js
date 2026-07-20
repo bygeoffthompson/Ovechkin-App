@@ -401,7 +401,7 @@ function SearchForm({jsonData}) {
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
-                                            <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? 'NHL' : result.league === 'NHL Playoffs' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
+                                            <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? '' : result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
                                             <span>{goalInt}</span>
                                             <span>{goalDec?.length === 1 ? goalDec + '0' : goalDec}</span>
                                         </strong>
