@@ -292,7 +292,7 @@ function SearchForm({jsonData}) {
                             <div className="p-3">
                                 <div className="align-items-center d-flex flex-row justify-content-start mb-3">
                                     <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
-                                    <input className="pe-none" id="random-goal" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                    <input id="random-goal" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 </div>
                                 <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
                                     <div className="d-flex flex-column gap-2 league-buttons">
