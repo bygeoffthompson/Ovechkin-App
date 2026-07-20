@@ -149,10 +149,98 @@ body {
     }
 }
 
-.accordion-item:first-of-type {
-    .accordion-button:before,
-    .indexer {
-        display: none;
+.accordion-item {
+    &:first-of-type {
+        .accordion-button:before,
+        .indexer {
+            display: none;
+        }
+    }
+
+    .accordion-button {
+        border-left: 1rem solid #FFF;
+    }
+
+    .accordion-header {
+        border-left: 1rem solid #C81020 !important;
+    }
+
+    &[data-jersey='Black Reverse Retro'] {
+        .accordion-button {
+            border-color: #223673 !important;
+        }
+
+        .accordion-header {
+            border-color: #111 !important;
+        }
+    }
+
+    &[data-jersey='Brick'] {
+        .accordion-button {
+            border-color: #223673 !important;
+        }
+    }
+
+    &[data-jersey='Capitol'] {
+        .accordion-button {
+            border-color: #C57C4B !important;
+        }
+
+        .accordion-header {
+            border-color: #111 !important;
+        }
+    }
+
+    &[data-jersey='Blue Dynamo'] {
+        .accordion-button {
+            border-color: #223673 !important;
+        }
+
+        .accordion-header {
+            border-color: #FFF !important;
+        }
+    }
+
+    &[data-jersey='White Dynamo'] {
+        .accordion-header {
+            border-color: #223673 !important;
+        }
+    }
+
+    &[data-jersey='Navy Third'] {
+        .accordion-button {
+            border-color: #C81020 !important;
+        }
+
+        .accordion-header {
+            border-color: #223673 !important;
+        }
+    }
+
+    &[data-jersey='Red Reverse Retro'] {
+        .accordion-button {
+            border-color: #223673 !important;
+        }
+    }
+
+    &[data-jersey='Screagle'] {
+        .accordion-button {
+            border-color: #223673 !important;
+        }
+
+        .accordion-header {
+            border-color: #FFF !important;
+        }
+    }
+
+    &[data-jersey='White'] {
+        .accordion-button {
+            border-color: #C81020 !important;
+        }
+
+        .accordion-header {
+            border-color: #FFF !important;
+        }
     }
 }
 
