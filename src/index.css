@@ -262,20 +262,6 @@ body {
     }
 }
 
-[data-float='1'],
-[data-float='2'],
-[data-float='3'],
-[data-float='4'],
-[data-float='5'],
-[data-float='6'],
-[data-float='7'],
-[data-float='8'],
-[data-float='9'] {
-    &:after {
-        content: '0';
-    }
-}
-
 [data-league='NHL Regular'] .goal-count {
   color: #F34133;
 }

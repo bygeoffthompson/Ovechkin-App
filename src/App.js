@@ -403,7 +403,7 @@ function SearchForm({jsonData}) {
                                         <strong className="align-items-center d-flex goal-count">
                                             <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? 'NHL' : result.league === 'NHL Playoffs' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
                                             <span>{goalInt}</span>
-                                            <span data-float={goalDec}>{goalDec}</span>
+                                            <span>{goalDec?.length === 1 ? goalDec + '0' : goalDec}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
                                             <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
