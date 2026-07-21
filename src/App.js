@@ -273,8 +273,8 @@ function SearchForm({jsonData}) {
                                 <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                     <label className="h6 m-0" htmlFor="league">Search Filter</label>
-                                    <select className="form-select position-relative w-auto" id="league" name="League">
-                                        <option value="" selected>All</option>
+                                    <select className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
+                                        <option value="">All</option>
                                         <option className="fw-bold" value="NHL">NHL</option>
                                         <option value="NHL Regular">•&nbsp;NHL Regular</option>
                                         <option value="NHL Playoff">•&nbsp;NHL Playoff</option>
@@ -394,10 +394,10 @@ function SearchForm({jsonData}) {
                     </div>
                     <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
-                            const goalLink = 'https://www.youtube.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
+                            const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
-                            <Accordion.Item data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
+                            <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
                                 <Accordion.Header onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">

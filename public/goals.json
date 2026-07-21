@@ -3639,6 +3639,7 @@
         "day": 26,
         "year": 2008,
         "type": "PPG",
+        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
