@@ -19524,7 +19524,7 @@
         "season": 21
     },
     {
-        "goal": "",
+        "goal": "AS1",
         "link": "/aEEe5MkmHng?si=Ukx52D8Pqgi8EDb6&amp;start=4658&end=4704",
         "team": "West",
         "goalie": "Miikka Kiprusoff",
@@ -19533,10 +19533,10 @@
         "month": 1,
         "day": 24,
         "year": 2007,
-        "Search": "All Star"
+        "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS2",
         "link": "/sFz5srKPlRM?si=eVVigyX9Yhunm4tF&amp;start=33&end=90",
         "team": "West",
         "goalie": "Chris Osgood",
@@ -19548,7 +19548,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS3",
         "link": "/sFz5srKPlRM?si=eVVigyX9Yhunm4tF&amp;start=102",
         "team": "West",
         "goalie": "Chris Osgood",
@@ -19560,7 +19560,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS4",
         "link": "/zwaFycf2iP0?si=7WsHJESGP1ytM88p&amp;start=2086&end=2136",
         "team": "West",
         "goalie": "Jean-Sébastien Giguère",
@@ -19571,7 +19571,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS5",
         "link": "/UF-oqPdmLSo?si=Z8HEoSbZaNMWheVg&amp;start=30",
         "team": "Staal",
         "goalie": "Marc-André Fleury",
@@ -19583,7 +19583,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS6",
         "link": "/7vyxo75aAfw?si=LlXTrbsoSr8tsp7G",
         "team": "Atlantic",
         "goalie": "Tuukka Rask",
@@ -19595,7 +19595,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS7",
         "link": "/EYNL3TGlFOI?si=E8UFgLBFF-A5CP5v&amp;start=410",
         "team": "Atlantic",
         "goalie": "Andrei Vasilevskiy",
@@ -19606,7 +19606,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "AS8",
         "link": "/7n6PUBU_pRc?si=g_v8eX-IkFbx7ZzW&amp;start=302",
         "team": "Atlantic",
         "goalie": "Andrei Vasilevskiy",
@@ -19618,7 +19618,7 @@
         "search": "All Star"
     },
     {
-        "goal": "",
+        "goal": "FC1",
         "link": "/gdcglclZ9Gw?si=g-c5TAMTVeH6l6ve",
         "team": "FC Amkal",
         "goalie": "Fedor Maslov",
