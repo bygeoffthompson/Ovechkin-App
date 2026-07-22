@@ -11,6 +11,11 @@
     }
 }
 
+.dataTable td,
+.dataTable th {
+    width: auto;
+}
+
 header a,
 footer a {
     text-decoration: none;
@@ -24,6 +29,10 @@ footer a {
     margin: 0 0 4rem;
     max-height: 800px;
     overflow: scroll;
+}
+
+.dt-empty {
+    display: none;
 }
 
 .loading {
