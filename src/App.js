@@ -158,7 +158,7 @@ function SearchForm({jsonData}) {
                 match.includes(value)
             )
         )
-        const goal = Object.values(result[random(1, Object.keys(result).length)])
+        const goal = Object.values(result[random(0, result.length - 1)])
         setSearchGoal(goal[0])
         searchSubmit(goal[0])
     }
