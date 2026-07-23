@@ -32,6 +32,7 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const leagueRef = useRef(null)
+    const resultsRef = useRef(null)
 
     const sortedResults = useMemo(() =>
         [...searchResults].sort((first, last) => {
@@ -96,13 +97,13 @@ function SearchForm({jsonData}) {
         const month = now.getMonth() + 1
         const day = now.getDate()
         const checkDay = jsonData.filter(item => item.month === month && item.day === day)
+        const otd = document.getElementById('otd')
 
         if (!checkDay[0]) {
-            const otd = document.getElementById('otd')
             otd.disabled = true
             otd.title = 'No Goals on ' + month + '/' + day
         } else {
-            document.getElementById('otd').title = 'Goals on ' + month + '/' + day
+            otd.title = 'Goals on ' + month + '/' + day
         }
     }, [jsonData])
 
@@ -174,7 +175,7 @@ function SearchForm({jsonData}) {
     }
 
     function resultsHide() {
-        document.getElementById('results').classList.remove('show')
+        resultsRef.current.classList.remove('show')
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
@@ -182,7 +183,7 @@ function SearchForm({jsonData}) {
     }
 
     function showResults(n) {
-        document.getElementById('results').classList.add('show')
+        resultsRef.current.classList.add('show')
         const count = document.getElementById('count')
         count.setAttribute('data-count', n)
         count.innerHTML = n + '&nbsp;Result' + (n !== 1 ? 's' : '')
@@ -228,7 +229,7 @@ function SearchForm({jsonData}) {
                 showResults(results.length)
                 if (results.length === 1) setShowSort(false)
             } else {
-                document.getElementById('results').classList.remove('show')
+                resultsRef.current.classList.remove('show')
                 setSearched(true)
             }
             setSearchResults(results)
@@ -394,7 +395,7 @@ function SearchForm({jsonData}) {
             </form>
 
             <div className="w-100">
-                <div className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
+                <div ref={resultsRef} className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
                     <strong id="count"></strong>
                     {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                         <option value="asc">Ascend</option>
