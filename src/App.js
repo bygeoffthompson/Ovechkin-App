@@ -416,7 +416,7 @@ function SearchForm({jsonData}) {
                                             <strong className="goalie">{result.goalie}</strong>
                                         </div>
                                     </div>
-                                    <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>
+                                    <strong className={`bottom-0 indexer p-1 position-absolute${index === 0 ? ' d-none' : ''}`}>{index + 1}</strong>
                                 </Accordion.Header>
                                 <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">

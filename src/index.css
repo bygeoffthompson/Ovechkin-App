@@ -1,12 +1,3 @@
-body {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: space-between;
-    width: 100%;
-}
-
 #results {
     font-size: 1.25rem;
     height: 0;
@@ -156,13 +147,6 @@ body {
         }
     }
 
-    &:first-of-type {
-        .accordion-button:before,
-        .indexer {
-            display: none;
-        }
-    }
-
     .accordion-button {
         border-bottom: .25rem solid #FFF;
 
@@ -188,6 +172,10 @@ body {
     }
 
     &[data-jersey^='White'] {
+        .accordion-button {
+            border-color: #C81020 !important;
+        }
+
         .accordion-header {
             border-color: #FFF !important;
         }
@@ -229,6 +217,10 @@ body {
         .accordion-header {
             border-color: #223673 !important;
         }
+
+        .accordion-button {
+            border-color: #FFF !important;
+        }
     }
 
     &[data-jersey^='Navy'] {
@@ -242,20 +234,12 @@ body {
     }
 
     &[data-jersey='Screagle'] {
-        .accordion-button {
+        .accordion-header {
             border-color: #223673 !important;
         }
-
-        .accordion-header {
-            border-color: #FFF !important;
-        }
     }
 
-    &[data-jersey='White'] {
-        .accordion-button {
-            border-color: #C81020 !important;
-        }
-    }
+
 }
 
 [data-league='NHL Regular'] .goal-count {
