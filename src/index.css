@@ -514,6 +514,7 @@ label {
 .nav-link {
     background: rgb(207, 226, 255) !important;
     border-radius: 0 !important;
+
     font-size: 1.125rem !important;
 
     &.active {

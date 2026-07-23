@@ -249,194 +249,192 @@ function SearchForm({jsonData}) {
     const shuffle = () => randomGoal(jsonData)
 
     return (
-        <div className="container">
-            <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
-                <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
-                        const btn = e.target.closest('button')
-                        if (!btn) return
-                        const title = btn.title
-                        if (['', 'Reset', 'Search'].includes(title)) return
-                        _ga?.event({
-                            category: 'Click',
-                            action: 'Button Click',
-                            label: title
-                        });
-                    }}>
-                    <Tabs defaultActiveKey="random" fill className="w-100">
-                        <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
-                            <div className="align-items-start d-flex flex-column gap-3 p-3">
-                                <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
-                                <label className="d-none" htmlFor="search-text-2">Search by Text</label>
-                                <label className="d-none" htmlFor="search-text-3">Search by Text</label>
-                                <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
-                                <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
-                                <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
-                                <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                    <label className="h6 m-0" htmlFor="league">Search Filter</label>
-                                    <select className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
-                                        <option value="">All</option>
-                                        <option className="fw-bold" value="NHL">NHL</option>
-                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoff">•&nbsp;NHL Playoff</option>
-                                        <option value="KHL">KHL</option>
-                                        <option value="Olympic">Olympic</option>
-                                        <option value="World Championship">World Championship</option>
-                                        <option value="World Cup">World Cup</option>
-                                    </select>
-                                    <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
-                                </div>
-                                <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
+        <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
+            <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
+                    const btn = e.target.closest('button')
+                    if (!btn) return
+                    const title = btn.title
+                    if (['', 'Reset', 'Search'].includes(title)) return
+                    _ga?.event({
+                        category: 'Click',
+                        action: 'Button Click',
+                        label: title
+                    });
+                }}>
+                <Tabs defaultActiveKey="random" fill className="w-100">
+                    <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
+                        <div className="align-items-start d-flex flex-column gap-3 p-3">
+                            <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
+                            <label className="d-none" htmlFor="search-text-2">Search by Text</label>
+                            <label className="d-none" htmlFor="search-text-3">Search by Text</label>
+                            <input id="search-text-1" type="text" placeholder="Search" value={searchText1} onChange={handleText1}/>
+                            <input id="search-text-2" type="text" placeholder="And" value={searchText2} onChange={handleText2}/>
+                            <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
+                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
+                                <label className="h6 m-0" htmlFor="league">Search Filter</label>
+                                <select className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
+                                    <option value="">All</option>
+                                    <option className="fw-bold" value="NHL">NHL</option>
+                                    <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                    <option value="NHL Playoff">•&nbsp;NHL Playoff</option>
+                                    <option value="KHL">KHL</option>
+                                    <option value="Olympic">Olympic</option>
+                                    <option value="World Championship">World Championship</option>
+                                    <option value="World Cup">World Cup</option>
+                                </select>
+                                <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
                             </div>
-                        </Tab>
-                        <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
-                            <div className="p-3">
-                                <div className="align-items-center d-flex flex-row justify-content-start mb-3">
-                                    <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
-                                    <input id="random-goal" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                            <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
+                        </div>
+                    </Tab>
+                    <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
+                        <div className="p-3">
+                            <div className="align-items-center d-flex flex-row justify-content-start mb-3">
+                                <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
+                                <input id="random-goal" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                            </div>
+                            <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
+                                <div className="d-flex flex-column gap-2 league-buttons">
+                                    <button onClick={() => shuffle()} title="Shuffle" type="button">
+                                        <img alt="Shuffle icon" src="/icons/shuffle.svg" width="16" height="16"/>Shuffle
+                                    </button>
+                                    <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
+                                        <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>NHL
+                                    </button>
+                                    <button onClick={() => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
+                                        <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoff
+                                    </button>
+                                    <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
+                                        <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
+                                    </button>
+                                    <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoff'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                    <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
+                                        <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
+                                    </button>
+                                    <button onClick={() => filterGoal(['Olympic'])} title="Olympic" type="button">
+                                        <img alt="Olympic logo" src="/icons/olympics.svg" width="16" height="16"/>Olympic
+                                    </button>
+                                    <button onClick={() => filterGoal(['World Championship'])} title="World Championship" type="button">
+                                        <img alt="Trophy logo" src="/icons/trophy.svg" width="16" height="16"/>Worlds
+                                    </button>
+                                    <button onClick={worldCup} title="World Cup" type="button">
+                                        <img alt="Cup logo" src="/icons/cup.svg" width="16" height="16"/>World&nbsp;Cup
+                                    </button>
                                 </div>
-                                <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
-                                    <div className="d-flex flex-column gap-2 league-buttons">
-                                        <button onClick={() => shuffle()} title="Shuffle" type="button">
-                                            <img alt="Shuffle icon" src="/icons/shuffle.svg" width="16" height="16"/>Shuffle
-                                        </button>
-                                        <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>NHL
-                                        </button>
-                                        <button onClick={() => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoff
-                                        </button>
-                                        <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
-                                            <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
-                                        </button>
-                                        <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoff'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                                        <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
-                                            <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
-                                        </button>
-                                        <button onClick={() => filterGoal(['Olympic'])} title="Olympic" type="button">
-                                            <img alt="Olympic logo" src="/icons/olympics.svg" width="16" height="16"/>Olympic
-                                        </button>
-                                        <button onClick={() => filterGoal(['World Championship'])} title="World Championship" type="button">
-                                            <img alt="Trophy logo" src="/icons/trophy.svg" width="16" height="16"/>Worlds
-                                        </button>
-                                        <button onClick={worldCup} title="World Cup" type="button">
-                                            <img alt="Cup logo" src="/icons/cup.svg" width="16" height="16"/>World&nbsp;Cup
-                                        </button>
-                                    </div>
-                                    <div className="d-flex flex-column gap-2">
-                                        <button onClick={() => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
-                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
-                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['White'])} className="jersey-button" title="White" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
-                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
-                                        </button>
-                                        <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
-                                            <span>
-                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
-                                            </span>
-                                            <span>
-                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
-                                            </span>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
-                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
-                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
-                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
-                                        </button>
-                                    </div>
-                                    <div className="d-flex flex-column gap-2">
-                                        <button onClick={() => filterGoal(['Away'])} title="Away" type="button">Away</button>
-                                        <button onClick={() => filterGoal(['Home'])} title="Home" type="button">Home</button>
-                                        <button onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
-                                        <button onClick={() => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
-                                        <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
-                                        <button onClick={() => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
-                                        <button onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
-                                        <button onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
-                                        <button onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
-                                    </div>
-                                    <div className="d-flex flex-column gap-2">
-                                        <button onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
-                                        <button onClick={() => randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
-                                        <button onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
-                                        <button onClick={() => randomGoal(jsonData.filter(item => hhofList.includes(item.goalie)))} title="Hockey Hall of Fame" type="button">HHoF</button>
-                                        <button onClick={() => { const now = new Date(); randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate())) }} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
-                                        <button onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
-                                        <button onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
-                                        <button onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
-                                        <button onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
-                                    </div>
+                                <div className="d-flex flex-column gap-2">
+                                    <button onClick={() => filterGoal(['Capitol'])} className="jersey-button" title="Capitol" type="button">
+                                        <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Screagle'])} className="jersey-button" title="Screagle" type="button">
+                                        <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Red'])} className="jersey-button" title="Red" type="button">
+                                        <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['White'])} className="jersey-button" title="White" type="button">
+                                        <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Throwback'])} className="jersey-button" title="Throwback" type="button">
+                                        ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
+                                    </button>
+                                    <button onClick={outdoor} className="jersey-button multi-logo" title="Brick / Stadium" type="button">
+                                        <span>
+                                            <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
+                                        </span>
+                                        <span>
+                                            <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
+                                        </span>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Navy Third'])} className="jersey-button" title="Navy" type="button">
+                                        <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Black Reverse Retro',])} className="jersey-button" title="Black Reverse Retro" type="button">
+                                        <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                    </button>
+                                    <button onClick={() => filterGoal(['Red Reverse Retro'])} className="jersey-button" title="Red Reverse Retro" type="button">
+                                        <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                    </button>
+                                </div>
+                                <div className="d-flex flex-column gap-2">
+                                    <button onClick={() => filterGoal(['Away'])} title="Away" type="button">Away</button>
+                                    <button onClick={() => filterGoal(['Home'])} title="Home" type="button">Home</button>
+                                    <button onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
+                                    <button onClick={() => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
+                                    <button onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
+                                    <button onClick={() => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
+                                    <button onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
+                                    <button onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
+                                    <button onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
+                                </div>
+                                <div className="d-flex flex-column gap-2">
+                                    <button onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
+                                    <button onClick={() => randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
+                                    <button onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                                    <button onClick={() => randomGoal(jsonData.filter(item => hhofList.includes(item.goalie)))} title="Hockey Hall of Fame" type="button">HHoF</button>
+                                    <button onClick={() => { const now = new Date(); randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate())) }} id="otd" title="On This Day" type="button">On&nbsp;This&nbsp;Day</button>
+                                    <button onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
+                                    <button onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
+                                    <button onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
+                                    <button onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                 </div>
                             </div>
-                        </Tab>
-                    </Tabs>
-                </form>
+                        </div>
+                    </Tab>
+                </Tabs>
+            </form>
 
-                <div className="w-100">
-                    <div className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
-                        <strong id="count"></strong>
-                        {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-                            <option value="asc">Ascend</option>
-                            <option value="desc">Descend</option>
-                        </select>}
-                    </div>
-                    <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
-                        {sortedResults.map((result, index) => {
-                            const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
-                            const [goalInt, goalDec] = result.goal.toString().split('.')
-                            return (
-                            <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
-                                <Accordion.Header onClick={lazyLoadFrame}>
-                                    <div className="align-items-center d-flex gap-1 justify-content-start w-100">
-                                        <strong className="align-items-center d-flex goal-count">
-                                            <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? '' : result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
-                                            <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
-                                        </strong>
-                                        <div className="align-items-center d-flex justify-content-center goal-siren">
-                                            <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
-                                            <strong className="position-absolute type">{result.type}</strong>
-                                        </div>
-                                        <div className="align-items-center d-flex justify-content-center team-logo">
-                                            <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
-                                        </div>
-                                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                            <strong>{result.month}/{result.day}/{String(result.year).slice(-2)}</strong>
-                                            <strong className="goalie">{result.goalie}</strong>
-                                        </div>
-                                    </div>
-                                    <strong className={`bottom-0 indexer p-1 position-absolute${index === 0 ? ' d-none' : ''}`}>{index + 1}</strong>
-                                </Accordion.Header>
-                                <Accordion.Body className="p-0 position-relative">
-                                    <div className="d-flex flex-column p-3 py-2">
-                                        <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
-                                            <span className="badge">{result.primary && result.primary + ' '}</span>
-                                            <span className="badge">{result.secondary && result.secondary + ' '}</span>
-                                            {result.btn1 && result.btn1 + ' '}
-                                            {result.btn2 && result.btn2 + ' '}
-                                            {result.btn3 && result.btn3 + ' '}
-                                            {result.search}
-                                        </small>
-                                    </div>
-                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
-                                    <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark user-select-all"><strong>ovechkin.app/?{result.goal}</strong></small>
-                                </Accordion.Body>
-                            </Accordion.Item>
-                            )
-                        })}
-                    </Accordion>
+            <div className="w-100">
+                <div className="align-items-center d-flex gap-2 justify-content-start w-100" id="results">
+                    <strong id="count"></strong>
+                    {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                        <option value="asc">Ascend</option>
+                        <option value="desc">Descend</option>
+                    </select>}
                 </div>
+                <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
+                    {sortedResults.map((result, index) => {
+                        const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
+                        const [goalInt, goalDec] = result.goal.toString().split('.')
+                        return (
+                        <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
+                            <Accordion.Header onClick={lazyLoadFrame}>
+                                <div className="align-items-center d-flex gap-1 justify-content-start w-100">
+                                    <strong className="align-items-center d-flex goal-count">
+                                        <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? '' : result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
+                                        <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
+                                    </strong>
+                                    <div className="align-items-center d-flex justify-content-center goal-siren">
+                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
+                                        <strong className="position-absolute type">{result.type}</strong>
+                                    </div>
+                                    <div className="align-items-center d-flex justify-content-center team-logo">
+                                        <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
+                                    </div>
+                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
+                                        <strong>{result.month}/{result.day}/{String(result.year).slice(-2)}</strong>
+                                        <strong className="goalie">{result.goalie}</strong>
+                                    </div>
+                                </div>
+                                <strong className={`bottom-0 indexer p-1 position-absolute${index === 0 ? ' d-none' : ''}`}>{index + 1}</strong>
+                            </Accordion.Header>
+                            <Accordion.Body className="p-0 position-relative">
+                                <div className="d-flex flex-column p-3 py-2">
+                                    <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
+                                        <span className="badge">{result.primary && result.primary + ' '}</span>
+                                        <span className="badge">{result.secondary && result.secondary + ' '}</span>
+                                        {result.btn1 && result.btn1 + ' '}
+                                        {result.btn2 && result.btn2 + ' '}
+                                        {result.btn3 && result.btn3 + ' '}
+                                        {result.search}
+                                    </small>
+                                </div>
+                                <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
+                                <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        )
+                    })}
+                </Accordion>
             </div>
         </div>
     );

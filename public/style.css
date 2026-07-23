@@ -47,7 +47,6 @@ footer {
     justify-content: center;
     padding: .75rem 1rem;
     position: relative;
-    user-select: none;
     width: 100%;
     z-index: 1;
 
