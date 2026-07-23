@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react'
+import React, {useState, useEffect, useMemo, useRef} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
@@ -30,6 +30,8 @@ function SearchForm({jsonData}) {
     const [searchResults, setSearchResults] = useState(initResult ? [initResult] : [])
     const [sortOrder, setSortOrder] = useState('asc')
     const [showSort, setShowSort] = useState(true)
+    const [searched, setSearched] = useState(false)
+    const leagueRef = useRef(null)
 
     const sortedResults = useMemo(() =>
         [...searchResults].sort((first, last) => {
@@ -167,6 +169,8 @@ function SearchForm({jsonData}) {
         resultsHide()
         setSearchGoal('')
         setSearchResults([])
+        setSearched(false)
+        leagueRef.current.value = ''
     }
 
     function resultsHide() {
@@ -174,6 +178,7 @@ function SearchForm({jsonData}) {
         setSearchText1('')
         setSearchText2('')
         setSearchText3('')
+        setSearched(false)
     }
 
     function showResults(n) {
@@ -189,7 +194,7 @@ function SearchForm({jsonData}) {
         const currentText2 = text2Override !== undefined ? text2Override : searchText2
         const currentText3 = text3Override !== undefined ? text3Override : searchText3
 
-        const leagueFilter = normalize(document.getElementById('league').value)
+        const leagueFilter = normalize(leagueRef.current.value)
 
         if (currentGoal) {
             resultsHide()
@@ -219,8 +224,13 @@ function SearchForm({jsonData}) {
                 }
             }
 
-            showResults(results.length)
-            if (results.length === 1) setShowSort(false)
+            if (results.length > 0) {
+                showResults(results.length)
+                if (results.length === 1) setShowSort(false)
+            } else {
+                document.getElementById('results').classList.remove('show')
+                setSearched(true)
+            }
             setSearchResults(results)
         }
     }
@@ -272,7 +282,7 @@ function SearchForm({jsonData}) {
                             <input id="search-text-3" type="text" placeholder="And" value={searchText3} onChange={handleText3}/>
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
                                 <label className="h6 m-0" htmlFor="league">Search Filter</label>
-                                <select className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
+                                <select ref={leagueRef} className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
                                     <option value="">All</option>
                                     <option className="fw-bold" value="NHL">NHL</option>
                                     <option value="NHL Regular">•&nbsp;NHL Regular</option>
@@ -435,6 +445,7 @@ function SearchForm({jsonData}) {
                         )
                     })}
                 </Accordion>
+                {searched && sortedResults.length === 0 && <div className="no-results p-3"><p><strong>No results found.</strong> Please try again.</p><p className="m-0"><a href="/help.html">Help</a></p></div>}
             </div>
         </div>
     );
