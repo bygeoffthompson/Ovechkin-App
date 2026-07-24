@@ -99,7 +99,7 @@ function SearchForm({jsonData}) {
     }, [jsonData])
 
     useEffect(() => {
-        searchResults.slice(0, 100).forEach(result => {
+        searchResults.slice(0, 50).forEach(result => {
             _ga?.event({
                 category: 'Results',
                 action: 'Goal Results',
@@ -249,7 +249,7 @@ function SearchForm({jsonData}) {
     const shuffle = () => randomGoal(jsonData)
 
     return (
-        <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between">
+        <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between mb-4">
             <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
                     const btn = e.target.closest('button')
                     if (!btn) return
@@ -265,8 +265,8 @@ function SearchForm({jsonData}) {
                     <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                         <div className="p-3">
                             <div className="align-items-center d-flex flex-row justify-content-start mb-3">
-                                <label htmlFor="random-goal"><span className="d-none">Random </span>Number</label>
-                                <input id="random-goal" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                <label htmlFor="goal-number">Number</label>
+                                <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                             </div>
                             <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
                                 <div className="d-flex flex-column gap-2 league-buttons">
@@ -357,9 +357,9 @@ function SearchForm({jsonData}) {
                     </Tab>
                     <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                         <div className="align-items-start d-flex flex-column gap-3 p-3">
-                            <label htmlFor="search-text-1"><span className="d-none">Search by </span>Text</label>
-                            <label className="d-none" htmlFor="search-text-2">Search by Text</label>
-                            <label className="d-none" htmlFor="search-text-3">Search by Text</label>
+                            <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
+                            <label hidden htmlFor="search-text-2">Text 2</label>
+                            <label hidden htmlFor="search-text-3">Text 3</label>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchTexts[0]} onChange={handleTexts[0]}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchTexts[1]} onChange={handleTexts[1]}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchTexts[2]} onChange={handleTexts[2]}/>
@@ -400,7 +400,7 @@ function SearchForm({jsonData}) {
                             <Accordion.Header onClick={lazyLoadFrame}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
-                                        <small className="d-none d-sm-block fw-bold me-1">{result.league === 'NHL Regular' ? '' : result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
+                                        <small className="fw-bold me-1" hidden={result.league === 'NHL Regular'}>{result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
                                         <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                     </strong>
                                     <div className="align-items-center d-flex justify-content-center goal-siren">
@@ -415,7 +415,7 @@ function SearchForm({jsonData}) {
                                         <strong className="goalie">{result.goalie}</strong>
                                     </div>
                                 </div>
-                                <strong className={`bottom-0 indexer p-1 position-absolute${index === 0 ? ' d-none' : ''}`}>{index + 1}</strong>
+                                <strong className="bottom-0 indexer p-1 position-absolute" hidden={index === 0}>{index + 1}</strong>
                             </Accordion.Header>
                             <Accordion.Body className="p-0 position-relative">
                                 <div className="d-flex flex-column p-3 py-2">
@@ -434,7 +434,7 @@ function SearchForm({jsonData}) {
                     })}
                 </Accordion>
                 {welcome &&
-                    <div className="app-message bg-white p-3 shadow-lg"><p><strong>Welcome to Ovechkin App.</strong></p><p>Click or search to watch goals.</p>
+                    <div className="app-message bg-white p-3 shadow-lg"><p><strong>Welcome.</strong> Click or search to watch goals.</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
                             <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                         </svg>
