@@ -538,3 +538,7 @@ label {
 .tab-pane {
     background: #FFF !important;
 }
+
+.app-message {
+    border-top: .5rem solid #C81020 !important;
+}
