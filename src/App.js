@@ -360,7 +360,7 @@ function SearchForm({jsonData}) {
                             <input id="search-text-2" type="text" placeholder="And" value={searchTexts[1]} onChange={handleTexts[1]}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchTexts[2]} onChange={handleTexts[2]}/>
                             <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start">
-                                <label className="h6 m-0" htmlFor="league">Search Filter</label>
+                                <label htmlFor="league">Filter</label>
                                 <select ref={leagueRef} className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
                                     <option value="">All</option>
                                     <option className="fw-bold" value="NHL">NHL</option>
