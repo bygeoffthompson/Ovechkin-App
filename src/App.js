@@ -43,28 +43,33 @@ function SearchForm({jsonData}) {
     const searchStrings = useMemo(() =>
         jsonData.map(item => {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
-            return (
-                item.league + ' ' +
-                'S' + item.season + ' ' +
-                item.month + '/' + item.day + '/' + item.year + ' ' + item.dotw + ' ' +
-                month + ' ' + item.year + ' ' + month + ' ' + item.day + ' ' + item.year + ' ' +
-                (item.type ? item.type + ' ' : '') +
-                (item.goalie ? item.goalie + ' ' + item.goalie.replace('-', ' ') + ' ' : '') +
-                item.team + ' ' +
-                item.period + ' ' +
-                (item.hoa ? item.hoa + ' ' : '') +
-                item.jersey + ' ' +
-                (item.search ? item.search + ' ' : '') +
-                (item.btn1 ? item.btn1 + ' ' : '') + (item.btn2 ? item.btn2 + ' ' : '') + (item.btn3 ? item.btn3 + ' ' : '') +
-                (item.primary ? item.primary + ' ' : '') + (item.secondary ? item.secondary : '')
-            ).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+            return [
+                item.league,
+                'S' + item.season,
+                `${item.month}/${item.day}/${item.year}`,
+                item.dotw,
+                `${month} ${item.year}`,
+                `${month} ${item.day}`,
+                item.year,
+                item.type,
+                item.goalie,
+                item.goalie?.replace('-', ' '),
+                item.team,
+                item.period,
+                item.hoa,
+                item.jersey,
+                item.search,
+                item.btn1, item.btn2, item.btn3,
+                item.primary, item.secondary,
+            ].filter(Boolean).join(' ')
+             .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
         }),
     [jsonData])
 
     useEffect(() => {
         const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
         const queryInteger = parseFloat(query)
-        if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4', '360*'].includes(query) && !query.includes('/') && queryInteger > 0 && queryInteger <= totalGoals) {
+        if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4',].includes(query) && !query.includes('/') && queryInteger > 0 && queryInteger <= totalGoals) {
             setSearchGoal(queryInteger)
             searchSubmit(queryInteger)
         } else if (query.includes('fbclid')) {
