@@ -202,13 +202,6 @@ function SearchForm({jsonData}) {
                 return search.includes(t1) && search.includes(t2) && search.includes(t3) && (!leagueFilter || search.includes(leagueFilter))
             });
 
-            if (results.length > 400) {
-                const confirmAlert = window.confirm('This search loads ' + results.length + ' goals. Continue?');
-                if (!confirmAlert) {
-                    return;
-                }
-            }
-
             if (results.length > 0) {
                 showResults(results.length)
                 if (results.length === 1) setShowSort(false)
