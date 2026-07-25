@@ -69,25 +69,16 @@ function SearchForm({jsonData}) {
     useEffect(() => {
         const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
         const queryInteger = parseFloat(query)
-        if (!['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4',].includes(query) && !query.includes('/') && queryInteger > 0 && queryInteger <= totalGoals) {
+        if (!query.includes('/') && !['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4'].includes(query) && queryInteger) {
             setSearchGoal(queryInteger)
             searchSubmit(queryInteger)
-        } else if (query.includes('fbclid')) {
-            const text1 = query.split('&fbclid')[0].split('+')[0]
-            setSearchTexts([text1, '', ''])
-            searchSubmit(undefined, text1)
-        } else if (query.includes('+')) {
-            const multipleSearch = query.split('+')
-            const text1 = multipleSearch[0].split('&', 1)
-            const text2 = multipleSearch[1].split('&', 1)
-            const text3 = multipleSearch[2] ? multipleSearch[2].split('&', 1) : ''
-            setSearchTexts([text1, text2, text3])
-            searchSubmit(undefined, text1, text2, text3)
         } else if (query) {
-            const text1 = query.split('&', 1)
-            setSearchTexts([text1, '', ''])
-            searchSubmit(undefined, text1)
+            document.querySelector('.nav-link[aria-selected="false"]').click()
+            const [t1 = '', t2 = '', t3 = ''] = query.split('&')[0].split('+')
+            setSearchTexts([t1, t2, t3])
+            searchSubmit(undefined, t1, t2, t3)
         }
+
     }, [])
 
     useEffect(() => {
