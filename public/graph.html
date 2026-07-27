@@ -6,18 +6,18 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
-    <meta name="description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta name="description" content="Timeline graphs of every Ovechkin NHL goal.">
     <meta name="keywords" content="Ovechkin App, NHL, goal graph, career goals, scoring record, timeline, Washington Capitals, Gr8 Chase">
     <meta name="author" content="Geoff Thompson">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ovechkin App">
     <meta property="og:url" content="https://www.ovechkin.app/graph.html">
     <meta property="og:title" content="Goal Graph | Ovechkin App">
-    <meta property="og:description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta property="og:description" content="Timeline graphs of every Ovechkin NHL goal.">
     <meta property="og:image" content="https://www.ovechkin.app/ovechkin.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Goal Graph | Ovechkin App">
-    <meta name="twitter:description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta name="twitter:description" content="Timeline graphs of every Ovechkin NHL goal.">
     <meta name="twitter:image" content="https://www.ovechkin.app/ovechkin.jpg">
     <link rel="canonical" href="https://www.ovechkin.app/graph.html">
     <link rel="stylesheet" href="/style.css">
@@ -40,7 +40,7 @@
     </header>
     <main>
         <h2>NHL Regular Season</h2>
-        <div class="align-items-center d-flex gap-3 justify-content-start">
+        <div class="align-items-center d-flex gap-3 justify-content-start my-3 small">
             <label for="regular-hoa">Home/Away</label>
             <select id="regular-hoa">
                 <option value="">All</option>
@@ -68,7 +68,7 @@
         </div>
         <canvas id="nhlChart"></canvas>
         <h2>NHL Playoff</h2>
-        <div class="align-items-center d-flex gap-3 justify-content-start">
+        <div class="align-items-center d-flex gap-3 justify-content-start my-3 small">
             <label for="playoff-hoa">Home/Away</label>
             <select id="playoff-hoa">
                 <option value="">All</option>
@@ -95,34 +95,6 @@
             </select>
         </div>
         <canvas id="playoffChart"></canvas>
-        <h2>World Championship</h2>
-        <div class="align-items-center d-flex gap-3 justify-content-start">
-            <label for="world-hoa">Home/Away</label>
-            <select id="world-hoa">
-                <option value="">All</option>
-                <option value="Home">Home</option>
-                <option value="Away">Away</option>
-            </select>
-            <label for="world-period">Period</label>
-            <select id="world-period">
-                <option value="">All</option>
-                <option value="First">First</option>
-                <option value="Second">Second</option>
-                <option value="Third">Third</option>
-                <option value="Overtime">Overtime</option>
-            </select>
-            <label for="world-type">Type</label>
-            <select id="world-type">
-                <option value="">All</option>
-                <option value="Backhand">Backhand</option>
-                <option value="Empty Net">Empty Net</option>
-                <option value="Hat Trick">Hat Trick</option>
-                <option value="Post">Post</option>
-                <option value="Slapshot">Slapshot</option>
-                <option value="Tip">Tip</option>
-            </select>
-        </div>
-        <canvas id="worldChart"></canvas>
     </main>
   </div>
   <footer>
@@ -145,8 +117,6 @@
             const res = await fetch('/goals.json');
             const data = await res.json();
 
-            const nhl = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
-
             function toPoints(goals) {
                 return goals.map((g, i) => ({
                     x: `${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`,
@@ -154,164 +124,45 @@
                 }));
             }
 
-            const nhlChart = new Chart(document.getElementById('nhlChart'), {
-                type: 'line',
-                data: {
-                    datasets: [
-                        {
-                            label: 'Regular Season Goals',
-                            data: toPoints(nhl),
-                            borderColor: '#F34133',
-                            backgroundColor: 'rgba(243, 65, 51, 0.2)',
+            function createChart(id, goals, color, yLabel) {
+                return new Chart(document.getElementById(id), {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            data: toPoints(goals),
+                            borderColor: color,
+                            backgroundColor: color.replace(')', ', 0.2)').replace('rgb', 'rgba'),
                             borderWidth: 1.5,
                             pointRadius: 0,
                             fill: true,
                             tension: 0
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'year',
-                                displayFormats: { year: 'yyyy' }
-                            },
-                            title: { display: true, text: 'Date' }
-                        },
-                        y: {
-                            title: { display: true, text: 'Regular Season Goals' },
-                            beginAtZero: true
-                        }
+                        }]
                     },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                title(items) {
-                                    const d = new Date(items[0].raw.x);
-                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                                },
-                                label(item) {
-                                    return `#${item.raw.y}`;
+                    options: {
+                        responsive: true,
+                        interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: { unit: 'year', displayFormats: { year: 'yyyy' } },
+                                title: { display: true, text: 'Date' }
+                            },
+                            y: { title: { display: true, text: yLabel }, beginAtZero: true }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    title(items) {
+                                        return new Date(items[0].raw.x).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                    },
+                                    label(item) { return `#${item.raw.y}`; }
                                 }
                             }
                         }
                     }
-                }
-            });
-
-
-            ['regular-hoa', 'regular-period', 'regular-type'].forEach(id =>
-                document.getElementById(id).addEventListener('change', () => applyFilter('regular', nhl, nhlChart))
-            );
-
-            const playoffs = data.filter(g => g.league === 'NHL Playoff');
-
-            const playoffChart = new Chart(document.getElementById('playoffChart'), {
-                type: 'line',
-                data: {
-                    datasets: [
-                        {
-                            label: 'Playoff Goals',
-                            data: toPoints(playoffs),
-                            borderColor: '#223673',
-                            backgroundColor: 'rgba(34, 54, 115, 0.2)',
-                            borderWidth: 1.5,
-                            pointRadius: 0,
-                            fill: true,
-                            tension: 0
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'year',
-                                displayFormats: { year: 'yyyy' }
-                            },
-                            title: { display: true, text: 'Date' }
-                        },
-                        y: {
-                            title: { display: true, text: 'Playoff Goals' },
-                            beginAtZero: true
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                title(items) {
-                                    const d = new Date(items[0].raw.x);
-                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                                },
-                                label(item) {
-                                    return `#${item.raw.y}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const world = data.filter(g => g.league === 'World Championship');
-
-            const worldChart = new Chart(document.getElementById('worldChart'), {
-                type: 'line',
-                data: {
-                    datasets: [
-                        {
-                            label: 'World Championship Goals',
-                            data: toPoints(world),
-                            borderColor: '#C57C4B',
-                            backgroundColor: 'rgba(197, 124, 75, 0.2)',
-                            borderWidth: 1.5,
-                            pointRadius: 0,
-                            fill: true,
-                            tension: 0
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'year',
-                                displayFormats: { year: 'yyyy' }
-                            },
-                            title: { display: true, text: 'Date' }
-                        },
-                        y: {
-                            title: { display: true, text: 'World Championship Goals' },
-                            beginAtZero: true
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                title(items) {
-                                    const d = new Date(items[0].raw.x);
-                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                                },
-                                label(item) {
-                                    return `#${item.raw.y}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
+                });
+            }
 
             function applyFilter(prefix, source, chart) {
                 const hoa = document.getElementById(`${prefix}-hoa`).value;
@@ -325,12 +176,16 @@
                 chart.update();
             }
 
-            ['playoff-hoa', 'playoff-period', 'playoff-type'].forEach(id =>
-                document.getElementById(id).addEventListener('change', () => applyFilter('playoff', playoffs, playoffChart))
+            const nhl = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
+            const nhlChart = createChart('nhlChart', nhl, 'rgb(243, 65, 51)', 'Regular Season Goals');
+            ['regular-hoa', 'regular-period', 'regular-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', () => applyFilter('regular', nhl, nhlChart))
             );
 
-            ['world-hoa', 'world-period', 'world-type'].forEach(id =>
-                document.getElementById(id).addEventListener('change', () => applyFilter('world', world, worldChart))
+            const playoffs = data.filter(g => g.league === 'NHL Playoff');
+            const playoffChart = createChart('playoffChart', playoffs, 'rgb(34, 54, 115)', 'Playoff Goals');
+            ['playoff-hoa', 'playoff-period', 'playoff-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', () => applyFilter('playoff', playoffs, playoffChart))
             );
 
         } catch (err) {
