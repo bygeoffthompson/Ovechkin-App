@@ -238,7 +238,7 @@ function SearchForm({jsonData}) {
     const shuffle = () => randomGoal(jsonData)
 
     return (
-        <div className="align-items-center align-items-lg-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between mb-4">
+        <div className="align-items-center align-items-lg-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
             <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
                     const btn = e.target.closest('button')
                     if (!btn) return
@@ -257,7 +257,7 @@ function SearchForm({jsonData}) {
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                             </div>
-                            <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-center">
+                            <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start justify-content-sm-center">
                                 <div className="d-flex flex-column gap-2 league-buttons">
                                     <button onClick={() => shuffle()} title="Shuffle" type="button">
                                         <img alt="Shuffle icon" src="/icons/shuffle.svg" width="16" height="16"/>Shuffle
@@ -422,7 +422,12 @@ function SearchForm({jsonData}) {
                     })}
                 </Accordion>
                 {welcome &&
-                    <div className="app-message bg-white p-3 shadow-lg"><p><strong>Welcome.</strong> Click or search to watch goals.</p>
+                    <div className="app-message bg-white p-3 shadow-lg">
+                        <p className="align-items-center d-flex gap-2 lead">
+                            <img alt="Goal Light" src="/gifs/goal-light.gif" />
+                            <strong>Welcome.</strong> Click or search to watch goals.
+                            <img alt="Recording Light" src="/gifs/record-light.gif" />
+                        </p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
                             <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                         </svg>
