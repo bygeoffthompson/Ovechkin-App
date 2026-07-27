@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Goal Graph | Ovechkin App</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta name="keywords" content="Ovechkin App, NHL, goal graph, career goals, scoring record, timeline, Washington Capitals, Gr8 Chase">
+    <meta name="author" content="Geoff Thompson">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ovechkin App">
+    <meta property="og:url" content="https://www.ovechkin.app/graph.html">
+    <meta property="og:title" content="Goal Graph | Ovechkin App">
+    <meta property="og:description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta property="og:image" content="https://www.ovechkin.app/ovechkin.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Goal Graph | Ovechkin App">
+    <meta name="twitter:description" content="Timeline graphs of every Ovechkin goal from the NHL and World Championships.">
+    <meta name="twitter:image" content="https://www.ovechkin.app/ovechkin.jpg">
+    <link rel="canonical" href="https://www.ovechkin.app/graph.html">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4X7EL6PW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K4X7EL6PW3');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <header class="my-4">
+      <h1>Goal Graphs</h1>
+    </header>
+    <main>
+        <h2>NHL Regular Season</h2>
+        <div class="align-items-center d-flex gap-3 justify-content-start">
+            <label for="regular-hoa">Home/Away</label>
+            <select id="regular-hoa">
+                <option value="">All</option>
+                <option value="Home">Home</option>
+                <option value="Away">Away</option>
+            </select>
+            <label for="regular-period">Period</label>
+            <select id="regular-period">
+                <option value="">All</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Overtime">Overtime</option>
+            </select>
+            <label for="regular-type">Type</label>
+            <select id="regular-type">
+                <option value="">All</option>
+                <option value="Backhand">Backhand</option>
+                <option value="Empty Net">Empty Net</option>
+                <option value="Hat Trick">Hat Trick</option>
+                <option value="Post">Post</option>
+                <option value="Slapshot">Slapshot</option>
+                <option value="Tip">Tip</option>
+            </select>
+        </div>
+        <canvas id="nhlChart"></canvas>
+        <h2>NHL Playoff</h2>
+        <div class="align-items-center d-flex gap-3 justify-content-start">
+            <label for="playoff-hoa">Home/Away</label>
+            <select id="playoff-hoa">
+                <option value="">All</option>
+                <option value="Home">Home</option>
+                <option value="Away">Away</option>
+            </select>
+            <label for="playoff-period">Period</label>
+            <select id="playoff-period">
+                <option value="">All</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Overtime">Overtime</option>
+            </select>
+            <label for="playoff-type">Type</label>
+            <select id="playoff-type">
+                <option value="">All</option>
+                <option value="Backhand">Backhand</option>
+                <option value="Empty Net">Empty Net</option>
+                <option value="Hat Trick">Hat Trick</option>
+                <option value="Post">Post</option>
+                <option value="Slapshot">Slapshot</option>
+                <option value="Tip">Tip</option>
+            </select>
+        </div>
+        <canvas id="playoffChart"></canvas>
+        <h2>World Championship</h2>
+        <div class="align-items-center d-flex gap-3 justify-content-start">
+            <label for="world-hoa">Home/Away</label>
+            <select id="world-hoa">
+                <option value="">All</option>
+                <option value="Home">Home</option>
+                <option value="Away">Away</option>
+            </select>
+            <label for="world-period">Period</label>
+            <select id="world-period">
+                <option value="">All</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Overtime">Overtime</option>
+            </select>
+            <label for="world-type">Type</label>
+            <select id="world-type">
+                <option value="">All</option>
+                <option value="Backhand">Backhand</option>
+                <option value="Empty Net">Empty Net</option>
+                <option value="Hat Trick">Hat Trick</option>
+                <option value="Post">Post</option>
+                <option value="Slapshot">Slapshot</option>
+                <option value="Tip">Tip</option>
+            </select>
+        </div>
+        <canvas id="worldChart"></canvas>
+    </main>
+  </div>
+  <footer>
+      <a href="/">Home</a>
+      &nbsp;|&nbsp;
+      <a href="/about.html">About</a>
+      &nbsp;|&nbsp;
+      <a href="/assists.html">Assists</a>
+      &nbsp;|&nbsp;
+      <a href="/goalies.html">Goalies</a>
+      &nbsp;|&nbsp;
+      <a href="/goals.html">Goals</a>
+      &nbsp;|&nbsp;
+      <a href="/help.html">Help</a>
+  </footer>
+  <script>
+
+    async function buildCharts() {
+        try {
+            const res = await fetch('/goals.json');
+            const data = await res.json();
+
+            const nhl = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
+
+            function toPoints(goals) {
+                return goals.map((g, i) => ({
+                    x: `${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`,
+                    y: i + 1
+                }));
+            }
+
+            const nhlChart = new Chart(document.getElementById('nhlChart'), {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Regular Season Goals',
+                            data: toPoints(nhl),
+                            borderColor: '#F34133',
+                            backgroundColor: 'rgba(243, 65, 51, 0.2)',
+                            borderWidth: 1.5,
+                            pointRadius: 0,
+                            fill: true,
+                            tension: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'year',
+                                displayFormats: { year: 'yyyy' }
+                            },
+                            title: { display: true, text: 'Date' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Regular Season Goals' },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    const d = new Date(items[0].raw.x);
+                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                },
+                                label(item) {
+                                    return `#${item.raw.y}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+
+            ['regular-hoa', 'regular-period', 'regular-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', () => applyFilter('regular', nhl, nhlChart))
+            );
+
+            const playoffs = data.filter(g => g.league === 'NHL Playoff');
+
+            const playoffChart = new Chart(document.getElementById('playoffChart'), {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Playoff Goals',
+                            data: toPoints(playoffs),
+                            borderColor: '#223673',
+                            backgroundColor: 'rgba(34, 54, 115, 0.2)',
+                            borderWidth: 1.5,
+                            pointRadius: 0,
+                            fill: true,
+                            tension: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'year',
+                                displayFormats: { year: 'yyyy' }
+                            },
+                            title: { display: true, text: 'Date' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Playoff Goals' },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    const d = new Date(items[0].raw.x);
+                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                },
+                                label(item) {
+                                    return `#${item.raw.y}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const world = data.filter(g => g.league === 'World Championship');
+
+            const worldChart = new Chart(document.getElementById('worldChart'), {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'World Championship Goals',
+                            data: toPoints(world),
+                            borderColor: '#C57C4B',
+                            backgroundColor: 'rgba(197, 124, 75, 0.2)',
+                            borderWidth: 1.5,
+                            pointRadius: 0,
+                            fill: true,
+                            tension: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'year',
+                                displayFormats: { year: 'yyyy' }
+                            },
+                            title: { display: true, text: 'Date' }
+                        },
+                        y: {
+                            title: { display: true, text: 'World Championship Goals' },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    const d = new Date(items[0].raw.x);
+                                    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                },
+                                label(item) {
+                                    return `#${item.raw.y}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            function applyFilter(prefix, source, chart) {
+                const hoa = document.getElementById(`${prefix}-hoa`).value;
+                const period = document.getElementById(`${prefix}-period`).value;
+                const tag = document.getElementById(`${prefix}-type`).value;
+                let filtered = source;
+                if (hoa) filtered = filtered.filter(g => g.hoa === hoa);
+                if (period) filtered = filtered.filter(g => g.period === period);
+                if (tag) filtered = filtered.filter(g => [g.btn1, g.btn2, g.btn3].includes(tag));
+                chart.data.datasets[0].data = toPoints(filtered);
+                chart.update();
+            }
+
+            ['playoff-hoa', 'playoff-period', 'playoff-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', () => applyFilter('playoff', playoffs, playoffChart))
+            );
+
+            ['world-hoa', 'world-period', 'world-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', () => applyFilter('world', world, worldChart))
+            );
+
+        } catch (err) {
+            console.error('Error building charts:', err);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', buildCharts);
+  </script>
+  </body>
+</html>

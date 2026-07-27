@@ -64,6 +64,18 @@
 
     <url>
 
+        <loc>https://www.ovechkin.app/graph.html</loc>
+
+        <lastmod>2026-7-26</lastmod>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.5</priority>
+
+    </url>
+
+    <url>
+
         <loc>https://www.ovechkin.app/help.html</loc>
 
         <lastmod>2026-6-24</lastmod>
