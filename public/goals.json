@@ -13742,7 +13742,7 @@
         "search": "Black Friday",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 14
@@ -15717,6 +15717,7 @@
         "month": 3,
         "day": 25,
         "year": 2021,
+        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
