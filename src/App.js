@@ -423,7 +423,7 @@ function SearchForm({jsonData}) {
                 </Accordion>
                 {welcome &&
                     <div className="app-message bg-white p-3 shadow-lg">
-                        <p className="align-items-center d-flex flex-column flex-sm-row gap-2 lead">
+                        <p className="align-items-start d-flex flex-column flex-sm-row flex-lg-column flex-xl-row gap-2 lead">
                             <img alt="Goal Light" src="/gifs/goal-light.gif" />
                             <strong>Welcome.</strong> Click or search to watch goals.
                             <img alt="Recording Light" src="/gifs/record-light.gif" />
