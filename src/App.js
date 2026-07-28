@@ -99,7 +99,7 @@ function SearchForm({jsonData}) {
             _ga?.event({
                 category: 'Results',
                 action: 'Goal Results',
-                label: result.goal.toString().split('.')[0]
+                label: result.goal.toString()
             })
         })
     }, [searchResults])
