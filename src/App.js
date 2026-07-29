@@ -45,7 +45,7 @@ function SearchForm({jsonData}) {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
             return [
                 item.league,
-                'S' + item.season,
+                'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
                 item.dotw,
                 `${month} ${item.year}`,
@@ -60,6 +60,7 @@ function SearchForm({jsonData}) {
                 item.jersey,
                 item.search,
                 item.btn1, item.btn2, item.btn3,
+                item.primary && `P:${item.primary}`, item.secondary && `S:${item.secondary}`,
                 item.primary, item.secondary,
             ].filter(Boolean).join(' ')
              .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
