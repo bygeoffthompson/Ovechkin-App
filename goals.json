@@ -13706,13 +13706,13 @@
         "month": 11,
         "day": 19,
         "year": 2018,
+        "search": "HHOF",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 14,
-        "search": "HHOF"
+        "season": 14
     },
     {
         "goal": 622,
@@ -13726,13 +13726,14 @@
         "year": 2018,
         "type": "2nd",
         "btn1": "PPG",
+        "btn2": "Slapshot",
+        "search": "5v3 HHOF",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Third",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 14,
-        "search": "HHOF"
+        "season": 14
     },
     {
         "goal": 623,
