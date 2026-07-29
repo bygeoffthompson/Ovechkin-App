@@ -400,7 +400,7 @@ function SearchForm({jsonData}) {
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                     </div>
                                     <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                        <strong>{result.month}/{result.day}/{String(result.year).slice(-2)}</strong>
+                                        <strong>{result.month}/{result.day}/{String(result.year)}</strong>
                                         <strong className="goalie">{result.goalie}</strong>
                                     </div>
                                 </div>
