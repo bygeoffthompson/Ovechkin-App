@@ -423,15 +423,15 @@ function SearchForm({jsonData}) {
                 </Accordion>
                 {welcome &&
                     <div className="app-message bg-white p-3 shadow-lg">
-                        <p className="align-items-start d-flex flex-column flex-sm-row flex-lg-column flex-xl-row gap-2 lead">
-                            <img alt="Goal Light" src="/gifs/goal-light.gif" />
-                            <strong>Welcome.</strong> Click or search to watch goals.
-                            <img alt="Recording Light" src="/gifs/record-light.gif" />
+                        <p className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row flex-lg-column flex-xl-row gap-2">
+                            <img alt="Goal Light" height="33" src="/gifs/goal-light.gif" width="18" />
+                            <span className="lead">Welcome. Click or search to watch goals.</span>
+                            <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
                         </p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
                             <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-type me-3 ms-2" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-type me-2 ms-1" viewBox="0 0 16 16">
                             <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-film" viewBox="0 0 16 16">
