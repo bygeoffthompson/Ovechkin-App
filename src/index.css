@@ -436,12 +436,6 @@ form div > button {
 }
 
 form {
-  background: rgb(207, 226, 255, .5);
-
-    a {
-        color: #111;
-    }
-
     @media (min-width: 768px) {
         > div {
             align-items: center;
@@ -507,23 +501,6 @@ label {
     }
 }
 
-.nav-item {
-    width: 50% !important;
-}
-
-.nav-link {
-    background: rgb(207, 226, 255) !important;
-    border-radius: 0 !important;
-
-    font-size: 1.125rem !important;
-
-    &.active {
-        background: #FFF !important;
-        color: #111 !important;
-        text-decoration: none !important;
-    }
-}
-
 .nav-tabs {
     @media (min-width: 768px) {
         min-width: 475px;
@@ -532,10 +509,6 @@ label {
 
 .tab-content {
     width: 100%;
-}
-
-.tab-pane {
-    background: #FFF !important;
 }
 
 .app-message {

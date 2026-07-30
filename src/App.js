@@ -240,7 +240,7 @@ function SearchForm({jsonData}) {
 
     return (
         <div className="align-items-center align-items-lg-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-            <form className="align-items-start d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
+            <form className="align-items-start d-flex justify-content-center flex-column w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
                     const btn = e.target.closest('button')
                     if (!btn) return
                     const title = btn.title
@@ -251,9 +251,9 @@ function SearchForm({jsonData}) {
                         label: title
                     });
                 }}>
-                <Tabs defaultActiveKey="random" fill className="w-100">
+                <Tabs defaultActiveKey="random" fill className="border-0 w-100">
                     <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
-                        <div className="p-3">
+                        <div className="bg-body p-3">
                             <div className="align-items-center d-flex flex-row justify-content-start mb-3">
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
@@ -346,7 +346,7 @@ function SearchForm({jsonData}) {
                         </div>
                     </Tab>
                     <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
-                        <div className="align-items-start d-flex flex-column gap-3 p-3">
+                        <div className="align-items-start bg-body d-flex flex-column gap-3 p-3">
                             <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
                             <label hidden htmlFor="search-text-2">Text 2</label>
                             <label hidden htmlFor="search-text-3">Text 3</label>
@@ -423,7 +423,7 @@ function SearchForm({jsonData}) {
                     })}
                 </Accordion>
                 {welcome &&
-                    <div className="app-message bg-white p-3 shadow-lg">
+                    <div className="app-message bg-body p-3 shadow-lg">
                         <p className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row flex-lg-column flex-xl-row gap-2">
                             <img alt="Goal Light" height="33" src="/gifs/goal-light.gif" width="18" />
                             <span className="lead">Welcome. Click or search to watch goals.</span>
@@ -441,7 +441,7 @@ function SearchForm({jsonData}) {
                     </div>
                 }
                 {searched && sortedResults.length === 0 &&
-                    <div className="app-message bg-white p-3 shadow-lg">
+                    <div className="app-message bg-body p-3 shadow-lg">
                         <p><strong>No results found.</strong> Please try again.</p>
                         <p className="m-0"><a href="/help.html">Help</a></p>
                     </div>
