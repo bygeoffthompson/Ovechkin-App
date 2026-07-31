@@ -11023,10 +11023,12 @@
         "day": 7,
         "year": 2016,
         "type": "30th",
+        "btn1": "Backhand",
+        "btn2": "Tip",
         "search": "Super Bowl",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Throwback",
         "dotw": "Sunday",
         "season": 11
@@ -11081,7 +11083,7 @@
         "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 11
@@ -11300,7 +11302,7 @@
         "btn1": "April Fools Day Teammate",
         "league": "NHL Regular",
         "hoa": "Away",
-        "period": "First",
+        "period": "Second",
         "jersey": "White",
         "dotw": "Friday",
         "season": 11
@@ -11541,6 +11543,7 @@
         "type": "GWG",
         "search": "Start Teammate",
         "btn1": "PPG",
+        "btn2": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -11671,7 +11674,7 @@
         "year": 2016,
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Third",
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 12
@@ -11690,7 +11693,7 @@
         "btn1": "Vezina",
         "league": "NHL Regular",
         "hoa": "Home",
-        "period": "First",
+        "period": "Second",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 12
