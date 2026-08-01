@@ -241,7 +241,7 @@ function SearchForm({jsonData}) {
 
     return (
         <div className="align-items-center align-items-lg-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-            <form className="align-items-start d-flex justify-content-center flex-column w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
+            <form className="align-items-start bg-body d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
                     const btn = e.target.closest('button')
                     if (!btn) return
                     const title = btn.title
@@ -254,7 +254,7 @@ function SearchForm({jsonData}) {
                 }}>
                 <Tabs defaultActiveKey="random" fill className="border-0 w-100">
                     <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
-                        <div className="bg-body p-3">
+                        <div className="p-3">
                             <div className="align-items-center d-flex flex-row justify-content-start mb-3">
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
@@ -347,7 +347,7 @@ function SearchForm({jsonData}) {
                         </div>
                     </Tab>
                     <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
-                        <div className="align-items-start bg-body d-flex flex-column gap-3 p-3">
+                        <div className="align-items-start d-flex flex-column gap-3 p-3">
                             <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
                             <label hidden htmlFor="search-text-2">Text 2</label>
                             <label hidden htmlFor="search-text-3">Text 3</label>

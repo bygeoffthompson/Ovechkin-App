@@ -501,6 +501,14 @@ label {
     }
 }
 
+.nav-link {
+    border-radius: 0 !important;
+
+    &:not(.active) {
+        background: rgba(207, 226, 255, .5);
+    }
+}
+
 .nav-tabs {
     @media (min-width: 768px) {
         min-width: 475px;
