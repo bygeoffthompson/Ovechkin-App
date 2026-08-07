@@ -419,7 +419,7 @@ function SearchForm({jsonData}) {
                                         <span className="badge">{result.primary && result.primary + ' '}</span>
                                         <span className="badge">{result.secondary && result.secondary + ' '}</span>
                                         <span className="badge text-bg-light">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
-                                        <div hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</div>
+                                        <span hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</span>
                                     </small>
                                 </div>
                                 <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
