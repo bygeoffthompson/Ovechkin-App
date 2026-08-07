@@ -46,7 +46,7 @@
             <select id="combined-league">
                 <option value="">All</option>
                 <option value="regular">NHL Regular</option>
-                <option value="playoff">NHL Playoff</option>
+                <option value="playoff">NHL Playoffs</option>
             </select>
             <label for="combined-hoa">Home/Away</label>
             <select id="combined-hoa">
@@ -97,7 +97,7 @@
             const data = await res.json();
 
             const regular = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
-            const playoffs = data.filter(g => g.league === 'NHL Playoff');
+            const playoffs = data.filter(g => g.league === 'NHL Playoffs');
 
             const colors = {
                 '': 'rgb(243, 65, 51)',
