@@ -270,13 +270,13 @@ function SearchForm({jsonData}) {
                                     <button onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                                         <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>NHL
                                     </button>
-                                    <button onClick={() => filterGoal(['NHL Playoff'])} title="NHL Playoff" type="button">
+                                    <button onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
                                         <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Playoff
                                     </button>
                                     <button onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">
                                         <img alt="NHL logo" src="/teams/NHL.svg" width="16" height="16"/>Rookie
                                     </button>
-                                    <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoff'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                    <button className="cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                     <button onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                                         <img alt="KHL logo" src="/teams/KHL.svg" width="16" height="16"/>KHL
                                     </button>
@@ -363,7 +363,7 @@ function SearchForm({jsonData}) {
                                     <option value="">All</option>
                                     <option className="fw-bold" value="NHL">NHL</option>
                                     <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                    <option value="NHL Playoff">•&nbsp;NHL Playoff</option>
+                                    <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
                                     <option value="KHL">KHL</option>
                                     <option value="Olympic">Olympic</option>
                                     <option value="World Championship">World Championship</option>
@@ -394,7 +394,7 @@ function SearchForm({jsonData}) {
                             <Accordion.Header onClick={lazyLoadFrame}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
-                                        <small className="fw-bold me-1" hidden={result.league === 'NHL Regular'}>{result.league === 'NHL Playoff' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
+                                        <small className="fw-bold me-1" hidden={result.league === 'NHL Regular'}>{result.league === 'NHL Playoffs' ? 'Playoff' : result.league === 'World Championship' ? 'Worlds' : result.league}</small>
                                         <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                     </strong>
                                     <div className="align-items-center d-flex justify-content-center goal-siren">
