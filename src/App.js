@@ -59,6 +59,8 @@ function SearchForm({jsonData}) {
                 item.time,
                 item.hoa,
                 item.jersey,
+                item.series,
+                item.game && 'G' + item.game,
                 item.search,
                 item.btn1, item.btn2, item.btn3,
                 item.primary && `P:${item.primary}`, item.secondary && `S:${item.secondary}`,
@@ -412,13 +414,14 @@ function SearchForm({jsonData}) {
                             <Accordion.Body className="p-0 position-relative">
                                 <div className="d-flex flex-column p-3 py-2">
                                     <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
+                                        <span className="badge text-bg-warning">{result.series}</span>
+                                        <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
                                         <span className="badge">{result.primary && result.primary + ' '}</span>
                                         <span className="badge">{result.secondary && result.secondary + ' '}</span>
                                         <div>
-                                            <span className="badge text-bg-light">{{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
-                                            <span className="badge text-bg-dark">{result.time}</span>
+                                            <span className="badge text-bg-light">{{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period} {result.time}</span>
                                         </div>
-                                        {[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}
+                                        <div hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</div>
                                     </small>
                                 </div>
                                 <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
