@@ -417,9 +417,9 @@ function SearchForm({jsonData}) {
                                     <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
                                         <span className="badge text-bg-warning">{result.series}</span>
                                         <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
+                                        <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                         <span className="badge text-bg-light">{result.primary && result.primary + ' '}</span>
                                         <span className="badge text-bg-light">{result.secondary && result.secondary + ' '}</span>
-                                        <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                         <span hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</span>
                                     </small>
                                 </div>
