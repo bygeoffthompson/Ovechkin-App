@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Goal Graphs | Ovechkin App</title>
+    <title>Goal Graph | Ovechkin App</title>
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
@@ -12,11 +12,11 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ovechkin App">
     <meta property="og:url" content="https://www.ovechkin.app/graph.html">
-    <meta property="og:title" content="Goal Graphs | Ovechkin App">
+    <meta property="og:title" content="Goal Graph | Ovechkin App">
     <meta property="og:description" content="A timeline of Ovechkin's NHL goals shows his complete career scoring arc.">
     <meta property="og:image" content="https://www.ovechkin.app/ovechkin.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Goal Graphs | Ovechkin App">
+    <meta name="twitter:title" content="Goal Graph | Ovechkin App">
     <meta name="twitter:description" content="A timeline of Ovechkin's NHL goals shows his complete career scoring arc.">
     <meta name="twitter:image" content="https://www.ovechkin.app/ovechkin.jpg">
     <link rel="canonical" href="https://www.ovechkin.app/graph.html">
@@ -36,28 +36,34 @@
   <body>
   <div class="container">
     <header class="my-4">
-      <h1>Ovechkin Goal Graphs</h1>
-      <p>A timeline of Ovechkin's NHL goals shows his complete career scoring arc.</p>
+      <h1>Goal Graph</h1>
+      <p>A timeline of Ovechkin's NHL goals shows his complete career scoring arc. Goals can be filtered with several available options.</p>
     </header>
     <main>
-        <h2>NHL Regular Season</h2>
+        <h2>All NHL Goals</h2>
         <div class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start my-3 small">
-            <label for="regular-hoa">Home/Away</label>
-            <select id="regular-hoa">
+            <label for="combined-league">League</label>
+            <select id="combined-league">
+                <option value="">All</option>
+                <option value="regular">NHL Regular</option>
+                <option value="playoff">NHL Playoff</option>
+            </select>
+            <label for="combined-hoa">Home/Away</label>
+            <select id="combined-hoa">
                 <option value="">All</option>
                 <option value="Home">Home</option>
                 <option value="Away">Away</option>
             </select>
-            <label for="regular-period">Period</label>
-            <select id="regular-period">
+            <label for="combined-period">Period</label>
+            <select id="combined-period">
                 <option value="">All</option>
                 <option value="First">First</option>
                 <option value="Second">Second</option>
                 <option value="Third">Third</option>
                 <option value="Overtime">Overtime</option>
             </select>
-            <label for="regular-type">Type</label>
-            <select id="regular-type">
+            <label for="combined-type">Type</label>
+            <select id="combined-type">
                 <option value="">All</option>
                 <option value="Backhand">Backhand</option>
                 <option value="Empty Net">Empty Net</option>
@@ -67,35 +73,7 @@
                 <option value="Tip">Tip</option>
             </select>
         </div>
-        <canvas id="nhlChart"></canvas>
-        <h2>NHL Playoff</h2>
-        <div class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start my-3 small">
-            <label for="playoff-hoa">Home/Away</label>
-            <select id="playoff-hoa">
-                <option value="">All</option>
-                <option value="Home">Home</option>
-                <option value="Away">Away</option>
-            </select>
-            <label for="playoff-period">Period</label>
-            <select id="playoff-period">
-                <option value="">All</option>
-                <option value="First">First</option>
-                <option value="Second">Second</option>
-                <option value="Third">Third</option>
-                <option value="Overtime">Overtime</option>
-            </select>
-            <label for="playoff-type">Type</label>
-            <select id="playoff-type">
-                <option value="">All</option>
-                <option value="Backhand">Backhand</option>
-                <option value="Empty Net">Empty Net</option>
-                <option value="Hat Trick">Hat Trick</option>
-                <option value="Post">Post</option>
-                <option value="Slapshot">Slapshot</option>
-                <option value="Tip">Tip</option>
-            </select>
-        </div>
-        <canvas id="playoffChart"></canvas>
+        <canvas id="combinedChart"></canvas>
     </main>
   </div>
   <footer class="align-items-start d-flex flex-column flex-sm-row gap-2">
@@ -118,75 +96,97 @@
             const res = await fetch('/goals.json');
             const data = await res.json();
 
+            const regular = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
+            const playoffs = data.filter(g => g.league === 'NHL Playoff');
+
+            const colors = {
+                '': 'rgb(243, 65, 51)',
+                regular: 'rgb(243, 65, 51)',
+                playoff: 'rgb(34, 54, 115)'
+            };
+
             function toPoints(goals) {
                 return goals.map((g, i) => ({
                     x: `${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`,
-                    y: i + 1
+                    y: i + 1,
+                    team: g.team,
+                    goalie: g.goalie
                 }));
             }
 
-            function createChart(id, goals, color, yLabel) {
-                return new Chart(document.getElementById(id), {
-                    type: 'line',
-                    data: {
-                        datasets: [{
-                            data: toPoints(goals),
-                            borderColor: color,
-                            backgroundColor: color.replace(')', ', 0.2)').replace('rgb', 'rgba'),
-                            borderWidth: 1.5,
-                            pointRadius: 0,
-                            fill: true,
-                            tension: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        interaction: { mode: 'nearest', axis: 'x', intersect: false },
-                        scales: {
-                            x: {
-                                type: 'time',
-                                time: { unit: 'year', displayFormats: { year: 'yyyy' } },
-                                title: { display: false, text: 'Date' }
-                            },
-                            y: { title: { display: true, text: yLabel }, beginAtZero: true }
+            function getSource() {
+                const league = document.getElementById('combined-league').value;
+                if (league === 'regular') return regular;
+                if (league === 'playoff') return playoffs;
+                return [...regular, ...playoffs].sort((a, b) => {
+                    const da = new Date(a.year, a.month - 1, a.day);
+                    const db = new Date(b.year, b.month - 1, b.day);
+                    return da - db;
+                });
+            }
+
+            const chart = new Chart(document.getElementById('combinedChart'), {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        data: toPoints(getSource()),
+                        borderColor: colors[''],
+                        backgroundColor: 'rgba(243, 65, 51, 0.2)',
+                        borderWidth: 1.5,
+                        pointRadius: 0,
+                        fill: true,
+                        tension: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: { unit: 'year', displayFormats: { year: 'yyyy' } },
+                            title: { display: false }
                         },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    title(items) {
-                                        return new Date(items[0].raw.x).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                                    },
-                                    label(item) { return `#${item.raw.y}`; }
+                        y: { title: { display: true, text: 'Goals' }, beginAtZero: true }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title(items) {
+                                    return new Date(items[0].raw.x).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                                },
+                                label(item) { return ` #${item.raw.y}`; },
+                                afterLabel(item) {
+                                    const lines = [];
+                                    if (item.raw.team) lines.push(`${item.raw.team}`);
+                                    if (item.raw.goalie) lines.push(`${item.raw.goalie}`);
+                                    return lines;
                                 }
                             }
                         }
                     }
-                });
-            }
+                }
+            });
 
-            function applyFilter(prefix, source, chart) {
-                const hoa = document.getElementById(`${prefix}-hoa`).value;
-                const period = document.getElementById(`${prefix}-period`).value;
-                const tag = document.getElementById(`${prefix}-type`).value;
-                let filtered = source;
+            function applyFilter() {
+                const league = document.getElementById('combined-league').value;
+                const hoa = document.getElementById('combined-hoa').value;
+                const period = document.getElementById('combined-period').value;
+                const tag = document.getElementById('combined-type').value;
+                let filtered = getSource();
                 if (hoa) filtered = filtered.filter(g => g.hoa === hoa);
                 if (period) filtered = filtered.filter(g => g.period === period);
                 if (tag) filtered = filtered.filter(g => [g.btn1, g.btn2, g.btn3].includes(tag));
+                const color = colors[league];
+                chart.data.datasets[0].borderColor = color;
+                chart.data.datasets[0].backgroundColor = color.replace(')', ', 0.2)').replace('rgb', 'rgba');
                 chart.data.datasets[0].data = toPoints(filtered);
                 chart.update();
             }
 
-            const nhl = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
-            const nhlChart = createChart('nhlChart', nhl, 'rgb(243, 65, 51)', 'Goals');
-            ['regular-hoa', 'regular-period', 'regular-type'].forEach(id =>
-                document.getElementById(id).addEventListener('change', () => applyFilter('regular', nhl, nhlChart))
-            );
-
-            const playoffs = data.filter(g => g.league === 'NHL Playoff');
-            const playoffChart = createChart('playoffChart', playoffs, 'rgb(34, 54, 115)', 'Goals');
-            ['playoff-hoa', 'playoff-period', 'playoff-type'].forEach(id =>
-                document.getElementById(id).addEventListener('change', () => applyFilter('playoff', playoffs, playoffChart))
+            ['combined-league', 'combined-hoa', 'combined-period', 'combined-type'].forEach(id =>
+                document.getElementById(id).addEventListener('change', applyFilter)
             );
 
         } catch (err) {
