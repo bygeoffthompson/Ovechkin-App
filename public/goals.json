@@ -3515,6 +3515,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "15:28",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 3
@@ -3533,6 +3534,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "02:46",
         "jersey": "White",
         "dotw": "Monday",
         "season": 3
@@ -3552,6 +3554,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "10:41",
         "jersey": "White",
         "dotw": "Monday",
         "season": 3
@@ -3570,6 +3573,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "15:29",
         "jersey": "Red",
         "dotw": "Tuesday",
         "season": 3
@@ -4780,6 +4784,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "02:13",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 4
@@ -4798,6 +4803,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "19:31",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 4
@@ -4818,6 +4824,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "16:44",
         "jersey": "White",
         "dotw": "Sunday",
         "season": 4
@@ -4838,6 +4845,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "17:03",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 4
@@ -4856,6 +4864,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "02:18",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 4
@@ -4876,6 +4885,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "12:53",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 4
@@ -4898,6 +4908,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "15:22",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 4
@@ -4915,6 +4926,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "01:23",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 4
@@ -4932,6 +4944,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "06:16",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 4
@@ -4951,6 +4964,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "15:52",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 4
@@ -4967,6 +4981,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "18:09",
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 4
@@ -5968,6 +5983,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "02:56",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 5
@@ -5986,6 +6002,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "13:50",
         "jersey": "White",
         "dotw": "Monday",
         "season": 5
@@ -6005,6 +6022,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "08:10",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 5
@@ -6023,6 +6041,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "11:09",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 5
@@ -6041,6 +6060,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "03:52",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 5
@@ -6769,6 +6789,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "13:44",
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 6
@@ -6788,6 +6809,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "19:00",
         "jersey": "White",
         "dotw": "Sunday",
         "season": 6
@@ -6807,6 +6829,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "07:04",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 6
@@ -6826,6 +6849,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "18:52",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 6
@@ -6846,6 +6870,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "17:27",
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 6
@@ -7597,6 +7622,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "00:48",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 7
@@ -7614,6 +7640,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "15:08",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 7
@@ -7633,6 +7660,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "12:33",
         "jersey": "White",
         "dotw": "Monday",
         "season": 7
@@ -7650,6 +7678,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "12:43",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 7
@@ -7669,6 +7698,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "01:28",
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 7
@@ -8694,6 +8724,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "06:59",
         "jersey": "Red",
         "dotw": "Thursday",
         "season": 8
@@ -10864,6 +10895,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "16:09",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 10
@@ -10883,6 +10915,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "13:06",
         "jersey": "Throwback",
         "dotw": "Tuesday",
         "season": 10
@@ -10902,6 +10935,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "18:13",
         "jersey": "Throwback",
         "dotw": "Thursday",
         "season": 10
@@ -10920,6 +10954,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "10:29",
         "jersey": "Throwback",
         "dotw": "Saturday",
         "season": 10
@@ -10938,6 +10973,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "12:50",
         "jersey": "Throwback",
         "dotw": "Wednesday",
         "season": 10
@@ -11928,6 +11964,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "17:21",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 11
@@ -11946,6 +11983,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "08:50",
         "jersey": "White",
         "dotw": "Monday",
         "season": 11
@@ -11967,6 +12005,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "14:58",
         "jersey": "White",
         "dotw": "Monday",
         "season": 11
@@ -11985,6 +12024,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "08:02",
         "jersey": "White",
         "dotw": "Monday",
         "season": 11
@@ -12006,6 +12046,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "04:04",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 11
@@ -12722,6 +12763,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "03:47",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 12
@@ -12741,6 +12783,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "04:49",
         "jersey": "White",
         "dotw": "Monday",
         "season": 12
@@ -12761,6 +12804,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "04:34",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 12
@@ -12779,6 +12823,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "18:17",
         "jersey": "Red",
         "dotw": "Thursday",
         "season": 12
@@ -12797,6 +12842,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "07:47",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 12
@@ -13787,6 +13833,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "13:26",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 13
@@ -13807,6 +13854,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "04:09",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 13
@@ -13825,6 +13873,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "02:49",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 13
@@ -13844,6 +13893,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "12:50",
         "jersey": "White",
         "dotw": "Monday",
         "season": 13
@@ -13865,6 +13915,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "18:23",
         "jersey": "White",
         "dotw": "Monday",
         "season": 13
@@ -13883,6 +13934,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "00:28",
         "jersey": "Red",
         "dotw": "Thursday",
         "season": 13
@@ -13899,6 +13951,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "01:26",
         "jersey": "Red",
         "dotw": "Sunday",
         "season": 13
@@ -13918,6 +13971,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "18:53",
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 13
@@ -13937,6 +13991,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "19:54",
         "jersey": "White",
         "dotw": "Friday",
         "season": 13
@@ -13955,6 +14010,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "03:34",
         "jersey": "White",
         "dotw": "Sunday",
         "season": 13
@@ -13974,6 +14030,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "18:24",
         "jersey": "White",
         "dotw": "Saturday",
         "season": 13
@@ -13994,6 +14051,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "01:02",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 13
@@ -14013,6 +14071,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "05:38",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 13
@@ -14032,6 +14091,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "01:10",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 13
@@ -14051,6 +14111,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "10:14",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 13
@@ -15061,6 +15122,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "18:05",
         "jersey": "Red",
         "dotw": "Thursday",
         "season": 14
@@ -15080,6 +15142,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "10:35",
         "jersey": "White",
         "dotw": "Thursday",
         "season": 14
@@ -15099,6 +15162,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "10:14",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 14
@@ -15117,6 +15181,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
+        "time": "15:12",
         "jersey": "White",
         "dotw": "Monday",
         "season": 14
@@ -16092,6 +16157,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "00:56",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 15
@@ -16112,6 +16178,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
+        "time": "06:39",
         "jersey": "Red",
         "dotw": "Friday",
         "season": 15
@@ -16131,6 +16198,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "05:29",
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 15
@@ -16149,6 +16217,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "03:40",
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 15
@@ -16653,6 +16722,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
+        "time": "08:21",
         "jersey": "White",
         "dotw": "Wednesday",
         "season": 16
@@ -16673,6 +16743,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "04:54",
         "jersey": "White",
         "dotw": "Friday",
         "season": 16
@@ -17637,6 +17708,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
+        "time": "10:25",
         "jersey": "Red",
         "dotw": "Saturday",
         "season": 17
@@ -19906,6 +19978,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "18:34",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 20
@@ -19926,6 +19999,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Overtime",
+        "time": "02:26",
         "jersey": "Red",
         "dotw": "Monday",
         "season": 20
@@ -19944,6 +20018,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "02:39",
         "jersey": "White",
         "dotw": "Friday",
         "season": 20
@@ -19962,6 +20037,7 @@
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
+        "time": "09:12",
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 20
@@ -19984,6 +20060,7 @@
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Third",
+        "time": "12:14",
         "jersey": "White",
         "dotw": "Monday",
         "season": 20
