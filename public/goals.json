@@ -129,7 +129,8 @@
         "time": "07:21",
         "jersey": "Capitol",
         "dotw": "Wednesday",
-        "season": 1
+        "season": 1,
+        "btn1": "Slapshot"
     },
     {
         "goal": 2,
@@ -408,7 +409,8 @@
         "time": "19:05",
         "jersey": "Screagle",
         "dotw": "Thursday",
-        "season": 1
+        "season": 1,
+        "btn1": "Slapshot"
     },
     {
         "goal": 16,
@@ -466,7 +468,8 @@
         "time": "05:23",
         "jersey": "Capitol",
         "dotw": "Friday",
-        "season": 1
+        "season": 1,
+        "btn1": "Slapshot"
     },
     {
         "goal": 19,
@@ -537,7 +540,6 @@
         "day": 28,
         "year": 2005,
         "type": "PPG",
-        "btn1": "Backhand",
         "search": "Rookie HHOF",
         "league": "NHL Regular",
         "hoa": "Away",
@@ -956,14 +958,14 @@
         "year": 2006,
         "type": "6v4",
         "search": "Rookie Streak",
-        "btn1": "Tip",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "19:34",
         "jersey": "Screagle",
         "dotw": "Saturday",
-        "season": 1
+        "season": 1,
+        "btn1": "Tip"
     },
     {
         "goal": 40,
@@ -1121,7 +1123,8 @@
         "time": "01:50",
         "jersey": "Screagle",
         "dotw": "Saturday",
-        "season": 1
+        "season": 1,
+        "btn1": "Slapshot"
     },
     {
         "goal": 48,
@@ -1221,7 +1224,8 @@
         "time": "02:36",
         "jersey": "Capitol",
         "dotw": "Monday",
-        "season": 1
+        "season": 1,
+        "btn1": "Slapshot"
     },
     {
         "goal": 52.07,
@@ -1492,14 +1496,14 @@
         "month": 11,
         "day": 6,
         "year": 2006,
-        "btn1": "Tip",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "07:56",
         "jersey": "Capitol",
         "dotw": "Monday",
-        "season": 2
+        "season": 2,
+        "btn1": "Tip"
     },
     {
         "goal": 62,
@@ -1577,7 +1581,8 @@
         "time": "16:59",
         "jersey": "Screagle",
         "dotw": "Saturday",
-        "season": 2
+        "season": 2,
+        "btn1": "Slapshot"
     },
     {
         "goal": 66,
@@ -2306,7 +2311,8 @@
         "time": "01:41",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 103,
@@ -2376,14 +2382,15 @@
         "day": 29,
         "year": 2007,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "11:09",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 3
+        "season": 3,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 107,
@@ -2401,7 +2408,8 @@
         "time": "15:52",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 108,
@@ -2566,7 +2574,8 @@
         "time": "02:35",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 117,
@@ -2909,7 +2918,8 @@
         "time": "04:40",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 135,
@@ -2922,7 +2932,6 @@
         "day": 21,
         "year": 2008,
         "type": "PPG",
-        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
@@ -3017,7 +3026,8 @@
         "time": "13:06",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 139,
@@ -3320,15 +3330,16 @@
         "day": 12,
         "year": 2008,
         "type": "GWG",
-        "btn1": "2nd",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "18:06",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 3
+        "season": 3,
+        "btn1": "2nd",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 155,
@@ -3560,7 +3571,8 @@
         "time": "10:41",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 3
+        "season": 3,
+        "btn1": "Slapshot"
     },
     {
         "goal": 163.04,
@@ -3989,7 +4001,8 @@
         "time": "19:25",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 4
+        "season": 4,
+        "btn1": "Slapshot"
     },
     {
         "goal": 180,
@@ -4002,14 +4015,15 @@
         "day": 12,
         "year": 2008,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "14:05",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 4
+        "season": 4,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 181,
@@ -4352,7 +4366,8 @@
         "time": "10:32",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 4
+        "season": 4,
+        "btn1": "Slapshot"
     },
     {
         "goal": 198,
@@ -4506,7 +4521,8 @@
         "time": "10:07",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 4
+        "season": 4,
+        "btn1": "Backhand"
     },
     {
         "goal": 206,
@@ -4852,14 +4868,15 @@
         "type": "5v3",
         "series": "Semifinals",
         "game": 1,
-        "btn1": "PPG",
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
         "time": "17:03",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 4
+        "season": 4,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 219.09,
@@ -4894,14 +4911,15 @@
         "type": "2nd",
         "series": "Semifinals",
         "game": 2,
-        "btn1": "PPG",
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
         "time": "12:53",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 4
+        "season": 4,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 219.11,
@@ -5137,7 +5155,8 @@
         "time": "03:23",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 5
+        "season": 5,
+        "btn1": "Slapshot"
     },
     {
         "goal": 227,
@@ -5156,7 +5175,8 @@
         "time": "05:27",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 5
+        "season": 5,
+        "btn1": "Slapshot"
     },
     {
         "goal": 228,
@@ -5291,7 +5311,8 @@
         "jersey": "White",
         "dotw": "Tuesday",
         "season": 5,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Slapshot"
     },
     {
         "goal": 235,
@@ -5340,7 +5361,6 @@
         "month": 11,
         "day": 28,
         "year": 2009,
-        "btn1": "Post",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
@@ -5348,7 +5368,9 @@
         "jersey": "White",
         "dotw": "Saturday",
         "season": 5,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Post",
+        "btn2": "Slapshot"
     },
     {
         "goal": 238,
@@ -5406,7 +5428,8 @@
         "time": "02:00",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 5
+        "season": 5,
+        "btn1": "Slapshot"
     },
     {
         "goal": 241,
@@ -5442,7 +5465,8 @@
         "time": "06:37",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 5
+        "season": 5,
+        "btn1": "Slapshot"
     },
     {
         "goal": 243,
@@ -5999,7 +6023,6 @@
         "search": "Teammate",
         "series": "Quarterfinals",
         "game": 2,
-        "btn1": "Backhand",
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Third",
@@ -6380,7 +6403,8 @@
         "time": "19:11",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 6
+        "season": 6,
+        "btn1": "Slapshot"
     },
     {
         "goal": 281,
@@ -6485,14 +6509,14 @@
         "month": 1,
         "day": 22,
         "year": 2011,
-        "btn1": "Tip",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
         "time": "14:27",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 6
+        "season": 6,
+        "btn1": "Tip"
     },
     {
         "goal": 287,
@@ -6635,14 +6659,15 @@
         "day": 21,
         "year": 2011,
         "type": "GWG",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "16:38",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 6
+        "season": 6,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 294,
@@ -6655,14 +6680,15 @@
         "year": 2011,
         "type": "OT",
         "search": "Once",
-        "btn1": "GWG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
         "time": "01:55",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 6
+        "season": 6,
+        "btn1": "GWG",
+        "btn2": "Backhand"
     },
     {
         "goal": 295,
@@ -6837,7 +6863,6 @@
         "search": "HHOF",
         "series": "Quarterfinals",
         "game": 3,
-        "btn1": "Backhand",
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
@@ -7192,7 +7217,6 @@
         "month": 12,
         "day": 31,
         "year": 2011,
-        "btn1": "Slapshot",
         "search": "New Years Eve",
         "league": "NHL Regular",
         "hoa": "Away",
@@ -7397,7 +7421,8 @@
         "jersey": "Red",
         "dotw": "Friday",
         "season": 7,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Slapshot"
     },
     {
         "goal": 327,
@@ -7655,14 +7680,15 @@
         "year": 2012,
         "series": "Quarterfinals",
         "game": 3,
-        "btn1": "Post",
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "Second",
         "time": "00:48",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 7
+        "season": 7,
+        "btn1": "Post",
+        "btn2": "Slapshot"
     },
     {
         "goal": 339.27,
@@ -7681,7 +7707,8 @@
         "time": "15:08",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 7
+        "season": 7,
+        "btn1": "Slapshot"
     },
     {
         "goal": 339.28,
@@ -7745,7 +7772,8 @@
         "time": "01:28",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 7
+        "season": 7,
+        "btn1": "Slapshot"
     },
     {
         "goal": 340.25,
@@ -8138,14 +8166,15 @@
         "year": 2013,
         "type": "GWG",
         "search": "Start",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "05:11",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 8
+        "season": 8,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 341,
@@ -8203,7 +8232,8 @@
         "time": "17:11",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 8
+        "season": 8,
+        "btn1": "Slapshot"
     },
     {
         "goal": 344,
@@ -8273,15 +8303,16 @@
         "day": 23,
         "year": 2013,
         "type": "3rd",
-        "btn1": "Hat Trick",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "15:13",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 8
+        "season": 8,
+        "btn1": "Hat Trick",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 348,
@@ -8300,7 +8331,8 @@
         "time": "09:17",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 8
+        "season": 8,
+        "btn1": "Slapshot"
     },
     {
         "goal": 349,
@@ -8350,15 +8382,14 @@
         "day": 19,
         "year": 2013,
         "type": "PPG",
-        "btn1": "Post",
-        "btn2": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "08:14",
         "jersey": "Throwback",
         "dotw": "Tuesday",
-        "season": 8
+        "season": 8,
+        "btn1": "Post"
     },
     {
         "goal": 352,
@@ -8428,8 +8459,6 @@
         "month": 3,
         "day": 24,
         "year": 2013,
-        "btn1": "Backhand",
-        "btn2": "Tip",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
@@ -8437,7 +8466,8 @@
         "jersey": "Throwback",
         "dotw": "Sunday",
         "season": 8,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Tip"
     },
     {
         "goal": 356,
@@ -8475,7 +8505,8 @@
         "time": "06:48",
         "jersey": "White",
         "dotw": "Sunday",
-        "season": 8
+        "season": 8,
+        "btn1": "Slapshot"
     },
     {
         "goal": 358,
@@ -8703,15 +8734,16 @@
         "year": 2013,
         "type": "30th",
         "search": "Rocket Richard HHOF",
-        "btn1": "2nd",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "13:23",
         "jersey": "Throwback",
         "dotw": "Saturday",
-        "season": 8
+        "season": 8,
+        "btn1": "2nd",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 370,
@@ -8843,7 +8875,6 @@
         "day": 3,
         "year": 2013,
         "type": "2nd",
-        "btn1": "PPG",
         "search": "Home Opener",
         "league": "NHL Regular",
         "hoa": "Home",
@@ -8851,7 +8882,9 @@
         "time": "15:25",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 9
+        "season": 9,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 375,
@@ -8882,15 +8915,14 @@
         "month": 10,
         "day": 10,
         "year": 2013,
-        "btn1": "Backhand",
-        "btn2": "Tip",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "13:52",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 9
+        "season": 9,
+        "btn1": "Tip"
     },
     {
         "goal": 377,
@@ -8929,7 +8961,8 @@
         "time": "06:34",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 9
+        "season": 9,
+        "btn1": "Slapshot"
     },
     {
         "goal": 379,
@@ -9041,7 +9074,8 @@
         "time": "08:10",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 9
+        "season": 9,
+        "btn1": "Slapshot"
     },
     {
         "goal": 385,
@@ -9412,7 +9446,8 @@
         "time": "06:39",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 9
+        "season": 9,
+        "btn1": "Slapshot"
     },
     {
         "goal": 404,
@@ -9430,7 +9465,8 @@
         "time": "12:44",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 9
+        "season": 9,
+        "btn1": "Slapshot"
     },
     {
         "goal": 405,
@@ -9648,14 +9684,15 @@
         "year": 2014,
         "type": "2nd",
         "search": "800th Career Point Vezina",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "02:24",
         "jersey": "Throwback",
         "dotw": "Saturday",
-        "season": 9
+        "season": 9,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 415,
@@ -9736,7 +9773,8 @@
         "time": "02:24",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 9
+        "season": 9,
+        "btn1": "Slapshot"
     },
     {
         "goal": 419,
@@ -9961,14 +9999,15 @@
         "day": 14,
         "year": 2014,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "14:09",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 10
+        "season": 10,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 427,
@@ -10005,7 +10044,8 @@
         "time": "16:09",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 429,
@@ -10394,7 +10434,8 @@
         "time": "01:48",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 449,
@@ -10407,14 +10448,15 @@
         "day": 20,
         "year": 2015,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
         "time": "13:58",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 10
+        "season": 10,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 450,
@@ -10447,14 +10489,15 @@
         "day": 28,
         "year": 2015,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "17:19",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 10
+        "season": 10,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 452,
@@ -10569,7 +10612,8 @@
         "time": "01:22",
         "jersey": "Throwback",
         "dotw": "Sunday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 458,
@@ -10609,7 +10653,8 @@
         "time": "18:36",
         "jersey": "Throwback",
         "dotw": "Tuesday",
-        "season": 10
+        "season": 10,
+        "btn1": "Backhand"
     },
     {
         "goal": 460,
@@ -10720,16 +10765,15 @@
         "day": 3,
         "year": 2015,
         "type": "GWG",
-        "btn1": "2nd",
-        "btn2": "PPG",
-        "btn3": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "03:17",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 10
+        "season": 10,
+        "btn1": "2nd",
+        "btn2": "PPG"
     },
     {
         "goal": 466,
@@ -10768,7 +10812,8 @@
         "time": "11:43",
         "jersey": "White",
         "dotw": "Wednesday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 468,
@@ -10844,7 +10889,8 @@
         "time": "11:17",
         "jersey": "Throwback",
         "dotw": "Sunday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 472,
@@ -10925,7 +10971,8 @@
         "time": "06:31",
         "jersey": "Brick",
         "dotw": "Saturday",
-        "season": 10
+        "season": 10,
+        "btn1": "Slapshot"
     },
     {
         "goal": 475.32,
@@ -11223,7 +11270,6 @@
         "month": 11,
         "day": 21,
         "year": 2015,
-        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
@@ -11307,7 +11353,8 @@
         "time": "17:52",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 11
+        "season": 11,
+        "btn1": "Slapshot"
     },
     {
         "goal": 490,
@@ -11404,7 +11451,8 @@
         "time": "01:24",
         "jersey": "Throwback",
         "dotw": "Wednesday",
-        "season": 11
+        "season": 11,
+        "btn1": "Backhand"
     },
     {
         "goal": 495,
@@ -11595,7 +11643,8 @@
         "time": "17:20",
         "jersey": "Throwback",
         "dotw": "Thursday",
-        "season": 11
+        "season": 11,
+        "btn1": "Slapshot"
     },
     {
         "goal": 505,
@@ -11607,8 +11656,6 @@
         "day": 7,
         "year": 2016,
         "type": "30th",
-        "btn1": "Backhand",
-        "btn2": "Tip",
         "search": "Super Bowl",
         "league": "NHL Regular",
         "hoa": "Home",
@@ -11616,7 +11663,8 @@
         "time": "15:56",
         "jersey": "Throwback",
         "dotw": "Sunday",
-        "season": 11
+        "season": 11,
+        "btn1": "Tip"
     },
     {
         "goal": 506,
@@ -11713,7 +11761,8 @@
         "time": "04:03",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 11
+        "season": 11,
+        "btn1": "Slapshot"
     },
     {
         "goal": 511,
@@ -11802,14 +11851,15 @@
         "year": 2016,
         "type": "40th",
         "search": "Teammate",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "04:35",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 11
+        "season": 11,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 516,
@@ -11827,7 +11877,8 @@
         "time": "18:43",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 11
+        "season": 11,
+        "btn1": "Slapshot"
     },
     {
         "goal": 517,
@@ -11993,15 +12044,16 @@
         "year": 2016,
         "type": "50th",
         "search": "End",
-        "btn1": "3rd",
-        "btn2": "Hat Trick",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "10:35",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 11
+        "season": 11,
+        "btn1": "3rd",
+        "btn2": "Hat Trick",
+        "btn3": "Slapshot"
     },
     {
         "goal": 525.37,
@@ -12022,7 +12074,8 @@
         "time": "17:21",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 11
+        "season": 11,
+        "btn1": "Slapshot"
     },
     {
         "goal": 525.38,
@@ -12255,15 +12308,16 @@
         "year": 2016,
         "type": "OT",
         "search": "2nd",
-        "btn1": "GWG",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
         "time": "03:21",
         "jersey": "Throwback",
         "dotw": "Thursday",
-        "season": 12
+        "season": 12,
+        "btn1": "GWG",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 532,
@@ -12358,7 +12412,8 @@
         "time": "10:12",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 12
+        "season": 12,
+        "btn1": "Slapshot"
     },
     {
         "goal": 537,
@@ -12548,14 +12603,15 @@
         "day": 11,
         "year": 2017,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "08:06",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 12
+        "season": 12,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 547,
@@ -12626,7 +12682,8 @@
         "time": "19:13",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 12
+        "season": 12,
+        "btn1": "Slapshot"
     },
     {
         "goal": 550,
@@ -12658,15 +12715,14 @@
         "day": 7,
         "year": 2017,
         "type": "GWG",
-        "btn1": "PPG",
-        "btn2": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
         "time": "10:23",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 12
+        "season": 12,
+        "btn1": "PPG"
     },
     {
         "goal": 552,
@@ -12776,14 +12832,15 @@
         "day": 28,
         "year": 2017,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "12:28",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 12
+        "season": 12,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 558,
@@ -12840,7 +12897,6 @@
         "year": 2017,
         "series": "Quarterfinals",
         "game": 3,
-        "btn1": "Slapshot",
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "First",
@@ -13105,7 +13161,7 @@
         "day": 20,
         "year": 2017,
         "type": "OT",
-        "btn1": "Backhand",
+        "btn1": "Slapshot",
         "btn2": "GWG",
         "btn3": "PPG",
         "league": "NHL Regular",
@@ -13357,15 +13413,16 @@
         "day": 16,
         "year": 2017,
         "type": "OT",
-        "btn1": "GWG",
-        "btn2": "Post",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
         "time": "01:58",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 13
+        "season": 13,
+        "btn1": "GWG",
+        "btn2": "Post",
+        "btn3": "Slapshot"
     },
     {
         "goal": 582,
@@ -13461,7 +13518,8 @@
         "time": "00:28",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 13
+        "season": 13,
+        "btn1": "Slapshot"
     },
     {
         "goal": 587,
@@ -13656,7 +13714,6 @@
         "day": 24,
         "year": 2018,
         "type": "2nd",
-        "btn1": "Backhand",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
@@ -13755,7 +13812,6 @@
         "day": 18,
         "year": 2018,
         "search": "Gr8 Chase Jari Kurri",
-        "btn1": "Backhand",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
@@ -13861,7 +13917,8 @@
         "time": "02:21",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 13
+        "season": 13,
+        "btn1": "Slapshot"
     },
     {
         "goal": 607,
@@ -13979,15 +14036,16 @@
         "type": "2nd",
         "series": "Quarterfinals",
         "game": 6,
-        "btn1": "Post",
-        "btn2": "PPG",
         "league": "NHL Playoff",
         "hoa": "Away",
         "period": "Second",
         "time": "18:23",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 13
+        "season": 13,
+        "btn1": "Post",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 607.52,
@@ -14068,7 +14126,8 @@
         "time": "19:54",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 13
+        "season": 13,
+        "btn1": "Slapshot"
     },
     {
         "goal": 607.56,
@@ -14109,7 +14168,8 @@
         "time": "18:24",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 13
+        "season": 13,
+        "btn1": "Slapshot"
     },
     {
         "goal": 607.58,
@@ -14194,7 +14254,8 @@
         "time": "10:14",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 13
+        "season": 13,
+        "btn1": "Slapshot"
     },
     {
         "goal": 608,
@@ -14253,7 +14314,8 @@
         "time": "10:18",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 611,
@@ -14285,7 +14347,6 @@
         "day": 17,
         "year": 2018,
         "type": "PPG",
-        "btn1": "Post",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
@@ -14293,7 +14354,9 @@
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 14,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Post",
+        "btn2": "Slapshot"
     },
     {
         "goal": 613,
@@ -14306,8 +14369,6 @@
         "day": 17,
         "year": 2018,
         "type": "2nd",
-        "btn1": "Post",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
@@ -14315,7 +14376,10 @@
         "jersey": "Red",
         "dotw": "Wednesday",
         "season": 14,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Post",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 614,
@@ -14414,7 +14478,8 @@
         "time": "13:09",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 619,
@@ -14525,7 +14590,6 @@
         "month": 11,
         "day": 24,
         "year": 2018,
-        "btn1": "Backhand",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
@@ -14588,7 +14652,8 @@
         "time": "11:42",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 14
+        "season": 14,
+        "btn1": "Backhand"
     },
     {
         "goal": 628,
@@ -14643,7 +14708,8 @@
         "time": "12:59",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 631,
@@ -14675,14 +14741,15 @@
         "day": 11,
         "year": 2018,
         "type": "3rd",
-        "btn1": "Hat Trick",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "09:33",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 14
+        "season": 14,
+        "btn1": "Hat Trick",
+        "btn2": "Slapshot"
     },
     {
         "goal": 633,
@@ -14700,7 +14767,8 @@
         "time": "03:56",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 634,
@@ -14732,15 +14800,16 @@
         "day": 14,
         "year": 2018,
         "type": "3rd",
-        "btn1": "Hat Trick",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "09:49",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 14
+        "season": 14,
+        "btn1": "Hat Trick",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 636,
@@ -14758,7 +14827,8 @@
         "time": "13:46",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 637,
@@ -14967,7 +15037,8 @@
         "time": "04:58",
         "jersey": "White",
         "dotw": "Sunday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 648,
@@ -14986,7 +15057,8 @@
         "time": "11:48",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 649,
@@ -15027,7 +15099,8 @@
         "time": "03:54",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 651,
@@ -15143,7 +15216,8 @@
         "time": "04:31",
         "jersey": "Throwback",
         "dotw": "Tuesday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 657,
@@ -15227,7 +15301,8 @@
         "time": "10:35",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 658.64,
@@ -15248,7 +15323,8 @@
         "time": "10:14",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 14
+        "season": 14,
+        "btn1": "Slapshot"
     },
     {
         "goal": 658.65,
@@ -15338,7 +15414,8 @@
         "jersey": "White",
         "dotw": "Thursday",
         "season": 15,
-        "search": "HHOF"
+        "search": "HHOF",
+        "btn1": "Slapshot"
     },
     {
         "goal": 661,
@@ -15399,7 +15476,8 @@
         "time": "17:39",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 15
+        "season": 15,
+        "btn1": "Slapshot"
     },
     {
         "goal": 664,
@@ -15762,7 +15840,8 @@
         "time": "09:56",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 15
+        "season": 15,
+        "btn1": "Slapshot"
     },
     {
         "goal": 683,
@@ -15795,14 +15874,15 @@
         "year": 2020,
         "type": "2nd",
         "search": "Gr8 Chase Teemu Selanne",
-        "btn1": "Post",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "16:19",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 15
+        "season": 15,
+        "btn1": "Post",
+        "btn2": "Slapshot"
     },
     {
         "goal": 685,
@@ -15833,14 +15913,15 @@
         "day": 13,
         "year": 2020,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
         "time": "17:18",
         "jersey": "Red",
         "dotw": "Monday",
-        "season": 15
+        "season": 15,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 687,
@@ -15930,7 +16011,6 @@
         "day": 18,
         "year": 2020,
         "type": "2nd",
-        "btn1": "Backhand",
         "search": "Teammate",
         "league": "NHL Regular",
         "hoa": "Away",
@@ -16167,7 +16247,8 @@
         "time": "10:59",
         "jersey": "White",
         "dotw": "Sunday",
-        "season": 15
+        "season": 15,
+        "btn1": "Slapshot"
     },
     {
         "goal": 704,
@@ -16239,7 +16320,6 @@
         "search": "Covid Teammate",
         "series": "Quarterfinals",
         "game": 2,
-        "btn1": "Backhand",
         "league": "NHL Playoff",
         "hoa": "Home",
         "period": "First",
@@ -16291,7 +16371,8 @@
         "time": "05:29",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 15
+        "season": 15,
+        "btn1": "Slapshot"
     },
     {
         "goal": 706.69,
@@ -16325,7 +16406,6 @@
         "day": 17,
         "year": 2021,
         "search": "Covid Start",
-        "btn1": "Backhand",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
@@ -17083,7 +17163,8 @@
         "time": "13:58",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 744,
@@ -17153,7 +17234,6 @@
         "day": 26,
         "year": 2021,
         "type": "2nd",
-        "btn1": "Slapshot",
         "search": "Black Friday",
         "league": "NHL Regular",
         "hoa": "Home",
@@ -17174,8 +17254,6 @@
         "day": 26,
         "year": 2021,
         "type": "3rd",
-        "btn1": "GWG",
-        "btn2": "Hat Trick",
         "search": "Black Friday",
         "league": "NHL Regular",
         "hoa": "Home",
@@ -17183,7 +17261,10 @@
         "time": "04:02",
         "jersey": "Navy W",
         "dotw": "Friday",
-        "season": 17
+        "season": 17,
+        "btn1": "GWG",
+        "btn2": "Hat Trick",
+        "btn3": "Slapshot"
     },
     {
         "goal": 749,
@@ -17239,7 +17320,8 @@
         "time": "03:36",
         "jersey": "White",
         "dotw": "Wednesday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 752,
@@ -17272,14 +17354,15 @@
         "year": 2021,
         "type": "GWG",
         "search": "275th PPG New Years Eve",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "17:09",
         "jersey": "White",
         "dotw": "Friday",
-        "season": 17
+        "season": 17,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 754,
@@ -17311,15 +17394,14 @@
         "day": 15,
         "year": 2022,
         "type": "ENG",
-        "btn1": "Backhand",
-        "btn2": "Empty Net",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "19:49",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 17
+        "season": 17,
+        "btn1": "Empty Net"
     },
     {
         "goal": 756,
@@ -17332,14 +17414,15 @@
         "day": 16,
         "year": 2022,
         "type": "PPG",
-        "btn1": "Slashot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "First",
         "time": "10:31",
         "jersey": "Navy W",
         "dotw": "Sunday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slashot",
+        "btn2": "Slapshot"
     },
     {
         "goal": 757,
@@ -17467,7 +17550,8 @@
         "time": "15:05",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 764,
@@ -17486,7 +17570,8 @@
         "time": "00:47",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 765,
@@ -17589,14 +17674,15 @@
         "day": 20,
         "year": 2022,
         "type": "40th",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "04:53",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 17
+        "season": 17,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 771,
@@ -17613,7 +17699,8 @@
         "time": "16:47",
         "jersey": "Red",
         "dotw": "Friday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 772,
@@ -17807,7 +17894,8 @@
         "time": "10:25",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 17
+        "season": 17,
+        "btn1": "Slapshot"
     },
     {
         "goal": 781,
@@ -17899,14 +17987,15 @@
         "day": 31,
         "year": 2022,
         "type": "PPG",
-        "btn1": "Halloween",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "08:57",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 18
+        "season": 18,
+        "btn1": "Halloween",
+        "btn2": "Slapshot"
     },
     {
         "goal": 786,
@@ -17936,14 +18025,15 @@
         "day": 5,
         "year": 2022,
         "type": "PPG",
-        "btn1": "Post",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "08:55",
         "jersey": "Black Reverse Retro",
         "dotw": "Saturday",
-        "season": 18
+        "season": 18,
+        "btn1": "Post",
+        "btn2": "Slapshot"
     },
     {
         "goal": 788,
@@ -17992,14 +18082,15 @@
         "day": 23,
         "year": 2022,
         "type": "OT",
-        "btn1": "GWG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Overtime",
         "time": "01:04",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 18
+        "season": 18,
+        "btn1": "GWG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 791,
@@ -18047,14 +18138,15 @@
         "day": 29,
         "year": 2022,
         "type": "GWG",
-        "btn1": "2nd",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "First",
         "time": "11:52",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 18
+        "season": 18,
+        "btn1": "2nd",
+        "btn2": "Slapshot"
     },
     {
         "goal": 794,
@@ -18085,14 +18177,15 @@
         "day": 7,
         "year": 2022,
         "type": "2nd",
-        "btn1": "Empty Net",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Third",
         "time": "19:51",
         "jersey": "White",
         "dotw": "Wednesday",
-        "season": 18
+        "season": 18,
+        "btn1": "Empty Net",
+        "btn2": "Backhand"
     },
     {
         "goal": 796,
@@ -18263,7 +18356,8 @@
         "time": "09:06",
         "jersey": "Black Reverse Retro",
         "dotw": "Saturday",
-        "season": 18
+        "season": 18,
+        "btn1": "Slapshot"
     },
     {
         "goal": 805,
@@ -18277,15 +18371,16 @@
         "year": 2022,
         "type": "2nd",
         "search": "New Years Eve",
-        "btn1": "Post",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "01:22",
         "jersey": "Black Reverse Retro",
         "dotw": "Saturday",
-        "season": 18
+        "season": 18,
+        "btn1": "Post",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 806,
@@ -18359,7 +18454,8 @@
         "time": "13:05",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 18
+        "season": 18,
+        "btn1": "Slapshot"
     },
     {
         "goal": 810,
@@ -18394,7 +18490,8 @@
         "time": "09:44",
         "jersey": "White",
         "dotw": "Tuesday",
-        "season": 18
+        "season": 18,
+        "btn1": "Slapshot"
     },
     {
         "goal": 812,
@@ -18753,7 +18850,8 @@
         "time": "14:59",
         "jersey": "Navy W",
         "dotw": "Saturday",
-        "season": 19
+        "season": 19,
+        "btn1": "Slapshot"
     },
     {
         "goal": 830,
@@ -18792,7 +18890,8 @@
         "time": "18:00",
         "jersey": "White",
         "dotw": "Saturday",
-        "season": 19
+        "season": 19,
+        "btn1": "Slapshot"
     },
     {
         "goal": 832,
@@ -18829,7 +18928,8 @@
         "time": "16:38",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 19
+        "season": 19,
+        "btn1": "Slapshot"
     },
     {
         "goal": 834,
@@ -18886,7 +18986,8 @@
         "time": "09:00",
         "jersey": "Red",
         "dotw": "Tuesday",
-        "season": 19
+        "season": 19,
+        "btn1": "Slapshot"
     },
     {
         "goal": 837,
@@ -19012,15 +19113,16 @@
         "day": 18,
         "year": 2024,
         "type": "GWG",
-        "btn1": "2nd",
-        "btn2": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "09:16",
         "jersey": "White",
         "dotw": "Monday",
-        "season": 19
+        "season": 19,
+        "btn1": "2nd",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 844,
@@ -19039,7 +19141,8 @@
         "time": "09:57",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 19
+        "season": 19,
+        "btn1": "Slapshot"
     },
     {
         "goal": 845,
@@ -19107,14 +19210,15 @@
         "day": 24,
         "year": 2024,
         "type": "2nd",
-        "btn1": "Vezina",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "12:00",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 19
+        "season": 19,
+        "btn1": "Vezina",
+        "btn2": "Backhand"
     },
     {
         "goal": 849,
@@ -19323,7 +19427,8 @@
         "time": "14:34",
         "jersey": "Red",
         "dotw": "Saturday",
-        "season": 20
+        "season": 20,
+        "btn1": "Slapshot"
     },
     {
         "goal": 860,
@@ -19665,14 +19770,15 @@
         "month": 2,
         "day": 1,
         "year": 2025,
-        "btn1": "Vezina",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "12:21",
         "jersey": "Black Reverse Retro",
         "dotw": "Saturday",
-        "season": 20
+        "season": 20,
+        "btn1": "Vezina",
+        "btn2": "Slapshot"
     },
     {
         "goal": 878,
@@ -19740,14 +19846,15 @@
         "day": 23,
         "year": 2025,
         "type": "GWG",
-        "btn1": "2nd",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Second",
         "time": "18:39",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 20
+        "season": 20,
+        "btn1": "2nd",
+        "btn2": "Slapshot"
     },
     {
         "goal": 882,
@@ -19879,7 +19986,8 @@
         "time": "14:25",
         "jersey": "Red",
         "dotw": "Thursday",
-        "season": 20
+        "season": 20,
+        "btn1": "Slapshot"
     },
     {
         "goal": 889,
@@ -19910,15 +20018,14 @@
         "month": 3,
         "day": 30,
         "year": 2025,
-        "btn1": "Backhand",
-        "btn2": "Tip",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
         "time": "09:11",
         "jersey": "Red",
         "dotw": "Sunday",
-        "season": 20
+        "season": 20,
+        "btn1": "Tip"
     },
     {
         "goal": 891,
@@ -20037,7 +20144,8 @@
         "time": "01:10",
         "jersey": "Black Reverse Retro",
         "dotw": "Sunday",
-        "season": 20
+        "season": 20,
+        "btn1": "Slapshot"
     },
     {
         "goal": 897,
@@ -20057,7 +20165,8 @@
         "time": "16:56",
         "jersey": "White",
         "dotw": "Thursday",
-        "season": 20
+        "season": 20,
+        "btn1": "Slapshot"
     },
     {
         "goal": 897.73,
@@ -20141,7 +20250,8 @@
         "time": "09:12",
         "jersey": "Red",
         "dotw": "Wednesday",
-        "season": 20
+        "season": 20,
+        "btn1": "Slapshot"
     },
     {
         "goal": 897.77,
@@ -20419,14 +20529,15 @@
         "day": 3,
         "year": 2025,
         "type": "2nd",
-        "btn1": "PPG",
         "league": "NHL Regular",
         "hoa": "Away",
         "period": "Second",
         "time": "02:41",
         "jersey": "White",
         "dotw": "Wednesday",
-        "season": 21
+        "season": 21,
+        "btn1": "PPG",
+        "btn2": "Slapshot"
     },
     {
         "goal": 912,
@@ -20494,7 +20605,6 @@
         "day": 7,
         "year": 2026,
         "type": "6v5",
-        "btn1": "Slapshot",
         "league": "NHL Regular",
         "hoa": "Home",
         "period": "Third",
@@ -20532,8 +20642,6 @@
         "day": 11,
         "year": 2026,
         "type": "20th",
-        "btn1": "5v3",
-        "btn2": "PPG",
         "search": "Once",
         "league": "NHL Regular",
         "hoa": "Away",
@@ -20541,7 +20649,10 @@
         "time": "05:56",
         "jersey": "White",
         "dotw": "Sunday",
-        "season": 21
+        "season": 21,
+        "btn1": "5v3",
+        "btn2": "PPG",
+        "btn3": "Slapshot"
     },
     {
         "goal": 918,
