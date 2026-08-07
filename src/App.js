@@ -405,20 +405,21 @@ function SearchForm({jsonData}) {
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                     </div>
                                     <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                        <strong>{result.month}/{result.day}/{String(result.year)}</strong>
-                                        <strong className="goalie">{result.goalie}</strong>
+                                        <span className="badge">{result.month}/{result.day}/{String(result.year)}</span>
+                                        <strong className="d-none d-sm-block d-lg-none d-xl-block goalie">{result.goalie}</strong>
                                     </div>
                                 </div>
                                 <strong className="bottom-0 indexer p-1 position-absolute" hidden={index === 0}>{index + 1}</strong>
                             </Accordion.Header>
                             <Accordion.Body className="p-0 position-relative">
                                 <div className="d-flex flex-column p-3 py-2">
+                                    <p className="d-sm-none d-lg-block d-xl-none h5 ps-1">{result.goalie}</p>
                                     <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
                                         <span className="badge text-bg-warning">{result.series}</span>
                                         <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
-                                        <span className="badge">{result.primary && result.primary + ' '}</span>
-                                        <span className="badge">{result.secondary && result.secondary + ' '}</span>
-                                        <span className="badge text-bg-light">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
+                                        <span className="badge text-bg-light">{result.primary && result.primary + ' '}</span>
+                                        <span className="badge text-bg-light">{result.secondary && result.secondary + ' '}</span>
+                                        <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                         <span hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</span>
                                     </small>
                                 </div>

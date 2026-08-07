@@ -49,7 +49,7 @@
 }
 
 .badge {
-  background: #C81020;
+  background: #F34133;
 }
 
 .goal-siren {
@@ -251,7 +251,8 @@
         background: #0033A0;
     }
 
-    .goal-count {
+    .goal-count,
+    .goalie {
         color: #0033A0;
     }
 }
