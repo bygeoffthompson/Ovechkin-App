@@ -418,7 +418,7 @@ function SearchForm({jsonData}) {
                                         <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
                                         <span className="badge">{result.primary && result.primary + ' '}</span>
                                         <span className="badge">{result.secondary && result.secondary + ' '}</span>
-                                        <span className="badge text-bg-light">{{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period} {result.time}</span>
+                                        <span className="badge text-bg-light">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                         <div hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</div>
                                     </small>
                                 </div>
