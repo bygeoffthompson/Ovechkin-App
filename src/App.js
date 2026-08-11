@@ -413,13 +413,13 @@ function SearchForm({jsonData}) {
                             <Accordion.Body className="p-0 position-relative">
                                 <div className="d-flex flex-column p-3 py-2">
                                     <p className="d-sm-none d-lg-block d-xl-none h5 ps-1">{result.goalie}</p>
-                                    <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
+                                    <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                         <span className="badge text-bg-warning">{result.series}</span>
                                         <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
-                                        <span className={`badge ${result.result === 'W' ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result.replace('W', 'Win').replace('L', 'Loss')}</span>
+                                        <span className={`badge ${result.result === 'W' ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result?.replace('W', 'Win').replace('L', 'Loss')}</span>
                                         <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
-                                        <span className="badge text-bg-light">{result.primary && result.primary + ' '}</span>
-                                        <span className="badge text-bg-light">{result.secondary && result.secondary + ' '}</span>
+                                        <span className="assist badge">{result.primary && result.primary + ' '}</span>
+                                        <span className="assist badge">{result.secondary && result.secondary + ' '}</span>
                                         <span hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</span>
                                     </small>
                                 </div>
