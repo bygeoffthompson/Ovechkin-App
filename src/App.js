@@ -44,6 +44,7 @@ function SearchForm({jsonData}) {
         jsonData.map(item => {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
             return [
+                item.result && item.result.replace('W', 'Win').replace('L', 'Loss'),
                 item.league,
                 'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
@@ -415,6 +416,7 @@ function SearchForm({jsonData}) {
                                     <small className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1">
                                         <span className="badge text-bg-warning">{result.series}</span>
                                         <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
+                                        <span className={`badge ${result.result === 'W' ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result.replace('W', 'Win').replace('L', 'Loss')}</span>
                                         <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                         <span className="badge text-bg-light">{result.primary && result.primary + ' '}</span>
                                         <span className="badge text-bg-light">{result.secondary && result.secondary + ' '}</span>
