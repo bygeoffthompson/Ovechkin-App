@@ -62,6 +62,12 @@
                 <option value="Third">Third</option>
                 <option value="Overtime">Overtime</option>
             </select>
+            <label for="combined-result">Win/Loss</label>
+            <select id="combined-result">
+                <option value="">All</option>
+                <option value="W">Win</option>
+                <option value="L">Loss</option>
+            </select>
             <label for="combined-type">Type</label>
             <select id="combined-type">
                 <option value="">All</option>
@@ -173,10 +179,12 @@
                 const league = document.getElementById('combined-league').value;
                 const hoa = document.getElementById('combined-hoa').value;
                 const period = document.getElementById('combined-period').value;
+                const result = document.getElementById('combined-result').value;
                 const tag = document.getElementById('combined-type').value;
                 let filtered = getSource();
                 if (hoa) filtered = filtered.filter(g => g.hoa === hoa);
                 if (period) filtered = filtered.filter(g => g.period === period);
+                if (result) filtered = filtered.filter(g => g.result === result);
                 if (tag) filtered = filtered.filter(g => [g.btn1, g.btn2, g.btn3].includes(tag));
                 const color = colors[league];
                 chart.data.datasets[0].borderColor = color;
@@ -185,7 +193,7 @@
                 chart.update();
             }
 
-            ['combined-league', 'combined-hoa', 'combined-period', 'combined-type'].forEach(id =>
+            ['combined-league', 'combined-hoa', 'combined-period', 'combined-result', 'combined-type'].forEach(id =>
                 document.getElementById(id).addEventListener('change', applyFilter)
             );
 
