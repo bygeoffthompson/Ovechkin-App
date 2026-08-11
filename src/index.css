@@ -486,8 +486,6 @@ input {
 
     &[type='number'] {
         max-width: 100px;
-        text-align: center;
-        text-indent: .75rem;
     }
 
     &[type='text'] {
