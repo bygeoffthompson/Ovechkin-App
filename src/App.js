@@ -258,10 +258,6 @@ function SearchForm({jsonData}) {
                 <Tabs defaultActiveKey="random" fill className="border-0 w-100">
                     <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                         <div className="p-3">
-                            <div className="align-items-center d-flex flex-row justify-content-start mb-3">
-                                <label htmlFor="goal-number">Number</label>
-                                <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
-                            </div>
                             <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start justify-content-sm-center">
                                 <div className="d-flex flex-column gap-2 league-buttons">
                                     <button onClick={() => shuffle()} title="Shuffle" type="button">
@@ -351,6 +347,10 @@ function SearchForm({jsonData}) {
                     </Tab>
                     <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                         <div className="align-items-start d-flex flex-column gap-3 p-3">
+                            <div className="align-items-center d-flex flex-row gap-3 justify-content-start">
+                                <label htmlFor="goal-number">Number</label>
+                                <input id="goal-number" min={1} max={totalGoals} step="any" type="number" placeholder="#" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                            </div>
                             <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
                             <label hidden htmlFor="search-text-2">Text 2</label>
                             <label hidden htmlFor="search-text-3">Text 3</label>
