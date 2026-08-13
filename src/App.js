@@ -349,10 +349,13 @@ function SearchForm({jsonData}) {
                     <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                         <div className="align-items-start d-flex flex-column gap-3 p-3">
                             <label htmlFor="goal-number">Number</label>
-                            <div>#<input id="goal-number" min={1} max={totalGoals} step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/></div>
-                            <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
-                            <label hidden htmlFor="search-text-2">Text 2</label>
-                            <label hidden htmlFor="search-text-3">Text 3</label>
+                            <input id="goal-number" min={0} max={totalGoals} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                            <div className="align-items-center d-flex gap-2">
+                                <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
+                                <label hidden htmlFor="search-text-2">Text 2</label>
+                                <label hidden htmlFor="search-text-3">Text 3</label>
+                                <a href="/help.html"><small><small>Help</small></small></a>
+                            </div>
                             <input id="search-text-1" type="text" placeholder="Search" value={searchTexts[0]} onChange={handleTexts[0]}/>
                             <input id="search-text-2" type="text" placeholder="And" value={searchTexts[1]} onChange={handleTexts[1]}/>
                             <input id="search-text-3" type="text" placeholder="And" value={searchTexts[2]} onChange={handleTexts[2]}/>
