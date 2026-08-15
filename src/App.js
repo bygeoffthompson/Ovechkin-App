@@ -354,6 +354,8 @@ function SearchForm({jsonData}) {
                                                     <option value=""></option>
                                                     <option value="Anaheim Ducks">Anaheim Ducks</option>
                                                     <option value="Mighty Ducks">•&nbsp;Mighty Ducks</option>
+                                                    <option value="Arizona Coyotes">Arizona Coyotes</option>
+                                                    <option value="Phoenix Coyotes">•&nbsp;Phoenix Coyotes</option>
                                                     <option value="Atlanta Thrashers">Atlanta Thrashers</option>
                                                     <option value="Boston Bruins">Boston Bruins</option>
                                                     <option value="Buffalo Sabres">Buffalo Sabres</option>
