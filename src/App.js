@@ -8,7 +8,8 @@ let _ga = null
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-const PERIOD_LABELS = { First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }
+const PERIOD_LABELS = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
+const PERIOD_NAMES = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -74,7 +75,7 @@ function SearchForm({jsonData}) {
                 item.goalie,
                 item.goalie?.replace('-', ' '),
                 item.team,
-                item.period,
+                PERIOD_NAMES[item.period],
                 item.time,
                 item.hoa,
                 item.jersey,
