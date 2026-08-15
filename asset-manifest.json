@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.5024b943.css",
-    "main.js": "/static/js/main.daa649d5.js",
+    "main.css": "/static/css/main.8bb8f806.css",
+    "main.js": "/static/js/main.88fdb298.js",
     "static/js/279.f274f00d.chunk.js": "/static/js/279.f274f00d.chunk.js",
     "static/js/453.8367416a.chunk.js": "/static/js/453.8367416a.chunk.js",
     "static/media/ice-dark.jpg": "/static/media/ice-dark.242c5db446224fd7a346.jpg",
     "service-worker.js": "/service-worker.js",
     "index.html": "/index.html",
-    "main.5024b943.css.map": "/static/css/main.5024b943.css.map",
-    "main.daa649d5.js.map": "/static/js/main.daa649d5.js.map",
+    "main.8bb8f806.css.map": "/static/css/main.8bb8f806.css.map",
+    "main.88fdb298.js.map": "/static/js/main.88fdb298.js.map",
     "279.f274f00d.chunk.js.map": "/static/js/279.f274f00d.chunk.js.map",
     "453.8367416a.chunk.js.map": "/static/js/453.8367416a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5024b943.css",
-    "static/js/main.daa649d5.js"
+    "static/css/main.8bb8f806.css",
+    "static/js/main.88fdb298.js"
   ]
 }

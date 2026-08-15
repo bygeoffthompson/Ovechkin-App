@@ -22,7 +22,6 @@
     <link rel="canonical" href="https://www.ovechkin.app/about.html">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
     <link rel="manifest" href="/manifest.json">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4X7EL6PW3"></script>
     <script>
@@ -31,43 +30,6 @@
         gtag('js', new Date());
         gtag('config', 'G-K4X7EL6PW3');
     </script>
-    <script>
-        async function fetchDataAndCreateTable() {
-            try {
-                const response = await fetch('/goals.json');
-                const data = await response.json();
-
-                const counts = { nhl: 0, playoff: 0, khl: 0, worldChamp: 0, worldCup: 0, olympic: 0 };
-                data.forEach(item => {
-                    switch (item.league) {
-                        case 'NHL Regular':         counts.nhl++;        break;
-                        case 'NHL Playoffs':         counts.playoff++;    break;
-                        case 'KHL':                 counts.khl++;        break;
-                        case 'World Championship':  counts.worldChamp++; break;
-                        case 'World Cup':           counts.worldCup++;   break;
-                        case 'Olympic':             counts.olympic++;    break;
-                    }
-                });
-
-                const tableBody = document.querySelector('#ovechkin-totals tbody');
-                const row = tableBody.insertRow();
-                row.insertCell().textContent = counts.nhl;
-                row.insertCell().textContent = counts.playoff;
-                row.insertCell().textContent = counts.khl;
-                row.insertCell().textContent = counts.olympic;
-                row.insertCell().textContent = counts.worldChamp;
-                row.insertCell().textContent = counts.worldCup;
-                row.insertCell().textContent = data.length;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
-    <style>th{white-space:nowrap;}</style>
   </head>
   <body>
   <div class="container">
@@ -76,20 +38,6 @@
       <p>The complete catalog of Ovechkin goal videos from first to last including Playoff, KHL, Olympic, World Championship, and World Cup goals.</p>
     </header>
     <main>
-      <table id="ovechkin-totals">
-          <thead>
-            <tr>
-                <th>NHL Regular</th>
-                <th>NHL Playoffs</th>
-                <th>KHL</th>
-                <th>Olympic</th>
-                <th>World Championship</th>
-                <th>World Cup</th>
-                <th>Total</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-      </table>
       <p>Our searchable and sequential index allows users to find Ovi goals in a new and useful way.</p>
       <p>Specific goals and curated sets of goals can be retrieved by text search for date, opponent, goaltender, period, points, jersey, and other tags.</p>
       <h2>Thank You</h2>
@@ -121,16 +69,4 @@
       <a href="/help.html">Help</a>
   </footer>
   </body>
-  <script>
-      jQuery(window).on('load', function() {
-          new DataTable('#ovechkin-totals', {
-              paging: false,
-              responsive: true,
-              ordering: false,
-              searching: false,
-              stateSave: false,
-              info: false
-          });
-      });
-  </script>
 </html>
