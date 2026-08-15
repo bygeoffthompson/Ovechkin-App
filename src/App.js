@@ -584,9 +584,11 @@ function App() {
                 })
             }, { once: true })
         }
+    }, [])
 
+    useEffect(() => {
         fetch('goals.json').then(r => r.json()).then(setData)
-    }, []);
+    }, [])
 
     if (!data) {
         return <div className="opacity-25 text-center">Loading...</div>;

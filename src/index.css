@@ -144,7 +144,11 @@ form {
 }
 
 .accordion-item {
+    border-color: rgba(17,17,17,.33) !important;
     border-radius: 0;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
 }
 
 .goal-accordion {
