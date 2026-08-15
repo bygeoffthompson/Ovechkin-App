@@ -108,37 +108,37 @@
     width: 50px !important;
 }
 
-.goal-accordion {
-    .accordion-button {
-        background: rgba(207, 226, 255, .5) !important;
-        box-shadow: none !important;
-        font-size: .875rem !important;
-        padding: 1rem !important;
-        z-index: auto !important;
+.accordion-button {
+    background: rgba(207, 226, 255, .5) !important;
+    box-shadow: none !important;
+    font-size: .875rem !important;
+    padding: 1rem !important;
+    z-index: auto !important;
 
-        @media (max-width: 768px) {
-            padding: 1rem .625rem !important;
-        }
-
-        @media (min-width: 768px) {
-            font-size: 1.125rem !important;
-        }
-
-        &:before {
-            background: rgba(17, 17, 17, .15);
-            content: '';
-            height: 1px;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-
-        &.collapsed {
-            background: rgb(207, 226, 255) !important;
-        }
+    @media (max-width: 768px) {
+        padding: 1rem .625rem !important;
     }
 
+    @media (min-width: 768px) {
+        font-size: 1.125rem !important;
+    }
+
+    &:before {
+        background: rgba(17, 17, 17, .15);
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    &.collapsed {
+        background: rgb(207, 226, 255) !important;
+    }
+}
+
+.goal-accordion {
     .accordion-item {
         &:nth-child(n+2):nth-child(-n+9) {
             .indexer {
