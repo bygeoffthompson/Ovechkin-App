@@ -253,26 +253,26 @@ function SearchForm({jsonData}) {
 
     return (
         <div>
-            <div className="d-flex flex-column flex-sm-row gap-2 mb-3">
-                <button className="button" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular" type="button">
+            <div className="d-flex flex-wrap gap-2 mb-3">
+                <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular" type="button">
                     <div className="h4 m-0">{leagueCounts['NHL Regular']}</div><small>NHL</small>
                 </button>
-                <button className="button" onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
+                <button className="button counter" onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
                     <div className="h4 m-0">{leagueCounts['NHL Playoffs']}</div><small>Playoffs</small>
                 </button>
-                <button className="button" onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
+                <button className="button counter" onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
                     <div className="h4 m-0">{leagueCounts['KHL']}</div><small>KHL</small>
                 </button>
-                <button className="button" onClick={() => filterGoal(['Olympics'])} title="Olympics" type="button">
+                <button className="button counter" onClick={() => filterGoal(['Olympics'])} title="Olympics" type="button">
                     <div className="h4 m-0">{leagueCounts['Olympics']}</div><small>Olympics</small>
                 </button>
-                <button className="button" onClick={() => filterGoal(['World Championships'])} title="World Championships" type="button">
+                <button className="button counter" onClick={() => filterGoal(['World Championships'])} title="World Championships" type="button">
                     <div className="h4 m-0">{leagueCounts['World Championships']}</div><small><small>Worlds</small></small>
                 </button>
-                <button className="button" onClick={worldCup} title="World Cup" type="button">
+                <button className="button counter" onClick={worldCup} title="World Cup" type="button">
                     <div className="h4 m-0">{leagueCounts['World Cup']}</div><small><small>World Cup</small></small>
                 </button>
-                <button className="button" onClick={() => shuffle()} title="Total" type="button">
+                <button className="button counter" onClick={() => shuffle()} title="Total" type="button">
                     <div className="h4 m-0">{jsonData.length - 8}</div><small>Total</small>
                 </button>
             </div>
@@ -376,8 +376,8 @@ function SearchForm({jsonData}) {
                                         <option value="World Cup">World Cup</option>
                                     </select>
                                 <div className="d-flex flex-column flex-sm-row gap-2 justify-content-between w-100">
-                                    <button onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
-                                    <button className="text-start" onClick={reset} title="Reset" type="button">Reset</button>
+                                    <button className="button" onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
+                                    <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
                                 </div>
 
                             </div>

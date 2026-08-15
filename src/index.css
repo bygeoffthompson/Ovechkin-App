@@ -242,8 +242,6 @@
             border-color: #223673 !important;
         }
     }
-
-
 }
 
 [data-league='NHL Regular'] .goal-count {
@@ -307,6 +305,14 @@
     box-shadow: 0 .25rem .75rem #333;
     color: #FFF;
     transform: scale(1.05);
+  }
+
+  &.counter {
+    &:active,
+    &:hover {
+      background: rgba(200,16,32,.8);
+      border-color: rgba(200,16,32,.8);
+    }
   }
 
   &[disabled] {
@@ -375,7 +381,6 @@
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
-        width: auto;
 
         &:hover,
         &:active {
