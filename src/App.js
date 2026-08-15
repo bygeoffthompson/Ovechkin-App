@@ -255,25 +255,32 @@ function SearchForm({jsonData}) {
         <div>
             <div className="d-flex flex-wrap gap-2 mb-3">
                 <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular" type="button">
-                    <div className="h4 m-0">{leagueCounts['NHL Regular']}</div><small>NHL</small>
+                    <div className="h4 m-0">{leagueCounts['NHL Regular']}</div>
+                    <div>NHL</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
-                    <div className="h4 m-0">{leagueCounts['NHL Playoffs']}</div><small>Playoffs</small>
+                    <div className="h4 m-0">{leagueCounts['NHL Playoffs']}</div>
+                    <div>Playoffs</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
-                    <div className="h4 m-0">{leagueCounts['KHL']}</div><small>KHL</small>
+                    <div className="h4 m-0">{leagueCounts['KHL']}</div>
+                    <div>KHL</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['Olympics'])} title="Olympics" type="button">
-                    <div className="h4 m-0">{leagueCounts['Olympics']}</div><small>Olympics</small>
+                    <div className="h4 m-0">{leagueCounts['Olympics']}</div>
+                    <div>Olympics</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['World Championships'])} title="World Championships" type="button">
-                    <div className="h4 m-0">{leagueCounts['World Championships']}</div><small><small>Worlds</small></small>
+                    <div className="h4 m-0">{leagueCounts['World Championships']}</div>
+                    <div>Worlds</div>
                 </button>
                 <button className="button counter" onClick={worldCup} title="World Cup" type="button">
-                    <div className="h4 m-0">{leagueCounts['World Cup']}</div><small><small>World Cup</small></small>
+                    <div className="h4 m-0">{leagueCounts['World Cup']}</div>
+                    <small>World Cup</small>
                 </button>
                 <button className="button counter" onClick={() => shuffle()} title="Total" type="button">
-                    <div className="h4 m-0">{jsonData.length - 8}</div><small>Total</small>
+                    <div className="h4 m-0">{jsonData.length - 8}</div>
+                    <div>Total</div>
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
