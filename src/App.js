@@ -8,8 +8,9 @@ let _ga = null
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-const PERIOD_LABELS = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
-const PERIOD_NAMES = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
+const PERIOD_NUMBER = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
+const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
+const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -63,11 +64,11 @@ function SearchForm({jsonData}) {
         jsonData.map(item => {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
             return [
-                item.result && item.result.replace('W', 'Win').replace('L', 'Loss'),
+                item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
                 item.league,
                 'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
-                item.dotw,
+                DOTW[item.dotw],
                 `${month} ${item.year}`,
                 `${month} ${item.day}`,
                 item.year,
@@ -75,9 +76,9 @@ function SearchForm({jsonData}) {
                 item.goalie,
                 item.goalie?.replace('-', ' '),
                 item.team,
-                PERIOD_NAMES[item.period],
+                PERIOD_NAME[item.period],
                 item.time,
-                item.hoa,
+                item.hoa === 1 ? 'Home' : item.hoa === 0 ? 'Away' : null,
                 item.jersey,
                 item.series,
                 item.game && 'G' + item.game,
@@ -315,8 +316,8 @@ function SearchForm({jsonData}) {
                                         </button>
                                     </div>
                                     <div className="d-flex flex-column gap-2">
-                                        <button className="button" onClick={() => filterGoal(['Away'])} title="Away" type="button">Away</button>
-                                        <button className="button" onClick={() => filterGoal(['Home'])} title="Home" type="button">Home</button>
+                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">Away</button>
+                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title="Home" type="button">Home</button>
                                         <button className="button" onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
                                         <button className="button" onClick={() => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
                                         <button className="button" onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
@@ -329,7 +330,7 @@ function SearchForm({jsonData}) {
                                         <button className="button" onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                                         <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
+                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
                                         <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
                                         <button className="button" onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
                                         <button className="button" onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
@@ -512,8 +513,8 @@ function SearchForm({jsonData}) {
                                         <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                             {result.series && <span className="badge text-bg-warning">{result.series}</span>}
                                             {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                            <span className={`badge ${result.result === 'W' ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result?.replace('W', 'Win').replace('L', 'Loss')}</span>
-                                            <span className="badge text-bg-dark">{result.time} {PERIOD_LABELS[result.period] ?? result.period}</span>
+                                            <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
+                                            <span className="badge text-bg-dark">{result.time} {PERIOD_NUMBER[result.period] ?? result.period}</span>
                                             {result.primary && <span className="assist badge">{result.primary}</span>}
                                             {result.secondary && <span className="assist badge">{result.secondary}</span>}
                                         </small>
