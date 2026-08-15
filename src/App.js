@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 let _ga = null
 const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
-const hhofList = ['Carey Price', 'Ed Belfour', 'Martin Brodeur', 'Dominik Hasek', 'Henrik Lundqvist', 'Roberto Luongo', 'Pekka Rinne']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
@@ -29,7 +28,7 @@ function SearchForm({jsonData}) {
     const [resultCount, setResultCount] = useState(0)
     const [otdDisabled, setOtdDisabled] = useState(false)
     const [otdTitle, setOtdTitle] = useState('On This Day')
-    const leagueRef = useRef(null)
+    const advancedRef = useRef(null)
 
     const leagueCounts = useMemo(() => {
         const counts = {}
@@ -174,7 +173,7 @@ function SearchForm({jsonData}) {
         setSearched(false)
         setWelcome(true)
         setShowSort(true)
-        leagueRef.current.value = ''
+        advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
     }
 
     function resultsHide() {
@@ -196,16 +195,18 @@ function SearchForm({jsonData}) {
         const currentText2 = text2Override !== undefined ? text2Override : searchTexts[1]
         const currentText3 = text3Override !== undefined ? text3Override : searchTexts[2]
 
-        const leagueFilter = normalize(leagueRef.current.value)
+        const selectFilters = [...advancedRef.current.querySelectorAll('select')]
+            .map(s => normalize(s.value))
+            .filter(Boolean)
 
         if (currentGoal) {
             resultsHide()
             const goalQuery = parseFloat(currentGoal)
             const results = jsonData.filter((item, i) =>
-                item.goal === goalQuery && (!leagueFilter || searchStrings[i].includes(leagueFilter))
+                item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
             )
             setSearchResults(results)
-        } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0) {
+        } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0 || selectFilters.length > 0) {
             _ga?.event({
                 category: 'Search',
                 action: 'Text Search',
@@ -216,7 +217,7 @@ function SearchForm({jsonData}) {
             const t3 = normalize(currentText3)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
-                return search.includes(t1) && search.includes(t2) && search.includes(t3) && (!leagueFilter || search.includes(leagueFilter))
+                return search.includes(t1) && search.includes(t2) && search.includes(t3) && selectFilters.every(f => search.includes(f))
             });
 
             if (results.length > 0) {
@@ -360,25 +361,164 @@ function SearchForm({jsonData}) {
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={0} max={totalGoals} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <div className="align-items-center d-flex gap-2">
-                                    <label htmlFor="search-text-1">Text<span hidden> 1</span></label>
-                                    <label hidden htmlFor="search-text-2">Text 2</label>
-                                    <label hidden htmlFor="search-text-3">Text 3</label>
+                                    <label htmlFor="search-text-1">Text</label>
                                     <a href="/help.html"><small><small>Help</small></small></a>
                                 </div>
                                 <input id="search-text-1" type="text" placeholder="Search" value={searchTexts[0]} onChange={handleTexts[0]}/>
-                                <input id="search-text-2" type="text" placeholder="And" value={searchTexts[1]} onChange={handleTexts[1]}/>
-                                <input id="search-text-3" type="text" placeholder="And" value={searchTexts[2]} onChange={handleTexts[2]}/>
-                                    <label htmlFor="league">Filter</label>
-                                    <select ref={leagueRef} className="form-select position-relative w-auto" id="league" name="League" defaultValue="">
-                                        <option value="">All</option>
-                                        <option className="fw-bold" value="NHL">NHL</option>
-                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                        <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
-                                        <option value="KHL">KHL</option>
-                                        <option value="Olympic">Olympic</option>
-                                        <option value="World Championship">World Championship</option>
-                                        <option value="World Cup">World Cup</option>
-                                    </select>
+                                <Accordion className="w-100">
+                                    <Accordion.Item eventKey="0">
+                                        <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
+                                        <Accordion.Body className="d-flex flex-column gap-2 small" ref={advancedRef}>
+                                            <div className="align-items-center d-flex flex-row gap-1">
+                                                <label htmlFor="team">Team</label>
+                                                <select className="form-select py-1" id="team" name="Team" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option value="Anaheim Ducks">Anaheim Ducks</option>
+                                                    <option value="Atlanta Thrashers">Atlanta Thrashers</option>
+                                                    <option value="Boston Bruins">Boston Bruins</option>
+                                                    <option value="Buffalo Sabres">Buffalo Sabres</option>
+                                                    <option value="Calgary Flames">Calgary Flames</option>
+                                                    <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                                                    <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                                                    <option value="Colorado Avalanche">Colorado Avalanche</option>
+                                                    <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                                                    <option value="Dallas Stars">Dallas Stars</option>
+                                                    <option value="Detroit Red Wings">Detroit Red Wings</option>
+                                                    <option value="Edmonton Oilers">Edmonton Oilers</option>
+                                                    <option value="Florida Panthers">Florida Panthers</option>
+                                                    <option value="Los Angeles Kings">Los Angeles Kings</option>
+                                                    <option value="Minnesota Wild">Minnesota Wild</option>
+                                                    <option value="Montreal Canadiens">Montreal Canadiens</option>
+                                                    <option value="Nashville Predators">Nashville Predators</option>
+                                                    <option value="New Jersey Devils">New Jersey Devils</option>
+                                                    <option value="New York Islanders">New York Islanders</option>
+                                                    <option value="New York Rangers">New York Rangers</option>
+                                                    <option value="Ottawa Senators">Ottawa Senators</option>
+                                                    <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                                                    <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                                                    <option value="San Jose Sharks">San Jose Sharks</option>
+                                                    <option value="Seattle Kraken">Seattle Kraken</option>
+                                                    <option value="St. Louis Blues">St. Louis Blues</option>
+                                                    <option value="Tampa Bay Lightning">Tampa Bay Lightning</option>
+                                                    <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                                                    <option value="Utah Mammoth">Utah Mammoth</option>
+                                                    <option value="Vancouver Canucks">Vancouver Canucks</option>
+                                                    <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                                                    <option value="Winnipeg Jets">Winnipeg Jets</option>
+                                                </select>
+                                            </div>
+                                            <div className="align-items-center d-flex flex-row gap-1">
+                                                <label htmlFor="league">League</label>
+                                                <select className="form-select py-1" id="league" name="League" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option className="fw-bold" value="NHL">NHL</option>
+                                                    <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                                    <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
+                                                    <option value="KHL">KHL</option>
+                                                    <option value="Olympics">Olympics</option>
+                                                    <option value="World Championships">World Championships</option>
+                                                    <option value="World Cup">World Cup</option>
+                                                </select>
+                                            </div>
+                                            <div className="align-items-center d-flex flex-row gap-1">
+                                                <label htmlFor="location">Location</label>
+                                                <select className="form-select py-1" id="location" name="Location" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option value="Home">Home</option>
+                                                    <option value="Away">Away</option>
+                                                </select>
+                                            </div>
+                                            <div className="align-items-center d-flex flex-row gap-1">
+                                                <label htmlFor="period">Period</label>
+                                                <select className="form-select py-1" id="period" name="Period" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option value="First">First</option>
+                                                    <option value="Second">Second</option>
+                                                    <option value="Third">Third</option>
+                                                    <option value="Overtime">Overtime</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="align-items-center d-flex flex-row gap-1">
+                                                <label htmlFor="month">Month</label>
+                                                <select className="form-select py-1" id="month" name="Month" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July" disabled>July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                            </div>
+                                            <div className="align-items-start d-flex flex-column flex-sm-row gap-1">
+                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
+                                                    <label htmlFor="year">Year</label>
+                                                    <select className="form-select py-1" id="year" name="Year" defaultValue="">
+                                                        <option value=""></option>
+                                                        <option value="2004">2004</option>
+                                                        <option value="2005">2005</option>
+                                                        <option value="2006">2006</option>
+                                                        <option value="2007">2007</option>
+                                                        <option value="2008">2008</option>
+                                                        <option value="2009">2009</option>
+                                                        <option value="2010">2010</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2019">2019</option>
+                                                        <option value="2020">2020</option>
+                                                        <option value="2021">2021</option>
+                                                        <option value="2022">2022</option>
+                                                        <option value="2023">2023</option>
+                                                        <option value="2024">2024</option>
+                                                        <option value="2025">2025</option>
+                                                        <option value="2026">2026</option>
+                                                    </select>
+                                                </div>
+                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
+                                                    <span>or</span>
+                                                    <label htmlFor="season">Season</label>
+                                                    <select className="form-select py-1" id="season" name="Season" defaultValue="">
+                                                        <option value=""></option>
+                                                        <option value="Season 1">1</option>
+                                                        <option value="Season 2">2</option>
+                                                        <option value="Season 3">3</option>
+                                                        <option value="Season 4">4</option>
+                                                        <option value="Season 5">5</option>
+                                                        <option value="Season 6">6</option>
+                                                        <option value="Season 7">7</option>
+                                                        <option value="Season 8">8</option>
+                                                        <option value="Season 9">9</option>
+                                                        <option value="Season 10">10</option>
+                                                        <option value="Season 11">11</option>
+                                                        <option value="Season 12">12</option>
+                                                        <option value="Season 13">13</option>
+                                                        <option value="Season 14">14</option>
+                                                        <option value="Season 15">15</option>
+                                                        <option value="Season 16">16</option>
+                                                        <option value="Season 17">17</option>
+                                                        <option value="Season 18">18</option>
+                                                        <option value="Season 19">19</option>
+                                                        <option value="Season 20">20</option>
+                                                        <option value="Season 21">21</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
                                 <div className="d-flex flex-column flex-sm-row gap-2 justify-content-between w-100">
                                     <button className="button" onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
                                     <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
@@ -388,7 +528,7 @@ function SearchForm({jsonData}) {
                     </Tabs>
                 </div>
 
-                <div className="w-100">
+                <div className="goal-results w-100">
                     <div className={`align-items-center d-flex gap-2 justify-content-start w-100${showResultsBar ? ' show' : ''}`} id="results">
                         <strong data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>
                         {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
@@ -396,13 +536,13 @@ function SearchForm({jsonData}) {
                             <option value="desc">Descend</option>
                         </select>}
                     </div>
-                    <Accordion className="shadow-lg w-100" defaultActiveKey="0" flush>
+                    <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
-                                <Accordion.Header onClick={lazyLoadFrame}>
+                                <div className="accordion-header"><Accordion.Button onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             <small className="fw-bold me-1" hidden={result.league === 'NHL Regular'}>{result.league === 'NHL Playoffs' ? 'Playoffs' : result.league === 'World Championships' ? 'Worlds' : result.league}</small>
@@ -421,7 +561,7 @@ function SearchForm({jsonData}) {
                                         </div>
                                     </div>
                                     <strong className="bottom-0 indexer p-1 position-absolute" hidden={index === 0}>{index + 1}</strong>
-                                </Accordion.Header>
+                                </Accordion.Button></div>
                                 <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">
                                         <p className="d-sm-none d-lg-block d-xl-none h5 ps-1">{result.goalie}</p>

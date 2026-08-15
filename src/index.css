@@ -108,138 +108,140 @@
     width: 50px !important;
 }
 
-.accordion-button {
-    background: rgba(207,226,255,.5) !important;
-    box-shadow: none !important;
-    font-size: .875rem !important;
-    padding: 1rem !important;
-    z-index: auto !important;
-
-    @media (max-width:768px) {
-        padding: 1rem .625rem !important;
-    }
-
-    @media (min-width:768px) {
-        font-size: 1.125rem !important;
-    }
-
-    &:before {
-        background: rgba(17,17,17,.15);
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
-    &.collapsed {
-        background: rgb(207,226,255) !important;
-    }
-}
-
-.accordion-item {
-    &:nth-child(n+2):nth-child(-n+9) {
-      .indexer {
-          right: 1.125rem;
-      }
-    }
-
-    &:nth-child(n+100) {
-        .indexer {
-            right: .5rem;
-        }
-    }
-
+.goal-accordion {
     .accordion-button {
-        border-bottom: .25rem solid #FFF;
+        background: rgba(207, 226, 255, .5) !important;
+        box-shadow: none !important;
+        font-size: .875rem !important;
+        padding: 1rem !important;
+        z-index: auto !important;
 
-        @media (min-width: 1200px) {
-            border-bottom: none;
-            border-right: .75rem solid #FFF;
+        @media (max-width: 768px) {
+            padding: 1rem .625rem !important;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 1.125rem !important;
+        }
+
+        &:before {
+            background: rgba(17, 17, 17, .15);
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        &.collapsed {
+            background: rgb(207, 226, 255) !important;
         }
     }
 
-    .accordion-header {
-        border-bottom: .25rem solid #C81020 !important;
-
-        @media (min-width: 1200px) {
-            border-bottom: none !important;
-            border-right: .75rem solid #C81020 !important;
-        }
-    }
-
-    &[data-jersey$='Reverse Retro'] {
-        .accordion-button {
-            border-color: #223673 !important;
-        }
-    }
-
-    &[data-jersey^='White'] {
-        .accordion-button {
-            border-color: #C81020 !important;
+    .accordion-item {
+        &:nth-child(n+2):nth-child(-n+9) {
+            .indexer {
+                right: 1.125rem;
+            }
         }
 
-        .accordion-header {
-            border-color: #FFF !important;
-        }
-    }
-
-    &[data-jersey='Black Reverse Retro'] {
-        .accordion-header {
-            border-color: #111 !important;
-        }
-    }
-
-    &[data-jersey='Brick'] {
-        .accordion-button {
-            border-color: #223673 !important;
-        }
-    }
-
-    &[data-jersey='Capitol'] {
-        .accordion-button {
-            border-color: #C57C4B !important;
-        }
-
-        .accordion-header {
-            border-color: #111 !important;
-        }
-    }
-
-    &[data-jersey='Blue Dynamo'] {
-        .accordion-button {
-            border-color: #223673 !important;
-        }
-
-        .accordion-header {
-            border-color: #FFF !important;
-        }
-    }
-
-    &[data-jersey='White Dynamo'] {
-        .accordion-header {
-            border-color: #223673 !important;
+        &:nth-child(n+100) {
+            .indexer {
+                right: .5rem;
+            }
         }
 
         .accordion-button {
-            border-color: #FFF !important;
-        }
-    }
+            border-bottom: .25rem solid #FFF;
 
-    &[data-jersey^='Navy'] {
-        .accordion-button {
-            border-color: #C81020 !important;
+            @media (min-width: 1200px) {
+                border-bottom: none;
+                border-right: .75rem solid #FFF;
+            }
         }
 
         .accordion-header {
-            border-color: #223673 !important;
-        }
-    }
+            border-bottom: .25rem solid #C81020 !important;
 
-    &[data-jersey='Screagle'] {
-        .accordion-header {
-            border-color: #223673 !important;
+            @media (min-width: 1200px) {
+                border-bottom: none !important;
+                border-right: .75rem solid #C81020 !important;
+            }
+        }
+
+        &[data-jersey$='Reverse Retro'] {
+            .accordion-button {
+                border-color: #223673 !important;
+            }
+        }
+
+        &[data-jersey^='White'] {
+            .accordion-button {
+                border-color: #C81020 !important;
+            }
+
+            .accordion-header {
+                border-color: #FFF !important;
+            }
+        }
+
+        &[data-jersey='Black Reverse Retro'] {
+            .accordion-header {
+                border-color: #111 !important;
+            }
+        }
+
+        &[data-jersey='Brick'] {
+            .accordion-button {
+                border-color: #223673 !important;
+            }
+        }
+
+        &[data-jersey='Capitol'] {
+            .accordion-button {
+                border-color: #C57C4B !important;
+            }
+
+            .accordion-header {
+                border-color: #111 !important;
+            }
+        }
+
+        &[data-jersey='Blue Dynamo'] {
+            .accordion-button {
+                border-color: #223673 !important;
+            }
+
+            .accordion-header {
+                border-color: #FFF !important;
+            }
+        }
+
+        &[data-jersey='White Dynamo'] {
+            .accordion-header {
+                border-color: #223673 !important;
+            }
+
+            .accordion-button {
+                border-color: #FFF !important;
+            }
+        }
+
+        &[data-jersey^='Navy'] {
+            .accordion-button {
+                border-color: #C81020 !important;
+            }
+
+            .accordion-header {
+                border-color: #223673 !important;
+            }
+        }
+
+        &[data-jersey='Screagle'] {
+            .accordion-header {
+                border-color: #223673 !important;
+            }
         }
     }
 }
@@ -482,12 +484,6 @@ input {
     &[type='text'] {
         height: auto;
         width: 100%;
-    }
-}
-
-label {
-    &[for='league'] {
-        min-width: 95px;
     }
 }
 
