@@ -382,6 +382,13 @@ form {
         }
     }
 
+    &.refresh {
+        font-size: .625rem;
+        min-height: 0;
+        padding: .5rem;
+        width: 60px;
+    }
+
     &[title='Black Reverse Retro'],
     &[title='Capitol'] {
         background: #111;

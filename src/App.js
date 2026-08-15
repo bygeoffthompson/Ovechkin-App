@@ -540,7 +540,7 @@ function SearchForm({jsonData}) {
 }
 
 function WelcomeMessage({jsonData, onGoalSelect}) {
-    const { onThisDayGoals, month, day } = useOnThisDay(jsonData)
+    const { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime } = useOnThisDay(jsonData)
     return (
         <Accordion className="shadow-lg w-100" defaultActiveKey="0">
             <Accordion.Item eventKey="0">
@@ -565,9 +565,25 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     <div className="align-items-center d-flex flex-column flex-sm-row gap-3">
                         <span className="badge p-2">{month}/{day}</span>
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
-                            <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} type="button">
+                            <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
                                 <div className="h4 m-0">{goal.goal}</div>
                                 <small>from {goal.year}</small>
+                            </button>
+                        )) : (
+                            <button className="button" disabled type="button">No Goals</button>
+                        )}
+                    </div>
+                    <hr className="my-4"/>
+                    <div className="align-items-center d-flex gap-2 mb-4">
+                        <span className="h6 m-0">At This Time</span>
+                        <button className="button refresh" onClick={refreshTime} title="Refresh Time" type="button">↺ Time</button>
+                    </div>
+                    <div className="align-items-center d-flex flex-column flex-sm-row gap-3">
+                        <span className="badge p-2">{time}</span>
+                        {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
+                            <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
+                                <div className="h4 m-0">{goal.goal}</div>
+                                <small>{goal.time} in {PERIOD_NUMBER[goal.period]}</small>
                             </button>
                         )) : (
                             <button className="button" disabled type="button">No Goals</button>
