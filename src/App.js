@@ -18,14 +18,13 @@ function random(min, max) {
 
 function SearchForm({jsonData}) {
     const [searchGoal, setSearchGoal] = useState('')
-    const [searchTexts, setSearchTexts] = useState(['', '', ''])
+    const [searchText, setSearchText] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [welcome, setWelcome] = useState(window.location.search.length <= 1)
     const [sortOrder, setSortOrder] = useState('asc')
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const [showResultsBar, setShowResultsBar] = useState(false)
-    const [resultCount, setResultCount] = useState(0)
     const [otdDisabled, setOtdDisabled] = useState(false)
     const [otdTitle, setOtdTitle] = useState('On This Day')
     const [animProgress, setAnimProgress] = useState(0)
@@ -38,6 +37,8 @@ function SearchForm({jsonData}) {
         })
         return counts
     }, [jsonData])
+
+    const leagueGoals = useMemo(() => jsonData.filter(item => item.league), [jsonData])
 
     const sortedResults = useMemo(() =>
         [...searchResults].sort((first, last) => {
@@ -88,9 +89,9 @@ function SearchForm({jsonData}) {
             searchSubmit(queryInteger)
         } else if (query) {
             document.querySelector('.nav-link[aria-selected="false"]').click()
-            const [t1 = '', t2 = '', t3 = ''] = query.split('&')[0].split('+')
-            setSearchTexts([t1, t2, t3])
-            searchSubmit(undefined, t1, t2, t3)
+            const t = query.split('&')[0]
+            setSearchText(t)
+            searchSubmit(undefined, t)
         }
 
     }, [])
@@ -133,9 +134,9 @@ function SearchForm({jsonData}) {
 
     function lazyLoadFrame() {
         setTimeout(() => {
-            let visibleFrame = document.querySelector('.accordion-collapse.show iframe')
+            const visibleFrame = document.querySelector('.accordion-collapse.show iframe')
             if (visibleFrame) {
-                let dataSrc = visibleFrame.getAttribute('data-src')
+                const dataSrc = visibleFrame.getAttribute('data-src')
                 if (visibleFrame.getAttribute('src') === 'about:blank') {
                     visibleFrame.setAttribute('src', dataSrc)
                 }
@@ -143,12 +144,13 @@ function SearchForm({jsonData}) {
         }, 500)
     }
 
-    const handleTexts = [0, 1, 2].map(i => (e) => {
+    const handleText = (e) => {
         setSearchGoal('')
-        setSearchTexts(t => t.map((v, j) => j === i ? e.target.value.toLowerCase() : v))
-    })
+        setSearchText(e.target.value.toLowerCase())
+    }
 
     const outdoor = () => {
+        clearAdvanced()
         const input = parseInt(searchGoal)
         let goal
         if (input === 440) goal = 598
@@ -160,12 +162,14 @@ function SearchForm({jsonData}) {
     }
 
     function randomGoal(filtered) {
+        clearAdvanced()
         const goal = filtered[Math.floor(Math.random() * filtered.length)].goal
         setSearchGoal(goal)
         searchSubmit(goal)
     }
 
     function filterGoal(match) {
+        clearAdvanced()
         resultsHide()
         const result = jsonData.filter(item =>
             Object.values(item).some(value =>
@@ -180,34 +184,28 @@ function SearchForm({jsonData}) {
         searchSubmit(picked.goal)
     }
 
+    const clearAdvanced = () => advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
+
     const reset = () => {
         resultsHide()
         setSearchGoal('')
         setSearchResults([])
-        setSearched(false)
         setWelcome(true)
         setShowSort(true)
-        advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
+        clearAdvanced()
     }
 
     function resultsHide() {
         setShowResultsBar(false)
-        setSearchTexts(['', '', ''])
+        setSearchText('')
         setSearched(false)
     }
 
-    function showResults(n) {
-        setShowResultsBar(true)
-        setResultCount(n)
-    }
-
-    function searchSubmit(goalOverride, text1Override, text2Override, text3Override) {
+function searchSubmit(goalOverride, textOverride) {
         setWelcome(false)
         setShowSort(true)
         const currentGoal = goalOverride !== undefined ? goalOverride : searchGoal
-        const currentText1 = text1Override !== undefined ? text1Override : searchTexts[0]
-        const currentText2 = text2Override !== undefined ? text2Override : searchTexts[1]
-        const currentText3 = text3Override !== undefined ? text3Override : searchTexts[2]
+        const currentText = textOverride !== undefined ? textOverride : searchText
 
         const selectFilters = [...advancedRef.current.querySelectorAll('select')]
             .map(s => normalize(s.value))
@@ -220,22 +218,20 @@ function SearchForm({jsonData}) {
                 item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
             )
             setSearchResults(results)
-        } else if (currentText1.length > 0 || currentText2.length > 0 || currentText3.length > 0 || selectFilters.length > 0) {
+        } else if (currentText.length > 0 || selectFilters.length > 0) {
             _ga?.event({
                 category: 'Search',
                 action: 'Text Search',
-                label: [currentText1, currentText2, currentText3].filter(Boolean).join(' + ')
+                label: currentText
             });
-            const t1 = normalize(currentText1)
-            const t2 = normalize(currentText2)
-            const t3 = normalize(currentText3)
+            const t = normalize(currentText)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
-                return search.includes(t1) && search.includes(t2) && search.includes(t3) && selectFilters.every(f => search.includes(f))
+                return search.includes(t) && selectFilters.every(f => search.includes(f))
             });
 
             if (results.length > 0) {
-                showResults(results.length)
+                setShowResultsBar(true)
                 if (results.length === 1) setShowSort(false)
             } else {
                 setShowResultsBar(false)
@@ -246,6 +242,7 @@ function SearchForm({jsonData}) {
     }
 
     function hatTrick() {
+        clearAdvanced()
         setWelcome(false)
         const hatTrickGoals = jsonData.filter(item =>
             [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
@@ -258,10 +255,9 @@ function SearchForm({jsonData}) {
         setShowSort(false)
         setSearchGoal(picked.goal)
         setSearchResults(results)
-        showResults(3)
+        setShowResultsBar(true)
     }
 
-    const shuffle = () => randomGoal(jsonData)
     const anim = (n) => Math.max(1, Math.round(animProgress * n))
 
     return (
@@ -301,8 +297,8 @@ function SearchForm({jsonData}) {
                     <div className="h4 m-0" data-goals={leagueCounts['World Cup']}>{anim(leagueCounts['World Cup'])}</div>
                     <small>World Cup</small>
                 </button>
-                <button className="button counter" onClick={() => shuffle()} title="Total" type="button">
-                    <div className="h4 m-0" data-goals={jsonData.length - 8}>{anim(jsonData.length - 8)}</div>
+                <button className="button counter" onClick={() => randomGoal(leagueGoals)} title="Total" type="button">
+                    <div className="h4 m-0" data-goals={leagueGoals.length}>{anim(leagueGoals.length)}</div>
                     <div>Total</div>
                 </button>
             </div>
@@ -375,11 +371,8 @@ function SearchForm({jsonData}) {
                             <form className="align-items-start d-flex flex-column gap-3 p-3" onSubmit={(e) => e.preventDefault()}>
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={0} max={totalGoals} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
-                                <div className="align-items-center d-flex gap-2">
-                                    <label htmlFor="search-text-1">Text</label>
-                                    <a href="/help.html"><small><small>Help</small></small></a>
-                                </div>
-                                <input id="search-text-1" type="text" placeholder="Search" value={searchTexts[0]} onChange={handleTexts[0]}/>
+                                <label htmlFor="search-text-1">Text</label>
+                                <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                                 <Accordion className="w-100">
                                     <Accordion.Item eventKey="0">
                                         <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
@@ -544,7 +537,7 @@ function SearchForm({jsonData}) {
 
                 <div className="goal-results w-100">
                     <div className={`align-items-center d-flex gap-2 justify-content-start w-100${showResultsBar ? ' show' : ''}`} id="results">
-                        <strong data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>
+                        <strong data-count={sortedResults.length}>{`${sortedResults.length} Result${sortedResults.length !== 1 ? 's' : ''}`}</strong>
                         {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                             <option value="asc">Ascend</option>
                             <option value="desc">Descend</option>
@@ -614,7 +607,7 @@ function SearchForm({jsonData}) {
                             </svg>
                         </div>
                     }
-                    {searched && sortedResults.length === 0 &&
+                    {searched &&
                         <div className="app-message bg-body p-3 shadow-lg">
                             <p><strong>No results found.</strong> Please try again.</p>
                             <p className="m-0"><a href="/help.html">Help</a></p>
@@ -639,12 +632,7 @@ function App() {
             }, { once: true })
         }
 
-        async function fetchData() {
-            const response = await fetch('goals.json');
-            const json = await response.json();
-            setData(json);
-        }
-        fetchData();
+        fetch('goals.json').then(r => r.json()).then(setData)
     }, []);
 
     if (!data) {
