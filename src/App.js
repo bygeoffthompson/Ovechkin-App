@@ -5,7 +5,6 @@ import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 let _ga = null
-const totalGoals = 929
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
@@ -201,7 +200,7 @@ function SearchForm({jsonData}) {
         setSearched(false)
     }
 
-function searchSubmit(goalOverride, textOverride) {
+    function searchSubmit(goalOverride, textOverride) {
         setWelcome(false)
         setShowSort(true)
         const currentGoal = goalOverride !== undefined ? goalOverride : searchGoal
@@ -370,7 +369,7 @@ function searchSubmit(goalOverride, textOverride) {
                         <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
                             <form className="align-items-start d-flex flex-column gap-3 p-3" onSubmit={(e) => e.preventDefault()}>
                                 <label htmlFor="goal-number">Number</label>
-                                <input id="goal-number" min={0} max={totalGoals} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                <input id="goal-number" min={0} max={leagueCounts['NHL Regular']} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <label htmlFor="search-text-1">Text</label>
                                 <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                                 <Accordion className="w-100">
