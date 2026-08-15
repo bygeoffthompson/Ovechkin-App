@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useMemo, useRef} from 'react'
+import {useUrlQuery} from './useUrlQuery'
 import Accordion from 'react-bootstrap/Accordion'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
@@ -80,20 +81,7 @@ function SearchForm({jsonData}) {
         }),
     [jsonData])
 
-    useEffect(() => {
-        const query = window.location.search.slice(1).split('?')[0].replace(/-/g, ' ').toLowerCase()
-        const queryInteger = parseFloat(query)
-        if (!query.includes('/') && !['20th', '30th', '40th', '50th', '60th', '2nd', '3rd', '4th', '6v5', '5v3', '4v4'].includes(query) && queryInteger) {
-            setSearchGoal(queryInteger)
-            searchSubmit(queryInteger)
-        } else if (query) {
-            document.querySelector('.nav-link[aria-selected="false"]').click()
-            const t = query.split('&')[0]
-            setSearchText(t)
-            searchSubmit(undefined, t)
-        }
-
-    }, [])
+    useUrlQuery(setSearchGoal, setSearchText, searchSubmit)
 
     useEffect(() => {
         const now = new Date()
@@ -223,10 +211,10 @@ function SearchForm({jsonData}) {
                 action: 'Text Search',
                 label: currentText
             });
-            const t = normalize(currentText)
+            const terms = normalize(currentText).split('+').map(s => s.trim()).filter(Boolean)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
-                return search.includes(t) && selectFilters.every(f => search.includes(f))
+                return terms.every(term => search.includes(term)) && selectFilters.every(f => search.includes(f))
             });
 
             if (results.length > 0) {

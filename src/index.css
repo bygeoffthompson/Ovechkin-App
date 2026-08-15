@@ -135,6 +135,10 @@ form {
     }
 }
 
+.accordion-item {
+    border-radius: 0;
+}
+
 .goal-accordion {
     .accordion-button {
         &:before {
