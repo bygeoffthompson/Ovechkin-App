@@ -159,9 +159,12 @@ function SearchForm({jsonData}) {
                 match.includes(value)
             )
         )
-        const goal = Object.values(result[random(0, result.length - 1)])
-        setSearchGoal(goal[0])
-        searchSubmit(goal[0])
+        let picked
+        do {
+            picked = result[random(0, result.length - 1)]
+        } while (picked.goal === parseFloat(searchGoal) && result.length > 1)
+        setSearchGoal(picked.goal)
+        searchSubmit(picked.goal)
     }
 
     const reset = () => {
@@ -243,18 +246,22 @@ function SearchForm({jsonData}) {
         showResults(3)
     }
 
-    const worldCup = () => {
-        const goal = parseFloat(searchGoal) === 1.01 ? 525.02 : 1.01
-        setSearchGoal(goal)
-        searchSubmit(goal)
-    }
-
     const shuffle = () => randomGoal(jsonData)
 
     return (
-        <div>
+        <div onClick={(e) => {
+                const btn = e.target.closest('button')
+                if (!btn) return
+                const title = btn.title
+                if (['', 'Reset', 'Search'].includes(title)) return
+                _ga?.event({
+                    category: 'Click',
+                    action: 'Button Click',
+                    label: title
+                });
+            }}>
             <div className="d-flex flex-wrap gap-2 mb-3">
-                <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular" type="button">
+                <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
                     <div className="h4 m-0">{leagueCounts['NHL Regular']}</div>
                     <div>NHL</div>
                 </button>
@@ -274,7 +281,7 @@ function SearchForm({jsonData}) {
                     <div className="h4 m-0">{leagueCounts['World Championships']}</div>
                     <div>Worlds</div>
                 </button>
-                <button className="button counter" onClick={worldCup} title="World Cup" type="button">
+                <button className="button counter" onClick={() => filterGoal(['World Cup'])} title="World Cup" type="button">
                     <div className="h4 m-0">{leagueCounts['World Cup']}</div>
                     <small>World Cup</small>
                 </button>
@@ -284,17 +291,7 @@ function SearchForm({jsonData}) {
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <form className="align-items-start bg-body d-flex justify-content-center flex-column shadow-lg w-100" onSubmit={(e) => e.preventDefault()} onClick={(e) => {
-                        const btn = e.target.closest('button')
-                        if (!btn) return
-                        const title = btn.title
-                        if (['', 'Reset', 'Search'].includes(title)) return
-                        _ga?.event({
-                            category: 'Click',
-                            action: 'Button Click',
-                            label: title
-                        });
-                    }}>
+                <div className="align-items-start bg-body d-flex justify-content-center flex-column random-search shadow-lg w-100">
                     <Tabs defaultActiveKey="random" fill className="border-0 w-100">
                         <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
                             <div className="p-3">
@@ -359,7 +356,7 @@ function SearchForm({jsonData}) {
                             </div>
                         </Tab>
                         <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
-                            <div className="align-items-start d-flex flex-column gap-3 p-3">
+                            <form className="align-items-start d-flex flex-column gap-3 p-3" onSubmit={(e) => e.preventDefault()}>
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={0} max={totalGoals} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <div className="align-items-center d-flex gap-2">
@@ -386,11 +383,10 @@ function SearchForm({jsonData}) {
                                     <button className="button" onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
                                     <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
                                 </div>
-
-                            </div>
+                            </form>
                         </Tab>
                     </Tabs>
-                </form>
+                </div>
 
                 <div className="w-100">
                     <div className={`align-items-center d-flex gap-2 justify-content-start w-100${showResultsBar ? ' show' : ''}`} id="results">

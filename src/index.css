@@ -429,7 +429,7 @@
     max-width: 1.5rem;
 }
 
-form {
+.random-search {
     max-width: 365px;
 
     @media (min-width: 768px) {
