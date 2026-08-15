@@ -610,7 +610,8 @@ function NoResults() {
 }
 
 function App() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         if (window.location.hostname !== 'localhost') {
@@ -624,16 +625,20 @@ function App() {
     }, [])
 
     useEffect(() => {
-        fetch('goals.json').then(r => r.json()).then(setData)
+        fetch('goals.json').then(r => r.json()).then(setData).catch(setError)
     }, [])
 
+    if (error) {
+        return <p className="opacity-50 text-center">Data is unavailable at this moment. Please try again later.</p>
+    }
+
     if (!data) {
-        return <div className="opacity-25 text-center">Loading...</div>;
+        return <div className="opacity-25 text-center">Loading...</div>
     }
 
     return (
         <SearchForm jsonData={data}/>
-    );
+    )
 }
 
 export default App;
