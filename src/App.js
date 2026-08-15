@@ -523,8 +523,8 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="goal-results w-100">
-                    <div className={`align-items-center d-flex gap-2 justify-content-start w-100${showResultsBar ? ' show' : ''}`} id="results">
-                        <strong data-count={sortedResults.length}>{`${sortedResults.length} Result${sortedResults.length !== 1 ? 's' : ''}`}</strong>
+                    <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${showResultsBar ? ' show' : ''}`} id="results">
+                        <strong className="badge py-2" data-count={sortedResults.length}>{`${sortedResults.length} Result${sortedResults.length !== 1 ? 's' : ''}`}</strong>
                         {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                             <option value="asc">Ascend</option>
                             <option value="desc">Descend</option>
@@ -551,14 +551,13 @@ function SearchForm({jsonData}) {
                                         </div>
                                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
                                             <span className="badge">{result.month}/{result.day}/{String(result.year)}</span>
-                                            <strong className="d-none d-sm-block d-lg-none d-xl-block goalie">{result.goalie}</strong>
                                         </div>
                                     </div>
                                     <strong className="bottom-0 indexer p-1 position-absolute" hidden={index === 0}>{index + 1}</strong>
                                 </Accordion.Button></div>
                                 <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">
-                                        <p className="d-sm-none d-lg-block d-xl-none h5 ps-1">{result.goalie}</p>
+                                        {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
                                         <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                             <span className="badge text-bg-warning">{result.series}</span>
                                             <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
