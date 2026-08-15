@@ -324,9 +324,9 @@ function SearchForm({jsonData}) {
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">Away</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title="Home" type="button">Home</button>
                                         <button className="button" onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
-                                        <button className="button" onClick={() => filterGoal(['GWG', 'Overtime'])} title="Game Winner" type="button">GWG</button>
+                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="Game Winner" type="button">GWG</button>
                                         <button className="button" onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
-                                        <button className="button" onClick={() => filterGoal(['Overtime'])} title="Overtime" type="button">OT</button>
+                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="Overtime" type="button">OT</button>
                                         <button className="button" onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                                         <button className="button" onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
@@ -519,7 +519,7 @@ function SearchForm({jsonData}) {
                                             {result.series && <span className="badge text-bg-warning">{result.series}</span>}
                                             {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
                                             <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
-                                            <span className="badge text-bg-dark">{result.time} {PERIOD_NUMBER[result.period] ?? result.period}</span>
+                                            <span className="badge text-bg-dark">{result.time} in {PERIOD_NUMBER[result.period] ?? result.period}</span>
                                             {result.primary && <span className="assist badge">{result.primary}</span>}
                                             {result.secondary && <span className="assist badge">{result.secondary}</span>}
                                         </small>
