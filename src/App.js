@@ -11,6 +11,7 @@ const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').t
 const PERIOD_NUMBER = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
+const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -65,7 +66,7 @@ function SearchForm({jsonData}) {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
             return [
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
-                item.league,
+                LEAGUE[item.league],
                 'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
                 DOTW[item.dotw],
@@ -246,28 +247,28 @@ function SearchForm({jsonData}) {
                 });
             }}>
             <div className="d-flex flex-wrap gap-2 mb-3">
-                <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['NHL Regular']}>{anim(leagueCounts['NHL Regular'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 1))} title="NHL Regular Season" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[1]}>{anim(leagueCounts[1])}</div>
                     <div>NHL</div>
                 </button>
-                <button className="button counter" onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['NHL Playoffs']}>{anim(leagueCounts['NHL Playoffs'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 2))} title="NHL Playoffs" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[2]}>{anim(leagueCounts[2])}</div>
                     <div>Playoffs</div>
                 </button>
-                <button className="button counter" onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['KHL']}>{anim(leagueCounts['KHL'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[3]}>{anim(leagueCounts[3])}</div>
                     <div>KHL</div>
                 </button>
-                <button className="button counter" onClick={() => filterGoal(['Olympics'])} title="Olympics" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['Olympics']}>{anim(leagueCounts['Olympics'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[4]}>{anim(leagueCounts[4])}</div>
                     <div>Olympics</div>
                 </button>
-                <button className="button counter" onClick={() => filterGoal(['World Championships'])} title="World Championships" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['World Championships']}>{anim(leagueCounts['World Championships'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 5))} title="World Championships" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[5]}>{anim(leagueCounts[5])}</div>
                     <div>Worlds</div>
                 </button>
-                <button className="button counter" onClick={() => filterGoal(['World Cup'])} title="World Cup" type="button">
-                    <div className="h4 m-0" data-goals={leagueCounts['World Cup']}>{anim(leagueCounts['World Cup'])}</div>
+                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts[6]}>{anim(leagueCounts[6])}</div>
                     <small>World Cup</small>
                 </button>
                 <button className="button counter" onClick={() => randomGoal(leagueGoals)} title="Total" type="button">
@@ -328,7 +329,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="d-flex flex-column gap-2">
                                         <button className="button" onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
-                                        <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                        <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
                                         <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
@@ -345,7 +346,7 @@ function SearchForm({jsonData}) {
                             <Accordion.Body>
                             <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                                 <label htmlFor="goal-number">Number</label>
-                                <input id="goal-number" min={0} max={leagueCounts['NHL Regular']} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <label htmlFor="search-text-1">Text</label>
                                 <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                                 <Accordion className="advanced-accordion w-100">
@@ -487,11 +488,11 @@ function SearchForm({jsonData}) {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
-                            <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={result.league} eventKey={index.toString()}>
+                            <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
                                 <div className="accordion-header"><Accordion.Button onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
-                                            {result.league !== 'NHL Regular' && <small className="fw-bold me-1">{result.league === 'NHL Playoffs' ? 'Playoffs' : result.league === 'World Championships' ? 'Worlds' : result.league}</small>}
+                                            {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
                                             <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
