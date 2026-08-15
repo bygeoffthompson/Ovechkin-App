@@ -28,6 +28,7 @@ function SearchForm({jsonData}) {
     const [resultCount, setResultCount] = useState(0)
     const [otdDisabled, setOtdDisabled] = useState(false)
     const [otdTitle, setOtdTitle] = useState('On This Day')
+    const [animProgress, setAnimProgress] = useState(0)
     const advancedRef = useRef(null)
 
     const leagueCounts = useMemo(() => {
@@ -116,6 +117,19 @@ function SearchForm({jsonData}) {
             })
         })
     }, [searchResults])
+
+    useEffect(() => {
+        const start = performance.now()
+        const duration = 2500
+        let raf
+        const frame = (now) => {
+            const progress = Math.min((now - start) / duration, 1)
+            setAnimProgress(progress)
+            if (progress < 1) raf = requestAnimationFrame(frame)
+        }
+        raf = requestAnimationFrame(frame)
+        return () => cancelAnimationFrame(raf)
+    }, [])
 
     function lazyLoadFrame() {
         setTimeout(() => {
@@ -248,6 +262,7 @@ function SearchForm({jsonData}) {
     }
 
     const shuffle = () => randomGoal(jsonData)
+    const anim = (n) => Math.max(1, Math.round(animProgress * n))
 
     return (
         <div onClick={(e) => {
@@ -263,31 +278,31 @@ function SearchForm({jsonData}) {
             }}>
             <div className="d-flex flex-wrap gap-2 mb-3">
                 <button className="button counter" onClick={() => filterGoal(['NHL Regular'])} title="NHL Regular Season" type="button">
-                    <div className="h4 m-0">{leagueCounts['NHL Regular']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['NHL Regular']}>{anim(leagueCounts['NHL Regular'])}</div>
                     <div>NHL</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['NHL Playoffs'])} title="NHL Playoffs" type="button">
-                    <div className="h4 m-0">{leagueCounts['NHL Playoffs']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['NHL Playoffs']}>{anim(leagueCounts['NHL Playoffs'])}</div>
                     <div>Playoffs</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['KHL'])} title="KHL" type="button">
-                    <div className="h4 m-0">{leagueCounts['KHL']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['KHL']}>{anim(leagueCounts['KHL'])}</div>
                     <div>KHL</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['Olympics'])} title="Olympics" type="button">
-                    <div className="h4 m-0">{leagueCounts['Olympics']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['Olympics']}>{anim(leagueCounts['Olympics'])}</div>
                     <div>Olympics</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['World Championships'])} title="World Championships" type="button">
-                    <div className="h4 m-0">{leagueCounts['World Championships']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['World Championships']}>{anim(leagueCounts['World Championships'])}</div>
                     <div>Worlds</div>
                 </button>
                 <button className="button counter" onClick={() => filterGoal(['World Cup'])} title="World Cup" type="button">
-                    <div className="h4 m-0">{leagueCounts['World Cup']}</div>
+                    <div className="h4 m-0" data-goals={leagueCounts['World Cup']}>{anim(leagueCounts['World Cup'])}</div>
                     <small>World Cup</small>
                 </button>
                 <button className="button counter" onClick={() => shuffle()} title="Total" type="button">
-                    <div className="h4 m-0">{jsonData.length - 8}</div>
+                    <div className="h4 m-0" data-goals={jsonData.length - 8}>{anim(jsonData.length - 8)}</div>
                     <div>Total</div>
                 </button>
             </div>
@@ -369,11 +384,25 @@ function SearchForm({jsonData}) {
                                     <Accordion.Item eventKey="0">
                                         <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
                                         <Accordion.Body className="d-flex flex-column gap-2 small" ref={advancedRef}>
-                                            <div className="align-items-center d-flex flex-row gap-1">
+                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                <label htmlFor="league">League</label>
+                                                <select className="form-select py-1" id="league" name="League" defaultValue="">
+                                                    <option value=""></option>
+                                                    <option className="fw-bold" value="NHL">NHL</option>
+                                                    <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                                    <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
+                                                    <option value="KHL">KHL</option>
+                                                    <option value="Olympics">Olympics</option>
+                                                    <option value="World Championships">World Championships</option>
+                                                    <option value="World Cup">World Cup</option>
+                                                </select>
+                                            </div>
+                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="team">Team</label>
                                                 <select className="form-select py-1" id="team" name="Team" defaultValue="">
                                                     <option value=""></option>
                                                     <option value="Anaheim Ducks">Anaheim Ducks</option>
+                                                    <option value="Mighty Ducks">•&nbsp;Mighty Ducks</option>
                                                     <option value="Atlanta Thrashers">Atlanta Thrashers</option>
                                                     <option value="Boston Bruins">Boston Bruins</option>
                                                     <option value="Buffalo Sabres">Buffalo Sabres</option>
@@ -407,20 +436,7 @@ function SearchForm({jsonData}) {
                                                     <option value="Winnipeg Jets">Winnipeg Jets</option>
                                                 </select>
                                             </div>
-                                            <div className="align-items-center d-flex flex-row gap-1">
-                                                <label htmlFor="league">League</label>
-                                                <select className="form-select py-1" id="league" name="League" defaultValue="">
-                                                    <option value=""></option>
-                                                    <option className="fw-bold" value="NHL">NHL</option>
-                                                    <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                                    <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
-                                                    <option value="KHL">KHL</option>
-                                                    <option value="Olympics">Olympics</option>
-                                                    <option value="World Championships">World Championships</option>
-                                                    <option value="World Cup">World Cup</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-center d-flex flex-row gap-1">
+                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="location">Location</label>
                                                 <select className="form-select py-1" id="location" name="Location" defaultValue="">
                                                     <option value=""></option>
@@ -428,7 +444,7 @@ function SearchForm({jsonData}) {
                                                     <option value="Away">Away</option>
                                                 </select>
                                             </div>
-                                            <div className="align-items-center d-flex flex-row gap-1">
+                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="period">Period</label>
                                                 <select className="form-select py-1" id="period" name="Period" defaultValue="">
                                                     <option value=""></option>
@@ -438,8 +454,7 @@ function SearchForm({jsonData}) {
                                                     <option value="Overtime">Overtime</option>
                                                 </select>
                                             </div>
-
-                                            <div className="align-items-center d-flex flex-row gap-1">
+                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="month">Month</label>
                                                 <select className="form-select py-1" id="month" name="Month" defaultValue="">
                                                     <option value=""></option>
@@ -458,6 +473,33 @@ function SearchForm({jsonData}) {
                                                 </select>
                                             </div>
                                             <div className="align-items-start d-flex flex-column flex-sm-row gap-1">
+                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
+                                                    <label htmlFor="season">Season</label>
+                                                    <select className="form-select py-1" id="season" name="Season" defaultValue="">
+                                                        <option value=""></option>
+                                                        <option value="Season 1">1</option>
+                                                        <option value="Season 2">2</option>
+                                                        <option value="Season 3">3</option>
+                                                        <option value="Season 4">4</option>
+                                                        <option value="Season 5">5</option>
+                                                        <option value="Season 6">6</option>
+                                                        <option value="Season 7">7</option>
+                                                        <option value="Season 8">8</option>
+                                                        <option value="Season 9">9</option>
+                                                        <option value="Season 10">10</option>
+                                                        <option value="Season 11">11</option>
+                                                        <option value="Season 12">12</option>
+                                                        <option value="Season 13">13</option>
+                                                        <option value="Season 14">14</option>
+                                                        <option value="Season 15">15</option>
+                                                        <option value="Season 16">16</option>
+                                                        <option value="Season 17">17</option>
+                                                        <option value="Season 18">18</option>
+                                                        <option value="Season 19">19</option>
+                                                        <option value="Season 20">20</option>
+                                                        <option value="Season 21">21</option>
+                                                    </select>
+                                                </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 w-100">
                                                     <label htmlFor="year">Year</label>
                                                     <select className="form-select py-1" id="year" name="Year" defaultValue="">
@@ -485,34 +527,6 @@ function SearchForm({jsonData}) {
                                                         <option value="2024">2024</option>
                                                         <option value="2025">2025</option>
                                                         <option value="2026">2026</option>
-                                                    </select>
-                                                </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
-                                                    <span>or</span>
-                                                    <label htmlFor="season">Season</label>
-                                                    <select className="form-select py-1" id="season" name="Season" defaultValue="">
-                                                        <option value=""></option>
-                                                        <option value="Season 1">1</option>
-                                                        <option value="Season 2">2</option>
-                                                        <option value="Season 3">3</option>
-                                                        <option value="Season 4">4</option>
-                                                        <option value="Season 5">5</option>
-                                                        <option value="Season 6">6</option>
-                                                        <option value="Season 7">7</option>
-                                                        <option value="Season 8">8</option>
-                                                        <option value="Season 9">9</option>
-                                                        <option value="Season 10">10</option>
-                                                        <option value="Season 11">11</option>
-                                                        <option value="Season 12">12</option>
-                                                        <option value="Season 13">13</option>
-                                                        <option value="Season 14">14</option>
-                                                        <option value="Season 15">15</option>
-                                                        <option value="Season 16">16</option>
-                                                        <option value="Season 17">17</option>
-                                                        <option value="Season 18">18</option>
-                                                        <option value="Season 19">19</option>
-                                                        <option value="Season 20">20</option>
-                                                        <option value="Season 21">21</option>
                                                     </select>
                                                 </div>
                                             </div>

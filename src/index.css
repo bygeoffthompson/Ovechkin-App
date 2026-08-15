@@ -29,6 +29,13 @@
     padding: .625rem .25rem;
 }
 
+form {
+    select {
+        font-size: .875rem !important;
+        max-width: 200px;
+    }
+}
+
 .goal-count {
     span {
         font-size: 1.25rem;
