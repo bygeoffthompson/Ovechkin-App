@@ -130,22 +130,24 @@ form {
         font-size: 1.125rem !important;
     }
 
-    &:before {
-        background: rgba(17, 17, 17, .15);
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
     &.collapsed {
         background: rgb(207, 226, 255) !important;
     }
 }
 
 .goal-accordion {
+    .accordion-button {
+        &:before {
+            background: rgba(17, 17, 17, .15);
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+
     .accordion-item {
         &:nth-child(n+2):nth-child(-n+9) {
             .indexer {
@@ -185,11 +187,19 @@ form {
 
         &[data-jersey^='White'] {
             .accordion-button {
-                border-color: #C81020 !important;
+                border-color: #FFF !important;
+
+                @media (min-width: 1200px) {
+                    border-color: #C81020 !important;
+                }
             }
 
             .accordion-header {
-                border-color: #FFF !important;
+                border-color: #C81020 !important;
+
+                @media (min-width: 1200px) {
+                    border-color: #FFF !important;
+                }
             }
         }
 
