@@ -25,7 +25,7 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const [showResultsBar, setShowResultsBar] = useState(false)
-    const [activePanel, setActivePanel] = useState('random')
+    const [activePanel, setActivePanel] = useState(() => window.innerWidth >= 992 ? 'random' : null)
     const anim = useGoalCounter()
     const advancedRef = useRef(null)
 
@@ -278,7 +278,7 @@ function SearchForm({jsonData}) {
                         <Accordion.Item eventKey="random">
                             <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                             <Accordion.Body className="p-3">
-                                <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start justify-content-sm-center">
+                                <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start">
                                     <div className="d-flex flex-column gap-2">
                                         <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button" title="Capitol" type="button">
                                             <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>

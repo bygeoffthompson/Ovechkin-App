@@ -148,18 +148,6 @@ form {
 }
 
 .goal-accordion {
-    .accordion-button {
-        &:before {
-            background: rgba(17, 17, 17, .15);
-            content: '';
-            height: 1px;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-    }
-
     .accordion-item {
         &:nth-child(n+2):nth-child(-n+9) {
             .indexer {
@@ -320,7 +308,7 @@ form {
   transition: transform .2s;
   width: 80px;
 
-    @media (min-width: 400px) {
+    @media (min-width: 576px) {
         font-size: .875rem;
         width: 100px;
     }
@@ -461,7 +449,9 @@ form {
 }
 
 .random-search {
-    max-width: 365px;
+    @media (min-width: 992px) {
+        max-width: 365px;
+    }
 }
 
 iframe {
