@@ -111,7 +111,7 @@ function SearchForm({jsonData}) {
 
     const outdoor = () => {
         clearAdvanced()
-        const input = parseInt(searchGoal)
+        const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
         else if (input === 475) goal = 602
@@ -293,7 +293,7 @@ function SearchForm({jsonData}) {
                                         <button onClick={() => filterGoal(['Navy W'])} className="button jersey-button" title="Navy" type="button">
                                             <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
                                         </button>
-                                        <button onClick={() => filterGoal(['Black Reverse Retro',])} className="button jersey-button" title="Black Reverse Retro" type="button">
+                                        <button onClick={() => filterGoal(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" type="button">
                                             <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                         </button>
                                         <button onClick={() => filterGoal(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" type="button">
@@ -425,8 +425,8 @@ function SearchForm({jsonData}) {
                                                     <option value="December">December</option>
                                                 </select>
                                             </div>
-                                            <div className="align-items-start d-flex flex-column flex-sm-row gap-1">
-                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
+                                            <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
                                                     <label htmlFor="season">Season</label>
                                                     <select className="form-select py-1" id="season" name="Season" defaultValue="">
                                                         <option value=""></option>
@@ -438,7 +438,7 @@ function SearchForm({jsonData}) {
                                                         ))}
                                                     </select>
                                                 </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 w-100">
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
                                                     <label htmlFor="year">Year</label>
                                                     <select className="form-select py-1" id="year" name="Year" defaultValue="">
                                                         <option value=""></option>
