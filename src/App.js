@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useMemo, useRef} from 'react'
 import {useUrlQuery} from './useUrlQuery'
+import {useGoalCounter} from './useGoalCounter'
 import Accordion from 'react-bootstrap/Accordion'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
@@ -27,7 +28,7 @@ function SearchForm({jsonData}) {
     const [showResultsBar, setShowResultsBar] = useState(false)
     const [otdDisabled, setOtdDisabled] = useState(false)
     const [otdTitle, setOtdTitle] = useState('On This Day')
-    const [animProgress, setAnimProgress] = useState(0)
+    const anim = useGoalCounter()
     const advancedRef = useRef(null)
 
     const leagueCounts = useMemo(() => {
@@ -106,19 +107,6 @@ function SearchForm({jsonData}) {
         })
     }, [searchResults])
 
-    useEffect(() => {
-        const start = performance.now()
-        const duration = 2500
-        let raf
-        const frame = (now) => {
-            const progress = Math.min((now - start) / duration, 1)
-            setAnimProgress(progress)
-            if (progress < 1) raf = requestAnimationFrame(frame)
-        }
-        raf = requestAnimationFrame(frame)
-        return () => cancelAnimationFrame(raf)
-    }, [])
-
     function lazyLoadFrame() {
         setTimeout(() => {
             const visibleFrame = document.querySelector('.accordion-collapse.show iframe')
@@ -133,7 +121,7 @@ function SearchForm({jsonData}) {
 
     const handleText = (e) => {
         setSearchGoal('')
-        setSearchText(e.target.value.toLowerCase())
+        setSearchText(e.target.value)
     }
 
     const outdoor = () => {
@@ -244,8 +232,6 @@ function SearchForm({jsonData}) {
         setSearchResults(results)
         setShowResultsBar(true)
     }
-
-    const anim = (n) => Math.max(1, Math.round(animProgress * n))
 
     return (
         <div onClick={(e) => {
@@ -360,10 +346,10 @@ function SearchForm({jsonData}) {
                                 <input id="goal-number" min={0} max={leagueCounts['NHL Regular']} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <label htmlFor="search-text-1">Text</label>
                                 <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
-                                <Accordion className="w-100">
+                                <Accordion className="advanced-accordion w-100">
                                     <Accordion.Item eventKey="0">
                                         <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
-                                        <Accordion.Body className="d-flex flex-column gap-2 small" ref={advancedRef}>
+                                        <Accordion.Body className="d-flex flex-column gap-2 small" ref={advancedRef} onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="league">League</label>
                                                 <select className="form-select py-1" id="league" name="League" defaultValue="">
@@ -457,56 +443,24 @@ function SearchForm({jsonData}) {
                                                     <label htmlFor="season">Season</label>
                                                     <select className="form-select py-1" id="season" name="Season" defaultValue="">
                                                         <option value=""></option>
-                                                        <option value="Season 1">1</option>
-                                                        <option value="Season 2">2</option>
-                                                        <option value="Season 3">3</option>
-                                                        <option value="Season 4">4</option>
-                                                        <option value="Season 5">5</option>
-                                                        <option value="Season 6">6</option>
-                                                        <option value="Season 7">7</option>
-                                                        <option value="Season 8">8</option>
-                                                        <option value="Season 9">9</option>
-                                                        <option value="Season 10">10</option>
-                                                        <option value="Season 11">11</option>
-                                                        <option value="Season 12">12</option>
-                                                        <option value="Season 13">13</option>
-                                                        <option value="Season 14">14</option>
-                                                        <option value="Season 15">15</option>
-                                                        <option value="Season 16">16</option>
-                                                        <option value="Season 17">17</option>
-                                                        <option value="Season 18">18</option>
-                                                        <option value="Season 19">19</option>
-                                                        <option value="Season 20">20</option>
-                                                        <option value="Season 21">21</option>
+                                                        {Array.from(
+                                                            {length: Math.max(...jsonData.map(i => i.season))},
+                                                            (_, i) => i + 1
+                                                        ).map(n => (
+                                                            <option key={n} value={`Season ${n}`}>{n}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 w-100">
                                                     <label htmlFor="year">Year</label>
                                                     <select className="form-select py-1" id="year" name="Year" defaultValue="">
                                                         <option value=""></option>
-                                                        <option value="2004">2004</option>
-                                                        <option value="2005">2005</option>
-                                                        <option value="2006">2006</option>
-                                                        <option value="2007">2007</option>
-                                                        <option value="2008">2008</option>
-                                                        <option value="2009">2009</option>
-                                                        <option value="2010">2010</option>
-                                                        <option value="2011">2011</option>
-                                                        <option value="2012">2012</option>
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2020">2020</option>
-                                                        <option value="2021">2021</option>
-                                                        <option value="2022">2022</option>
-                                                        <option value="2023">2023</option>
-                                                        <option value="2024">2024</option>
-                                                        <option value="2025">2025</option>
-                                                        <option value="2026">2026</option>
+                                                        {Array.from(
+                                                            {length: Math.max(...jsonData.map(i => i.year)) - 2004 + 1},
+                                                            (_, i) => 2004 + i
+                                                        ).map(y => (
+                                                            <option key={y} value={y}>{y}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                             </div>
@@ -565,7 +519,6 @@ function SearchForm({jsonData}) {
                                             <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
                                             <span className="assist badge">{result.primary && result.primary + ' '}</span>
                                             <span className="assist badge">{result.secondary && result.secondary + ' '}</span>
-                                            <span hidden>{[result.btn1, result.btn2, result.btn3, result.search].filter(Boolean).join(' ')}</span>
                                         </small>
                                     </div>
                                     <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>

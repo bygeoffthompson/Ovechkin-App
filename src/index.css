@@ -38,6 +38,12 @@ form {
     }
 }
 
+.advanced-accordion {
+    select {
+        color: #C8102E;
+    }
+}
+
 .goal-count {
     span {
         font-size: 1.25rem;
