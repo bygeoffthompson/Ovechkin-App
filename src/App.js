@@ -10,6 +10,7 @@ let _ga = null
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+const PERIOD_LABELS = { First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -38,6 +39,16 @@ function SearchForm({jsonData}) {
     }, [jsonData])
 
     const leagueGoals = useMemo(() => jsonData.filter(item => item.league), [jsonData])
+
+    const seasonOptions = useMemo(() => {
+        const max = jsonData.reduce((m, i) => Math.max(m, i.season), 0)
+        return Array.from({length: max}, (_, i) => i + 1)
+    }, [jsonData])
+
+    const yearOptions = useMemo(() => {
+        const max = jsonData.reduce((m, i) => Math.max(m, i.year), 0)
+        return Array.from({length: max - 2004 + 1}, (_, i) => 2004 + i)
+    }, [jsonData])
 
     const sortedResults = useMemo(() =>
         [...searchResults].sort((first, last) => {
@@ -104,12 +115,12 @@ function SearchForm({jsonData}) {
         }, 500)
     }
 
-    const handleText = (e) => {
+    function handleText(e) {
         setSearchGoal('')
         setSearchText(e.target.value)
     }
 
-    const outdoor = () => {
+    function outdoor() {
         clearAdvanced()
         const input = parseInt(searchGoal, 10)
         let goal
@@ -136,6 +147,7 @@ function SearchForm({jsonData}) {
                 match.includes(value)
             )
         )
+        if (result.length === 0) return
         let picked
         do {
             picked = result[random(0, result.length - 1)]
@@ -144,9 +156,11 @@ function SearchForm({jsonData}) {
         searchSubmit(picked.goal)
     }
 
-    const clearAdvanced = () => advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
+    function clearAdvanced() {
+        advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
+    }
 
-    const reset = () => {
+    function reset() {
         resultsHide()
         setSearchGoal('')
         setSearchResults([])
@@ -183,12 +197,12 @@ function SearchForm({jsonData}) {
                 category: 'Search',
                 action: 'Text Search',
                 label: currentText
-            });
+            })
             const terms = normalize(currentText).split('+').map(s => s.trim()).filter(Boolean)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
                 return terms.every(term => search.includes(term)) && selectFilters.every(f => search.includes(f))
-            });
+            })
 
             if (results.length > 0) {
                 setShowResultsBar(true)
@@ -430,10 +444,7 @@ function SearchForm({jsonData}) {
                                                     <label htmlFor="season">Season</label>
                                                     <select className="form-select py-1" id="season" name="Season" defaultValue="">
                                                         <option value=""></option>
-                                                        {Array.from(
-                                                            {length: Math.max(...jsonData.map(i => i.season))},
-                                                            (_, i) => i + 1
-                                                        ).map(n => (
+                                                        {seasonOptions.map(n => (
                                                             <option key={n} value={`Season ${n}`}>{n}</option>
                                                         ))}
                                                     </select>
@@ -442,10 +453,7 @@ function SearchForm({jsonData}) {
                                                     <label htmlFor="year">Year</label>
                                                     <select className="form-select py-1" id="year" name="Year" defaultValue="">
                                                         <option value=""></option>
-                                                        {Array.from(
-                                                            {length: Math.max(...jsonData.map(i => i.year)) - 2004 + 1},
-                                                            (_, i) => 2004 + i
-                                                        ).map(y => (
+                                                        {yearOptions.map(y => (
                                                             <option key={y} value={y}>{y}</option>
                                                         ))}
                                                     </select>
@@ -480,7 +488,7 @@ function SearchForm({jsonData}) {
                                 <div className="accordion-header"><Accordion.Button onClick={lazyLoadFrame}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
-                                            <small className="fw-bold me-1" hidden={result.league === 'NHL Regular'}>{result.league === 'NHL Playoffs' ? 'Playoffs' : result.league === 'World Championships' ? 'Worlds' : result.league}</small>
+                                            {result.league !== 'NHL Regular' && <small className="fw-bold me-1">{result.league === 'NHL Playoffs' ? 'Playoffs' : result.league === 'World Championships' ? 'Worlds' : result.league}</small>}
                                             <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                         </strong>
                                         <div className="align-items-center d-flex justify-content-center goal-siren">
@@ -491,24 +499,24 @@ function SearchForm({jsonData}) {
                                             <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                         </div>
                                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                            <span className="badge">{result.month}/{result.day}/{String(result.year)}</span>
+                                            <span className="badge">{result.month}/{result.day}/{result.year}</span>
                                         </div>
                                     </div>
-                                    <strong className="bottom-0 indexer p-1 position-absolute" hidden={index === 0}>{index + 1}</strong>
+                                    {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
                                 </Accordion.Button></div>
                                 <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">
                                         {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
                                         <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
-                                            <span className="badge text-bg-warning">{result.series}</span>
-                                            <span className="badge text-bg-warning">{result.game && 'G' + result.game}</span>
+                                            {result.series && <span className="badge text-bg-warning">{result.series}</span>}
+                                            {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
                                             <span className={`badge ${result.result === 'W' ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result?.replace('W', 'Win').replace('L', 'Loss')}</span>
-                                            <span className="badge text-bg-dark">{result.time} {{ First: 'P1', Second: 'P2', Third: 'P3', Overtime: 'OT' }[result.period] ?? result.period}</span>
-                                            <span className="assist badge">{result.primary && result.primary + ' '}</span>
-                                            <span className="assist badge">{result.secondary && result.secondary + ' '}</span>
+                                            <span className="badge text-bg-dark">{result.time} {PERIOD_LABELS[result.period] ?? result.period}</span>
+                                            {result.primary && <span className="assist badge">{result.primary}</span>}
+                                            {result.secondary && <span className="assist badge">{result.secondary}</span>}
                                         </small>
                                     </div>
-                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="cross-origin-with-strict-origin" allowFullScreen></iframe>
+                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                                     <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
                                 </Accordion.Body>
                             </Accordion.Item>
