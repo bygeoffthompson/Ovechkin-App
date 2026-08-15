@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useMemo, useRef} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
+import {useTodaysGoals} from './useTodaysGoals'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -530,7 +531,7 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {welcome && <WelcomeMessage />}
+                    {welcome && <WelcomeMessage jsonData={jsonData} onGoalSelect={(g) => { setSearchGoal(g); searchSubmit(g) }} />}
                     {searched && <NoResults />}
                 </div>
             </div>
@@ -538,17 +539,19 @@ function SearchForm({jsonData}) {
     );
 }
 
-function WelcomeMessage() {
+function WelcomeMessage({jsonData, onGoalSelect}) {
+    const { todaysGoals, month, day } = useTodaysGoals(jsonData)
     return (
         <Accordion className="shadow-lg w-100" defaultActiveKey="0">
             <Accordion.Item eventKey="0">
                 <div className="accordion-header"><Accordion.Button className="fw-bold">Welcome to Ovechkin App</Accordion.Button></div>
                 <Accordion.Body>
-                    <p className="align-items-start d-flex flex-column flex-sm-row gap-2">
+                    <p className="align-items-center d-flex flex-column flex-sm-row gap-2">
                         <img alt="Goal Light" height="33" src="/gifs/goal-light.gif" width="18" />
-                        <span className="lead">Click or search to watch goals.</span>
+                        <span className="h5 m-0">Click or search to watch goals</span>
                         <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
                     </p>
+                    <div className="mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
                         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
                     </svg>
@@ -558,6 +561,23 @@ function WelcomeMessage() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-film" viewBox="0 0 16 16">
                         <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
                     </svg>
+                    </div>
+                    <div id="todays-goals">
+                        <div className="align-items-center d-flex gap-2 mb-3">
+                        <span className="h5 m-0">Today's Report</span>
+                        <span className="badge">{month}/{day}</span>
+                        </div>
+                        <div className="d-flex flex-row gap-2">
+                            {todaysGoals.length > 0 ? todaysGoals.map(goal => (
+                                <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} type="button">
+                                    <div className="h4 m-0">{goal.goal}</div>
+                                    <small>from {goal.year}</small>
+                                </button>
+                            )) : (
+                                <button className="button" disabled type="button">No Goals</button>
+                            )}
+                        </div>
+                    </div>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
