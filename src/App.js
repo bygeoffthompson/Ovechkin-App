@@ -2,8 +2,6 @@ import React, {useState, useEffect, useMemo, useRef} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import Accordion from 'react-bootstrap/Accordion'
-import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 let _ga = null
@@ -27,6 +25,7 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const [showResultsBar, setShowResultsBar] = useState(false)
+    const [activePanel, setActivePanel] = useState('random')
     const anim = useGoalCounter()
     const advancedRef = useRef(null)
 
@@ -91,7 +90,7 @@ function SearchForm({jsonData}) {
         }),
     [jsonData])
 
-    useUrlQuery(setSearchGoal, setSearchText, searchSubmit)
+    useUrlQuery(setSearchGoal, setSearchText, searchSubmit, setActivePanel)
 
     useEffect(() => {
         searchResults.slice(0, 50).forEach(result => {
@@ -275,10 +274,10 @@ function SearchForm({jsonData}) {
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <div className="align-items-start bg-body d-flex justify-content-center flex-column random-search shadow-lg w-100">
-                    <Tabs defaultActiveKey="random" fill className="border-0 w-100">
-                        <Tab eventKey="random" tabClassName="border-0 fw-bold p-3" title="Random">
-                            <div className="p-3">
+                <Accordion className="random-search shadow-lg w-100" activeKey={activePanel} onSelect={setActivePanel}>
+                        <Accordion.Item eventKey="random">
+                            <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
+                            <Accordion.Body className="p-3">
                                 <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start justify-content-sm-center">
                                     <div className="d-flex flex-column gap-2">
                                         <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button" title="Capitol" type="button">
@@ -337,10 +336,12 @@ function SearchForm({jsonData}) {
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                     </div>
                                 </div>
-                            </div>
-                        </Tab>
-                        <Tab eventKey="search" tabClassName="border-0 fw-bold p-3" title="Search">
-                            <form className="align-items-start d-flex flex-column gap-3 p-3" onSubmit={(e) => e.preventDefault()}>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="search">
+                            <div className="accordion-header"><Accordion.Button className="fw-bold">Search</Accordion.Button></div>
+                            <Accordion.Body>
+                            <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                                 <label htmlFor="goal-number">Number</label>
                                 <input id="goal-number" min={0} max={leagueCounts['NHL Regular']} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                 <label htmlFor="search-text-1">Text</label>
@@ -467,9 +468,9 @@ function SearchForm({jsonData}) {
                                     <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
                                 </div>
                             </form>
-                        </Tab>
-                    </Tabs>
-                </div>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                </Accordion>
 
                 <div className="goal-results w-100">
                     <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${showResultsBar ? ' show' : ''}`} id="results">

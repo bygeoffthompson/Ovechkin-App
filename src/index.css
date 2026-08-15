@@ -462,19 +462,6 @@ form {
 
 .random-search {
     max-width: 365px;
-
-    @media (min-width: 768px) {
-        > div {
-            align-items: center;
-            flex-direction: row;
-            gap: .75rem;
-            justify-content: end;
-
-            &:first-of-type {
-                justify-content: space-between;
-            }
-        }
-    }
 }
 
 iframe {
@@ -516,14 +503,3 @@ input {
     }
 }
 
-.nav-link {
-    border-radius: 0 !important;
-
-    &:not(.active) {
-        background: rgba(207, 226, 255, .5);
-    }
-}
-
-.tab-content {
-    width: 100%;
-}
