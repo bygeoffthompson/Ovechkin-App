@@ -136,7 +136,10 @@ function SearchForm({jsonData}) {
 
     function randomGoal(filtered) {
         clearAdvanced()
-        const goal = filtered[Math.floor(Math.random() * filtered.length)].goal
+        let goal
+        do {
+            goal = filtered[Math.floor(Math.random() * filtered.length)].goal
+        } while (goal === parseFloat(searchGoal) && filtered.length > 1)
         setSearchGoal(goal)
         searchSubmit(goal)
     }
