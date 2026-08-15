@@ -29,8 +29,7 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const [showResultsBar, setShowResultsBar] = useState(false)
-    const [activePanel, setActivePanel] = useState(() => window.innerWidth >= 992 ? 'random' : null)
-    const anim = useGoalCounter()
+    const { anim, isAnimating } = useGoalCounter()
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
 
     const leagueCounts = useMemo(() => {
@@ -94,7 +93,7 @@ function SearchForm({jsonData}) {
         }),
     [jsonData])
 
-    useUrlQuery(setSearchGoal, setSearchText, searchSubmit, setActivePanel)
+    useUrlQuery(setSearchGoal, setSearchText, searchSubmit)
 
     useEffect(() => {
         searchResults.slice(0, 50).forEach(result => {
@@ -246,37 +245,37 @@ function SearchForm({jsonData}) {
                 });
             }}>
             <div className="d-flex flex-wrap gap-2 mb-3">
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 1))} title="NHL Regular Season" type="button">
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 1))} title="NHL Regular Season" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[1]}>{anim(leagueCounts[1])}</div>
                     <div>NHL</div>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 2))} title="NHL Playoffs" type="button">
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 2))} title="NHL Playoffs" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[2]}>{anim(leagueCounts[2])}</div>
                     <div>Playoffs</div>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
+                <button className="button counter khl" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[3]}>{anim(leagueCounts[3])}</div>
                     <div>KHL</div>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[4]}>{anim(leagueCounts[4])}</div>
                     <div>Olympics</div>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 5))} title="World Championships" type="button">
+                <button className="button counter gold" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 5))} title="World Championships" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[5]}>{anim(leagueCounts[5])}</div>
                     <div>Worlds</div>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[6]}>{anim(leagueCounts[6])}</div>
                     <small>World Cup</small>
                 </button>
-                <button className="button counter" onClick={() => randomGoal(leagueGoals)} title="Total" type="button">
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(leagueGoals)} title="Total" type="button">
                     <div className="h4 m-0" data-goals={leagueGoals.length}>{anim(leagueGoals.length)}</div>
                     <div>Total</div>
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <Accordion className="random-search shadow-lg w-100" activeKey={activePanel} onSelect={setActivePanel}>
+                <Accordion className="random-search shadow-lg w-100" defaultActiveKey={window.innerWidth >= 992 ? 'random' : null}>
                         <Accordion.Item eventKey="random">
                             <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                             <Accordion.Body className="p-3">
@@ -344,10 +343,14 @@ function SearchForm({jsonData}) {
                             <div className="accordion-header"><Accordion.Button className="fw-bold">Search</Accordion.Button></div>
                             <Accordion.Body>
                             <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
-                                <label htmlFor="goal-number">Number</label>
-                                <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                <div className="align-items-center d-flex flex-row gap-3">
+                                    <label htmlFor="goal-number">Number</label>
+                                    <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                </div>
+                                <div className="align-items-center d-flex flex-row gap-3">
                                 <label htmlFor="search-text-1">Text</label>
                                 <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
+                                </div>
                                 <Accordion className="advanced-accordion w-100">
                                     <Accordion.Item eventKey="0">
                                         <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
@@ -484,7 +487,7 @@ function SearchForm({jsonData}) {
                     </div>
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {sortedResults.map((result, index) => {
-                            const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link.replace(/"/g, "") + '&autohide=0&rel=0&modestbranding=1'
+                            const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
@@ -541,47 +544,49 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
             <Accordion.Item eventKey="0">
                 <div className="accordion-header"><Accordion.Button className="fw-bold">Welcome to Ovechkin App</Accordion.Button></div>
                 <Accordion.Body>
-                    <p className="align-items-center d-flex flex-column flex-sm-row gap-2">
+                    <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                         <img alt="Goal Light" height="33" src="/gifs/goal-light.gif" width="18" />
                         <p className="lead m-0">Click or search to watch goals</p>
                         <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
-                            <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-type me-1" viewBox="0 0 16 16">
-                            <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-film" viewBox="0 0 16 16">
-                            <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
-                        </svg>
-                    </p>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
+                                <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-type me-2" viewBox="0 0 16 16">
+                                <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-film" viewBox="0 0 16 16">
+                                <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
+                            </svg>
+                        </div>
+                    </div>
                     <hr className="my-4"/>
-                    <div className="h6 mb-4">On This Day</div>
-                    <div className="align-items-center d-flex flex-column flex-sm-row gap-3">
+                    <p className="h6">On This Day</p>
+                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3">
                         <span className="badge p-2">{month}/{day}</span>
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
-                                <div className="h4 m-0">{goal.goal}</div>
+                                <div className="h4 m-0"><small>#</small>{goal.goal}</div>
                                 <small>from {goal.year}</small>
                             </button>
                         )) : (
-                            <button className="button" disabled type="button">No Goals</button>
+                            <small>No Goals</small>
                         )}
                     </div>
                     <hr className="my-4"/>
-                    <div className="align-items-center d-flex gap-2 mb-4">
-                        <span className="h6 m-0">At This Time</span>
-                        <button className="button refresh" onClick={refreshTime} title="Refresh Time" type="button">↺ Time</button>
+                    <div className="align-items-center align-items-sm-center d-flex gap-2 mb-2">
+                        <p className="h6 m-0">At This Time</p>
+                        <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">↺</button>
                     </div>
-                    <div className="align-items-center d-flex flex-column flex-sm-row gap-3">
+                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3">
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
-                                <div className="h4 m-0">{goal.goal}</div>
+                                <div className="h4 m-0"><small>#</small>{goal.goal}</div>
                                 <small>{goal.time} in {PERIOD_NUMBER[goal.period]}</small>
                             </button>
                         )) : (
-                            <button className="button" disabled type="button">No Goals</button>
+                            <small>No Goals</small>
                         )}
                     </div>
                 </Accordion.Body>

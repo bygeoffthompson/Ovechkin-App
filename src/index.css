@@ -330,19 +330,28 @@ form {
     transform: scale(1.05);
   }
 
-  &.counter {
+  &.gold {
     &:active,
     &:hover {
-      background: rgba(200,16,32,.8);
-      border-color: rgba(200,16,32,.8);
+      background: rgba(214,175,54,.8);
+      border-color: rgba(214,175,54,.8);
+      color: #111;
+    }
+  }
+
+  &.khl {
+    &:active,
+    &:hover {
+      background: rgba(0,51,160,.8);
+      border-color: rgba(0,51,160,.8);
     }
   }
 
   &[disabled] {
-    background: initial !important;
     box-shadow: none !important;
     color: initial !important;
-    opacity: .3;
+    opacity: .5;
+    pointer-events: none;
     transform: none !important;
   }
 
@@ -383,10 +392,10 @@ form {
     }
 
     &.refresh {
-        font-size: .625rem;
+        font-size: .875rem;
         min-height: 0;
-        padding: .5rem;
-        width: 60px;
+        padding: .125rem .25rem;
+        width: auto;
     }
 
     &[title='Black Reverse Retro'],
@@ -396,10 +405,6 @@ form {
 
     &[title*='Red'] {
         background: #C81020;
-    }
-
-    &[title*='Shuffle']:hover img {
-        filter: invert(1);
     }
 
     &[title='Screagle'],

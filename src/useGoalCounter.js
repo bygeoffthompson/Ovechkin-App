@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function useGoalCounter(duration = 2500) {
+export function useGoalCounter(duration = 1500) {
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {
@@ -15,5 +15,5 @@ export function useGoalCounter(duration = 2500) {
         return () => cancelAnimationFrame(raf)
     }, [duration])
 
-    return (n) => Math.max(1, Math.round(progress * n))
+    return { anim: (n) => Math.max(1, Math.round(progress * n)), isAnimating: progress < 1 }
 }
