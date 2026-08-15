@@ -1,12 +1,9 @@
 #results {
-    font-size: 1.25rem;
     height: 0;
-    opacity: 0;
 
     &.show {
         height: auto;
         margin-bottom: 1rem;
-        opacity: 1;
     }
 
     .badge {
@@ -523,8 +520,4 @@ input {
 
 .tab-content {
     width: 100%;
-}
-
-.app-message {
-    border-top: .325rem solid #C81020 !important;
 }
