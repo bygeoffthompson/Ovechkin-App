@@ -10,12 +10,12 @@ export function useUrlQuery(setSearchGoal, setSearchText, searchSubmit, setActiv
         const queryInteger = parseFloat(query)
         if (!query.includes('/') && !GOAL_EXCLUSIONS.includes(query) && queryInteger) {
             setSearchGoal(queryInteger)
-            searchSubmit(queryInteger)
+            searchSubmit(queryInteger, '')
         } else {
             setActivePanel('search')
             const t = query.split('&')[0]
             setSearchText(t)
-            searchSubmit(undefined, t)
+            searchSubmit('', t)
         }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useRef} from 'react'
+import React, {useState, useEffect, useMemo} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -31,7 +31,7 @@ function SearchForm({jsonData}) {
     const [showResultsBar, setShowResultsBar] = useState(false)
     const [activePanel, setActivePanel] = useState(() => window.innerWidth >= 992 ? 'random' : null)
     const anim = useGoalCounter()
-    const advancedRef = useRef(null)
+    const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
 
     const leagueCounts = useMemo(() => {
         const counts = {}
@@ -132,7 +132,7 @@ function SearchForm({jsonData}) {
         else if (input === 598) goal = 475
         else goal = 440
         setSearchGoal(goal)
-        searchSubmit(goal)
+        searchSubmit(goal, '')
     }
 
     function randomGoal(filtered) {
@@ -142,7 +142,7 @@ function SearchForm({jsonData}) {
             goal = filtered[Math.floor(Math.random() * filtered.length)].goal
         } while (goal === parseFloat(searchGoal) && filtered.length > 1)
         setSearchGoal(goal)
-        searchSubmit(goal)
+        searchSubmit(goal, '')
     }
 
     function filterGoal(match) {
@@ -159,11 +159,11 @@ function SearchForm({jsonData}) {
             picked = result[random(0, result.length - 1)]
         } while (picked.goal === parseFloat(searchGoal) && result.length > 1)
         setSearchGoal(picked.goal)
-        searchSubmit(picked.goal)
+        searchSubmit(picked.goal, '')
     }
 
     function clearAdvanced() {
-        advancedRef.current.querySelectorAll('select').forEach(s => s.value = '')
+        setFilters({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
     }
 
     function reset() {
@@ -181,30 +181,25 @@ function SearchForm({jsonData}) {
         setSearched(false)
     }
 
-    function searchSubmit(goalOverride, textOverride) {
+    function searchSubmit(goal = '', text = '') {
         setWelcome(false)
         setShowSort(true)
-        const currentGoal = goalOverride !== undefined ? goalOverride : searchGoal
-        const currentText = textOverride !== undefined ? textOverride : searchText
+        const selectFilters = Object.values(filters).map(normalize).filter(Boolean)
 
-        const selectFilters = [...advancedRef.current.querySelectorAll('select')]
-            .map(s => normalize(s.value))
-            .filter(Boolean)
-
-        if (currentGoal) {
+        if (goal) {
             resultsHide()
-            const goalQuery = parseFloat(currentGoal)
+            const goalQuery = parseFloat(goal)
             const results = jsonData.filter((item, i) =>
                 item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
             )
             setSearchResults(results)
-        } else if (currentText.length > 0 || selectFilters.length > 0) {
+        } else if (text.length > 0 || selectFilters.length > 0) {
             _ga?.event({
                 category: 'Search',
                 action: 'Text Search',
-                label: currentText
+                label: text
             })
-            const terms = normalize(currentText).split('+').map(s => s.trim()).filter(Boolean)
+            const terms = normalize(text).split('+').map(s => s.trim()).filter(Boolean)
             const results = jsonData.filter((item, i) => {
                 const search = searchStrings[i]
                 return terms.every(term => search.includes(term)) && selectFilters.every(f => search.includes(f))
@@ -356,10 +351,10 @@ function SearchForm({jsonData}) {
                                 <Accordion className="advanced-accordion w-100">
                                     <Accordion.Item eventKey="0">
                                         <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
-                                        <Accordion.Body className="d-flex flex-column gap-2 small" ref={advancedRef} onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
+                                        <Accordion.Body className="d-flex flex-column gap-2 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="league">League</label>
-                                                <select className="form-select py-1" id="league" name="League" defaultValue="">
+                                                <select className="form-select py-1" id="league" name="League" value={filters.league} onChange={(e) => setFilters(f => ({...f, league: e.target.value}))}>
                                                     <option value=""></option>
                                                     <option className="fw-bold" value="NHL">NHL</option>
                                                     <option value="NHL Regular">•&nbsp;NHL Regular</option>
@@ -372,7 +367,7 @@ function SearchForm({jsonData}) {
                                             </div>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="team">Team</label>
-                                                <select className="form-select py-1" id="team" name="Team" defaultValue="">
+                                                <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
                                                     <option value=""></option>
                                                     <option value="Anaheim Ducks">Anaheim Ducks</option>
                                                     <option value="Mighty Ducks">•&nbsp;Mighty Ducks</option>
@@ -413,7 +408,7 @@ function SearchForm({jsonData}) {
                                             </div>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="location">Location</label>
-                                                <select className="form-select py-1" id="location" name="Location" defaultValue="">
+                                                <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
                                                     <option value=""></option>
                                                     <option value="Home">Home</option>
                                                     <option value="Away">Away</option>
@@ -421,7 +416,7 @@ function SearchForm({jsonData}) {
                                             </div>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="period">Period</label>
-                                                <select className="form-select py-1" id="period" name="Period" defaultValue="">
+                                                <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
                                                     <option value=""></option>
                                                     <option value="First">First</option>
                                                     <option value="Second">Second</option>
@@ -431,7 +426,7 @@ function SearchForm({jsonData}) {
                                             </div>
                                             <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                 <label htmlFor="month">Month</label>
-                                                <select className="form-select py-1" id="month" name="Month" defaultValue="">
+                                                <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
                                                     <option value=""></option>
                                                     <option value="January">January</option>
                                                     <option value="February">February</option>
@@ -450,7 +445,7 @@ function SearchForm({jsonData}) {
                                             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
                                                     <label htmlFor="season">Season</label>
-                                                    <select className="form-select py-1" id="season" name="Season" defaultValue="">
+                                                    <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
                                                         <option value=""></option>
                                                         {seasonOptions.map(n => (
                                                             <option key={n} value={`Season ${n}`}>{n}</option>
@@ -459,7 +454,7 @@ function SearchForm({jsonData}) {
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
                                                     <label htmlFor="year">Year</label>
-                                                    <select className="form-select py-1" id="year" name="Year" defaultValue="">
+                                                    <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
                                                         <option value=""></option>
                                                         {yearOptions.map(y => (
                                                             <option key={y} value={y}>{y}</option>
@@ -471,7 +466,7 @@ function SearchForm({jsonData}) {
                                     </Accordion.Item>
                                 </Accordion>
                                 <div className="d-flex flex-column flex-sm-row gap-2 justify-content-between w-100">
-                                    <button className="button" onClick={() => searchSubmit()} title="Search" type="submit">Search</button>
+                                    <button className="button" onClick={() => searchSubmit(searchGoal, searchText)} title="Search" type="submit">Search</button>
                                     <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
                                 </div>
                             </form>
