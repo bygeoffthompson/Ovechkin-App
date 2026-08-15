@@ -51,7 +51,7 @@ footer {
     }
 }
 
-h1 {
+.fire {
     animation: flames 1.5s infinite alternate ease-in-out;
 
     a {
