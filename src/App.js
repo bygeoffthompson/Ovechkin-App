@@ -26,8 +26,8 @@ function SearchForm({jsonData}) {
     const [showSort, setShowSort] = useState(true)
     const [searched, setSearched] = useState(false)
     const [showResultsBar, setShowResultsBar] = useState(false)
-    const [otdDisabled, setOtdDisabled] = useState(false)
-    const [otdTitle, setOtdTitle] = useState('On This Day')
+    //const [otdDisabled, setOtdDisabled] = useState(false)
+    //const [otdTitle, setOtdTitle] = useState('On This Day')
     const anim = useGoalCounter()
     const advancedRef = useRef(null)
 
@@ -84,7 +84,7 @@ function SearchForm({jsonData}) {
 
     useUrlQuery(setSearchGoal, setSearchText, searchSubmit)
 
-    useEffect(() => {
+/*    useEffect(() => {
         const now = new Date()
         const month = now.getMonth() + 1
         const day = now.getDate()
@@ -95,7 +95,7 @@ function SearchForm({jsonData}) {
         } else {
             setOtdTitle('Goals on ' + month + '/' + day)
         }
-    }, [jsonData])
+    }, [jsonData])*/
 
     useEffect(() => {
         searchResults.slice(0, 50).forEach(result => {
@@ -331,8 +331,9 @@ function SearchForm({jsonData}) {
                                         <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 'NHL Playoffs'))} title="Cup Run" type="button">Cup&nbsp;Run</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 'Away' && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
-                                        <button className="button" onClick={() => { const now = new Date(); randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate())) }} disabled={otdDisabled} title={otdTitle} type="button">On&nbsp;This&nbsp;Day</button>
+                                        {/*<button className="button" onClick={() => { const now = new Date(); randomGoal(jsonData.filter(item => item.month === now.getMonth() + 1 && item.day === now.getDate())) }} disabled={otdDisabled} title={otdTitle} type="button">On&nbsp;This&nbsp;Day</button>*/}
                                         <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
+                                        <button className="button" onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
                                         <button className="button" onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
                                         <button className="button" onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
                                         <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
