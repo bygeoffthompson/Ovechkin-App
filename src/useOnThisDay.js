@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react'
 function currentTime() {
     const now = new Date()
     const hours = now.getHours() % 12 || 12
-    return `${String(hours).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+    return `${hours}:${String(now.getMinutes()).padStart(2, '0')}`
 }
 
 export function useOnThisDay(jsonData) {
