@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react'
+import React, {useState, useEffect, useMemo, useReducer} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -14,6 +14,16 @@ const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
 
+function uiReducer(_, action) {
+    switch (action) {
+        case 'RESET': return 'idle'
+        case 'GOAL': return 'goal'
+        case 'RESULTS': return 'results'
+        case 'EMPTY': return 'empty'
+        default: return _
+    }
+}
+
 function random(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
@@ -24,11 +34,9 @@ function SearchForm({jsonData}) {
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
     const [searchResults, setSearchResults] = useState([])
-    const [welcome, setWelcome] = useState(window.location.search.length <= 1)
+    const [uiState, dispatch] = useReducer(uiReducer, null, () => window.location.search.length <= 1 ? 'idle' : 'goal')
     const [sortOrder, setSortOrder] = useState('asc')
     const [showSort, setShowSort] = useState(true)
-    const [searched, setSearched] = useState(false)
-    const [showResultsBar, setShowResultsBar] = useState(false)
     const { anim, isAnimating } = useGoalCounter()
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
 
@@ -169,24 +177,22 @@ function SearchForm({jsonData}) {
         resultsHide()
         setSearchGoal('')
         setSearchResults([])
-        setWelcome(true)
+        dispatch('RESET')
         setShowSort(true)
         clearAdvanced()
     }
 
     function resultsHide() {
-        setShowResultsBar(false)
         setSearchText('')
-        setSearched(false)
     }
 
     function searchSubmit(goal = '', text = '') {
-        setWelcome(false)
         setShowSort(true)
         const selectFilters = Object.values(filters).map(normalize).filter(Boolean)
 
         if (goal) {
             resultsHide()
+            dispatch('GOAL')
             const goalQuery = parseFloat(goal)
             const results = jsonData.filter((item, i) =>
                 item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
@@ -205,11 +211,10 @@ function SearchForm({jsonData}) {
             })
 
             if (results.length > 0) {
-                setShowResultsBar(true)
+                dispatch('RESULTS')
                 if (results.length === 1) setShowSort(false)
             } else {
-                setShowResultsBar(false)
-                setSearched(true)
+                dispatch('EMPTY')
             }
             setSearchResults(results)
         }
@@ -217,7 +222,6 @@ function SearchForm({jsonData}) {
 
     function hatTrick() {
         clearAdvanced()
-        setWelcome(false)
         const hatTrickGoals = jsonData.filter(item =>
             [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
         )
@@ -229,7 +233,7 @@ function SearchForm({jsonData}) {
         setShowSort(false)
         setSearchGoal(picked.goal)
         setSearchResults(results)
-        setShowResultsBar(true)
+        dispatch('RESULTS')
     }
 
     return (
@@ -478,7 +482,7 @@ function SearchForm({jsonData}) {
                 </Accordion>
 
                 <div className="goal-results w-100">
-                    <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${showResultsBar ? ' show' : ''}`} id="results">
+                    <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${uiState === 'results' ? ' show' : ''}`} id="results">
                         <strong className="badge py-2" data-count={sortedResults.length}>{`${sortedResults.length} Result${sortedResults.length !== 1 ? 's' : ''}`}</strong>
                         {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                             <option value="asc">Ascend</option>
@@ -529,8 +533,8 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {welcome && <WelcomeMessage jsonData={jsonData} onGoalSelect={(g) => { setSearchGoal(g); searchSubmit(g) }} />}
-                    {searched && <NoResults />}
+                    {uiState === 'idle' && <WelcomeMessage jsonData={jsonData} onGoalSelect={(g) => { setSearchGoal(g); searchSubmit(g) }} />}
+                    {uiState === 'empty' && <NoResults />}
                 </div>
             </div>
         </div>
