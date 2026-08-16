@@ -881,7 +881,8 @@
         "time": "1:52",
         "jersey": "Red Russia",
         "dotw": 4,
-        "season": 1
+        "season": 1,
+        "result": 0
     },
     {
         "goal": 36.02,
@@ -899,7 +900,8 @@
         "time": "8:05",
         "jersey": "Red Russia",
         "dotw": 5,
-        "season": 1
+        "season": 1,
+        "result": 1
     },
     {
         "goal": 36.03,
@@ -917,7 +919,8 @@
         "time": "16:27",
         "jersey": "Red Russia",
         "dotw": 1,
-        "season": 1
+        "season": 1,
+        "result": 1
     },
     {
         "goal": 36.04,
@@ -935,7 +938,8 @@
         "time": "9:55",
         "jersey": "White Russia",
         "dotw": 3,
-        "season": 1
+        "season": 1,
+        "result": 1
     },
     {
         "goal": 36.05,
@@ -954,7 +958,8 @@
         "time": "1:29",
         "jersey": "Red Russia",
         "dotw": 4,
-        "season": 1
+        "season": 1,
+        "result": 1
     },
     {
         "goal": 37,
@@ -6145,7 +6150,8 @@
         "time": "19:25",
         "jersey": "Red Russia",
         "dotw": 3,
-        "season": 5
+        "season": 5,
+        "result": 1
     },
     {
         "goal": 261.07,
@@ -6163,7 +6169,8 @@
         "time": "0:59",
         "jersey": "Red Russia",
         "dotw": 3,
-        "season": 5
+        "season": 5,
+        "result": 1
     },
     {
         "goal": 262,
@@ -10110,7 +10117,8 @@
         "time": "1:17",
         "jersey": "Red Russia",
         "dotw": 5,
-        "season": 9
+        "season": 9,
+        "result": 1
     },
     {
         "goal": 412,
