@@ -107,6 +107,7 @@ form {
 
     &[alt='Atlantic'],
     &[alt='FC Amkal'],
+    &[alt='Lidstrom'],
     &[alt='Staal'] {
         width: 32px;
     }
@@ -149,6 +150,10 @@ form {
     border-left: 0 !important;
     border-right: 0 !important;
     border-top: 0 !important;
+
+    &:last-of-type {
+        border-bottom: 0 !important;
+    }
 }
 
 .goal-accordion {
@@ -392,7 +397,6 @@ form {
     }
 
     &.refresh {
-        font-size: .875rem;
         min-height: 0;
         padding: .125rem .25rem;
         width: auto;

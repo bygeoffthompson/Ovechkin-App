@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, useReducer} from 'react'
+import {useState, useEffect, useMemo, useReducer} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -9,7 +9,6 @@ let _ga = null
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-const PERIOD_NUMBER = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
@@ -278,7 +277,7 @@ function SearchForm({jsonData}) {
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <Accordion className="random-search shadow-lg w-100" defaultActiveKey={window.innerWidth >= 992 ? 'random' : null}>
+                <Accordion className="random-search shadow-lg w-100">
                         <Accordion.Item eventKey="random">
                             <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                             <Accordion.Body className="p-3">
@@ -519,8 +518,8 @@ function SearchForm({jsonData}) {
                                         <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                             {result.series && <span className="badge text-bg-warning">{result.series}</span>}
                                             {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                            <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-secondary'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
-                                            <span className="badge text-bg-dark">{result.time} in {PERIOD_NUMBER[result.period] ?? result.period}</span>
+                                            <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
+                                            <span className="badge text-bg-secondary">{result.time} {PERIOD_NAME[result.period] ?? result.period}</span>
                                             {result.primary && <span className="assist badge">{result.primary}</span>}
                                             {result.secondary && <span className="assist badge">{result.secondary}</span>}
                                         </small>
@@ -579,14 +578,19 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     <hr className="my-4"/>
                     <div className="align-items-center align-items-sm-center d-flex gap-2 mb-2">
                         <p className="h6 m-0">At This Time</p>
-                        <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">↺</button>
+                        <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
+                                <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
+                                <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
+                            </svg>
+                        </button>
                     </div>
                     <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3">
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
                                 <div className="h4 m-0"><small>#</small>{goal.goal}</div>
-                                <small>{goal.time} in {PERIOD_NUMBER[goal.period]}</small>
+                                <small>{goal.time} {PERIOD_NAME[goal.period]}</small>
                             </button>
                         )) : (
                             <small>No Goals</small>

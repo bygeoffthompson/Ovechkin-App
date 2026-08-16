@@ -2003,6 +2003,7 @@
         "year": 2007,
         "search": "All Star",
         "period": 2,
+        "time": "13:32",
         "dotw": 4,
         "season": 2
     },
@@ -3155,6 +3156,7 @@
         "btn1": "Post",
         "search": "All Star",
         "period": 1,
+        "time": "13:34",
         "dotw": 1,
         "season": 3
     },
@@ -3171,6 +3173,7 @@
         "type": "2nd",
         "search": "All Star",
         "period": 1,
+        "time": "17:49",
         "dotw": 1,
         "season": 3
     },
@@ -4538,6 +4541,7 @@
         "year": 2009,
         "search": "All Star",
         "period": 1,
+        "time": "6:26",
         "dotw": 1,
         "season": 4
     },
@@ -6922,6 +6926,7 @@
         "year": 2011,
         "search": "All Star",
         "period": 1,
+        "time": "0:50",
         "dotw": 1,
         "season": 6
     },
@@ -8337,7 +8342,8 @@
         "search": "Teammate",
         "league": 3,
         "hoa": 0,
-        "period": 2,
+        "period": 1,
+        "time": "15:44",
         "jersey": "White Dynamo",
         "dotw": 2,
         "season": 7,
@@ -13350,6 +13356,7 @@
         "year": 2017,
         "search": "All Star",
         "period": 2,
+        "time": "9:59",
         "dotw": 1,
         "season": 12
     },
@@ -14305,6 +14312,7 @@
         "year": 2018,
         "search": "All Star",
         "period": 1,
+        "time": "8:15",
         "dotw": 1,
         "season": 13
     },
@@ -19529,6 +19537,7 @@
         "year": 2023,
         "search": "All Star",
         "period": 2,
+        "time": "2:21",
         "dotw": 7,
         "season": 18
     },
