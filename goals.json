@@ -8235,9 +8235,11 @@
         "league": 3,
         "hoa": 1,
         "period": 1,
+        "time": "14:36",
         "jersey": "Blue Dynamo",
         "dotw": 1,
-        "season": 7
+        "season": 7,
+        "result": 0
     },
     {
         "goal": 339.02,
@@ -8249,13 +8251,16 @@
         "day": 1,
         "year": 2012,
         "type": "PPG",
+        "btn1": "Slapshot",
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 1,
         "period": 3,
+        "time": "9:05",
         "jersey": "Blue Dynamo",
         "dotw": 2,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.03,
@@ -8267,13 +8272,16 @@
         "day": 7,
         "year": 2012,
         "type": "PPG",
+        "btn1": "Slapshot",
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "14:48",
         "jersey": "White Dynamo",
         "dotw": 1,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.04,
@@ -8283,13 +8291,16 @@
         "month": 10,
         "day": 9,
         "year": 2012,
+        "btn1": "Backhand",
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 0,
-        "period": 1,
+        "period": 3,
+        "time": "0:33",
         "jersey": "White Dynamo",
         "dotw": 3,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.05,
@@ -8305,9 +8316,11 @@
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "4:10",
         "jersey": "White Dynamo",
         "dotw": 7,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.06,
@@ -8322,10 +8335,11 @@
         "search": "Teammate",
         "league": 3,
         "hoa": 0,
-        "period": 1,
+        "period": 2,
         "jersey": "White Dynamo",
         "dotw": 2,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.07,
@@ -8343,10 +8357,12 @@
         "league": 3,
         "hoa": 0,
         "period": 4,
+        "time": "2:45",
         "jersey": "White Dynamo",
         "dotw": 1,
         "season": 7,
-        "search": "HHOF"
+        "search": "HHOF",
+        "result": 1
     },
     {
         "goal": 339.08,
@@ -8362,9 +8378,11 @@
         "league": 3,
         "hoa": 1,
         "period": 2,
+        "time": "8:37",
         "jersey": "Blue Dynamo",
         "dotw": 6,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.09,
@@ -8380,10 +8398,12 @@
         "search": "Black Friday Dynamo Moscow",
         "league": 3,
         "hoa": 1,
-        "period": 1,
+        "period": 2,
+        "time": "17:39",
         "jersey": "Blue Dynamo",
         "dotw": 6,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.1,
@@ -8398,9 +8418,11 @@
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "3:29",
         "jersey": "White Dynamo",
         "dotw": 7,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.11,
@@ -8413,13 +8435,17 @@
         "day": 1,
         "year": 2012,
         "type": "2nd",
+        "btn1": "PPG",
+        "btn2": "Slapshot",
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "17:34",
         "jersey": "White Dynamo",
         "dotw": 7,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.12,
@@ -8435,9 +8461,11 @@
         "league": 3,
         "hoa": 0,
         "period": 3,
+        "time": "19:18",
         "jersey": "White Dynamo",
         "dotw": 7,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.13,
@@ -8449,13 +8477,16 @@
         "day": 7,
         "year": 2012,
         "type": "PPG",
+        "btn1": "Slapshot",
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "12:24",
         "jersey": "White Dynamo",
         "dotw": 6,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.14,
@@ -8471,9 +8502,11 @@
         "league": 3,
         "hoa": 0,
         "period": 1,
+        "time": "3:21",
         "jersey": "White Dynamo",
         "dotw": 4,
-        "season": 7
+        "season": 7,
+        "result": 0
     },
     {
         "goal": 339.15,
@@ -8489,10 +8522,12 @@
         "btn1": "Backhand",
         "league": 3,
         "hoa": 0,
-        "period": 1,
+        "period": 3,
+        "time": "12:01",
         "jersey": "White Dynamo",
         "dotw": 6,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.16,
@@ -8507,10 +8542,12 @@
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 0,
-        "period": 1,
+        "period": 2,
+        "time": "16:21",
         "jersey": "White Dynamo",
         "dotw": 1,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.17,
@@ -8527,9 +8564,11 @@
         "league": 3,
         "hoa": 1,
         "period": 1,
+        "time": "15:19",
         "jersey": "Blue Dynamo",
         "dotw": 4,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 339.18,
@@ -8543,10 +8582,12 @@
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 1,
-        "period": 1,
+        "period": 2,
+        "time": "19:13",
         "jersey": "Blue Dynamo",
         "dotw": 1,
-        "season": 7
+        "season": 7,
+        "result": 0
     },
     {
         "goal": 339.19,
@@ -8561,10 +8602,12 @@
         "search": "Dynamo Moscow",
         "league": 3,
         "hoa": 1,
-        "period": 1,
+        "period": 2,
+        "time": "15:04",
         "jersey": "Blue Dynamo",
         "dotw": 6,
-        "season": 7
+        "season": 7,
+        "result": 1
     },
     {
         "goal": 340,
