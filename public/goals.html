@@ -31,6 +31,8 @@
         gtag('config', 'G-K4X7EL6PW3');
     </script>
     <script>
+        const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' };
+
         async function fetchDataAndCreateTable() {
             try {
                 const response = await fetch('/goals.json');
@@ -47,15 +49,13 @@
                     link.href = '/?' + item.goal;
                     goalCell.appendChild(link);
                     const seasonCell = row.insertCell();
-                    seasonCell.textContent = item.league;
+                    seasonCell.textContent = LEAGUE[item.league] || item.league;
                     const dateCell = row.insertCell();
                     dateCell.textContent = item.month + '/' + item.day + '/' + item.year;
                     const goalieCell = row.insertCell();
                     goalieCell.textContent = item.goalie;
                     const teamCell = row.insertCell();
                     teamCell.textContent = item.team;
-                    const hoaCell = row.insertCell();
-                    hoaCell.textContent = item.hoa;
                     const periodCell = row.insertCell();
                     periodCell.textContent = item.period;
                 });
@@ -85,7 +85,6 @@
                   <th>Date</th>
                   <th>Goalie</th>
                   <th>Opponent</th>
-                  <th>Home/Away</th>
                   <th>Period</th>
               </tr>
             </thead>
