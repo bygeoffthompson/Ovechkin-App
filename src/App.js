@@ -239,7 +239,7 @@ function SearchForm({jsonData}) {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (['', 'Reset', 'Search'].includes(title)) return
+                if (['', 'Refresh', 'Reset', 'Search'].includes(title)) return
                 _ga?.event({
                     category: 'Click',
                     action: 'Button Click',
