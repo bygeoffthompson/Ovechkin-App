@@ -144,7 +144,7 @@ function SearchForm({jsonData}) {
         clearAdvanced()
         let goal
         do {
-            goal = filtered[Math.floor(Math.random() * filtered.length)].goal
+            goal = filtered[random(0, filtered.length - 1)].goal
         } while (goal === parseFloat(searchGoal) && filtered.length > 1)
         setSearchGoal(goal)
         searchSubmit(goal, '')
@@ -223,7 +223,7 @@ function SearchForm({jsonData}) {
         const hatTrickGoals = jsonData.filter(item =>
             [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
         )
-        const picked = hatTrickGoals[Math.floor(Math.random() * hatTrickGoals.length)]
+        const picked = hatTrickGoals[random(0, hatTrickGoals.length - 1)]
         const idx = jsonData.findIndex(item => item.goal === picked.goal)
         const results = jsonData.slice(Math.max(0, idx - 2), idx + 1)
         resultsHide()
@@ -277,207 +277,209 @@ function SearchForm({jsonData}) {
                 </button>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <Accordion className="random-search shadow-lg w-100">
-                        <Accordion.Item eventKey="random">
-                            <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
-                            <Accordion.Body className="p-3">
-                                <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start">
-                                    <div className="d-flex flex-column gap-2">
-                                        <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button" title="Capitol" type="button">
-                                            <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Screagle'])} className="button jersey-button" title="Screagle" type="button">
-                                            <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Red'])} className="button jersey-button" title="Red" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['White'])} className="button jersey-button" title="White" type="button">
-                                            <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Throwback'])} className="button jersey-button" title="Throwback" type="button">
-                                            ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
-                                        </button>
-                                        <button onClick={outdoor} className="button jersey-button multi-logo" title="Brick / Stadium" type="button">
-                                            <span>
-                                                <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
-                                            </span>
-                                            <span>
-                                                <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
-                                            </span>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Navy W'])} className="button jersey-button" title="Navy" type="button">
-                                            <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" type="button">
-                                            <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
-                                        </button>
-                                        <button onClick={() => filterGoal(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" type="button">
-                                            <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
-                                        </button>
+                <div className="d-flex flex-column w-100" id="random-search">
+                    <Accordion className="mb-1 shadow-lg">
+                            <Accordion.Item eventKey="random">
+                                <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
+                                <Accordion.Body className="p-3">
+                                    <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start">
+                                        <div className="d-flex flex-column gap-2">
+                                            <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button" title="Capitol" type="button">
+                                                <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Screagle'])} className="button jersey-button" title="Screagle" type="button">
+                                                <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Red'])} className="button jersey-button" title="Red" type="button">
+                                                <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['White'])} className="button jersey-button" title="White" type="button">
+                                                <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Throwback'])} className="button jersey-button" title="Throwback" type="button">
+                                                ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
+                                            </button>
+                                            <button onClick={outdoor} className="button jersey-button multi-logo" title="Brick / Stadium" type="button">
+                                                <span>
+                                                    <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
+                                                </span>
+                                                <span>
+                                                    <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
+                                                </span>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Navy W'])} className="button jersey-button" title="Navy" type="button">
+                                                <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" type="button">
+                                                <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                            </button>
+                                            <button onClick={() => filterGoal(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" type="button">
+                                                <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                            </button>
+                                        </div>
+                                        <div className="d-flex flex-column gap-2">
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">Away</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title="Home" type="button">Home</button>
+                                            <button className="button" onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="Game Winner" type="button">GWG</button>
+                                            <button className="button" onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="Overtime" type="button">OT</button>
+                                            <button className="button" onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
+                                            <button className="button" onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
+                                        </div>
+                                        <div className="d-flex flex-column gap-2">
+                                            <button className="button" onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
+                                            <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title="Cup Run" type="button">Cup&nbsp;Run</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
+                                            <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
+                                            <button className="button" onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
+                                            <button className="button" onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
+                                            <button className="button" onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
+                                        </div>
                                     </div>
-                                    <div className="d-flex flex-column gap-2">
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">Away</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title="Home" type="button">Home</button>
-                                        <button className="button" onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="Game Winner" type="button">GWG</button>
-                                        <button className="button" onClick={hatTrick} title="Hat Trick" type="button">Hat&nbsp;Trick</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="Overtime" type="button">OT</button>
-                                        <button className="button" onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
-                                        <button className="button" onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="search">
+                                <div className="accordion-header"><Accordion.Button className="fw-bold">Search</Accordion.Button></div>
+                                <Accordion.Body>
+                                <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
+                                    <div className="align-items-center d-flex flex-row gap-3">
+                                        <label htmlFor="goal-number">Number</label>
+                                        <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
                                     </div>
-                                    <div className="d-flex flex-column gap-2">
-                                        <button className="button" onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
-                                        <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
-                                        <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
-                                        <button className="button" onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
-                                        <button className="button" onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
-                                        <button className="button" onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
-                                        <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
+                                    <div className="align-items-center d-flex flex-row gap-3">
+                                    <label htmlFor="search-text-1">Text</label>
+                                    <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                                     </div>
-                                </div>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="search">
-                            <div className="accordion-header"><Accordion.Button className="fw-bold">Search</Accordion.Button></div>
-                            <Accordion.Body>
-                            <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
-                                <div className="align-items-center d-flex flex-row gap-3">
-                                    <label htmlFor="goal-number">Number</label>
-                                    <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
-                                </div>
-                                <div className="align-items-center d-flex flex-row gap-3">
-                                <label htmlFor="search-text-1">Text</label>
-                                <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
-                                </div>
-                                <Accordion className="advanced-accordion w-100">
-                                    <Accordion.Item eventKey="0">
-                                        <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
-                                        <Accordion.Body className="d-flex flex-column gap-2 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
-                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                <label htmlFor="league">League</label>
-                                                <select className="form-select py-1" id="league" name="League" value={filters.league} onChange={(e) => setFilters(f => ({...f, league: e.target.value}))}>
-                                                    <option value=""></option>
-                                                    <option className="fw-bold" value="NHL">NHL</option>
-                                                    <option value="NHL Regular">•&nbsp;NHL Regular</option>
-                                                    <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
-                                                    <option value="KHL">KHL</option>
-                                                    <option value="Olympics">Olympics</option>
-                                                    <option value="World Championships">World Championships</option>
-                                                    <option value="World Cup">World Cup</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                <label htmlFor="team">Team</label>
-                                                <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
-                                                    <option value=""></option>
-                                                    <option value="Anaheim Ducks">Anaheim Ducks</option>
-                                                    <option value="Mighty Ducks">•&nbsp;Mighty Ducks</option>
-                                                    <option value="Arizona Coyotes">Arizona Coyotes</option>
-                                                    <option value="Phoenix Coyotes">•&nbsp;Phoenix Coyotes</option>
-                                                    <option value="Atlanta Thrashers">Atlanta Thrashers</option>
-                                                    <option value="Boston Bruins">Boston Bruins</option>
-                                                    <option value="Buffalo Sabres">Buffalo Sabres</option>
-                                                    <option value="Calgary Flames">Calgary Flames</option>
-                                                    <option value="Carolina Hurricanes">Carolina Hurricanes</option>
-                                                    <option value="Chicago Blackhawks">Chicago Blackhawks</option>
-                                                    <option value="Colorado Avalanche">Colorado Avalanche</option>
-                                                    <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
-                                                    <option value="Dallas Stars">Dallas Stars</option>
-                                                    <option value="Detroit Red Wings">Detroit Red Wings</option>
-                                                    <option value="Edmonton Oilers">Edmonton Oilers</option>
-                                                    <option value="Florida Panthers">Florida Panthers</option>
-                                                    <option value="Los Angeles Kings">Los Angeles Kings</option>
-                                                    <option value="Minnesota Wild">Minnesota Wild</option>
-                                                    <option value="Montreal Canadiens">Montreal Canadiens</option>
-                                                    <option value="Nashville Predators">Nashville Predators</option>
-                                                    <option value="New Jersey Devils">New Jersey Devils</option>
-                                                    <option value="New York Islanders">New York Islanders</option>
-                                                    <option value="New York Rangers">New York Rangers</option>
-                                                    <option value="Ottawa Senators">Ottawa Senators</option>
-                                                    <option value="Philadelphia Flyers">Philadelphia Flyers</option>
-                                                    <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
-                                                    <option value="San Jose Sharks">San Jose Sharks</option>
-                                                    <option value="Seattle Kraken">Seattle Kraken</option>
-                                                    <option value="St. Louis Blues">St. Louis Blues</option>
-                                                    <option value="Tampa Bay Lightning">Tampa Bay Lightning</option>
-                                                    <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
-                                                    <option value="Utah Mammoth">Utah Mammoth</option>
-                                                    <option value="Vancouver Canucks">Vancouver Canucks</option>
-                                                    <option value="Vegas Golden Knights">Vegas Golden Knights</option>
-                                                    <option value="Winnipeg Jets">Winnipeg Jets</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                <label htmlFor="location">Location</label>
-                                                <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
-                                                    <option value=""></option>
-                                                    <option value="Home">Home</option>
-                                                    <option value="Away">Away</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                <label htmlFor="period">Period</label>
-                                                <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
-                                                    <option value=""></option>
-                                                    <option value="First">First</option>
-                                                    <option value="Second">Second</option>
-                                                    <option value="Third">Third</option>
-                                                    <option value="Overtime">Overtime</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                <label htmlFor="month">Month</label>
-                                                <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
-                                                    <option value=""></option>
-                                                    <option value="January">January</option>
-                                                    <option value="February">February</option>
-                                                    <option value="March">March</option>
-                                                    <option value="April">April</option>
-                                                    <option value="May">May</option>
-                                                    <option value="June">June</option>
-                                                    <option value="July" disabled>July</option>
-                                                    <option value="August">August</option>
-                                                    <option value="September">September</option>
-                                                    <option value="October">October</option>
-                                                    <option value="November">November</option>
-                                                    <option value="December">December</option>
-                                                </select>
-                                            </div>
-                                            <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
-                                                    <label htmlFor="season">Season</label>
-                                                    <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
+                                    <Accordion className="advanced-accordion w-100">
+                                        <Accordion.Item eventKey="0">
+                                            <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
+                                            <Accordion.Body className="d-flex flex-column gap-2 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                    <label htmlFor="league">League</label>
+                                                    <select className="form-select py-1" id="league" name="League" value={filters.league} onChange={(e) => setFilters(f => ({...f, league: e.target.value}))}>
                                                         <option value=""></option>
-                                                        {seasonOptions.map(n => (
-                                                            <option key={n} value={`Season ${n}`}>{n}</option>
-                                                        ))}
+                                                        <option className="fw-bold" value="NHL">NHL</option>
+                                                        <option value="NHL Regular">•&nbsp;NHL Regular</option>
+                                                        <option value="NHL Playoffs">•&nbsp;NHL Playoffs</option>
+                                                        <option value="KHL">KHL</option>
+                                                        <option value="Olympics">Olympics</option>
+                                                        <option value="World Championships">World Championships</option>
+                                                        <option value="World Cup">World Cup</option>
                                                     </select>
                                                 </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
-                                                    <label htmlFor="year">Year</label>
-                                                    <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                    <label htmlFor="team">Team</label>
+                                                    <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
                                                         <option value=""></option>
-                                                        {yearOptions.map(y => (
-                                                            <option key={y} value={y}>{y}</option>
-                                                        ))}
+                                                        <option value="Anaheim Ducks">Anaheim Ducks</option>
+                                                        <option value="Mighty Ducks">•&nbsp;Mighty Ducks</option>
+                                                        <option value="Arizona Coyotes">Arizona Coyotes</option>
+                                                        <option value="Phoenix Coyotes">•&nbsp;Phoenix Coyotes</option>
+                                                        <option value="Atlanta Thrashers">Atlanta Thrashers</option>
+                                                        <option value="Boston Bruins">Boston Bruins</option>
+                                                        <option value="Buffalo Sabres">Buffalo Sabres</option>
+                                                        <option value="Calgary Flames">Calgary Flames</option>
+                                                        <option value="Carolina Hurricanes">Carolina Hurricanes</option>
+                                                        <option value="Chicago Blackhawks">Chicago Blackhawks</option>
+                                                        <option value="Colorado Avalanche">Colorado Avalanche</option>
+                                                        <option value="Columbus Blue Jackets">Columbus Blue Jackets</option>
+                                                        <option value="Dallas Stars">Dallas Stars</option>
+                                                        <option value="Detroit Red Wings">Detroit Red Wings</option>
+                                                        <option value="Edmonton Oilers">Edmonton Oilers</option>
+                                                        <option value="Florida Panthers">Florida Panthers</option>
+                                                        <option value="Los Angeles Kings">Los Angeles Kings</option>
+                                                        <option value="Minnesota Wild">Minnesota Wild</option>
+                                                        <option value="Montreal Canadiens">Montreal Canadiens</option>
+                                                        <option value="Nashville Predators">Nashville Predators</option>
+                                                        <option value="New Jersey Devils">New Jersey Devils</option>
+                                                        <option value="New York Islanders">New York Islanders</option>
+                                                        <option value="New York Rangers">New York Rangers</option>
+                                                        <option value="Ottawa Senators">Ottawa Senators</option>
+                                                        <option value="Philadelphia Flyers">Philadelphia Flyers</option>
+                                                        <option value="Pittsburgh Penguins">Pittsburgh Penguins</option>
+                                                        <option value="San Jose Sharks">San Jose Sharks</option>
+                                                        <option value="Seattle Kraken">Seattle Kraken</option>
+                                                        <option value="St. Louis Blues">St. Louis Blues</option>
+                                                        <option value="Tampa Bay Lightning">Tampa Bay Lightning</option>
+                                                        <option value="Toronto Maple Leafs">Toronto Maple Leafs</option>
+                                                        <option value="Utah Mammoth">Utah Mammoth</option>
+                                                        <option value="Vancouver Canucks">Vancouver Canucks</option>
+                                                        <option value="Vegas Golden Knights">Vegas Golden Knights</option>
+                                                        <option value="Winnipeg Jets">Winnipeg Jets</option>
                                                     </select>
                                                 </div>
-                                            </div>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
-                                <div className="d-flex flex-column flex-sm-row gap-2 justify-content-between w-100">
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                    <label htmlFor="location">Location</label>
+                                                    <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
+                                                        <option value=""></option>
+                                                        <option value="Home">Home</option>
+                                                        <option value="Away">Away</option>
+                                                    </select>
+                                                </div>
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                    <label htmlFor="period">Period</label>
+                                                    <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
+                                                        <option value=""></option>
+                                                        <option value="First">First</option>
+                                                        <option value="Second">Second</option>
+                                                        <option value="Third">Third</option>
+                                                        <option value="Overtime">Overtime</option>
+                                                    </select>
+                                                </div>
+                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
+                                                    <label htmlFor="month">Month</label>
+                                                    <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
+                                                        <option value=""></option>
+                                                        <option value="January">January</option>
+                                                        <option value="February">February</option>
+                                                        <option value="March">March</option>
+                                                        <option value="April">April</option>
+                                                        <option value="May">May</option>
+                                                        <option value="June">June</option>
+                                                        <option value="July" disabled>July</option>
+                                                        <option value="August">August</option>
+                                                        <option value="September">September</option>
+                                                        <option value="October">October</option>
+                                                        <option value="November">November</option>
+                                                        <option value="December">December</option>
+                                                    </select>
+                                                </div>
+                                                <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
+                                                    <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
+                                                        <label htmlFor="season">Season</label>
+                                                        <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
+                                                            <option value=""></option>
+                                                            {seasonOptions.map(n => (
+                                                                <option key={n} value={`Season ${n}`}>{n}</option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
+                                                    <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
+                                                        <label htmlFor="year">Year</label>
+                                                        <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
+                                                            <option value=""></option>
+                                                            {yearOptions.map(y => (
+                                                                <option key={y} value={y}>{y}</option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </Accordion.Body>
+                                        </Accordion.Item>
+                                    </Accordion>
                                     <button className="button" onClick={() => searchSubmit(searchGoal, searchText)} title="Search" type="submit">Search</button>
-                                    <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
-                                </div>
-                            </form>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                </Accordion>
+                                </form>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                    </Accordion>
+                    <div className="d-flex flex-row justify-content-end">
+                        <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
+                    </div>
+                </div>
 
                 <div className="goal-results w-100">
                     <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${uiState === 'results' ? ' show' : ''}`} id="results">
@@ -540,7 +542,7 @@ function SearchForm({jsonData}) {
 }
 
 function WelcomeMessage({jsonData, onGoalSelect}) {
-    const { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime } = useOnThisDay(jsonData)
+    const { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime, dotwName, dotwMatches } = useOnThisDay(jsonData)
     return (
         <Accordion className="shadow-lg w-100" defaultActiveKey="0">
             <Accordion.Item eventKey="0">
@@ -562,21 +564,33 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                             </svg>
                         </div>
                     </div>
-                    <hr className="my-4"/>
-                    <p className="h6">On This Day</p>
-                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3">
-                        <span className="badge p-2">{month}/{day}</span>
+                    <hr className="my-3"/>
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
+                        <span className="h6 m-0">On This Day</span><span className="badge p-2">{month}/{day}</span>
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
                                 <div className="h4 m-0"><small>#</small>{goal.goal}</div>
                                 <small>from {goal.year}</small>
                             </button>
                         )) : (
-                            <small>No Goals</small>
+                            <button className="button" disabled>No Goals</button>
                         )}
                     </div>
-                    <hr className="my-4"/>
-                    <div className="align-items-center align-items-sm-center d-flex gap-2 mb-2">
+                    <hr className="my-3"/>
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
+                        <span className="h6 m-0">DOTW</span>
+                        Watch a
+                        <button className="button" title={`${dotwName} Goal`} type="button" onClick={() => {
+                            if (!dotwMatches.length) return
+                            onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
+                        }}>{dotwName} Goal</button>
+                    </div>
+
+
+
+                    <hr className="my-3"/>
+
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                         <p className="h6 m-0">At This Time</p>
                         <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
@@ -584,8 +598,6 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                                 <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
                             </svg>
                         </button>
-                    </div>
-                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3">
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
@@ -593,7 +605,7 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                                 <small>{goal.time} {PERIOD_NAME[goal.period]}</small>
                             </button>
                         )) : (
-                            <small>No Goals</small>
+                            <button className="button" disabled>No Goals</button>
                         )}
                     </div>
                 </Accordion.Body>

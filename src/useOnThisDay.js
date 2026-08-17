@@ -10,6 +10,8 @@ export function useOnThisDay(jsonData) {
     const now = new Date()
     const month = now.getMonth() + 1
     const day = now.getDate()
+    const dotwKey = now.getDay() + 1
+    const dotwName = now.toLocaleString('en-US', { weekday: 'long' })
 
     const [time, setTime] = useState(currentTime)
 
@@ -25,5 +27,9 @@ export function useOnThisDay(jsonData) {
         jsonData.filter(item => item.time === time),
     [jsonData, time])
 
-    return { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime }
+    const dotwMatches = useMemo(() =>
+        jsonData.filter(item => item.dotw === dotwKey),
+    [jsonData, dotwKey])
+
+    return { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime, dotwName, dotwMatches }
 }

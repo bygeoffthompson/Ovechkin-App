@@ -420,6 +420,11 @@ form {
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
+        width: 52px;
+
+        @media (min-width: 576px) {
+            width: 70px;
+        }
 
         &:hover,
         &:active {
@@ -468,7 +473,7 @@ form {
     max-width: 1.5rem;
 }
 
-.random-search {
+#random-search {
     @media (min-width: 992px) {
         max-width: 365px;
     }
