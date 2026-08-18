@@ -308,6 +308,7 @@ form {
   padding: .625rem .25rem;
   position: relative;
   transition: transform .2s;
+  user-select: none;
   width: 80px;
 
     @media (min-width: 576px) {
@@ -352,6 +353,25 @@ form {
     pointer-events: none;
     transform: none !important;
   }
+
+    &.counter {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    &.exclude {
+        background: #C81020;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        color: #FFF !important;
+        transform: none !important
+    }
+
+    &.include {
+        background: #111;
+    }
 
     &.cup {
         background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
