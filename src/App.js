@@ -266,6 +266,10 @@ function SearchForm({jsonData}) {
                     <div className="h4 m-0" data-goals={leagueCounts[2]}>{anim(leagueCounts[2])}</div>
                     <div>Playoffs</div>
                 </button>
+                <button className="button" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 'All Star'))} title="All Star" type="button">
+                    <div className="h4 m-0" data-goals={leagueCounts['All Star']}>{anim(leagueCounts['All Star'])}</div>
+                    <small>All Star</small>
+                </button>
                 <button className="button counter khl" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[3]}>{anim(leagueCounts[3])}</div>
                     <div>KHL</div>
