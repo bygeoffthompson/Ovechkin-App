@@ -1,6 +1,6 @@
 import {useState, useEffect, useMemo, useDeferredValue} from 'react'
 import {useUrlQuery} from './useUrlQuery'
-import {useGoalCounter} from './useGoalCounter'
+import {useGoalCounter, useCounterChange} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -46,6 +46,7 @@ function SearchForm({jsonData}) {
         () => leagueGoals.filter(item => !disabledLeagues[item.league]),
         [leagueGoals, disabledLeagues]
     )
+    const totalDisplay = useCounterChange(activeLeagueGoals.length)
 
     const activeFilters = useMemo(() => {
         const teams = new Set(), months = new Set(), periods = new Set(),
@@ -139,9 +140,11 @@ function SearchForm({jsonData}) {
         const goalQuery = parseFloat(searchGoal)
         const idx = jsonData.findIndex(item => item.goal === goalQuery)
         if (idx === -1) return []
-        if (hatTrickMode) return jsonData.slice(Math.max(0, idx - 2), idx + 1)
-        return [jsonData[idx]]
-    }, [jsonData, searchGoal, hatTrickMode])
+        const item = jsonData[idx]
+        if (disabledLeagues[item.league]) return []
+        if (hatTrickMode) return jsonData.slice(Math.max(0, idx - 2), idx + 1).filter(g => !disabledLeagues[g.league])
+        return [item]
+    }, [jsonData, searchGoal, hatTrickMode, disabledLeagues])
 
     const resultFilters = useMemo(() => {
         if (textResults.length === 0) return null
@@ -352,10 +355,10 @@ function SearchForm({jsonData}) {
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
-                        <div className="h4 m-0" data-goals={activeLeagueGoals.length}>{anim(activeLeagueGoals.length)}</div>
+                        <div className="h4 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</div>
                         <div>Total</div>
                     </button>
-                    <button className="button" disabled={isAnimating || Object.keys(disabledLeagues).length === 0} onClick={() => setDisabledLeagues({})} title="" type="button"><small>Include All</small></button>
+                    <button className="button include-all" disabled={isAnimating || Object.keys(disabledLeagues).length === 0} onClick={() => setDisabledLeagues({})} title="" type="button"><small>Include All</small></button>
                 </div>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">

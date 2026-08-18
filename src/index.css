@@ -368,7 +368,7 @@ form {
     }
 
     &.exclude {
-        background: #062D60;
+        background: #C81020;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         color: #FFF !important;
@@ -376,7 +376,12 @@ form {
     }
 
     &.include {
-        background: #C81020;
+        background: #062D60;
+    }
+
+    &.include-all {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 
     &.cup {
