@@ -305,7 +305,7 @@ function SearchForm({jsonData}) {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (['', 'Refresh', 'Reset', 'Search'].includes(title)) return
+                if (['', 'Exclude', 'Refresh', 'Reset', 'Search'].includes(title)) return
                 _ga?.event({
                     category: 'Click',
                     action: 'Button Click',
@@ -318,49 +318,49 @@ function SearchForm({jsonData}) {
                         <div className="h4 m-0" data-goals={leagueCounts[1]}>{anim(leagueCounts[1])}</div>
                         <div>NHL</div>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(1)} title="" type="button"><small>{disabledLeagues[1] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[1] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(1)} title="Exclude" type="button"><small>{disabledLeagues[1] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter" disabled={isAnimating || !!disabledLeagues[2]} onClick={() => randomGoal(jsonData.filter(item => item.league === 2))} title="NHL Playoffs" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[2]}>{anim(leagueCounts[2])}</div>
                         <div>Playoffs</div>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(2)} title="" type="button"><small>{disabledLeagues[2] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[2] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(2)} title="Exclude" type="button"><small>{disabledLeagues[2] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter" disabled={isAnimating || !!disabledLeagues['All Star']} onClick={() => randomGoal(jsonData.filter(item => item.league === 'All Star'))} title="All Star" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts['All Star']}>{anim(leagueCounts['All Star'])}</div>
                         <small>All Star</small>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague('All Star')} title="" type="button"><small>{disabledLeagues['All Star'] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues['All Star'] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague('All Star')} title="Exclude" type="button"><small>{disabledLeagues['All Star'] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter khl" disabled={isAnimating || !!disabledLeagues[3]} onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[3]}>{anim(leagueCounts[3])}</div>
                         <div>KHL</div>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(3)} title="" type="button"><small>{disabledLeagues[3] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[3] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(3)} title="Exclude" type="button"><small>{disabledLeagues[3] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button  counter" disabled={isAnimating || !!disabledLeagues[4]} onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[4]}>{anim(leagueCounts[4])}</div>
                         <div>Olympics</div>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(4)} title="" type="button"><small>{disabledLeagues[4] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[4] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(4)} title="Exclude" type="button"><small>{disabledLeagues[4] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter gold" disabled={isAnimating || !!disabledLeagues[5]} onClick={() => randomGoal(jsonData.filter(item => item.league === 5))} title="World Championships" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[5]}>{anim(leagueCounts[5])}</div>
                         <div>Worlds</div>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(5)} title="" type="button"><small>{disabledLeagues[5] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[5] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(5)} title="Exclude" type="button"><small>{disabledLeagues[5] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button  counter" disabled={isAnimating || !!disabledLeagues[6]} onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[6]}>{anim(leagueCounts[6])}</div>
                         <small>World Cup</small>
                     </button>
-                    <button className="button exclude" disabled={isAnimating} onClick={() => toggleLeague(6)} title="" type="button"><small>{disabledLeagues[6] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[6] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(6)} title="Exclude" type="button"><small>{disabledLeagues[6] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
@@ -505,10 +505,10 @@ function SearchForm({jsonData}) {
                                                     <label htmlFor="period">Period</label>
                                                     <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
                                                         <option value=""></option>
-                                                        <option value="First" disabled={!activeFilters.periods.has(1)}>First</option>
-                                                        <option value="Second" disabled={!activeFilters.periods.has(2)}>Second</option>
-                                                        <option value="Third" disabled={!activeFilters.periods.has(3)}>Third</option>
-                                                        <option value="Overtime" disabled={!activeFilters.periods.has(4)}>Overtime</option>
+                                                        <option value="P1" disabled={!activeFilters.periods.has(1)}>First</option>
+                                                        <option value="P2" disabled={!activeFilters.periods.has(2)}>Second</option>
+                                                        <option value="P3" disabled={!activeFilters.periods.has(3)}>Third</option>
+                                                        <option value="OT" disabled={!activeFilters.periods.has(4)}>Overtime</option>
                                                     </select>
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
