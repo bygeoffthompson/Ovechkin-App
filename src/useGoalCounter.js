@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function useGoalCounter(duration = 1500) {
+export function useGoalCounter(duration = 1250) {
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {

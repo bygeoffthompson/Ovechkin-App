@@ -9,8 +9,7 @@ let _ga = null
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
-const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
-const PERIOD_SHORT = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
+const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
 
@@ -87,7 +86,7 @@ function SearchForm({jsonData}) {
                 item.goalie,
                 item.goalie?.replace('-', ' '),
                 item.team,
-                PERIOD_NAME[item.period],
+                PERIOD_NAME[item.period].replace('OT', 'OT Overtime'),
                 item.time,
                 item.hoa === 1 ? 'Home' : item.hoa === 0 ? 'Away' : null,
                 item.jersey,
@@ -611,7 +610,7 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
-                                <small className="d-block">{goal.time} {PERIOD_SHORT[goal.period]}</small>
+                                <small className="d-block">{goal.time} {PERIOD_NAME[goal.period]}</small>
                                 <span>#{goal.goal}</span>
                             </button>
                         )) : (
@@ -658,11 +657,11 @@ function App() {
     }, [])
 
     if (error) {
-        return <p className="opacity-50 text-center">Data is unavailable at this moment. Please try again later.</p>
+        return <div className="alert alert-danger d-inline" role="alert">Data error. Please try again later.</div>
     }
 
     if (!data) {
-        return <div className="opacity-25 text-center">Loading...</div>
+        return <div className="alert alert-light d-inline" role="alert">Loading</div>
     }
 
     return (
