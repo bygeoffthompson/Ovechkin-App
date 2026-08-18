@@ -45,28 +45,28 @@
             <label for="combined-league">League</label>
             <select id="combined-league">
                 <option value="">All</option>
-                <option value="regular">NHL Regular</option>
-                <option value="playoff">NHL Playoffs</option>
+                <option value="1">NHL Regular</option>
+                <option value="2">NHL Playoffs</option>
             </select>
             <label for="combined-hoa">Home/Away</label>
             <select id="combined-hoa">
                 <option value="">All</option>
-                <option value="Home">Home</option>
-                <option value="Away">Away</option>
+                <option value="1">Home</option>
+                <option value="0">Away</option>
             </select>
             <label for="combined-period">Period</label>
             <select id="combined-period">
                 <option value="">All</option>
-                <option value="First">First</option>
-                <option value="Second">Second</option>
-                <option value="Third">Third</option>
-                <option value="Overtime">Overtime</option>
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+                <option value="4">Overtime</option>
             </select>
             <label for="combined-result">Win/Loss</label>
             <select id="combined-result">
                 <option value="">All</option>
-                <option value="W">Win</option>
-                <option value="L">Loss</option>
+                <option value="1">Win</option>
+                <option value="0">Loss</option>
             </select>
             <label for="combined-type">Type</label>
             <select id="combined-type">
@@ -102,13 +102,13 @@
             const res = await fetch('/goals.json');
             const data = await res.json();
 
-            const regular = data.filter(g => Number.isInteger(g.goal) && g.goal >= 1);
-            const playoffs = data.filter(g => g.league === 'NHL Playoffs');
+            const regular = data.filter(g => g.league === 1);
+            const playoffs = data.filter(g => g.league === 2);
 
             const colors = {
                 '': 'rgb(243, 65, 51)',
-                regular: 'rgb(243, 65, 51)',
-                playoff: 'rgb(34, 54, 115)'
+                '1': 'rgb(243, 65, 51)',
+                '2': 'rgb(34, 54, 115)'
             };
 
             function toPoints(goals) {
@@ -122,8 +122,8 @@
 
             function getSource() {
                 const league = document.getElementById('combined-league').value;
-                if (league === 'regular') return regular;
-                if (league === 'playoff') return playoffs;
+                if (league === '1') return regular;
+                if (league === '2') return playoffs;
                 return [...regular, ...playoffs].sort((a, b) => {
                     const da = new Date(a.year, a.month - 1, a.day);
                     const db = new Date(b.year, b.month - 1, b.day);
@@ -182,9 +182,9 @@
                 const result = document.getElementById('combined-result').value;
                 const tag = document.getElementById('combined-type').value;
                 let filtered = getSource();
-                if (hoa) filtered = filtered.filter(g => g.hoa === hoa);
-                if (period) filtered = filtered.filter(g => g.period === period);
-                if (result) filtered = filtered.filter(g => g.result === result);
+                if (hoa !== '') filtered = filtered.filter(g => g.hoa === Number(hoa));
+                if (period !== '') filtered = filtered.filter(g => g.period === Number(period));
+                if (result !== '') filtered = filtered.filter(g => g.result === Number(result));
                 if (tag) filtered = filtered.filter(g => [g.btn1, g.btn2, g.btn3].includes(tag));
                 const color = colors[league];
                 chart.data.datasets[0].borderColor = color;
