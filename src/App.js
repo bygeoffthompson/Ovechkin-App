@@ -108,7 +108,7 @@ function SearchForm({jsonData}) {
         if (searchResults.length === 0) return
         _ga?.event({
             category: 'Results',
-            action: 'Goal Views',
+            action: 'Open Goal Accordion',
             label: searchResults[0].goal.toString()
         })
     }, [searchResults])
@@ -514,7 +514,7 @@ function SearchForm({jsonData}) {
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
-                                <div className="accordion-header"><Accordion.Button onClick={(e) => { lazyLoadFrame(); if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Goal Views', label: result.goal.toString() })} }}>
+                                <div className="accordion-header"><Accordion.Button onClick={(e) => { lazyLoadFrame(); if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                     <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                         <strong className="align-items-center d-flex goal-count">
                                             {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
