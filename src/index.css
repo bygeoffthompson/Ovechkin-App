@@ -5,6 +5,12 @@
     }
 }
 
+.alert {
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
 .loading {
     min-height: 560px;
 }
@@ -362,7 +368,7 @@ form {
     }
 
     &.exclude {
-        background: #C81020;
+        background: #062D60;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         color: #FFF !important;
@@ -370,7 +376,7 @@ form {
     }
 
     &.include {
-        background: #062D60;
+        background: #C81020;
     }
 
     &.cup {

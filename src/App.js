@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo, useReducer, useTransition} from 'react'
+import {useState, useEffect, useMemo, useDeferredValue} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -14,16 +14,6 @@ const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thurs
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
 const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
 
-function uiReducer(_, action) {
-    switch (action) {
-        case 'RESET': return 'idle'
-        case 'GOAL': return 'goal'
-        case 'RESULTS': return 'results'
-        case 'EMPTY': return 'empty'
-        default: return _
-    }
-}
-
 function random(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
@@ -33,14 +23,14 @@ function random(min, max) {
 function SearchForm({jsonData}) {
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
-    const [searchResults, setSearchResults] = useState([])
-    const [uiState, dispatch] = useReducer(uiReducer, null, () => window.location.search.length <= 1 ? 'idle' : 'goal')
+    const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
-    const [showSort, setShowSort] = useState(true)
     const { anim, isAnimating } = useGoalCounter()
-    const [isPending, startTransition] = useTransition()
-    const [tooMany, setTooMany] = useState(0)
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
+    const [disabledLeagues, setDisabledLeagues] = useState({})
+
+    const deferredSearchText = useDeferredValue(searchText)
+    const deferredFilters = useDeferredValue(filters)
 
     const leagueCounts = useMemo(() => {
         const counts = {}
@@ -51,8 +41,6 @@ function SearchForm({jsonData}) {
     }, [jsonData])
 
     const leagueGoals = useMemo(() => jsonData.filter(item => item.league), [jsonData])
-
-    const [disabledLeagues, setDisabledLeagues] = useState({})
 
     const activeLeagueGoals = useMemo(
         () => leagueGoals.filter(item => !disabledLeagues[item.league]),
@@ -73,23 +61,6 @@ function SearchForm({jsonData}) {
         return { teams, months, periods, locations, seasons, years }
     }, [activeLeagueGoals])
 
-    function toggleLeague(key) {
-        setDisabledLeagues(prev => {
-            const next = { ...prev }
-            if (next[key]) delete next[key]
-            else next[key] = true
-            return next
-        })
-    }
-
-    function canFilter(match) {
-        return match.some(m => (valueIndex.get(m) ?? []).some(item => !disabledLeagues[item.league]))
-    }
-
-    function canRandom(arr) {
-        return arr.some(item => !disabledLeagues[item.league])
-    }
-
     const seasonOptions = useMemo(() => {
         const max = jsonData.reduce((m, i) => Math.max(m, i.season), 0)
         return Array.from({length: max}, (_, i) => i + 1)
@@ -99,15 +70,6 @@ function SearchForm({jsonData}) {
         const max = jsonData.reduce((m, i) => Math.max(m, i.year), 0)
         return Array.from({length: max - 2004 + 1}, (_, i) => 2004 + i)
     }, [jsonData])
-
-    const sortedResults = useMemo(() =>
-        [...searchResults].sort((first, last) => {
-            if (first.goal === '' && last.goal === '') return 0
-            if (first.goal === '') return 1
-            if (last.goal === '') return -1
-            return sortOrder === 'asc' ? first.goal - last.goal : last.goal - first.goal
-        }),
-    [searchResults, sortOrder])
 
     const valueIndex = useMemo(() => {
         const idx = new Map()
@@ -155,16 +117,93 @@ function SearchForm({jsonData}) {
         }),
     [jsonData])
 
-    useUrlQuery(setSearchGoal, setSearchText, searchSubmit)
+    const hasTextQuery = searchText.length > 0 || Object.values(filters).some(Boolean)
+
+    const tooShort = searchText.length > 0 && searchText.length < 3
+
+    const textResults = useMemo(() => {
+        const selectFilters = Object.values(deferredFilters).map(normalize).filter(Boolean)
+        if (deferredSearchText.length === 0 && selectFilters.length === 0) return []
+        if (deferredSearchText.length > 0 && deferredSearchText.length < 3) return []
+        const terms = normalize(deferredSearchText).split('+').map(s => s.trim()).filter(Boolean)
+        return jsonData.filter((item, i) => {
+            const search = searchStrings[i]
+            return !disabledLeagues[item.league] &&
+                   terms.every(term => search.includes(term)) &&
+                   selectFilters.every(f => search.includes(f))
+        })
+    }, [jsonData, deferredSearchText, deferredFilters, disabledLeagues, searchStrings])
+
+    const goalResults = useMemo(() => {
+        if (!searchGoal) return []
+        const goalQuery = parseFloat(searchGoal)
+        const idx = jsonData.findIndex(item => item.goal === goalQuery)
+        if (idx === -1) return []
+        if (hatTrickMode) return jsonData.slice(Math.max(0, idx - 2), idx + 1)
+        return [jsonData[idx]]
+    }, [jsonData, searchGoal, hatTrickMode])
+
+    const resultFilters = useMemo(() => {
+        if (textResults.length === 0) return null
+        const teams = new Set(), months = new Set(), periods = new Set(),
+              locations = new Set(), seasons = new Set(), years = new Set()
+        for (const item of textResults) {
+            if (item.team) teams.add(item.team)
+            months.add(item.month)
+            periods.add(item.period)
+            locations.add(item.hoa)
+            seasons.add(item.season)
+            years.add(item.year)
+        }
+        return { teams, months, periods, locations, seasons, years }
+    }, [textResults])
+
+    const emptyFilters = { teams: new Set(), months: new Set(), periods: new Set(), locations: new Set(), seasons: new Set(), years: new Set() }
+    const filterOptions = searchGoal ? emptyFilters : (resultFilters ?? activeFilters)
+
+    const searchResults = hasTextQuery ? textResults : goalResults
+    const tooMany = hasTextQuery && textResults.length > 600
+    const isPending = !tooShort && hasTextQuery && (searchText !== deferredSearchText || filters !== deferredFilters)
+    const isIdle = !hasTextQuery && !searchGoal
+    const showSort = !tooMany && !isPending && !hatTrickMode && searchResults.length > 1
+
+    const sortedResults = useMemo(() => {
+        if (tooMany) return []
+        return [...searchResults].sort((first, last) => {
+            if (first.goal === '' && last.goal === '') return 0
+            if (first.goal === '') return 1
+            if (last.goal === '') return -1
+            return sortOrder === 'asc' ? first.goal - last.goal : last.goal - first.goal
+        })
+    }, [searchResults, sortOrder, tooMany])
+
+    useUrlQuery(setSearchGoal, setSearchText, () => {})
 
     useEffect(() => {
-        if (searchResults.length === 0) return
+        if (textResults.length === 0) return
         _ga?.event({
             category: 'Results',
             action: 'Open Goal Accordion',
-            label: searchResults[0].goal.toString()
+            label: textResults[0].goal.toString()
         })
-    }, [searchResults])
+    }, [textResults])
+
+    function toggleLeague(key) {
+        setDisabledLeagues(prev => {
+            const next = { ...prev }
+            if (next[key]) delete next[key]
+            else next[key] = true
+            return next
+        })
+    }
+
+    function canFilter(match) {
+        return match.some(m => (valueIndex.get(m) ?? []).some(item => !disabledLeagues[item.league]))
+    }
+
+    function canRandom(arr) {
+        return arr.some(item => !disabledLeagues[item.league])
+    }
 
     function lazyLoadFrame() {
         setTimeout(() => {
@@ -180,11 +219,14 @@ function SearchForm({jsonData}) {
 
     function handleText(e) {
         setSearchGoal('')
+        setHatTrickMode(false)
         setSearchText(e.target.value)
     }
 
     function outdoor() {
         clearAdvanced()
+        setSearchText('')
+        setHatTrickMode(false)
         const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
@@ -192,7 +234,6 @@ function SearchForm({jsonData}) {
         else if (input === 598) goal = 475
         else goal = 440
         setSearchGoal(goal)
-        searchSubmit(goal, '')
     }
 
     function pickRandom(arr) {
@@ -205,21 +246,20 @@ function SearchForm({jsonData}) {
 
     function randomGoal(filtered) {
         clearAdvanced()
+        setSearchText('')
+        setHatTrickMode(false)
         const active = filtered.filter(item => !disabledLeagues[item.league])
         if (active.length === 0) return
-        const picked = pickRandom(active)
-        setSearchGoal(picked.goal)
-        searchSubmit(picked.goal, '')
+        setSearchGoal(pickRandom(active).goal)
     }
 
     function filterGoal(match) {
         clearAdvanced()
-        resultsHide()
+        setSearchText('')
+        setHatTrickMode(false)
         const result = jsonData.filter(item => !disabledLeagues[item.league] && Object.values(item).some(value => match.includes(value)))
         if (result.length === 0) return
-        const picked = pickRandom(result)
-        setSearchGoal(picked.goal)
-        searchSubmit(picked.goal, '')
+        setSearchGoal(pickRandom(result).goal)
     }
 
     function clearAdvanced() {
@@ -227,77 +267,25 @@ function SearchForm({jsonData}) {
     }
 
     function reset() {
-        resultsHide()
+        setSearchText('')
         setSearchGoal('')
-        setSearchResults([])
-        setTooMany(0)
-        dispatch('RESET')
-        setShowSort(true)
+        setHatTrickMode(false)
+        setSortOrder('asc')
         clearAdvanced()
         setDisabledLeagues({})
     }
 
-    function resultsHide() {
-        setSearchText('')
-    }
-
-    function searchSubmit(goal = '', text = '') {
-        setShowSort(true)
-        const selectFilters = Object.values(filters).map(normalize).filter(Boolean)
-
-        if (goal) {
-            resultsHide()
-            dispatch('GOAL')
-            const goalQuery = parseFloat(goal)
-            const results = jsonData.filter((item, i) =>
-                item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
-            )
-            startTransition(() => setSearchResults(results))
-        } else if (text.length > 0 || selectFilters.length > 0) {
-            _ga?.event({
-                category: 'Search',
-                action: 'Text Search',
-                label: text
-            })
-            const terms = normalize(text).split('+').map(s => s.trim()).filter(Boolean)
-            const results = jsonData.filter((item, i) => {
-                const search = searchStrings[i]
-                return !disabledLeagues[item.league] && terms.every(term => search.includes(term)) && selectFilters.every(f => search.includes(f))
-            })
-
-            if (results.length > 600) {
-                setTooMany(results.length)
-                setSearchResults([])
-                dispatch('EMPTY')
-                return
-            }
-            setTooMany(0)
-
-            if (results.length > 0) {
-                dispatch('RESULTS')
-                if (results.length === 1) setShowSort(false)
-            } else {
-                dispatch('EMPTY')
-            }
-            startTransition(() => setSearchResults(results))
-        }
-    }
-
     function hatTrick() {
         clearAdvanced()
+        setSearchText('')
         const hatTrickGoals = jsonData.filter(item =>
             !disabledLeagues[item.league] && [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
         )
         if (hatTrickGoals.length === 0) return
         const picked = pickRandom(hatTrickGoals)
-        const idx = jsonData.findIndex(item => item.goal === picked.goal)
-        const results = jsonData.slice(Math.max(0, idx - 2), idx + 1)
-        resultsHide()
+        setHatTrickMode(true)
         setSortOrder('desc')
-        setShowSort(false)
         setSearchGoal(picked.goal)
-        setSearchResults(results)
-        dispatch('RESULTS')
     }
 
     return (
@@ -342,7 +330,7 @@ function SearchForm({jsonData}) {
                     <button className={`button exclude${disabledLeagues[3] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(3)} title="Exclude" type="button"><small>{disabledLeagues[3] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <button className="button  counter" disabled={isAnimating || !!disabledLeagues[4]} onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
+                    <button className="button counter" disabled={isAnimating || !!disabledLeagues[4]} onClick={() => randomGoal(jsonData.filter(item => item.league === 4))} title="Olympics" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[4]}>{anim(leagueCounts[4])}</div>
                         <div>Olympics</div>
                     </button>
@@ -356,7 +344,7 @@ function SearchForm({jsonData}) {
                     <button className={`button exclude${disabledLeagues[5] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(5)} title="Exclude" type="button"><small>{disabledLeagues[5] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <button className="button  counter" disabled={isAnimating || !!disabledLeagues[6]} onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
+                    <button className="button counter" disabled={isAnimating || !!disabledLeagues[6]} onClick={() => randomGoal(jsonData.filter(item => item.league === 6))} title="World Cup" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[6]}>{anim(leagueCounts[6])}</div>
                         <small>World Cup</small>
                     </button>
@@ -367,7 +355,7 @@ function SearchForm({jsonData}) {
                         <div className="h4 m-0" data-goals={activeLeagueGoals.length}>{anim(activeLeagueGoals.length)}</div>
                         <div>Total</div>
                     </button>
-                    <button className="button exclude include" disabled={isAnimating || Object.keys(disabledLeagues).length === 0} onClick={() => setDisabledLeagues({})} title="" type="button"><small>Include All</small></button>
+                    <button className="button" disabled={isAnimating || Object.keys(disabledLeagues).length === 0} onClick={() => setDisabledLeagues({})} title="" type="button"><small>Include All</small></button>
                 </div>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
@@ -442,7 +430,7 @@ function SearchForm({jsonData}) {
                                 <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                                     <div className="align-items-center d-flex flex-row gap-3">
                                         <label htmlFor="goal-number">Number</label>
-                                        <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => setSearchGoal(e.target.value)}/>
+                                        <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => { setSearchText(''); setHatTrickMode(false); setSearchGoal(e.target.value) }}/>
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3">
                                     <label htmlFor="search-text-1">Text</label>
@@ -456,77 +444,77 @@ function SearchForm({jsonData}) {
                                                     <label htmlFor="team">Team</label>
                                                     <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
                                                         <option value=""></option>
-                                                        <option value="Anaheim Ducks" disabled={!activeFilters.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
-                                                        <option value="Mighty Ducks" disabled={!activeFilters.teams.has('Mighty Ducks')}>•&nbsp;Mighty Ducks</option>
-                                                        <option value="Arizona Coyotes" disabled={!activeFilters.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
-                                                        <option value="Phoenix Coyotes" disabled={!activeFilters.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
-                                                        <option value="Atlanta Thrashers" disabled={!activeFilters.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>
-                                                        <option value="Boston Bruins" disabled={!activeFilters.teams.has('Boston Bruins')}>Boston Bruins</option>
-                                                        <option value="Buffalo Sabres" disabled={!activeFilters.teams.has('Buffalo Sabres')}>Buffalo Sabres</option>
-                                                        <option value="Calgary Flames" disabled={!activeFilters.teams.has('Calgary Flames')}>Calgary Flames</option>
-                                                        <option value="Carolina Hurricanes" disabled={!activeFilters.teams.has('Carolina Hurricanes')}>Carolina Hurricanes</option>
-                                                        <option value="Chicago Blackhawks" disabled={!activeFilters.teams.has('Chicago Blackhawks')}>Chicago Blackhawks</option>
-                                                        <option value="Colorado Avalanche" disabled={!activeFilters.teams.has('Colorado Avalanche')}>Colorado Avalanche</option>
-                                                        <option value="Columbus Blue Jackets" disabled={!activeFilters.teams.has('Columbus Blue Jackets')}>Columbus Blue Jackets</option>
-                                                        <option value="Dallas Stars" disabled={!activeFilters.teams.has('Dallas Stars')}>Dallas Stars</option>
-                                                        <option value="Detroit Red Wings" disabled={!activeFilters.teams.has('Detroit Red Wings')}>Detroit Red Wings</option>
-                                                        <option value="Edmonton Oilers" disabled={!activeFilters.teams.has('Edmonton Oilers')}>Edmonton Oilers</option>
-                                                        <option value="Florida Panthers" disabled={!activeFilters.teams.has('Florida Panthers')}>Florida Panthers</option>
-                                                        <option value="Los Angeles Kings" disabled={!activeFilters.teams.has('Los Angeles Kings')}>Los Angeles Kings</option>
-                                                        <option value="Minnesota Wild" disabled={!activeFilters.teams.has('Minnesota Wild')}>Minnesota Wild</option>
-                                                        <option value="Montreal Canadiens" disabled={!activeFilters.teams.has('Montreal Canadiens')}>Montreal Canadiens</option>
-                                                        <option value="Nashville Predators" disabled={!activeFilters.teams.has('Nashville Predators')}>Nashville Predators</option>
-                                                        <option value="New Jersey Devils" disabled={!activeFilters.teams.has('New Jersey Devils')}>New Jersey Devils</option>
-                                                        <option value="New York Islanders" disabled={!activeFilters.teams.has('New York Islanders')}>New York Islanders</option>
-                                                        <option value="New York Rangers" disabled={!activeFilters.teams.has('New York Rangers')}>New York Rangers</option>
-                                                        <option value="Ottawa Senators" disabled={!activeFilters.teams.has('Ottawa Senators')}>Ottawa Senators</option>
-                                                        <option value="Philadelphia Flyers" disabled={!activeFilters.teams.has('Philadelphia Flyers')}>Philadelphia Flyers</option>
-                                                        <option value="Pittsburgh Penguins" disabled={!activeFilters.teams.has('Pittsburgh Penguins')}>Pittsburgh Penguins</option>
-                                                        <option value="San Jose Sharks" disabled={!activeFilters.teams.has('San Jose Sharks')}>San Jose Sharks</option>
-                                                        <option value="Seattle Kraken" disabled={!activeFilters.teams.has('Seattle Kraken')}>Seattle Kraken</option>
-                                                        <option value="St. Louis Blues" disabled={!activeFilters.teams.has('St. Louis Blues')}>St. Louis Blues</option>
-                                                        <option value="Tampa Bay Lightning" disabled={!activeFilters.teams.has('Tampa Bay Lightning')}>Tampa Bay Lightning</option>
-                                                        <option value="Toronto Maple Leafs" disabled={!activeFilters.teams.has('Toronto Maple Leafs')}>Toronto Maple Leafs</option>
-                                                        <option value="Utah Mammoth" disabled={!activeFilters.teams.has('Utah Mammoth')}>Utah Mammoth</option>
-                                                        <option value="Vancouver Canucks" disabled={!activeFilters.teams.has('Vancouver Canucks')}>Vancouver Canucks</option>
-                                                        <option value="Vegas Golden Knights" disabled={!activeFilters.teams.has('Vegas Golden Knights')}>Vegas Golden Knights</option>
-                                                        <option value="Winnipeg Jets" disabled={!activeFilters.teams.has('Winnipeg Jets')}>Winnipeg Jets</option>
+                                                        <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
+                                                        <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks')}>•&nbsp;Mighty Ducks</option>
+                                                        <option value="Arizona Coyotes" disabled={!filterOptions.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
+                                                        <option value="Phoenix Coyotes" disabled={!filterOptions.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
+                                                        <option value="Atlanta Thrashers" disabled={!filterOptions.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>
+                                                        <option value="Boston Bruins" disabled={!filterOptions.teams.has('Boston Bruins')}>Boston Bruins</option>
+                                                        <option value="Buffalo Sabres" disabled={!filterOptions.teams.has('Buffalo Sabres')}>Buffalo Sabres</option>
+                                                        <option value="Calgary Flames" disabled={!filterOptions.teams.has('Calgary Flames')}>Calgary Flames</option>
+                                                        <option value="Carolina Hurricanes" disabled={!filterOptions.teams.has('Carolina Hurricanes')}>Carolina Hurricanes</option>
+                                                        <option value="Chicago Blackhawks" disabled={!filterOptions.teams.has('Chicago Blackhawks')}>Chicago Blackhawks</option>
+                                                        <option value="Colorado Avalanche" disabled={!filterOptions.teams.has('Colorado Avalanche')}>Colorado Avalanche</option>
+                                                        <option value="Columbus Blue Jackets" disabled={!filterOptions.teams.has('Columbus Blue Jackets')}>Columbus Blue Jackets</option>
+                                                        <option value="Dallas Stars" disabled={!filterOptions.teams.has('Dallas Stars')}>Dallas Stars</option>
+                                                        <option value="Detroit Red Wings" disabled={!filterOptions.teams.has('Detroit Red Wings')}>Detroit Red Wings</option>
+                                                        <option value="Edmonton Oilers" disabled={!filterOptions.teams.has('Edmonton Oilers')}>Edmonton Oilers</option>
+                                                        <option value="Florida Panthers" disabled={!filterOptions.teams.has('Florida Panthers')}>Florida Panthers</option>
+                                                        <option value="Los Angeles Kings" disabled={!filterOptions.teams.has('Los Angeles Kings')}>Los Angeles Kings</option>
+                                                        <option value="Minnesota Wild" disabled={!filterOptions.teams.has('Minnesota Wild')}>Minnesota Wild</option>
+                                                        <option value="Montreal Canadiens" disabled={!filterOptions.teams.has('Montreal Canadiens')}>Montreal Canadiens</option>
+                                                        <option value="Nashville Predators" disabled={!filterOptions.teams.has('Nashville Predators')}>Nashville Predators</option>
+                                                        <option value="New Jersey Devils" disabled={!filterOptions.teams.has('New Jersey Devils')}>New Jersey Devils</option>
+                                                        <option value="New York Islanders" disabled={!filterOptions.teams.has('New York Islanders')}>New York Islanders</option>
+                                                        <option value="New York Rangers" disabled={!filterOptions.teams.has('New York Rangers')}>New York Rangers</option>
+                                                        <option value="Ottawa Senators" disabled={!filterOptions.teams.has('Ottawa Senators')}>Ottawa Senators</option>
+                                                        <option value="Philadelphia Flyers" disabled={!filterOptions.teams.has('Philadelphia Flyers')}>Philadelphia Flyers</option>
+                                                        <option value="Pittsburgh Penguins" disabled={!filterOptions.teams.has('Pittsburgh Penguins')}>Pittsburgh Penguins</option>
+                                                        <option value="San Jose Sharks" disabled={!filterOptions.teams.has('San Jose Sharks')}>San Jose Sharks</option>
+                                                        <option value="Seattle Kraken" disabled={!filterOptions.teams.has('Seattle Kraken')}>Seattle Kraken</option>
+                                                        <option value="St. Louis Blues" disabled={!filterOptions.teams.has('St. Louis Blues')}>St. Louis Blues</option>
+                                                        <option value="Tampa Bay Lightning" disabled={!filterOptions.teams.has('Tampa Bay Lightning')}>Tampa Bay Lightning</option>
+                                                        <option value="Toronto Maple Leafs" disabled={!filterOptions.teams.has('Toronto Maple Leafs')}>Toronto Maple Leafs</option>
+                                                        <option value="Utah Mammoth" disabled={!filterOptions.teams.has('Utah Mammoth')}>Utah Mammoth</option>
+                                                        <option value="Vancouver Canucks" disabled={!filterOptions.teams.has('Vancouver Canucks')}>Vancouver Canucks</option>
+                                                        <option value="Vegas Golden Knights" disabled={!filterOptions.teams.has('Vegas Golden Knights')}>Vegas Golden Knights</option>
+                                                        <option value="Winnipeg Jets" disabled={!filterOptions.teams.has('Winnipeg Jets')}>Winnipeg Jets</option>
                                                     </select>
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="location">Location</label>
                                                     <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
                                                         <option value=""></option>
-                                                        <option value="Home" disabled={!activeFilters.locations.has(1)}>Home</option>
-                                                        <option value="Away" disabled={!activeFilters.locations.has(0)}>Away</option>
+                                                        <option value="Home" disabled={!filterOptions.locations.has(1)}>Home</option>
+                                                        <option value="Away" disabled={!filterOptions.locations.has(0)}>Away</option>
                                                     </select>
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="period">Period</label>
                                                     <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
                                                         <option value=""></option>
-                                                        <option value="P1" disabled={!activeFilters.periods.has(1)}>First</option>
-                                                        <option value="P2" disabled={!activeFilters.periods.has(2)}>Second</option>
-                                                        <option value="P3" disabled={!activeFilters.periods.has(3)}>Third</option>
-                                                        <option value="OT" disabled={!activeFilters.periods.has(4)}>Overtime</option>
+                                                        <option value="P1" disabled={!filterOptions.periods.has(1)}>First</option>
+                                                        <option value="P2" disabled={!filterOptions.periods.has(2)}>Second</option>
+                                                        <option value="P3" disabled={!filterOptions.periods.has(3)}>Third</option>
+                                                        <option value="OT" disabled={!filterOptions.periods.has(4)}>Overtime</option>
                                                     </select>
                                                 </div>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="month">Month</label>
                                                     <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
                                                         <option value=""></option>
-                                                        <option value="January" disabled={!activeFilters.months.has(1)}>January</option>
-                                                        <option value="February" disabled={!activeFilters.months.has(2)}>February</option>
-                                                        <option value="March" disabled={!activeFilters.months.has(3)}>March</option>
-                                                        <option value="April" disabled={!activeFilters.months.has(4)}>April</option>
-                                                        <option value="May" disabled={!activeFilters.months.has(5)}>May</option>
-                                                        <option value="June" disabled={!activeFilters.months.has(6)}>June</option>
-                                                        <option value="July" disabled={!activeFilters.months.has(7)}>July</option>
-                                                        <option value="August" disabled={!activeFilters.months.has(8)}>August</option>
-                                                        <option value="September" disabled={!activeFilters.months.has(9)}>September</option>
-                                                        <option value="October" disabled={!activeFilters.months.has(10)}>October</option>
-                                                        <option value="November" disabled={!activeFilters.months.has(11)}>November</option>
-                                                        <option value="December" disabled={!activeFilters.months.has(12)}>December</option>
+                                                        <option value="January" disabled={!filterOptions.months.has(1)}>January</option>
+                                                        <option value="February" disabled={!filterOptions.months.has(2)}>February</option>
+                                                        <option value="March" disabled={!filterOptions.months.has(3)}>March</option>
+                                                        <option value="April" disabled={!filterOptions.months.has(4)}>April</option>
+                                                        <option value="May" disabled={!filterOptions.months.has(5)}>May</option>
+                                                        <option value="June" disabled={!filterOptions.months.has(6)}>June</option>
+                                                        <option value="July" disabled={!filterOptions.months.has(7)}>July</option>
+                                                        <option value="August" disabled={!filterOptions.months.has(8)}>August</option>
+                                                        <option value="September" disabled={!filterOptions.months.has(9)}>September</option>
+                                                        <option value="October" disabled={!filterOptions.months.has(10)}>October</option>
+                                                        <option value="November" disabled={!filterOptions.months.has(11)}>November</option>
+                                                        <option value="December" disabled={!filterOptions.months.has(12)}>December</option>
                                                     </select>
                                                 </div>
                                                 <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
@@ -535,7 +523,7 @@ function SearchForm({jsonData}) {
                                                         <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
                                                             <option value=""></option>
                                                             {seasonOptions.map(n => (
-                                                                <option key={n} value={`Season ${n}`} disabled={!activeFilters.seasons.has(n)}>{n}</option>
+                                                                <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n}</option>
                                                             ))}
                                                         </select>
                                                     </div>
@@ -544,7 +532,7 @@ function SearchForm({jsonData}) {
                                                         <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
                                                             <option value=""></option>
                                                             {yearOptions.map(y => (
-                                                                <option key={y} value={y} disabled={!activeFilters.years.has(y)}>{y}</option>
+                                                                <option key={y} value={y} disabled={!filterOptions.years.has(y)}>{y}</option>
                                                             ))}
                                                         </select>
                                                     </div>
@@ -552,7 +540,7 @@ function SearchForm({jsonData}) {
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
-                                    <button className="button" onClick={() => searchSubmit(searchGoal, searchText)} title="Search" type="submit">Search</button>
+                                    <button className="button w-100" title="Search" type="submit">Search</button>
                                 </form>
                                 </Accordion.Body>
                             </Accordion.Item>
@@ -563,17 +551,18 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="goal-results w-100">
-                    {((uiState === 'results' && !isPending && sortedResults.length > 1) || tooMany > 0) && (
+                    {((!isPending && sortedResults.length > 1) || tooMany) && (
                         <div className="align-items-center d-flex gap-3 justify-content-start mb-3 w-100" id="results">
-                            <strong className="badge py-2" data-count={tooMany || sortedResults.length}>{`${tooMany || sortedResults.length} Result${(tooMany || sortedResults.length) !== 1 ? 's' : ''}`}</strong>
-                            {showSort && !tooMany && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <strong className="badge py-2" data-count={tooMany ? textResults.length : sortedResults.length}>{`${tooMany ? textResults.length : sortedResults.length} Result${(tooMany ? textResults.length : sortedResults.length) !== 1 ? 's' : ''}`}</strong>
+                            {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                                 <option value="asc">Ascend</option>
                                 <option value="desc">Descend</option>
                             </select>}
                         </div>
                     )}
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
-                    {tooMany > 0 && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
+                    {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Text search requires at least 3 characters.</span></div>}
+                    {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {!isPending && sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
@@ -618,8 +607,8 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {uiState === 'idle' && <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); searchSubmit(g) }} />}
-                    {uiState === 'empty' && !tooMany && <NoResults />}
+                    {isIdle && <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} />}
+                    {!isIdle && !isPending && !tooMany && !tooShort && sortedResults.length === 0 && <NoResults />}
                 </div>
             </div>
         </div>
@@ -695,15 +684,11 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
 
 function NoResults() {
     return (
-        <Accordion className="shadow-lg w-100" defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-                <div className="accordion-header"><Accordion.Button className="fw-bold">No Results Found</Accordion.Button></div>
-                <Accordion.Body>
-                    <p>Please try again.</p>
-                    <p className="m-0"><a href="/help.html">Help</a></p>
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
+        <div className="alert alert-light" role="alert">
+            <p className="fw-bold">No Results</p>
+            <p>Please try again</p>
+            <p><a href="/help.html">Help</a></p>
+        </div>
     )
 }
 
@@ -727,11 +712,11 @@ function App() {
     }, [])
 
     if (error) {
-        return <div className="alert alert-danger d-inline" role="alert">Data error. Please try again later.</div>
+        return <div className="alert alert-danger" role="alert">Data error. Please try again later.</div>
     }
 
     if (!data) {
-        return <div className="alert alert-light d-inline" role="alert">Loading</div>
+        return <div className="alert alert-light" role="alert">Loading</div>
     }
 
     return (
