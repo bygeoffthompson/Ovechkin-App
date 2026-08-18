@@ -142,29 +142,27 @@ function SearchForm({jsonData}) {
         searchSubmit(goal, '')
     }
 
+    function pickRandom(arr) {
+        let picked
+        do {
+            picked = arr[random(0, arr.length - 1)]
+        } while (picked.goal === parseFloat(searchGoal) && arr.length > 1)
+        return picked
+    }
+
     function randomGoal(filtered) {
         clearAdvanced()
-        let goal
-        do {
-            goal = filtered[random(0, filtered.length - 1)].goal
-        } while (goal === parseFloat(searchGoal) && filtered.length > 1)
-        setSearchGoal(goal)
-        searchSubmit(goal, '')
+        const picked = pickRandom(filtered)
+        setSearchGoal(picked.goal)
+        searchSubmit(picked.goal, '')
     }
 
     function filterGoal(match) {
         clearAdvanced()
         resultsHide()
-        const result = jsonData.filter(item =>
-            Object.values(item).some(value =>
-                match.includes(value)
-            )
-        )
+        const result = jsonData.filter(item => Object.values(item).some(value => match.includes(value)))
         if (result.length === 0) return
-        let picked
-        do {
-            picked = result[random(0, result.length - 1)]
-        } while (picked.goal === parseFloat(searchGoal) && result.length > 1)
+        const picked = pickRandom(result)
         setSearchGoal(picked.goal)
         searchSubmit(picked.goal, '')
     }
@@ -561,7 +559,7 @@ function SearchForm({jsonData}) {
 }
 
 function WelcomeMessage({jsonData, onGoalSelect}) {
-    const { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime, dotwName, dotwMatches } = useOnThisDay(jsonData)
+    const { onThisDayGoals, month, day, atThisTimeGoals, time, ampm, refreshTime, dotwName, dotwMatches } = useOnThisDay(jsonData)
     return (
         <Accordion className="shadow-lg w-100" defaultActiveKey="0">
             <Accordion.Item eventKey="0">
@@ -606,13 +604,7 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                         <p className="h6 m-0">Time</p>
                         <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
-                            <div className="align-items-center d-flex flex-row gap-1 justify-content-center">
-                                {time}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
-                                    <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
-                                    <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
-                                </svg>
-                            </div>
+                            {time} {ampm}
                         </button>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">

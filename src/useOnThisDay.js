@@ -2,8 +2,11 @@ import { useState, useMemo } from 'react'
 
 function currentTime() {
     const now = new Date()
-    const hours = now.getHours() % 12 || 12
-    return `${hours}:${String(now.getMinutes()).padStart(2, '0')}`
+    const hours = now.getHours()
+    return {
+        time: `${hours % 12 || 12}:${String(now.getMinutes()).padStart(2, '0')}`,
+        ampm: hours < 12 ? 'AM' : 'PM'
+    }
 }
 
 export function useOnThisDay(jsonData) {
@@ -13,7 +16,7 @@ export function useOnThisDay(jsonData) {
     const dotwKey = now.getDay() + 1
     const dotwName = now.toLocaleString('en-US', { weekday: 'long' })
 
-    const [time, setTime] = useState(currentTime)
+    const [{ time, ampm }, setTime] = useState(currentTime)
 
     function refreshTime() {
         setTime(currentTime())
@@ -31,5 +34,5 @@ export function useOnThisDay(jsonData) {
         jsonData.filter(item => item.dotw === dotwKey),
     [jsonData, dotwKey])
 
-    return { onThisDayGoals, month, day, atThisTimeGoals, time, refreshTime, dotwName, dotwMatches }
+    return { onThisDayGoals, month, day, atThisTimeGoals, time, ampm, refreshTime, dotwName, dotwMatches }
 }
