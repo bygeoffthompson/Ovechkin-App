@@ -94,9 +94,9 @@ function SearchForm({jsonData}) {
                 item.game && 'G' + item.game,
                 item.search,
                 item.btn1, item.btn2, item.btn3,
-                item.primary && `P:${item.primary}`, item.secondary && `S:${item.secondary}`,
-                item.primary, item.secondary,
-                item.primary?.replace('-', ' '), item.secondary?.replace('-', ' '),
+                item.a1 && `P:${item.a1}`, item.a2 && `S:${item.a2}`,
+                item.a1, item.a2,
+                item.a1?.replace('-', ' '), item.a2?.replace('-', ' '),
             ].filter(Boolean).join(' ')
              .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
         }),
@@ -337,18 +337,18 @@ function SearchForm({jsonData}) {
                                             <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="Overtime" type="button">OT</button>
                                             <button className="button" onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
                                             <button className="button" onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">Teammate</button>
-                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === undefined))} title="Unassisted" type="button">Unassisted</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.a1 === undefined))} title="Unassisted" type="button">Unassisted</button>
                                         </div>
                                         <div className="d-flex flex-column gap-2">
                                             <button className="button" onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">Backhand</button>
                                             <button className="button cup" onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title="Cup Run" type="button">Cup&nbsp;Run</button>
-                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.primary === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.a1 === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">From&nbsp;Nick</button>
                                             <button className="button" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">In&nbsp;Canada</button>
                                             <button className="button" onClick={() => filterGoal(['Post'])} title="Post" type="button">Post</button>
                                             <button className="button" onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">Rookie</button>
                                             <button className="button" onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">Slapshot</button>
                                             <button className="button" onClick={() => filterGoal(['Tip'])} title="Tip" type="button">Tip</button>
-                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.primary) && youngGunsPlayers.includes(item.secondary)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
+                                            <button className="button" onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.a1) && youngGunsPlayers.includes(item.a2)))} title="Young Guns" type="button">Young&nbsp;Guns</button>
                                         </div>
                                     </div>
                                 </Accordion.Body>
@@ -537,8 +537,8 @@ function SearchForm({jsonData}) {
                                             {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
                                             <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
                                             <span className="badge text-bg-secondary">{result.time} {PERIOD_NAME[result.period] ?? result.period}</span>
-                                            {result.primary && <span className="assist badge">{result.primary}</span>}
-                                            {result.secondary && <span className="assist badge">{result.secondary}</span>}
+                                            {result.a1 && <span className="assist badge">{result.a1}</span>}
+                                            {result.a2 && <span className="assist badge">{result.a2}</span>}
                                         </small>
                                     </div>
                                     <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
