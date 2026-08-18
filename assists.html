@@ -50,13 +50,13 @@
                     if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
                     const key = leagueMap[item.league];
                     if (!key) return;
-                    if (item.primary) {
-                        if (!counts[item.primary]) counts[item.primary] = {};
-                        counts[item.primary][key + 'Primary'] = (counts[item.primary][key + 'Primary'] || 0) + 1;
+                    if (item.a1) {
+                        if (!counts[item.a1]) counts[item.a1] = {};
+                        counts[item.a1][key + 'A1'] = (counts[item.a1][key + 'A1'] || 0) + 1;
                     }
-                    if (item.secondary) {
-                        if (!counts[item.secondary]) counts[item.secondary] = {};
-                        counts[item.secondary][key + 'Secondary'] = (counts[item.secondary][key + 'Secondary'] || 0) + 1;
+                    if (item.a2) {
+                        if (!counts[item.a2]) counts[item.a2] = {};
+                        counts[item.a2][key + 'A2'] = (counts[item.a2][key + 'A2'] || 0) + 1;
                     }
                 });
 
@@ -74,12 +74,12 @@
                     link.textContent = player;
                     link.href = '/?' + player.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
                     playerCell.appendChild(link);
-                    formulaCell(row, c.nhlRegPrimary || 0,    c.nhlRegSecondary || 0);
-                    formulaCell(row, c.nhlPlayoffPrimary || 0, c.nhlPlayoffSecondary || 0);
-                    formulaCell(row, c.khlPrimary || 0,       c.khlSecondary || 0);
-                    formulaCell(row, c.olympicPrimary || 0,   c.olympicSecondary || 0);
-                    formulaCell(row, c.wcPrimary || 0,        c.wcSecondary || 0);
-                    formulaCell(row, c.wcupPrimary || 0,      c.wcupSecondary || 0);
+                    formulaCell(row, c.nhlRegA1 || 0,    c.nhlRegA2 || 0);
+                    formulaCell(row, c.nhlPlayoffA1 || 0, c.nhlPlayoffA2 || 0);
+                    formulaCell(row, c.khlA1 || 0,       c.khlA2 || 0);
+                    formulaCell(row, c.olympicA1 || 0,   c.olympicA2 || 0);
+                    formulaCell(row, c.wcA1 || 0,        c.wcA2 || 0);
+                    formulaCell(row, c.wcupA1 || 0,      c.wcupA2 || 0);
                 });
 
                 new DataTable('#ovechkin-assists', {
