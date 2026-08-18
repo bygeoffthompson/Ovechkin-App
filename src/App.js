@@ -10,6 +10,7 @@ const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens'
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 const PERIOD_NAME = { 1: 'First', 2: 'Second', 3: 'Third', 4: 'Overtime' }
+const PERIOD_SHORT = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
 
@@ -610,8 +611,8 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
-                                <small className="d-block">{goal.time} {PERIOD_NAME[goal.period]}</small>
-                                <small>Goal {goal.goal}</small>
+                                <small className="d-block">{goal.time} {PERIOD_SHORT[goal.period]}</small>
+                                <span>#{goal.goal}</span>
                             </button>
                         )) : (
                             <button className="button" disabled>No Goals</button>
