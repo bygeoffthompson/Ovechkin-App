@@ -581,7 +581,16 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     </div>
                     <hr className="my-3"/>
                     <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
-                        <span className="h6 m-0">On This Day</span><span className="badge p-2">{month}/{day}</span>
+                        <span className="h6 m-0">DOTW</span>
+                        Watch a
+                        <button className="button" title={`${dotwName} Goal`} type="button" onClick={() => {
+                            if (!dotwMatches.length) return
+                            onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
+                        }}>{dotwName} Goal</button>
+                    </div>
+                    <hr className="my-3"/>
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
+                        <span className="h6 m-0">OTD</span><span className="badge p-2">{month}/{day}</span>
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
                                 <div className="h4 m-0"><small>#</small>{goal.goal}</div>
@@ -593,20 +602,7 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     </div>
                     <hr className="my-3"/>
                     <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
-                        <span className="h6 m-0">DOTW</span>
-                        Watch a
-                        <button className="button" title={`${dotwName} Goal`} type="button" onClick={() => {
-                            if (!dotwMatches.length) return
-                            onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
-                        }}>{dotwName} Goal</button>
-                    </div>
-
-
-
-                    <hr className="my-3"/>
-
-                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
-                        <p className="h6 m-0">At This Time</p>
+                        <p className="h6 m-0">Time</p>
                         <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-stopwatch" viewBox="0 0 16 16">
                                 <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
