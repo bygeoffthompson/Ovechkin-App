@@ -389,12 +389,6 @@ form {
         }
     }
 
-    &.refresh {
-        min-height: 0;
-        padding: .125rem .25rem;
-        width: auto;
-    }
-
     &[title='Black Reverse Retro'],
     &[title='Capitol'] {
         background: #111;
