@@ -504,7 +504,7 @@ function SearchForm({jsonData}) {
                             </select>}
                         </div>
                     )}
-                    {isPending && <div className="alert alert-light d-inline-block opacity-50" role="alert"><span className="h6">Loading Ovechkin Goals</span></div>}
+                    {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
                     {tooMany > 0 && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {!isPending && sortedResults.map((result, index) => {
