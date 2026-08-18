@@ -1,11 +1,4 @@
 #results {
-    height: 0;
-
-    &.show {
-        height: auto;
-        margin-bottom: 1rem;
-    }
-
     .badge {
         font-size: 1rem !important;
         padding: .625rem 1rem !important;

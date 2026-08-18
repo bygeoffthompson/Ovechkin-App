@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo, useReducer} from 'react'
+import {useState, useEffect, useMemo, useReducer, useTransition} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -37,6 +37,8 @@ function SearchForm({jsonData}) {
     const [sortOrder, setSortOrder] = useState('asc')
     const [showSort, setShowSort] = useState(true)
     const { anim, isAnimating } = useGoalCounter()
+    const [isPending, startTransition] = useTransition()
+    const [tooMany, setTooMany] = useState(0)
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
 
     const leagueCounts = useMemo(() => {
@@ -175,6 +177,7 @@ function SearchForm({jsonData}) {
         resultsHide()
         setSearchGoal('')
         setSearchResults([])
+        setTooMany(0)
         dispatch('RESET')
         setShowSort(true)
         clearAdvanced()
@@ -195,7 +198,7 @@ function SearchForm({jsonData}) {
             const results = jsonData.filter((item, i) =>
                 item.goal === goalQuery && selectFilters.every(f => searchStrings[i].includes(f))
             )
-            setSearchResults(results)
+            startTransition(() => setSearchResults(results))
         } else if (text.length > 0 || selectFilters.length > 0) {
             _ga?.event({
                 category: 'Search',
@@ -208,13 +211,21 @@ function SearchForm({jsonData}) {
                 return terms.every(term => search.includes(term)) && selectFilters.every(f => search.includes(f))
             })
 
+            if (results.length > 600) {
+                setTooMany(results.length)
+                setSearchResults([])
+                dispatch('EMPTY')
+                return
+            }
+            setTooMany(0)
+
             if (results.length > 0) {
                 dispatch('RESULTS')
                 if (results.length === 1) setShowSort(false)
             } else {
                 dispatch('EMPTY')
             }
-            setSearchResults(results)
+            startTransition(() => setSearchResults(results))
         }
     }
 
@@ -482,15 +493,19 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="goal-results w-100">
-                    <div className={`align-items-center d-flex gap-3 justify-content-start overflow-hidden w-100${uiState === 'results' ? ' show' : ''}`} id="results">
-                        <strong className="badge py-2" data-count={sortedResults.length}>{`${sortedResults.length} Result${sortedResults.length !== 1 ? 's' : ''}`}</strong>
-                        {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-                            <option value="asc">Ascend</option>
-                            <option value="desc">Descend</option>
-                        </select>}
-                    </div>
+                    {((uiState === 'results' && !isPending && sortedResults.length > 1) || tooMany > 0) && (
+                        <div className="align-items-center d-flex gap-3 justify-content-start mb-3 w-100" id="results">
+                            <strong className="badge py-2" data-count={tooMany || sortedResults.length}>{`${tooMany || sortedResults.length} Result${(tooMany || sortedResults.length) !== 1 ? 's' : ''}`}</strong>
+                            {showSort && !tooMany && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                                <option value="asc">Ascend</option>
+                                <option value="desc">Descend</option>
+                            </select>}
+                        </div>
+                    )}
+                    {isPending && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Loading Ovechkin Goals</span></div>}
+                    {tooMany > 0 && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
-                        {sortedResults.map((result, index) => {
+                        {!isPending && sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
@@ -534,7 +549,7 @@ function SearchForm({jsonData}) {
                         })}
                     </Accordion>
                     {uiState === 'idle' && <WelcomeMessage jsonData={jsonData} onGoalSelect={(g) => { setSearchGoal(g); searchSubmit(g) }} />}
-                    {uiState === 'empty' && <NoResults />}
+                    {uiState === 'empty' && !tooMany && <NoResults />}
                 </div>
             </div>
         </div>
