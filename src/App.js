@@ -591,11 +591,9 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                     <hr className="my-3"/>
                     <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                         <span className="h6 m-0">OTD</span><span className="badge p-2">{month}/{day}</span>
+                        {onThisDayGoals.length > 0 && <p className="m-0">Year</p>}
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
-                            <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
-                                <div className="h4 m-0"><small>#</small>{goal.goal}</div>
-                                <small>from {goal.year}</small>
-                            </button>
+                            <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">{goal.year}</button>
                         )) : (
                             <button className="button" disabled>No Goals</button>
                         )}
@@ -612,8 +610,8 @@ function WelcomeMessage({jsonData, onGoalSelect}) {
                         <span className="badge p-2">{time}</span>
                         {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
                             <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
-                                <div className="h4 m-0"><small>#</small>{goal.goal}</div>
-                                <small>{goal.time} {PERIOD_NAME[goal.period]}</small>
+                                <small className="d-block">{goal.time} {PERIOD_NAME[goal.period]}</small>
+                                <small>Goal {goal.goal}</small>
                             </button>
                         )) : (
                             <button className="button" disabled>No Goals</button>
