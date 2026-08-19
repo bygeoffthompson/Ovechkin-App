@@ -664,13 +664,13 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
                     <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                         <span className="h6 m-0">DOTW</span>
                         Watch a
-                        <button className="button" disabled={activeDotwMatches.length === 0} title={`${dotwName} Goal`} type="button" onClick={() => {
+                        <button className="button dotw" disabled={activeDotwMatches.length === 0} title={`${dotwName} Goal`} type="button" onClick={() => {
                             if (!activeDotwMatches.length) return
                             onGoalSelect(activeDotwMatches[random(0, activeDotwMatches.length - 1)].goal)
                         }}>{dotwName} Goal</button>
                     </div>
                     <hr className="my-3"/>
-                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3">
                         <span className="h6 m-0">OTD</span><span className="badge p-2">{month}/{day}</span>
                         {onThisDayGoals.length > 0 && <p className="m-0">Year</p>}
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
