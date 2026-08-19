@@ -589,25 +589,27 @@ function SearchForm({jsonData}) {
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
-                                <div className="accordion-header"><Accordion.Button onClick={(e) => { lazyLoadFrame(); if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
-                                    <div className="align-items-center d-flex gap-1 justify-content-start w-100">
-                                        <strong className="align-items-center d-flex goal-count">
-                                            {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
-                                            <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
-                                        </strong>
-                                        <div className="align-items-center d-flex justify-content-center goal-siren">
-                                            <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
-                                            <strong className="position-absolute type">{result.type}</strong>
+                                <div className="accordion-header">
+                                    <Accordion.Button onClick={(e) => { lazyLoadFrame(); if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
+                                        <div className="align-items-center d-flex gap-1 justify-content-start w-100">
+                                            <strong className="align-items-center d-flex goal-count">
+                                                {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
+                                                <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
+                                            </strong>
+                                            <div className="align-items-center d-flex justify-content-center goal-siren">
+                                                <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
+                                                <strong className="position-absolute type">{result.type}</strong>
+                                            </div>
+                                            <div className="align-items-center d-flex justify-content-center team-logo">
+                                                <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
+                                            </div>
+                                            <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
+                                                <span className="badge">{result.month}/{result.day}/{result.year}</span>
+                                            </div>
                                         </div>
-                                        <div className="align-items-center d-flex justify-content-center team-logo">
-                                            <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
-                                        </div>
-                                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                            <span className="badge">{result.month}/{result.day}/{result.year}</span>
-                                        </div>
-                                    </div>
                                     {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
-                                </Accordion.Button></div>
+                                    </Accordion.Button>
+                                </div>
                                 <Accordion.Body className="p-0 position-relative">
                                     <div className="d-flex flex-column p-3 py-2">
                                         {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
@@ -620,7 +622,7 @@ function SearchForm({jsonData}) {
                                             {result.a2 && <span className="assist badge">{result.a2}</span>}
                                         </small>
                                     </div>
-                                    <iframe className="border-0 h-auto position-relative user-select-none w-100" width="560" height="315" src={index === 0 ? goalLink : 'about:blank'} data-src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                    <div className="border-0 h-auto position-relative user-select-none w-100" data-width="560" data-height="315" data-src={goalLink} title="Alex Ovechkin Goal Video" data-referrerPolicy="strict-origin-when-cross-origin" data-allowFullScreen></div>
                                     <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
                                 </Accordion.Body>
                             </Accordion.Item>
