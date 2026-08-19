@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo, useDeferredValue} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
@@ -32,9 +32,6 @@ function SearchForm({jsonData}) {
     const { anim, isAnimating } = useGoalCounter()
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
     const [disabledLeagues, setDisabledLeagues] = useState({})
-
-    const deferredSearchText = useDeferredValue(searchText)
-    const deferredFilters = useDeferredValue(filters)
 
     const leagueCounts = useMemo(() => {
         const counts = {}
@@ -126,11 +123,11 @@ function SearchForm({jsonData}) {
     const tooShort = searchText.length === 1
 
     const textResults = useMemo(() => {
-        const { team, location, period, month, season, year } = deferredFilters
+        const { team, location, period, month, season, year } = filters
         const hasSelectFilters = team || location || period || month || season || year
-        if (deferredSearchText.length === 0 && !hasSelectFilters) return []
-        if (deferredSearchText.length === 1) return []
-        const terms = normalize(deferredSearchText).split('+').map(s => s.trim()).filter(Boolean)
+        if (searchText.length === 0 && !hasSelectFilters) return []
+        if (searchText.length === 1) return []
+        const terms = normalize(searchText).split('+').map(s => s.trim()).filter(Boolean)
         return jsonData.filter((item, i) => {
             if (disabledLeagues[item.league]) return false
             if (terms.length > 0 && !terms.every(t => searchStrings[i].includes(t))) return false
@@ -142,7 +139,7 @@ function SearchForm({jsonData}) {
             if (year && item.year !== parseInt(year)) return false
             return true
         })
-    }, [jsonData, deferredSearchText, deferredFilters, disabledLeagues, searchStrings])
+    }, [jsonData, searchText, filters, disabledLeagues, searchStrings])
 
     const goalResults = useMemo(() => {
         if (!searchGoal) return []
@@ -181,9 +178,8 @@ function SearchForm({jsonData}) {
 
     const searchResults = hasTextQuery ? textResults : goalResults
     const tooMany = hasTextQuery && textResults.length > 600
-    const isPending = !tooShort && hasTextQuery && (searchText !== deferredSearchText || filters !== deferredFilters)
     const isIdle = !hasTextQuery && !searchGoal
-    const showSort = !tooMany && !isPending && !hatTrickMode && searchResults.length > 1
+    const showSort = !tooMany && !hatTrickMode && searchResults.length > 1
 
     const sortedResults = useMemo(() => {
         if (tooMany) return []
@@ -195,14 +191,16 @@ function SearchForm({jsonData}) {
         })
     }, [searchResults, sortOrder, tooMany])
 
-    const noResults = !isPending && !tooMany && !tooShort && sortedResults.length === 0
+    const noResults = !tooMany && !tooShort && sortedResults.length === 0
     const activeTerms = [searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '), filters.team, filters.location, filters.period && PERIOD_NAME[filters.period], filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}), filters.season, filters.year].filter(Boolean)
 
     useUrlQuery(setSearchGoal, setSearchText, () => {})
 
+    const sortedGoalIds = useMemo(() => sortedResults.map(r => r.goal).join(','), [sortedResults])
+
     useEffect(() => {
-        setLoadedKeys(new Set(sortedResults.length > 0 ? ["0"] : []))
-    }, [sortedResults])
+        setLoadedKeys(new Set(sortedGoalIds ? ["0"] : []))
+    }, [sortedGoalIds])
 
     useEffect(() => {
         if (textResults.length === 0) return
@@ -564,7 +562,7 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="goal-results w-100">
-                    {((!isPending && sortedResults.length > 0) || tooMany) && (
+                    {((sortedResults.length > 0) || tooMany) && (
                         <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start mb-3 w-100" id="results">
                             <strong className="badge py-2" data-count={tooMany ? textResults.length : sortedResults.length}>{`${tooMany ? textResults.length : sortedResults.length} Result${(tooMany ? textResults.length : sortedResults.length) !== 1 ? 's' : ''}`}</strong>
                             {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
@@ -574,11 +572,11 @@ function SearchForm({jsonData}) {
                             {activeTerms.length > 0 && <>for {activeTerms.map(t => <span key={t} className="badge ms-1 text-bg-dark">{t}</span>)}</>}
                         </div>
                     )}
-                    {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
+
                     {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
                     {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => new Set([...prev, key]))}>
-                        {!isPending && sortedResults.map((result, index) => {
+                        {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
