@@ -14,6 +14,7 @@ const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
 const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
+const itemSeason = (item) => item.year - (item.month >= 10 ? 2004 : 2005)
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -57,15 +58,15 @@ function SearchForm({jsonData}) {
             months.add(item.month)
             periods.add(item.period)
             locations.add(item.hoa)
-            seasons.add(item.season)
+            seasons.add(itemSeason(item))
             years.add(item.year)
         }
         return { teams, months, periods, locations, seasons, years }
     }, [activeLeagueGoals])
 
     const seasonOptions = useMemo(() => {
-        const max = jsonData.reduce((m, i) => Math.max(m, i.season), 0)
-        return Array.from({length: max}, (_, i) => i + 1)
+        const max = jsonData.reduce((m, i) => Math.max(m, itemSeason(i)), 0)
+        return Array.from({length: max + 2}, (_, i) => i - 1)
     }, [jsonData])
 
     const yearOptions = useMemo(() => {
@@ -135,7 +136,7 @@ function SearchForm({jsonData}) {
             if (location && item.hoa !== (location === 'Home' ? 1 : 0)) return false
             if (period && item.period !== Number(period)) return false
             if (month && item.month !== Number(month)) return false
-            if (season && item.season !== parseInt(season.replace('Season ', ''))) return false
+            if (season && itemSeason(item) !== parseInt(season.replace('Season ', ''))) return false
             if (year && item.year !== parseInt(year)) return false
             return true
         })
@@ -161,7 +162,7 @@ function SearchForm({jsonData}) {
             months.add(item.month)
             periods.add(item.period)
             locations.add(item.hoa)
-            seasons.add(item.season)
+            seasons.add(itemSeason(item))
             years.add(item.year)
         }
         return { teams, months, periods, locations, seasons, years }
@@ -543,7 +544,7 @@ function SearchForm({jsonData}) {
                                             <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => handleFilter('season', e.target.value)}>
                                                 <option value=""></option>
                                                 {seasonOptions.map(n => (
-                                                    <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n}</option>
+                                                    <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n === -1 ? 'Draft' : n}</option>
                                                 ))}
                                             </select>
                                         </div>
