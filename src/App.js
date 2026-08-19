@@ -13,7 +13,7 @@ const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
-const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
+const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup', 7: 'All Star' }
 const itemSeason = (item) => item.year - (item.month >= 10 ? 2004 : 2005)
 const itemDotw = (item) => new Date(item.year, item.month - 1, item.day).getDay() + 1
 
@@ -195,7 +195,7 @@ function SearchForm({jsonData}) {
     }, [searchResults, sortOrder, tooMany])
 
     const noResults = !isPending && !tooMany && !tooShort && sortedResults.length === 0
-    const activeTerms = [searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '), filters.team, filters.location, filters.period && PERIOD_NAME[filters.period], filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}), filters.season, filters.year].filter(Boolean).join(' + ')
+    const activeTerms = [searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '), filters.team, filters.location, filters.period && PERIOD_NAME[filters.period], filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}), filters.season, filters.year].filter(Boolean)
 
     useUrlQuery(setSearchGoal, setSearchText, () => {})
 
@@ -577,10 +577,7 @@ function SearchForm({jsonData}) {
                                 <option value="asc">Ascend</option>
                                 <option value="desc">Descend</option>
                             </select>}
-                            <span>
-                                for
-                                <strong className="ms-1">{activeTerms}</strong>
-                            </span>
+                            {activeTerms.length > 0 && <>for {activeTerms.map(t => <span key={t} className="badge ms-1 text-bg-dark">{t}</span>)}</>}
                         </div>
                     )}
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
@@ -630,7 +627,7 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} /> : <NoResults terms={activeTerms} />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} /> : <NoResults terms={activeTerms} disabledLeagues={disabledLeagues} />)}
                 </div>
             </div>
         </div>
@@ -688,11 +685,12 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
     )
 }
 
-function NoResults({terms}) {
+function NoResults({terms, disabledLeagues}) {
+    const excluded = Object.entries(disabledLeagues ?? {}).filter(([, v]) => v).map(([k]) => LEAGUE_LABEL[k]).filter(Boolean)
     return (
         <div className="alert alert-light" role="alert">
-            <p><strong>No Results</strong> Please retry</p>
-            {terms && <p><strong>{terms}</strong></p>}
+            <p><strong>No Results</strong> for</p>
+            {terms?.length > 0 && <p>{terms.flatMap(t => t.split(' + ')).map(t => <strong key={t} className="badge me-1 text-bg-dark">{t}</strong>)}{excluded.length > 0 && <span>Excluding {excluded.map(l => <strong key={l} className="badge me-1">{l}</strong>)}</span>}</p>}
             <p><a href="/help.html">Help</a></p>
         </div>
     )
