@@ -22,6 +22,13 @@
   z-index: -1;
 }
 
+.iframe {
+    aspect-ratio: 16 / 9;
+    background: #000;
+    height: auto;
+    width: 100%;
+}
+
 form {
     max-width: 365px;
 
@@ -351,7 +358,7 @@ form {
     }
 
     &.exclude {
-        background: #C81020;
+        background: #062D60;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         color: #FFF !important;
@@ -361,7 +368,7 @@ form {
     }
 
     &.include {
-        background: #062D60;
+        background: #C81020;
     }
 
     &.cup {

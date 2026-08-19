@@ -28,6 +28,7 @@ function SearchForm({jsonData}) {
     const [searchText, setSearchText] = useState('')
     const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
+    const [loadedKeys, setLoadedKeys] = useState(new Set())
     const { anim, isAnimating } = useGoalCounter()
     const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
     const [disabledLeagues, setDisabledLeagues] = useState({})
@@ -200,6 +201,10 @@ function SearchForm({jsonData}) {
     useUrlQuery(setSearchGoal, setSearchText, () => {})
 
     useEffect(() => {
+        setLoadedKeys(new Set(sortedResults.length > 0 ? ["0"] : []))
+    }, [sortedResults])
+
+    useEffect(() => {
         if (textResults.length === 0) return
         _ga?.event({
             category: 'Results',
@@ -225,17 +230,6 @@ function SearchForm({jsonData}) {
         return arr.some(item => !disabledLeagues[item.league])
     }
 
-    function lazyLoadFrame() {
-        setTimeout(() => {
-            const visibleFrame = document.querySelector('.accordion-collapse.show iframe')
-            if (visibleFrame) {
-                const dataSrc = visibleFrame.getAttribute('data-src')
-                if (visibleFrame.getAttribute('src') === 'about:blank') {
-                    visibleFrame.setAttribute('src', dataSrc)
-                }
-            }
-        }, 500)
-    }
 
     function handleText(e) {
         setSearchGoal('')
@@ -583,14 +577,14 @@ function SearchForm({jsonData}) {
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
                     {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
                     {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
-                    <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
+                    <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => new Set([...prev, key]))}>
                         {!isPending && sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
                                 <div className="accordion-header">
-                                    <Accordion.Button onClick={(e) => { lazyLoadFrame(); if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
+                                    <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                         <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                             <strong className="align-items-center d-flex goal-count">
                                                 {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
@@ -622,7 +616,10 @@ function SearchForm({jsonData}) {
                                             {result.a2 && <span className="assist badge">{result.a2}</span>}
                                         </small>
                                     </div>
-                                    <div className="border-0 h-auto position-relative user-select-none w-100" data-width="560" data-height="315" data-src={goalLink} title="Alex Ovechkin Goal Video" data-referrerPolicy="strict-origin-when-cross-origin" data-allowFullScreen></div>
+                                    {loadedKeys.has(index.toString())
+                                        ? <iframe className="border-0 h-auto iframe position-relative user-select-none w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                                        : <div className="border-0 h-auto iframe position-relative user-select-none w-100" style={{height: '315px'}} />
+                                    }
                                     <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
                                 </Accordion.Body>
                             </Accordion.Item>
