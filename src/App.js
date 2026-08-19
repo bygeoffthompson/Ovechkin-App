@@ -121,13 +121,13 @@ function SearchForm({jsonData}) {
 
     const hasTextQuery = searchText.length > 0 || Object.values(filters).some(Boolean)
 
-    const tooShort = searchText.length > 0 && searchText.length < 3
+    const tooShort = searchText.length > 0 && searchText.length < 2
 
     const textResults = useMemo(() => {
         const { team, location, period, month, season, year } = deferredFilters
         const hasSelectFilters = team || location || period || month || season || year
         if (deferredSearchText.length === 0 && !hasSelectFilters) return []
-        if (deferredSearchText.length > 0 && deferredSearchText.length < 3) return []
+        if (deferredSearchText.length > 0 && deferredSearchText.length < 2) return []
         const terms = normalize(deferredSearchText).split('+').map(s => s.trim()).filter(Boolean)
         return jsonData.filter((item, i) => {
             if (disabledLeagues[item.league]) return false
@@ -578,7 +578,7 @@ function SearchForm({jsonData}) {
                         </div>
                     )}
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
-                    {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 3 Characters</span></div>}
+                    {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
                     {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {!isPending && sortedResults.map((result, index) => {
@@ -624,7 +624,7 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {noResults && (searchText || searchGoal ? <NoResults /> : <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} /> : <NoResults />)}
                 </div>
             </div>
         </div>
@@ -702,7 +702,7 @@ function NoResults() {
     return (
         <div className="alert alert-light" role="alert">
             <p className="fw-bold">No Results</p>
-            <p>Please try again</p>
+            <p>Please retry</p>
             <p><a href="/help.html">Help</a></p>
         </div>
     )
