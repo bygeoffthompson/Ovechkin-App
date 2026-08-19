@@ -560,7 +560,7 @@ function SearchForm({jsonData}) {
                                 </Accordion.Body>
                             </Accordion.Item>
                     </Accordion>
-                    <div className="d-flex flex-row justify-content-end">
+                    <div className="text-center">
                         <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
                     </div>
                 </div>
@@ -677,7 +677,7 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
                         )}
                     </div>
                     <hr className="my-3"/>
-                    <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
+                    <div className="align-items-center d-flex flex-row flex-wrap gap-3">
                         <p className="h6 m-0">Time</p>
                         <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
                             {time} {ampm}
