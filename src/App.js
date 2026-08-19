@@ -193,6 +193,8 @@ function SearchForm({jsonData}) {
         })
     }, [searchResults, sortOrder, tooMany])
 
+    const noResults = !isPending && !tooMany && !tooShort && sortedResults.length === 0
+
     useUrlQuery(setSearchGoal, setSearchText, () => {})
 
     useEffect(() => {
@@ -622,8 +624,7 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {isIdle && <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} />}
-                    {!isIdle && !isPending && !tooMany && !tooShort && sortedResults.length === 0 && <NoResults />}
+                    {noResults && (searchText || searchGoal ? <NoResults /> : <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} />)}
                 </div>
             </div>
         </div>
