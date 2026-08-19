@@ -2,12 +2,10 @@ import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
-import {PERIOD_NAME, DOTW, LEAGUE, itemSeason, itemDotw, random} from './constants'
+import {PERIOD_NAME, DOTW, LEAGUE, itemSeason, itemDotw, random, normalize} from './constants'
 import LeagueFilters from './LeagueFilters'
 import RandomSearch from './RandomSearch'
 import GoalAccordions from './GoalAccordions'
-
-const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
 function App() {
     const [data, setData] = useState(null)
@@ -48,11 +46,9 @@ function App() {
         return counts
     }, [jsonData])
 
-    const leagueGoals = useMemo(() => jsonData.filter(item => item.league), [jsonData])
-
     const activeLeagueGoals = useMemo(
-        () => leagueGoals.filter(item => !disabledLeagues[item.league]),
-        [leagueGoals, disabledLeagues]
+        () => jsonData.filter(item => item.league && !disabledLeagues[item.league]),
+        [jsonData, disabledLeagues]
     )
     const totalDisplay = useCounterChange(activeLeagueGoals.length)
 
@@ -97,7 +93,7 @@ function App() {
     const searchStrings = useMemo(() =>
         jsonData.map(item => {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
-            return [
+            return normalize([
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
                 LEAGUE[item.league].replace('All Star', 'All Star All-Star'),
                 `${item.month}/${item.day}/${item.year}`,
@@ -120,8 +116,7 @@ function App() {
                 item.a1 && `P:${item.a1}`, item.a2 && `S:${item.a2}`,
                 item.a1, item.a2,
                 item.a1?.replace('-', ' '), item.a2?.replace('-', ' '),
-            ].filter(Boolean).join(' ')
-             .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+            ].filter(Boolean).join(' '))
         }),
     [jsonData])
 
@@ -197,12 +192,20 @@ function App() {
     }, [searchResults, sortOrder])
 
     const noResults = !tooShort && sortedResults.length === 0
-    const activeTerms = [searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '), filters.team, filters.location, filters.period && PERIOD_NAME[filters.period], filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}), filters.season, filters.year].filter(Boolean)
+    const activeTerms = [
+        searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '),
+        filters.team,
+        filters.location,
+        filters.period && PERIOD_NAME[filters.period],
+        filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}),
+        filters.season,
+        filters.year,
+    ].filter(Boolean)
     const canHatTrick = jsonData.some(item => !disabledLeagues[item.league] && [item.btn1, item.btn2, item.btn3].includes('Hat Trick'))
     const resultCount = sortedResults.length
     const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
 
-    useUrlQuery(setSearchGoal, setSearchText, () => {})
+    useUrlQuery(setSearchGoal, setSearchText)
 
     const sortedGoalIds = useMemo(() => sortedResults.map(r => r.goal).join(','), [sortedResults])
 
@@ -332,7 +335,7 @@ function App() {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (['', 'Exclude'].includes(title)) return
+                if (!title || title === 'Exclude' || title === 'Include') return
                 gaRef.current?.event({ category: 'Click', action: 'Button Click', label: title })
             }}>
             <LeagueFilters

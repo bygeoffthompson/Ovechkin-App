@@ -17,7 +17,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                 </div>
             )}
 
-            {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
+            {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
             <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => ({...prev, [key]: true}))}>
                 {sortedResults.map((result, index) => {
                     const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
@@ -58,7 +58,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                 </small>
                             </div>
                             {loadedKeys[index]
-                                ? <iframe className="border-0 h-auto iframe position-relative user-select-none w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                                ? <iframe className="bg-black h-100 iframe w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                                 : <div className="border-0 h-auto iframe position-relative user-select-none w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>

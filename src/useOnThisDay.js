@@ -1,6 +1,5 @@
 import { useMemo } from 'react'
-
-const itemDotw = (item) => new Date(item.year, item.month - 1, item.day).getDay() + 1
+import { itemDotw } from './constants'
 
 export function useOnThisDay(jsonData) {
     const now = new Date()
