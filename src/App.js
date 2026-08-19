@@ -251,10 +251,14 @@ function SearchForm({jsonData}) {
         setSearchGoal(val)
     }
 
-    function outdoor() {
+    function resetSearch() {
         clearAdvanced()
         setSearchText('')
         setHatTrickMode(false)
+    }
+
+    function outdoor() {
+        resetSearch()
         const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
@@ -273,21 +277,22 @@ function SearchForm({jsonData}) {
     }
 
     function randomGoal(filtered) {
-        clearAdvanced()
-        setSearchText('')
-        setHatTrickMode(false)
+        resetSearch()
         const active = filtered.filter(item => !disabledLeagues[item.league])
         if (active.length === 0) return
         setSearchGoal(pickRandom(active).goal)
     }
 
     function filterGoal(match) {
-        clearAdvanced()
-        setSearchText('')
-        setHatTrickMode(false)
+        resetSearch()
         const result = jsonData.filter(item => !disabledLeagues[item.league] && Object.values(item).some(value => match.includes(value)))
         if (result.length === 0) return
         setSearchGoal(pickRandom(result).goal)
+    }
+
+    function handleFilter(key, value) {
+        setSearchGoal('')
+        setFilters(f => ({...f, [key]: value}))
     }
 
     function clearAdvanced() {
@@ -380,8 +385,7 @@ function SearchForm({jsonData}) {
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button h-100" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
-                        <div className="h1 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</div>
-                        <div>Total</div>
+                        <span className="h1 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</span>
                     </button>
 
                 </div>
@@ -466,7 +470,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                         <label htmlFor="team">Team</label>
-                                        <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
+                                        <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => handleFilter('team', e.target.value)}>
                                             <option value=""></option>
                                             <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
                                             <option value="Mighty Ducks of Anaheim" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
@@ -507,7 +511,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                         <label htmlFor="location">Location</label>
-                                        <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
+                                        <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => handleFilter('location', e.target.value)}>
                                             <option value=""></option>
                                             <option value="Home" disabled={!filterOptions.locations.has(1)}>Home</option>
                                             <option value="Away" disabled={!filterOptions.locations.has(0)}>Away</option>
@@ -515,7 +519,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                         <label htmlFor="period">Period</label>
-                                        <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
+                                        <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => handleFilter('period', e.target.value)}>
                                             <option value=""></option>
                                             <option value="1" disabled={!filterOptions.periods.has(1)}>First</option>
                                             <option value="2" disabled={!filterOptions.periods.has(2)}>Second</option>
@@ -525,26 +529,17 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                         <label htmlFor="month">Month</label>
-                                        <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
+                                        <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => handleFilter('month', e.target.value)}>
                                             <option value=""></option>
-                                            <option value="1" disabled={!filterOptions.months.has(1)}>January</option>
-                                            <option value="2" disabled={!filterOptions.months.has(2)}>February</option>
-                                            <option value="3" disabled={!filterOptions.months.has(3)}>March</option>
-                                            <option value="4" disabled={!filterOptions.months.has(4)}>April</option>
-                                            <option value="5" disabled={!filterOptions.months.has(5)}>May</option>
-                                            <option value="6" disabled={!filterOptions.months.has(6)}>June</option>
-                                            <option value="7" disabled={!filterOptions.months.has(7)}>July</option>
-                                            <option value="8" disabled={!filterOptions.months.has(8)}>August</option>
-                                            <option value="9" disabled={!filterOptions.months.has(9)}>September</option>
-                                            <option value="10" disabled={!filterOptions.months.has(10)}>October</option>
-                                            <option value="11" disabled={!filterOptions.months.has(11)}>November</option>
-                                            <option value="12" disabled={!filterOptions.months.has(12)}>December</option>
+                                            {Array.from({length: 12}, (_, i) => (
+                                                <option key={i+1} value={i+1} disabled={!filterOptions.months.has(i+1)}>{new Date(0, i).toLocaleString('default', {month: 'long'})}</option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div className="align-items-start d-flex flex-column flex-sm-row gap-3 w-100">
                                         <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                             <label htmlFor="season">Season</label>
-                                            <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
+                                            <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => handleFilter('season', e.target.value)}>
                                                 <option value=""></option>
                                                 {seasonOptions.map(n => (
                                                     <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n}</option>
@@ -553,7 +548,7 @@ function SearchForm({jsonData}) {
                                         </div>
                                         <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                                             <label htmlFor="year">Year</label>
-                                            <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
+                                            <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => handleFilter('year', e.target.value)}>
                                                 <option value=""></option>
                                                 {yearOptions.map(y => (
                                                     <option key={y} value={y} disabled={!filterOptions.years.has(y)}>{y}</option>
