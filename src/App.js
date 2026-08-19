@@ -440,7 +440,7 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <Accordion className="advanced-accordion w-100">
                                         <Accordion.Item eventKey="0">
-                                            <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
+                                            <div className="accordion-header"><Accordion.Button className="py-2" disabled={!!searchGoal}><small><small>Advanced</small></small></Accordion.Button></div>
                                             <Accordion.Body className="d-flex flex-column gap-2 pb-0 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="team">Team</label>
