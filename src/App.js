@@ -225,6 +225,17 @@ function SearchForm({jsonData}) {
         setSearchText(e.target.value)
     }
 
+    function handleGoalNumber(e) {
+        setSearchText('')
+        setHatTrickMode(false)
+        const val = e.target.value
+        const found = jsonData.find(item => item.goal === parseFloat(val))
+        if (found && disabledLeagues[found.league]) {
+            setDisabledLeagues(prev => { const next = { ...prev }; delete next[found.league]; return next })
+        }
+        setSearchGoal(val)
+    }
+
     function outdoor() {
         clearAdvanced()
         setSearchText('')
@@ -432,7 +443,7 @@ function SearchForm({jsonData}) {
                                 <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                                     <div className="align-items-center d-flex flex-row gap-3">
                                         <label htmlFor="goal-number">Number</label>
-                                        <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={(e) => { setSearchText(''); setHatTrickMode(false); setSearchGoal(e.target.value) }}/>
+                                        <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
                                     </div>
                                     <div className="align-items-center d-flex flex-row gap-3">
                                     <label htmlFor="search-text-1">Text</label>
