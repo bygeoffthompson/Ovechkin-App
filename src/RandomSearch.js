@@ -10,7 +10,7 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                 <Accordion.Item eventKey="random">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                     <Accordion.Body className="p-3">
-                        <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start">
+                        <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
                                 <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" aria-label="Capitol" type="button">
                                     <img alt="Capitol" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>

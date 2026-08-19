@@ -9,7 +9,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
             {sortedResults.length > 0 && (
                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start mb-3 w-100" id="results">
                     <strong className="badge py-2" data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>
-                    {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                    {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                         <option value="asc">Ascend</option>
                         <option value="desc">Descend</option>
                     </select>}
@@ -38,15 +38,13 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                     <div className="align-items-center d-flex justify-content-center team-logo">
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                     </div>
-                                    <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-center">
-                                        <span className="badge">{result.month}/{result.day}/{result.year}</span>
-                                    </div>
+                                    <span className="badge">{result.month}/{result.day}/{result.year}</span>
                                 </div>
                             {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
                             </Accordion.Button>
                         </div>
                         <Accordion.Body className="p-0 position-relative">
-                            <div className="d-flex flex-column p-3 py-2">
+                            <div className="d-flex flex-column px-3 py-2">
                                 {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
                                 <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                     {result.series && <span className="badge text-bg-warning">{result.series}</span>}
@@ -59,7 +57,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                             </div>
                             {loadedKeys[index]
                                 ? <iframe className="bg-black h-100 iframe w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                                : <div className="border-0 h-auto iframe position-relative user-select-none w-100" />
+                                : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
                         </Accordion.Body>

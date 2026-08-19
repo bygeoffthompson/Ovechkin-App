@@ -10,7 +10,7 @@ const LEAGUES = [
 
 export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimating, anim, totalDisplay, activeLeagueGoals, toggleLeague, randomGoal, jsonData }) {
     return (
-        <div className="align-items-stretch d-flex flex-wrap gap-2 mb-3">
+        <div className="d-flex flex-wrap gap-2 mb-3">
             {LEAGUES.map(({ key, label, title, extraClass, small }) => (
                 <div key={key} className={`d-flex flex-column align-items-center${disabledLeagues[key] ? ' excluded' : ''}`}>
                     <button className={`button counter${extraClass ? ` ${extraClass}` : ''}`} disabled={isAnimating || !!disabledLeagues[key]} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
