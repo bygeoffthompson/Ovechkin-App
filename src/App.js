@@ -194,6 +194,7 @@ function SearchForm({jsonData}) {
     }, [searchResults, sortOrder, tooMany])
 
     const noResults = !isPending && !tooMany && !tooShort && sortedResults.length === 0
+    const activeTerms = [searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '), filters.team, filters.location, filters.period && PERIOD_NAME[filters.period], filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}), filters.season, filters.year].filter(Boolean).join(' + ')
 
     useUrlQuery(setSearchGoal, setSearchText, () => {})
 
@@ -568,14 +569,17 @@ function SearchForm({jsonData}) {
                 </div>
 
                 <div className="goal-results w-100">
-                    {((!isPending && sortedResults.length > 1) || tooMany) && (
-                        <div className="align-items-center d-flex gap-3 justify-content-start mb-3 w-100" id="results">
+                    {((!isPending && sortedResults.length > 0) || tooMany) && (
+                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start mb-3 w-100" id="results">
                             <strong className="badge py-2" data-count={tooMany ? textResults.length : sortedResults.length}>{`${tooMany ? textResults.length : sortedResults.length} Result${(tooMany ? textResults.length : sortedResults.length) !== 1 ? 's' : ''}`}</strong>
-                            {[searchText, ...Object.values(filters)].filter(Boolean).join(' + ')}
                             {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                                 <option value="asc">Ascend</option>
                                 <option value="desc">Descend</option>
                             </select>}
+                            <span>
+                                for
+                                <strong className="ms-1">{activeTerms}</strong>
+                            </span>
                         </div>
                     )}
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
@@ -625,7 +629,7 @@ function SearchForm({jsonData}) {
                             )
                         })}
                     </Accordion>
-                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} /> : <NoResults />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={(g) => { setSearchGoal(g); setHatTrickMode(false) }} /> : <NoResults terms={activeTerms} />)}
                 </div>
             </div>
         </div>
@@ -698,10 +702,11 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
     )
 }
 
-function NoResults() {
+function NoResults({terms}) {
     return (
         <div className="alert alert-light" role="alert">
             <p><strong>No Results</strong> Please retry</p>
+            {terms && <p><strong>{terms}</strong></p>}
             <p><a href="/help.html">Help</a></p>
         </div>
     )
