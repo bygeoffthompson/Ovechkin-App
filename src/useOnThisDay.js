@@ -1,5 +1,7 @@
 import { useMemo } from 'react'
 
+const itemDotw = (item) => new Date(item.year, item.month - 1, item.day).getDay() + 1
+
 export function useOnThisDay(jsonData) {
     const now = new Date()
     const month = now.getMonth() + 1
@@ -12,7 +14,7 @@ export function useOnThisDay(jsonData) {
     [jsonData, month, day])
 
     const dotwMatches = useMemo(() =>
-        jsonData.filter(item => item.dotw === dotwKey),
+        jsonData.filter(item => itemDotw(item) === dotwKey),
     [jsonData, dotwKey])
 
     return { onThisDayGoals, month, day, dotwName, dotwMatches }

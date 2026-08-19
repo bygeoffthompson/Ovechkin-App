@@ -15,6 +15,7 @@ const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thurs
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
 const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
 const itemSeason = (item) => item.year - (item.month >= 10 ? 2004 : 2005)
+const itemDotw = (item) => new Date(item.year, item.month - 1, item.day).getDay() + 1
 
 function random(min, max) {
     min = Math.ceil(min)
@@ -95,7 +96,7 @@ function SearchForm({jsonData}) {
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
                 LEAGUE[item.league].replace('All Star', 'All Star All-Star'),
                 `${item.month}/${item.day}/${item.year}`,
-                DOTW[item.dotw],
+                DOTW[itemDotw(item)],
                 `${month} ${item.year}`,
                 `${month} ${item.day}`,
                 item.year,
