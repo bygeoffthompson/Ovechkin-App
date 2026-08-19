@@ -320,7 +320,7 @@ function SearchForm({jsonData}) {
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter" disabled={isAnimating || !!disabledLeagues[7]} onClick={() => randomGoal(jsonData.filter(item => item.league === 7))} title="All Star" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[7]}>{anim(leagueCounts[7])}</div>
-                        <small>All Star</small>
+                        <div>All Star</div>
                     </button>
                     <button className={`button exclude${disabledLeagues[7] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(7)} title="Exclude" type="button"><small>{disabledLeagues[7] ? 'Include' : 'Exclude'}</small></button>
                 </div>
@@ -441,7 +441,7 @@ function SearchForm({jsonData}) {
                                     <Accordion className="advanced-accordion w-100">
                                         <Accordion.Item eventKey="0">
                                             <div className="accordion-header"><Accordion.Button className="py-2"><small><small>Advanced</small></small></Accordion.Button></div>
-                                            <Accordion.Body className="d-flex flex-column gap-2 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
+                                            <Accordion.Body className="d-flex flex-column gap-2 pb-0 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="team">Team</label>
                                                     <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
