@@ -329,7 +329,7 @@ function SearchForm({jsonData}) {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (['', 'Exclude', 'Refresh'].includes(title)) return
+                if (['', 'Exclude'].includes(title)) return
                 _ga?.event({
                     category: 'Click',
                     action: 'Button Click',
@@ -637,7 +637,7 @@ function SearchForm({jsonData}) {
 }
 
 function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
-    const { onThisDayGoals, month, day, atThisTimeGoals, time, ampm, refreshTime, dotwName, dotwMatches } = useOnThisDay(jsonData)
+    const { onThisDayGoals, month, day, dotwName, dotwMatches } = useOnThisDay(jsonData)
     const activeDotwMatches = dotwMatches.filter(g => !disabledLeagues[g.league])
     return (
         <Accordion className="shadow-lg w-100" defaultActiveKey="0">
@@ -676,21 +676,6 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
                             <button className="button" disabled={!!disabledLeagues[goal.league]} key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
                                 {goal.year} {LEAGUE_LABEL[goal.league]}
-                            </button>
-                        )) : (
-                            <button className="button" disabled>No Goals</button>
-                        )}
-                    </div>
-                    <hr className="my-3"/>
-                    <div className="align-items-center d-flex flex-row flex-wrap gap-3">
-                        <p className="h6 m-0">Time</p>
-                        <button className="button refresh" onClick={refreshTime} title="Refresh" type="button">
-                            {time} {ampm}
-                        </button>
-                        {atThisTimeGoals.length > 0 ? atThisTimeGoals.map(goal => (
-                            <button className="button" disabled={!!disabledLeagues[goal.league]} key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="At This Time" type="button">
-                                <span className="d-block">{goal.time} {PERIOD_NAME[goal.period]}</span>
-                                <small>{LEAGUE_LABEL[goal.league] ?? goal.league}</small>
                             </button>
                         )) : (
                             <button className="button" disabled>No Goals</button>
