@@ -1,5 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
+import ActiveTags from './ActiveTags'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 
@@ -13,7 +14,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                         <option value="asc">Ascend</option>
                         <option value="desc">Descend</option>
                     </select>}
-                    {activeTerms.length > 0 && <>for {activeTerms.map(t => <span key={t} className="badge ms-1 text-bg-dark">{t}</span>)}</>}
+                    <ActiveTags terms={activeTerms} disabledLeagues={disabledLeagues} />
                 </div>
             )}
 
@@ -56,7 +57,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                 </small>
                             </div>
                             {loadedKeys[index]
-                                ? <iframe className="bg-black h-100 iframe w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                                ? <iframe className="bg-black h-100 w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                                 : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
