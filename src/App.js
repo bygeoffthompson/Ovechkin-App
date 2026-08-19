@@ -571,7 +571,7 @@ function SearchForm({jsonData}) {
 
                 <div className="goal-results w-100">
                     {((!isPending && sortedResults.length > 0) || tooMany) && (
-                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-3 justify-content-start mb-3 w-100" id="results">
+                        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start mb-3 w-100" id="results">
                             <strong className="badge py-2" data-count={tooMany ? textResults.length : sortedResults.length}>{`${tooMany ? textResults.length : sortedResults.length} Result${(tooMany ? textResults.length : sortedResults.length) !== 1 ? 's' : ''}`}</strong>
                             {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                                 <option value="asc">Ascend</option>
@@ -689,8 +689,8 @@ function NoResults({terms, disabledLeagues}) {
     const excluded = Object.entries(disabledLeagues ?? {}).filter(([, v]) => v).map(([k]) => LEAGUE_LABEL[k]).filter(Boolean)
     return (
         <div className="alert alert-light" role="alert">
-            <p><strong>No Results</strong> for</p>
-            {terms?.length > 0 && <p>{terms.flatMap(t => t.split(' + ')).map(t => <strong key={t} className="badge me-1 text-bg-dark">{t}</strong>)}{excluded.length > 0 && <span>Excluding {excluded.map(l => <strong key={l} className="badge me-1">{l}</strong>)}</span>}</p>}
+            <p>No results for</p>
+            {terms?.length > 0 && <div className="align-items-center d-flex flex-row gap-1 mb-3">{terms.flatMap(t => t.split(' + ')).map(t => <strong key={t} className="badge text-bg-dark">{t}</strong>)}{excluded.length > 0 && <div className="align-items-center d-flex flex-row gap-1">{excluded.map(l => <strong key={l} className="badge">✕ {l}</strong>)}</div>}</div>}
             <p><a href="/help.html">Help</a></p>
         </div>
     )
