@@ -93,7 +93,6 @@ function SearchForm({jsonData}) {
             return [
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
                 LEAGUE[item.league].replace('All Star', 'All Star All-Star'),
-                'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
                 DOTW[item.dotw],
                 `${month} ${item.year}`,
@@ -121,13 +120,13 @@ function SearchForm({jsonData}) {
 
     const hasTextQuery = searchText.length > 0 || Object.values(filters).some(Boolean)
 
-    const tooShort = searchText.length > 0 && searchText.length < 2
+    const tooShort = searchText.length === 1
 
     const textResults = useMemo(() => {
         const { team, location, period, month, season, year } = deferredFilters
         const hasSelectFilters = team || location || period || month || season || year
         if (deferredSearchText.length === 0 && !hasSelectFilters) return []
-        if (deferredSearchText.length > 0 && deferredSearchText.length < 2) return []
+        if (deferredSearchText.length === 1) return []
         const terms = normalize(deferredSearchText).split('+').map(s => s.trim()).filter(Boolean)
         return jsonData.filter((item, i) => {
             if (disabledLeagues[item.league]) return false
@@ -571,6 +570,7 @@ function SearchForm({jsonData}) {
                     {((!isPending && sortedResults.length > 1) || tooMany) && (
                         <div className="align-items-center d-flex gap-3 justify-content-start mb-3 w-100" id="results">
                             <strong className="badge py-2" data-count={tooMany ? textResults.length : sortedResults.length}>{`${tooMany ? textResults.length : sortedResults.length} Result${(tooMany ? textResults.length : sortedResults.length) !== 1 ? 's' : ''}`}</strong>
+                            {[searchText, ...Object.values(filters)].filter(Boolean).join(' + ')}
                             {showSort && <select className="form-select position-relative w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                                 <option value="asc">Ascend</option>
                                 <option value="desc">Descend</option>
@@ -670,8 +670,7 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
                         {onThisDayGoals.length > 0 && <p className="m-0">Year</p>}
                         {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
                             <button className="button" disabled={!!disabledLeagues[goal.league]} key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
-                                <span className="d-block">{goal.year}</span>
-                                <small>{LEAGUE_LABEL[goal.league] ?? goal.league}</small>
+                                {goal.year} {LEAGUE_LABEL[goal.league]}
                             </button>
                         )) : (
                             <button className="button" disabled>No Goals</button>
@@ -701,8 +700,7 @@ function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
 function NoResults() {
     return (
         <div className="alert alert-light" role="alert">
-            <p className="fw-bold">No Results</p>
-            <p>Please retry</p>
+            <p><strong>No Results</strong> Please retry</p>
             <p><a href="/help.html">Help</a></p>
         </div>
     )
