@@ -313,7 +313,7 @@ function SearchForm({jsonData}) {
                     label: title
                 });
             }}>
-            <div className="d-flex flex-wrap gap-2 mb-3">
+            <div className="align-items-stretch d-flex flex-wrap gap-2 mb-3">
                 <div className={`d-flex flex-column align-items-center${disabledLeagues[1] ? ' excluded' : ''}`}>
                     <button className="button counter" disabled={isAnimating || !!disabledLeagues[1]} onClick={() => randomGoal(jsonData.filter(item => item.league === 1))} title="NHL Regular Season" type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[1]}>{anim(leagueCounts[1])}</div>
@@ -364,11 +364,11 @@ function SearchForm({jsonData}) {
                     <button className={`button exclude${disabledLeagues[6] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(6)} title={disabledLeagues[6] ? 'Include' : 'Exclude'} type="button"><small>{disabledLeagues[6] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <button className="button counter" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
+                    <button className="button h-100" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
                         <div className="h4 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</div>
                         <div>Total</div>
                     </button>
-                    <button className="button include-all" disabled={isAnimating || Object.keys(disabledLeagues).length === 0} onClick={() => setDisabledLeagues({})} title="" type="button"><small>Include All</small></button>
+
                 </div>
             </div>
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
@@ -451,14 +451,14 @@ function SearchForm({jsonData}) {
                                     </div>
                                     <Accordion className="advanced-accordion w-100">
                                         <Accordion.Item eventKey="0">
-                                            <div className="accordion-header"><Accordion.Button className="py-2" disabled={!!searchGoal}><small><small>Advanced</small></small></Accordion.Button></div>
+                                            <div className="accordion-header"><Accordion.Button className="py-2"><small>Advanced</small></Accordion.Button></div>
                                             <Accordion.Body className="d-flex flex-column gap-2 pb-0 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
                                                 <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
                                                     <label htmlFor="team">Team</label>
                                                     <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
                                                         <option value=""></option>
                                                         <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
-                                                        <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks')}>•&nbsp;Mighty Ducks</option>
+                                                        <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
                                                         <option value="Arizona Coyotes" disabled={!filterOptions.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
                                                         <option value="Phoenix Coyotes" disabled={!filterOptions.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
                                                         <option value="Atlanta Thrashers" disabled={!filterOptions.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>

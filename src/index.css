@@ -141,10 +141,6 @@ form {
     &.collapsed {
         background: rgb(207, 226, 255) !important;
     }
-
-    &[disabled] {
-        opacity: .5;
-    }
 }
 
 .accordion-item {
