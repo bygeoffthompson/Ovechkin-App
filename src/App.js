@@ -11,7 +11,7 @@ const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
-const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
+const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
 const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
 
 function random(min, max) {
@@ -91,7 +91,7 @@ function SearchForm({jsonData}) {
             const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
             return [
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
-                LEAGUE[item.league],
+                LEAGUE[item.league].replace('All Star', 'All Star All-Star'),
                 'Season ' + item.season,
                 `${item.month}/${item.day}/${item.year}`,
                 DOTW[item.dotw],
@@ -161,8 +161,7 @@ function SearchForm({jsonData}) {
         return { teams, months, periods, locations, seasons, years }
     }, [textResults])
 
-    const emptyFilters = { teams: new Set(), months: new Set(), periods: new Set(), locations: new Set(), seasons: new Set(), years: new Set() }
-    const filterOptions = searchGoal ? emptyFilters : (resultFilters ?? activeFilters)
+    const filterOptions = resultFilters ?? activeFilters
 
     const searchResults = hasTextQuery ? textResults : goalResults
     const tooMany = hasTextQuery && textResults.length > 600
@@ -319,11 +318,11 @@ function SearchForm({jsonData}) {
                     <button className={`button exclude${disabledLeagues[2] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(2)} title="Exclude" type="button"><small>{disabledLeagues[2] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <button className="button counter" disabled={isAnimating || !!disabledLeagues['All Star']} onClick={() => randomGoal(jsonData.filter(item => item.league === 'All Star'))} title="All Star" type="button">
-                        <div className="h4 m-0" data-goals={leagueCounts['All Star']}>{anim(leagueCounts['All Star'])}</div>
+                    <button className="button counter" disabled={isAnimating || !!disabledLeagues[7]} onClick={() => randomGoal(jsonData.filter(item => item.league === 7))} title="All Star" type="button">
+                        <div className="h4 m-0" data-goals={leagueCounts[7]}>{anim(leagueCounts[7])}</div>
                         <small>All Star</small>
                     </button>
-                    <button className={`button exclude${disabledLeagues['All Star'] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague('All Star')} title="Exclude" type="button"><small>{disabledLeagues['All Star'] ? 'Include' : 'Exclude'}</small></button>
+                    <button className={`button exclude${disabledLeagues[7] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(7)} title="Exclude" type="button"><small>{disabledLeagues[7] ? 'Include' : 'Exclude'}</small></button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button counter khl" disabled={isAnimating || !!disabledLeagues[3]} onClick={() => randomGoal(jsonData.filter(item => item.league === 3))} title="KHL" type="button">
