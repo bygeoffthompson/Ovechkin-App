@@ -1,11 +1,11 @@
-import {useState, useEffect, useMemo} from 'react'
+import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
 import {useOnThisDay} from './useOnThisDay'
 import Accordion from 'react-bootstrap/Accordion'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-let _ga = null
+
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
@@ -23,14 +23,14 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function SearchForm({jsonData}) {
+function SearchForm({jsonData, ga}) {
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
     const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
-    const [loadedKeys, setLoadedKeys] = useState(new Set())
+    const [loadedKeys, setLoadedKeys] = useState({})
     const { anim, isAnimating } = useGoalCounter()
-    const [filters, setFilters] = useState({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
+    const [filters, setFilters] = useState({ team: '', location: '', period: '', month: '', season: '', year: '' })
     const [disabledLeagues, setDisabledLeagues] = useState({})
 
     const leagueCounts = useMemo(() => {
@@ -199,26 +199,30 @@ function SearchForm({jsonData}) {
     const sortedGoalIds = useMemo(() => sortedResults.map(r => r.goal).join(','), [sortedResults])
 
     useEffect(() => {
-        setLoadedKeys(new Set(sortedGoalIds ? ["0"] : []))
+        setLoadedKeys(sortedGoalIds ? { "0": true } : {})
     }, [sortedGoalIds])
 
     useEffect(() => {
         if (textResults.length === 0) return
-        _ga?.event({
+        ga.current?.event({
             category: 'Results',
             action: 'Open Goal Accordion',
             label: textResults[0].goal.toString()
         })
     }, [textResults])
 
-    function toggleLeague(key) {
+    const clearAdvanced = useCallback(() => {
+        setFilters({ team: '', location: '', period: '', month: '', season: '', year: '' })
+    }, [])
+
+    const toggleLeague = useCallback((key) => {
         setDisabledLeagues(prev => {
             const next = { ...prev }
             if (next[key]) delete next[key]
             else next[key] = true
             return next
         })
-    }
+    }, [])
 
     function canFilter(match) {
         return match.some(m => (valueIndex.get(m) ?? []).some(item => !disabledLeagues[item.league]))
@@ -228,14 +232,13 @@ function SearchForm({jsonData}) {
         return arr.some(item => !disabledLeagues[item.league])
     }
 
-
-    function handleText(e) {
+    const handleText = useCallback((e) => {
         setSearchGoal('')
         setHatTrickMode(false)
         setSearchText(e.target.value)
-    }
+    }, [])
 
-    function handleGoalNumber(e) {
+    const handleGoalNumber = useCallback((e) => {
         setSearchText('')
         setHatTrickMode(false)
         clearAdvanced()
@@ -245,13 +248,27 @@ function SearchForm({jsonData}) {
             setDisabledLeagues(prev => { const next = { ...prev }; delete next[found.league]; return next })
         }
         setSearchGoal(val)
-    }
+    }, [jsonData, disabledLeagues, clearAdvanced])
 
-    function resetSearch() {
+    const resetSearch = useCallback(() => {
         clearAdvanced()
         setSearchText('')
         setHatTrickMode(false)
-    }
+    }, [clearAdvanced])
+
+    const handleFilter = useCallback((key, value) => {
+        setSearchGoal('')
+        setFilters(f => ({...f, [key]: value}))
+    }, [])
+
+    const reset = useCallback(() => {
+        setSearchText('')
+        setSearchGoal('')
+        setHatTrickMode(false)
+        setSortOrder('asc')
+        clearAdvanced()
+        setDisabledLeagues({})
+    }, [clearAdvanced])
 
     function outdoor() {
         resetSearch()
@@ -286,24 +303,6 @@ function SearchForm({jsonData}) {
         setSearchGoal(pickRandom(result).goal)
     }
 
-    function handleFilter(key, value) {
-        setSearchGoal('')
-        setFilters(f => ({...f, [key]: value}))
-    }
-
-    function clearAdvanced() {
-        setFilters({ league: '', team: '', location: '', period: '', month: '', season: '', year: '' })
-    }
-
-    function reset() {
-        setSearchText('')
-        setSearchGoal('')
-        setHatTrickMode(false)
-        setSortOrder('asc')
-        clearAdvanced()
-        setDisabledLeagues({})
-    }
-
     function hatTrick() {
         clearAdvanced()
         setSearchText('')
@@ -323,7 +322,7 @@ function SearchForm({jsonData}) {
                 if (!btn) return
                 const title = btn.title
                 if (['', 'Exclude'].includes(title)) return
-                _ga?.event({
+                ga.current?.event({
                     category: 'Click',
                     action: 'Button Click',
                     label: title
@@ -381,7 +380,7 @@ function SearchForm({jsonData}) {
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button h-100" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
-                        <span className="h1 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</span>
+                        <span className="h1 m-0" data-goals={activeLeagueGoals.length}>{isAnimating ? anim(activeLeagueGoals.length) : totalDisplay}</span>
                     </button>
 
                 </div>
@@ -394,37 +393,37 @@ function SearchForm({jsonData}) {
                                 <Accordion.Body className="p-3">
                                     <div className="align-items-start buttons-group d-flex flex-row gap-2 justify-content-start">
                                         <div className="d-flex flex-column gap-2">
-                                            <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" type="button">
-                                                <img alt="Capitol logo" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" aria-label="Capitol" type="button">
+                                                <img alt="Capitol" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['Screagle'])} disabled={!canFilter(['Screagle'])} className="button jersey-button" title="Screagle" type="button">
-                                                <img alt="Screagle logo" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['Screagle'])} disabled={!canFilter(['Screagle'])} className="button jersey-button" title="Screagle" aria-label="Screagle" type="button">
+                                                <img alt="Screagle" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['Red'])} disabled={!canFilter(['Red'])} className="button jersey-button" title="Red" type="button">
-                                                <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['Red'])} disabled={!canFilter(['Red'])} className="button jersey-button" title="Red" aria-label="Red jersey" type="button">
+                                                <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['White'])} disabled={!canFilter(['White'])} className="button jersey-button" title="White" type="button">
-                                                <img alt="Capitals logo" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['White'])} disabled={!canFilter(['White'])} className="button jersey-button" title="White" aria-label="White jersey" type="button">
+                                                <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['Throwback'])} disabled={!canFilter(['Throwback'])} className="button jersey-button" title="Throwback" type="button">
-                                                ☆&nbsp;&nbsp;<img alt="Throwback logo" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
+                                            <button onClick={() => filterGoal(['Throwback'])} disabled={!canFilter(['Throwback'])} className="button jersey-button" title="Throwback" aria-label="Throwback jersey" type="button">
+                                                ☆&nbsp;&nbsp;<img alt="Throwback" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
                                             </button>
-                                            <button onClick={outdoor} disabled={!canRandom(jsonData.filter(item => [440, 475, 598, 602].includes(item.goal)))} className="button jersey-button multi-logo" title="Brick / Stadium" type="button">
+                                            <button onClick={outdoor} disabled={!canRandom(jsonData.filter(item => [440, 475, 598, 602].includes(item.goal)))} className="button jersey-button multi-logo" title="Brick / Stadium" aria-label="Brick or Stadium Series jersey" type="button">
                                                 <span>
-                                                    <img alt="Brick Stripes logo" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
+                                                    <img alt="Brick" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
                                                 </span>
                                                 <span>
-                                                    <img alt="Stadium Series logo" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
+                                                    <img alt="Caps" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
                                                 </span>
                                             </button>
-                                            <button onClick={() => filterGoal(['Navy W'])} disabled={!canFilter(['Navy W'])} className="button jersey-button" title="Navy" type="button">
-                                                <img alt="Navy logo" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
+                                            <button onClick={() => filterGoal(['Navy W'])} disabled={!canFilter(['Navy W'])} className="button jersey-button" title="Navy" aria-label="Navy jersey" type="button">
+                                                <img alt="Navy" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['Black Reverse Retro'])} disabled={!canFilter(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" type="button">
-                                                <img alt="Black Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['Black Reverse Retro'])} disabled={!canFilter(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" aria-label="Black Reverse Retro jersey" type="button">
+                                                <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                             </button>
-                                            <button onClick={() => filterGoal(['Red Reverse Retro'])} disabled={!canFilter(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" type="button">
-                                                <img alt="Red Reverse Retro logo" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                            <button onClick={() => filterGoal(['Red Reverse Retro'])} disabled={!canFilter(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" aria-label="Red Reverse Retro jersey" type="button">
+                                                <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                             </button>
                                         </div>
                                         <div className="d-flex flex-column gap-2">
@@ -575,14 +574,14 @@ function SearchForm({jsonData}) {
 
                     {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
                     {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
-                    <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => new Set([...prev, key]))}>
+                    <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => ({...prev, [key]: true}))}>
                         {sortedResults.map((result, index) => {
                             const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
                             const [goalInt, goalDec] = result.goal.toString().split('.')
                             return (
                             <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
                                 <div className="accordion-header">
-                                    <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { _ga?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
+                                    <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                         <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                             <strong className="align-items-center d-flex goal-count">
                                                 {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
@@ -614,7 +613,7 @@ function SearchForm({jsonData}) {
                                             {result.a2 && <span className="assist badge">{result.a2}</span>}
                                         </small>
                                     </div>
-                                    {loadedKeys.has(index.toString())
+                                    {loadedKeys[index]
                                         ? <iframe className="border-0 h-auto iframe position-relative user-select-none w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                                         : <div className="border-0 h-auto iframe position-relative user-select-none w-100" style={{height: '315px'}} />
                                     }
@@ -696,12 +695,13 @@ function NoResults({terms, disabledLeagues}) {
 function App() {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
+    const gaRef = useRef(null)
 
     useEffect(() => {
         if (window.location.hostname !== 'localhost') {
             window.addEventListener('load', () => {
                 import('react-ga4').then(({default: ReactGA}) => {
-                    _ga = ReactGA
+                    gaRef.current = ReactGA
                     ReactGA.initialize('G-K4X7EL6PW3')
                 })
             }, { once: true })
@@ -721,7 +721,7 @@ function App() {
     }
 
     return (
-        <SearchForm jsonData={data}/>
+        <SearchForm jsonData={data} ga={gaRef}/>
     )
 }
 
