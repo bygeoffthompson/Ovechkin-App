@@ -31,6 +31,8 @@
 }
 
 form {
+    max-width: 365px;
+
     select {
         font-size: .875rem !important;
         max-width: 200px;
@@ -494,6 +496,10 @@ form {
 #random-search {
     @media (min-width: 992px) {
         max-width: 365px;
+    }
+
+    select {
+        color: #C8102E;
     }
 }
 

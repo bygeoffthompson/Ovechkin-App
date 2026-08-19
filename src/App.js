@@ -10,6 +10,7 @@ const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens'
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
+
 const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
 const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
 const LEAGUE_LABEL = { 1: 'NHL', 2: 'Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'Worlds', 6: 'World Cup' }
@@ -123,15 +124,21 @@ function SearchForm({jsonData}) {
     const tooShort = searchText.length > 0 && searchText.length < 3
 
     const textResults = useMemo(() => {
-        const selectFilters = Object.values(deferredFilters).map(normalize).filter(Boolean)
-        if (deferredSearchText.length === 0 && selectFilters.length === 0) return []
+        const { team, location, period, month, season, year } = deferredFilters
+        const hasSelectFilters = team || location || period || month || season || year
+        if (deferredSearchText.length === 0 && !hasSelectFilters) return []
         if (deferredSearchText.length > 0 && deferredSearchText.length < 3) return []
         const terms = normalize(deferredSearchText).split('+').map(s => s.trim()).filter(Boolean)
         return jsonData.filter((item, i) => {
-            const search = searchStrings[i]
-            return !disabledLeagues[item.league] &&
-                   terms.every(term => search.includes(term)) &&
-                   selectFilters.every(f => search.includes(f))
+            if (disabledLeagues[item.league]) return false
+            if (terms.length > 0 && !terms.every(t => searchStrings[i].includes(t))) return false
+            if (team && item.team !== team) return false
+            if (location && item.hoa !== (location === 'Home' ? 1 : 0)) return false
+            if (period && item.period !== Number(period)) return false
+            if (month && item.month !== Number(month)) return false
+            if (season && item.season !== parseInt(season.replace('Season ', ''))) return false
+            if (year && item.year !== parseInt(year)) return false
+            return true
         })
     }, [jsonData, deferredSearchText, deferredFilters, disabledLeagues, searchStrings])
 
@@ -161,7 +168,14 @@ function SearchForm({jsonData}) {
         return { teams, months, periods, locations, seasons, years }
     }, [textResults])
 
-    const filterOptions = resultFilters ?? activeFilters
+    const filterOptions = {
+        teams:     filters.team     ? activeFilters.teams     : (resultFilters?.teams     ?? activeFilters.teams),
+        locations: filters.location ? activeFilters.locations : (resultFilters?.locations ?? activeFilters.locations),
+        periods:   filters.period   ? activeFilters.periods   : (resultFilters?.periods   ?? activeFilters.periods),
+        months:    filters.month    ? activeFilters.months    : (resultFilters?.months    ?? activeFilters.months),
+        seasons:   filters.season   ? activeFilters.seasons   : (resultFilters?.seasons   ?? activeFilters.seasons),
+        years:     filters.year     ? activeFilters.years     : (resultFilters?.years     ?? activeFilters.years),
+    }
 
     const searchResults = hasTextQuery ? textResults : goalResults
     const tooMany = hasTextQuery && textResults.length > 600
@@ -228,6 +242,7 @@ function SearchForm({jsonData}) {
     function handleGoalNumber(e) {
         setSearchText('')
         setHatTrickMode(false)
+        clearAdvanced()
         const val = e.target.value
         const found = jsonData.find(item => item.goal === parseFloat(val))
         if (found && disabledLeagues[found.league]) {
@@ -306,7 +321,7 @@ function SearchForm({jsonData}) {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (['', 'Exclude', 'Refresh', 'Reset', 'Search'].includes(title)) return
+                if (['', 'Exclude', 'Refresh'].includes(title)) return
                 _ga?.event({
                     category: 'Click',
                     action: 'Button Click',
@@ -365,7 +380,7 @@ function SearchForm({jsonData}) {
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <button className="button h-100" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
-                        <div className="h4 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</div>
+                        <div className="h1 m-0" data-goals={activeLeagueGoals.length}>{totalDisplay}</div>
                         <div>Total</div>
                     </button>
 
@@ -449,111 +464,103 @@ function SearchForm({jsonData}) {
                                     <label htmlFor="search-text-1">Text</label>
                                     <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                                     </div>
-                                    <Accordion className="advanced-accordion w-100">
-                                        <Accordion.Item eventKey="0">
-                                            <div className="accordion-header"><Accordion.Button className="py-2"><small>Advanced</small></Accordion.Button></div>
-                                            <Accordion.Body className="d-flex flex-column gap-2 pb-0 small" onChange={(e) => { if (e.target.value !== '') setSearchGoal('') }}>
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                    <label htmlFor="team">Team</label>
-                                                    <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
-                                                        <option value=""></option>
-                                                        <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
-                                                        <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
-                                                        <option value="Arizona Coyotes" disabled={!filterOptions.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
-                                                        <option value="Phoenix Coyotes" disabled={!filterOptions.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
-                                                        <option value="Atlanta Thrashers" disabled={!filterOptions.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>
-                                                        <option value="Boston Bruins" disabled={!filterOptions.teams.has('Boston Bruins')}>Boston Bruins</option>
-                                                        <option value="Buffalo Sabres" disabled={!filterOptions.teams.has('Buffalo Sabres')}>Buffalo Sabres</option>
-                                                        <option value="Calgary Flames" disabled={!filterOptions.teams.has('Calgary Flames')}>Calgary Flames</option>
-                                                        <option value="Carolina Hurricanes" disabled={!filterOptions.teams.has('Carolina Hurricanes')}>Carolina Hurricanes</option>
-                                                        <option value="Chicago Blackhawks" disabled={!filterOptions.teams.has('Chicago Blackhawks')}>Chicago Blackhawks</option>
-                                                        <option value="Colorado Avalanche" disabled={!filterOptions.teams.has('Colorado Avalanche')}>Colorado Avalanche</option>
-                                                        <option value="Columbus Blue Jackets" disabled={!filterOptions.teams.has('Columbus Blue Jackets')}>Columbus Blue Jackets</option>
-                                                        <option value="Dallas Stars" disabled={!filterOptions.teams.has('Dallas Stars')}>Dallas Stars</option>
-                                                        <option value="Detroit Red Wings" disabled={!filterOptions.teams.has('Detroit Red Wings')}>Detroit Red Wings</option>
-                                                        <option value="Edmonton Oilers" disabled={!filterOptions.teams.has('Edmonton Oilers')}>Edmonton Oilers</option>
-                                                        <option value="Florida Panthers" disabled={!filterOptions.teams.has('Florida Panthers')}>Florida Panthers</option>
-                                                        <option value="Los Angeles Kings" disabled={!filterOptions.teams.has('Los Angeles Kings')}>Los Angeles Kings</option>
-                                                        <option value="Minnesota Wild" disabled={!filterOptions.teams.has('Minnesota Wild')}>Minnesota Wild</option>
-                                                        <option value="Montreal Canadiens" disabled={!filterOptions.teams.has('Montreal Canadiens')}>Montreal Canadiens</option>
-                                                        <option value="Nashville Predators" disabled={!filterOptions.teams.has('Nashville Predators')}>Nashville Predators</option>
-                                                        <option value="New Jersey Devils" disabled={!filterOptions.teams.has('New Jersey Devils')}>New Jersey Devils</option>
-                                                        <option value="New York Islanders" disabled={!filterOptions.teams.has('New York Islanders')}>New York Islanders</option>
-                                                        <option value="New York Rangers" disabled={!filterOptions.teams.has('New York Rangers')}>New York Rangers</option>
-                                                        <option value="Ottawa Senators" disabled={!filterOptions.teams.has('Ottawa Senators')}>Ottawa Senators</option>
-                                                        <option value="Philadelphia Flyers" disabled={!filterOptions.teams.has('Philadelphia Flyers')}>Philadelphia Flyers</option>
-                                                        <option value="Pittsburgh Penguins" disabled={!filterOptions.teams.has('Pittsburgh Penguins')}>Pittsburgh Penguins</option>
-                                                        <option value="San Jose Sharks" disabled={!filterOptions.teams.has('San Jose Sharks')}>San Jose Sharks</option>
-                                                        <option value="Seattle Kraken" disabled={!filterOptions.teams.has('Seattle Kraken')}>Seattle Kraken</option>
-                                                        <option value="St. Louis Blues" disabled={!filterOptions.teams.has('St. Louis Blues')}>St. Louis Blues</option>
-                                                        <option value="Tampa Bay Lightning" disabled={!filterOptions.teams.has('Tampa Bay Lightning')}>Tampa Bay Lightning</option>
-                                                        <option value="Toronto Maple Leafs" disabled={!filterOptions.teams.has('Toronto Maple Leafs')}>Toronto Maple Leafs</option>
-                                                        <option value="Utah Mammoth" disabled={!filterOptions.teams.has('Utah Mammoth')}>Utah Mammoth</option>
-                                                        <option value="Vancouver Canucks" disabled={!filterOptions.teams.has('Vancouver Canucks')}>Vancouver Canucks</option>
-                                                        <option value="Vegas Golden Knights" disabled={!filterOptions.teams.has('Vegas Golden Knights')}>Vegas Golden Knights</option>
-                                                        <option value="Winnipeg Jets" disabled={!filterOptions.teams.has('Winnipeg Jets')}>Winnipeg Jets</option>
-                                                    </select>
-                                                </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                    <label htmlFor="location">Location</label>
-                                                    <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
-                                                        <option value=""></option>
-                                                        <option value="Home" disabled={!filterOptions.locations.has(1)}>Home</option>
-                                                        <option value="Away" disabled={!filterOptions.locations.has(0)}>Away</option>
-                                                    </select>
-                                                </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                    <label htmlFor="period">Period</label>
-                                                    <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
-                                                        <option value=""></option>
-                                                        <option value="P1" disabled={!filterOptions.periods.has(1)}>First</option>
-                                                        <option value="P2" disabled={!filterOptions.periods.has(2)}>Second</option>
-                                                        <option value="P3" disabled={!filterOptions.periods.has(3)}>Third</option>
-                                                        <option value="OT" disabled={!filterOptions.periods.has(4)}>Overtime</option>
-                                                    </select>
-                                                </div>
-                                                <div className="align-items-center d-flex flex-row gap-1 justify-content-between">
-                                                    <label htmlFor="month">Month</label>
-                                                    <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
-                                                        <option value=""></option>
-                                                        <option value="January" disabled={!filterOptions.months.has(1)}>January</option>
-                                                        <option value="February" disabled={!filterOptions.months.has(2)}>February</option>
-                                                        <option value="March" disabled={!filterOptions.months.has(3)}>March</option>
-                                                        <option value="April" disabled={!filterOptions.months.has(4)}>April</option>
-                                                        <option value="May" disabled={!filterOptions.months.has(5)}>May</option>
-                                                        <option value="June" disabled={!filterOptions.months.has(6)}>June</option>
-                                                        <option value="July" disabled={!filterOptions.months.has(7)}>July</option>
-                                                        <option value="August" disabled={!filterOptions.months.has(8)}>August</option>
-                                                        <option value="September" disabled={!filterOptions.months.has(9)}>September</option>
-                                                        <option value="October" disabled={!filterOptions.months.has(10)}>October</option>
-                                                        <option value="November" disabled={!filterOptions.months.has(11)}>November</option>
-                                                        <option value="December" disabled={!filterOptions.months.has(12)}>December</option>
-                                                    </select>
-                                                </div>
-                                                <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
-                                                    <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
-                                                        <label htmlFor="season">Season</label>
-                                                        <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
-                                                            <option value=""></option>
-                                                            {seasonOptions.map(n => (
-                                                                <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
-                                                    <div className="align-items-center d-flex flex-row gap-1 justify-content-between w-100">
-                                                        <label htmlFor="year">Year</label>
-                                                        <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
-                                                            <option value=""></option>
-                                                            {yearOptions.map(y => (
-                                                                <option key={y} value={y} disabled={!filterOptions.years.has(y)}>{y}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Accordion>
-                                    <button className="button w-100" title="Search" type="submit">Search</button>
+                                    <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                        <label htmlFor="team">Team</label>
+                                        <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
+                                            <option value=""></option>
+                                            <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
+                                            <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
+                                            <option value="Arizona Coyotes" disabled={!filterOptions.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
+                                            <option value="Phoenix Coyotes" disabled={!filterOptions.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
+                                            <option value="Atlanta Thrashers" disabled={!filterOptions.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>
+                                            <option value="Boston Bruins" disabled={!filterOptions.teams.has('Boston Bruins')}>Boston Bruins</option>
+                                            <option value="Buffalo Sabres" disabled={!filterOptions.teams.has('Buffalo Sabres')}>Buffalo Sabres</option>
+                                            <option value="Calgary Flames" disabled={!filterOptions.teams.has('Calgary Flames')}>Calgary Flames</option>
+                                            <option value="Carolina Hurricanes" disabled={!filterOptions.teams.has('Carolina Hurricanes')}>Carolina Hurricanes</option>
+                                            <option value="Chicago Blackhawks" disabled={!filterOptions.teams.has('Chicago Blackhawks')}>Chicago Blackhawks</option>
+                                            <option value="Colorado Avalanche" disabled={!filterOptions.teams.has('Colorado Avalanche')}>Colorado Avalanche</option>
+                                            <option value="Columbus Blue Jackets" disabled={!filterOptions.teams.has('Columbus Blue Jackets')}>Columbus Blue Jackets</option>
+                                            <option value="Dallas Stars" disabled={!filterOptions.teams.has('Dallas Stars')}>Dallas Stars</option>
+                                            <option value="Detroit Red Wings" disabled={!filterOptions.teams.has('Detroit Red Wings')}>Detroit Red Wings</option>
+                                            <option value="Edmonton Oilers" disabled={!filterOptions.teams.has('Edmonton Oilers')}>Edmonton Oilers</option>
+                                            <option value="Florida Panthers" disabled={!filterOptions.teams.has('Florida Panthers')}>Florida Panthers</option>
+                                            <option value="Los Angeles Kings" disabled={!filterOptions.teams.has('Los Angeles Kings')}>Los Angeles Kings</option>
+                                            <option value="Minnesota Wild" disabled={!filterOptions.teams.has('Minnesota Wild')}>Minnesota Wild</option>
+                                            <option value="Montreal Canadiens" disabled={!filterOptions.teams.has('Montreal Canadiens')}>Montreal Canadiens</option>
+                                            <option value="Nashville Predators" disabled={!filterOptions.teams.has('Nashville Predators')}>Nashville Predators</option>
+                                            <option value="New Jersey Devils" disabled={!filterOptions.teams.has('New Jersey Devils')}>New Jersey Devils</option>
+                                            <option value="New York Islanders" disabled={!filterOptions.teams.has('New York Islanders')}>New York Islanders</option>
+                                            <option value="New York Rangers" disabled={!filterOptions.teams.has('New York Rangers')}>New York Rangers</option>
+                                            <option value="Ottawa Senators" disabled={!filterOptions.teams.has('Ottawa Senators')}>Ottawa Senators</option>
+                                            <option value="Philadelphia Flyers" disabled={!filterOptions.teams.has('Philadelphia Flyers')}>Philadelphia Flyers</option>
+                                            <option value="Pittsburgh Penguins" disabled={!filterOptions.teams.has('Pittsburgh Penguins')}>Pittsburgh Penguins</option>
+                                            <option value="San Jose Sharks" disabled={!filterOptions.teams.has('San Jose Sharks')}>San Jose Sharks</option>
+                                            <option value="Seattle Kraken" disabled={!filterOptions.teams.has('Seattle Kraken')}>Seattle Kraken</option>
+                                            <option value="St. Louis Blues" disabled={!filterOptions.teams.has('St. Louis Blues')}>St. Louis Blues</option>
+                                            <option value="Tampa Bay Lightning" disabled={!filterOptions.teams.has('Tampa Bay Lightning')}>Tampa Bay Lightning</option>
+                                            <option value="Toronto Maple Leafs" disabled={!filterOptions.teams.has('Toronto Maple Leafs')}>Toronto Maple Leafs</option>
+                                            <option value="Utah Mammoth" disabled={!filterOptions.teams.has('Utah Mammoth')}>Utah Mammoth</option>
+                                            <option value="Vancouver Canucks" disabled={!filterOptions.teams.has('Vancouver Canucks')}>Vancouver Canucks</option>
+                                            <option value="Vegas Golden Knights" disabled={!filterOptions.teams.has('Vegas Golden Knights')}>Vegas Golden Knights</option>
+                                            <option value="Winnipeg Jets" disabled={!filterOptions.teams.has('Winnipeg Jets')}>Winnipeg Jets</option>
+                                        </select>
+                                    </div>
+                                    <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                        <label htmlFor="location">Location</label>
+                                        <select className="form-select py-1" id="location" name="Location" value={filters.location} onChange={(e) => setFilters(f => ({...f, location: e.target.value}))}>
+                                            <option value=""></option>
+                                            <option value="Home" disabled={!filterOptions.locations.has(1)}>Home</option>
+                                            <option value="Away" disabled={!filterOptions.locations.has(0)}>Away</option>
+                                        </select>
+                                    </div>
+                                    <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                        <label htmlFor="period">Period</label>
+                                        <select className="form-select py-1" id="period" name="Period" value={filters.period} onChange={(e) => setFilters(f => ({...f, period: e.target.value}))}>
+                                            <option value=""></option>
+                                            <option value="1" disabled={!filterOptions.periods.has(1)}>First</option>
+                                            <option value="2" disabled={!filterOptions.periods.has(2)}>Second</option>
+                                            <option value="3" disabled={!filterOptions.periods.has(3)}>Third</option>
+                                            <option value="4" disabled={!filterOptions.periods.has(4)}>Overtime</option>
+                                        </select>
+                                    </div>
+                                    <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                        <label htmlFor="month">Month</label>
+                                        <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => setFilters(f => ({...f, month: e.target.value}))}>
+                                            <option value=""></option>
+                                            <option value="1" disabled={!filterOptions.months.has(1)}>January</option>
+                                            <option value="2" disabled={!filterOptions.months.has(2)}>February</option>
+                                            <option value="3" disabled={!filterOptions.months.has(3)}>March</option>
+                                            <option value="4" disabled={!filterOptions.months.has(4)}>April</option>
+                                            <option value="5" disabled={!filterOptions.months.has(5)}>May</option>
+                                            <option value="6" disabled={!filterOptions.months.has(6)}>June</option>
+                                            <option value="7" disabled={!filterOptions.months.has(7)}>July</option>
+                                            <option value="8" disabled={!filterOptions.months.has(8)}>August</option>
+                                            <option value="9" disabled={!filterOptions.months.has(9)}>September</option>
+                                            <option value="10" disabled={!filterOptions.months.has(10)}>October</option>
+                                            <option value="11" disabled={!filterOptions.months.has(11)}>November</option>
+                                            <option value="12" disabled={!filterOptions.months.has(12)}>December</option>
+                                        </select>
+                                    </div>
+                                    <div className="align-items-start d-flex flex-column flex-sm-row gap-3 w-100">
+                                        <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                            <label htmlFor="season">Season</label>
+                                            <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => setFilters(f => ({...f, season: e.target.value}))}>
+                                                <option value=""></option>
+                                                {seasonOptions.map(n => (
+                                                    <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                                            <label htmlFor="year">Year</label>
+                                            <select className="form-select py-1" id="year" name="Year" value={filters.year} onChange={(e) => setFilters(f => ({...f, year: e.target.value}))}>
+                                                <option value=""></option>
+                                                {yearOptions.map(y => (
+                                                    <option key={y} value={y} disabled={!filterOptions.years.has(y)}>{y}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
                                 </form>
                                 </Accordion.Body>
                             </Accordion.Item>
