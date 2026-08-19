@@ -469,7 +469,7 @@ function SearchForm({jsonData}) {
                                         <select className="form-select py-1" id="team" name="Team" value={filters.team} onChange={(e) => setFilters(f => ({...f, team: e.target.value}))}>
                                             <option value=""></option>
                                             <option value="Anaheim Ducks" disabled={!filterOptions.teams.has('Anaheim Ducks')}>Anaheim Ducks</option>
-                                            <option value="Mighty Ducks" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
+                                            <option value="Mighty Ducks of Anaheim" disabled={!filterOptions.teams.has('Mighty Ducks of Anaheim')}>•&nbsp;Mighty Ducks</option>
                                             <option value="Arizona Coyotes" disabled={!filterOptions.teams.has('Arizona Coyotes')}>Arizona Coyotes</option>
                                             <option value="Phoenix Coyotes" disabled={!filterOptions.teams.has('Phoenix Coyotes')}>•&nbsp;Phoenix Coyotes</option>
                                             <option value="Atlanta Thrashers" disabled={!filterOptions.teams.has('Atlanta Thrashers')}>Atlanta Thrashers</option>
@@ -581,7 +581,7 @@ function SearchForm({jsonData}) {
                         </div>
                     )}
                     {isPending && <div className="alert alert-light d-inline-block opacity-25" role="alert"><span className="h6">Loading Goals</span></div>}
-                    {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Text search requires at least 3 characters.</span></div>}
+                    {tooShort && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Search Requires 3 Characters</span></div>}
                     {tooMany && <div className="alert alert-light d-inline-block" role="alert"><span className="h6">Please Refine Your Search</span></div>}
                     <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush>
                         {!isPending && sortedResults.map((result, index) => {
