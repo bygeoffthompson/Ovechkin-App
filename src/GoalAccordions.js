@@ -27,7 +27,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
                     const key = index.toString()
-                    const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '')
+                    const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1' + (autoplay ? '&autoplay=1&mute=1' : '')
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
