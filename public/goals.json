@@ -2846,7 +2846,7 @@
     },
     {
         "goal": 137.03,
-        "link": "/sFz5srKPlRM?si=eVVigyX9Yhunm4tF&amp;start=102",
+        "link": "/sFz5srKPlRM?si=eVVigyX9Yhunm4tF&amp;start=102&end=150",
         "team": "West",
         "goalie": "Chris Osgood",
         "a1": "Martin St. Louis",
@@ -5532,7 +5532,7 @@
     },
     {
         "goal": 261.06,
-        "link": "/-gePdvk1Wro?si=0NJS_3c0g1vAMa8O&amp;start=270",
+        "link": "/-gePdvk1Wro?si=0NJS_3c0g1vAMa8O&amp;start=270&end=325",
         "team": "Latvia",
         "goalie": "Edgars Masaļskis",
         "a1": "Alex Semin",
@@ -5549,7 +5549,7 @@
     },
     {
         "goal": 261.07,
-        "link": "/-gePdvk1Wro?si=bw5oVhyYjmtqwcde&amp;start=333",
+        "link": "/-gePdvk1Wro?si=bw5oVhyYjmtqwcde&amp;start=333&end=371",
         "team": "Latvia",
         "goalie": "Edgars Masaļskis",
         "a1": "Pavel Datsyuk",
@@ -5709,7 +5709,7 @@
     },
     {
         "goal": 269.16,
-        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=786",
+        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=786&end=843",
         "team": "Montreal Canadiens",
         "goalie": "Jaroslav Halák",
         "a1": "John Carlson",
@@ -5789,7 +5789,7 @@
     },
     {
         "goal": 269.2,
-        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=989",
+        "link": "/6G71ZHD3FBI?si=IF0YpW4gE0NJj3wS&amp;start=989&end=1056",
         "team": "Montreal Canadiens",
         "goalie": "Jaroslav Halák",
         "a1": "Mike Knuble",
@@ -5809,7 +5809,7 @@
     },
     {
         "goal": 270.2,
-        "link": "/PUse3zsREUk?si=jM8BbbClRBMyxKrb&amp;start=40",
+        "link": "/PUse3zsREUk?si=jM8BbbClRBMyxKrb&amp;start=40&end=76",
         "team": "Slovakia",
         "goalie": "Peter Budaj",
         "a1": "Sergei Fedorov",
@@ -5839,7 +5839,7 @@
     },
     {
         "goal": 270.22,
-        "link": "/ohcGvSnaNY0?si=fwFEmowGGViZNCcd&amp;start=41",
+        "link": "/ohcGvSnaNY0?si=fwFEmowGGViZNCcd&amp;start=41&end=96",
         "team": "Belarus",
         "goalie": "Andrei Mezin",
         "a1": "Sergei Fedorov",
@@ -5853,7 +5853,7 @@
     },
     {
         "goal": 270.23,
-        "link": "/1xpoLp6SSbU?si=K-S3ZGRqfRagHY_0&amp;start=201",
+        "link": "/1xpoLp6SSbU?si=K-S3ZGRqfRagHY_0&amp;start=201&end=253",
         "team": "Germany",
         "goalie": "Dimitrij Kotschnew",
         "a1": "Alex Semin",
@@ -5867,7 +5867,7 @@
     },
     {
         "goal": 270.24,
-        "link": "/dbC5ds2dJ50?si=9OuW__S_0kP35CMB&amp;start=64",
+        "link": "/dbC5ds2dJ50?si=9OuW__S_0kP35CMB&amp;start=64&end=113",
         "team": "Denmark",
         "goalie": "Frederik Andersen",
         "a1": "Sergei Fedorov",
@@ -5876,6 +5876,7 @@
         "day": 16,
         "year": 2010,
         "btn1": "PPG",
+        "btn2": "Slapshot",
         "league": 5,
         "period": 1,
         "time": "19:13",
@@ -6227,7 +6228,7 @@
     },
     {
         "goal": 288.05,
-        "link": "/UF-oqPdmLSo?si=Z8HEoSbZaNMWheVg&amp;start=30",
+        "link": "/UF-oqPdmLSo?si=Z8HEoSbZaNMWheVg&amp;start=30&end=61",
         "team": "Lidstrom",
         "goalie": "Marc-André Fleury",
         "goalie2": "Marc-Andre Fleury",
@@ -7414,7 +7415,7 @@
     },
     {
         "goal": 339.01,
-        "link": "/K4-EvleBUHU?si=pgp7URA7M3RdQXiP&amp;start=60",
+        "link": "/K4-EvleBUHU?si=pgp7URA7M3RdQXiP&amp;start=60&end=70",
         "team": "SKA St. Petersburg",
         "goalie": "Ilya Yezhov",
         "a1": "Filip Novak",
@@ -7433,7 +7434,7 @@
     },
     {
         "goal": 339.02,
-        "link": "/OPwtTJQ-uWQ?si=39Kp5tDi1xFcXSZL&amp;start=244",
+        "link": "/OPwtTJQ-uWQ?si=39Kp5tDi1xFcXSZL&amp;start=244&end=300",
         "team": "Neftekhimik Nizhnekamsk",
         "goalie": "Maxim Sokolov",
         "a1": "Dominik Granak",
@@ -7563,7 +7564,7 @@
     },
     {
         "goal": 339.09,
-        "link": "/4wnkc447gB0?si=csQNNMvtuAOYh5Bn&amp;start=79",
+        "link": "/4wnkc447gB0?si=csQNNMvtuAOYh5Bn&amp;start=79&end=95",
         "team": "Cherepovets Severstal",
         "goalie": "Vasily Koshechkin",
         "a1": "Nicklas Backstrom",
@@ -7582,7 +7583,7 @@
     },
     {
         "goal": 339.1,
-        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=10",
+        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=10&end=24",
         "team": "HC Donbass",
         "goalie": "Ján Laco",
         "a1": "Leo Komarov",
@@ -7599,7 +7600,7 @@
     },
     {
         "goal": 339.11,
-        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=27",
+        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=27&end=48",
         "team": "HC Donbass",
         "goalie": "Ján Laco",
         "a1": "Leo Komarov",
@@ -7620,7 +7621,7 @@
     },
     {
         "goal": 339.12,
-        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=53",
+        "link": "/FcE6z5zDaKw?si=_0WtOWZGR0WeelX8&amp;start=53&end=84",
         "team": "HC Donbass",
         "a1": "Nicklas Backstrom",
         "month": 12,
@@ -7657,7 +7658,7 @@
     },
     {
         "goal": 339.14,
-        "link": "/Ju6pn0iWEb0?si=40E4_o2hdXO-3FY4&amp;start=3",
+        "link": "/Ju6pn0iWEb0?si=40E4_o2hdXO-3FY4&amp;start=4&end=13",
         "team": "Sibir Novosibirsk",
         "goalie": "Jeff Glass",
         "a1": "Maxim Solovyov",
@@ -7675,7 +7676,7 @@
     },
     {
         "goal": 339.15,
-        "link": "/jkj3uMA7KgA?si=yqeosFSxJVGigBiY&amp;start=51",
+        "link": "/jkj3uMA7KgA?si=yqeosFSxJVGigBiY&amp;start=51&end=66",
         "team": "Metallurg Novokuznetsk",
         "goalie": "Alexander Lazushin",
         "a1": "Nicklas Backstrom",
@@ -7694,7 +7695,7 @@
     },
     {
         "goal": 339.16,
-        "link": "/xZNTq-uuG0w?si=CgQjdNvTvL7y7riL&amp;start=42",
+        "link": "/xZNTq-uuG0w?si=CgQjdNvTvL7y7riL&amp;start=42&end=57",
         "team": "Amur Khabarovsk",
         "goalie": "Alexei Kuznetsov",
         "a1": "Alexander Boikov",
@@ -7712,7 +7713,7 @@
     },
     {
         "goal": 339.17,
-        "link": "/_W55j2nwKA8?si=UpG3cDN5ZfUb6b0-&amp;start=47",
+        "link": "/_W55j2nwKA8?si=UpG3cDN5ZfUb6b0-&amp;start=47&end=62",
         "team": "HC Slovan Bratislava",
         "goalie": "Jaroslav Janus",
         "a1": "Ilya Gorokhov",
@@ -9153,7 +9154,7 @@
     },
     {
         "goal": 411.08,
-        "link": "/-gePdvk1Wro?si=UImpGZA6IUJn4x3k&amp;start=397",
+        "link": "/-gePdvk1Wro?si=UImpGZA6IUJn4x3k&amp;start=410&end=436",
         "team": "Slovenia",
         "goalie": "Robert Kristan",
         "a1": "Evgeni Malkin",
@@ -9385,7 +9386,7 @@
     },
     {
         "goal": 422.28,
-        "link": "/Uv4Z5Dc8huw?si=IhxdHyzmjAvRUnxa&amp;start=63",
+        "link": "/Uv4Z5Dc8huw?si=IhxdHyzmjAvRUnxa&amp;start=63&end=113",
         "team": "Switzerland",
         "goalie": "Leonardo Genoni",
         "a1": "Anton Belov",
@@ -9402,7 +9403,7 @@
     },
     {
         "goal": 422.29,
-        "link": "/Es-oo7unnt8?si=I06kSJXjigyPQLVM&amp;start=60",
+        "link": "/Es-oo7unnt8?si=I06kSJXjigyPQLVM&amp;start=61&end=112",
         "team": "Finland",
         "goalie": "Mikko Koskinen",
         "a1": "Danis Zaripov",
@@ -9420,7 +9421,7 @@
     },
     {
         "goal": 422.3,
-        "link": "/p3J9l7GdwLg?si=SpPYFVEqVGWS4N8T&amp;start=99",
+        "link": "/p3J9l7GdwLg?si=SpPYFVEqVGWS4N8T&amp;start=61&end=151",
         "team": "USA",
         "goalie": "Tim Thomas",
         "month": 5,
@@ -9436,7 +9437,7 @@
     },
     {
         "goal": 422.31,
-        "link": "/kca7Cmm-R1A?si=QsTdSIayDifwpVbE&amp;start=134",
+        "link": "/kca7Cmm-R1A?si=QsTdSIayDifwpVbE&amp;start=134&end=182",
         "team": "Finland",
         "goalie": "Pekka Rinne",
         "a1": "Vadim Schipachev",
@@ -10384,7 +10385,7 @@
     },
     {
         "goal": 473,
-        "link": "/aucqOncw85A?si=H6rS6e-SJ7S72DJc&amp;start=48",
+        "link": "/aucqOncw85A?si=H6rS6e-SJ7S72DJc&amp;start=48&end=138",
         "team": "Montreal Canadiens",
         "goalie": "Carey Price",
         "a1": "John Carlson",
@@ -10404,7 +10405,7 @@
     },
     {
         "goal": 474,
-        "link": "/aucqOncw85A?si=EnsVZDOBQsxgP6kM&amp;start=139",
+        "link": "/aucqOncw85A?si=EnsVZDOBQsxgP6kM&amp;start=140&end=196",
         "team": "Montreal Canadiens",
         "goalie": "Carey Price",
         "a1": "John Carlson",
