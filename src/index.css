@@ -44,11 +44,7 @@ form {
 }
 
 .badge {
-  background: #F34133;
-}
-
-.assist {
-  background: #C57C4B;
+  background: #062D60;
 }
 
 .goal-siren {
@@ -331,17 +327,17 @@ form {
     }
 
     &.exclude {
-        background: #062D60;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        color: #FFF !important;
         min-height: unset;
         padding: .5rem;
-        transform: none !important
-    }
 
-    &.include {
-        background: #C81020;
+        &.include,
+        &:active,
+        &:hover {
+            background: #C81020 !important;
+            color: #FFF !important;
+        }
     }
 
     &.cup {
@@ -497,6 +493,6 @@ input {
 }
 
 .excluded {
-    transform: scale(.8);
+    transform: scale(.75);
     transition: all 500ms ease-in;
 }
