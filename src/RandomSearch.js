@@ -3,15 +3,6 @@ import {TEAMS} from './constants'
 
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
-const JERSEYS = [
-    { filter: 'Capitol',             title: 'Capitol',             src: 'capitol',   size: 36 },
-    { filter: 'Screagle',            title: 'Screagle',            src: 'screagle',  size: 36 },
-    { filter: 'Red',                 title: 'Red',                 src: 'capitals',  size: 36, alt: 'Capitals', ariaLabel: 'Red jersey' },
-    { filter: 'White',               title: 'White',               src: 'capitals',  size: 36, alt: 'Capitals', ariaLabel: 'White jersey' },
-    { filter: 'Navy W',              title: 'Navy',                src: 'navy',      size: 24, ariaLabel: 'Navy jersey' },
-    { filter: 'Black Reverse Retro', title: 'Black Reverse Retro', src: 'retro',     size: 36, alt: 'Screagle', ariaLabel: 'Black Reverse Retro jersey' },
-    { filter: 'Red Reverse Retro',   title: 'Red Reverse Retro',   src: 'retro',     size: 36, alt: 'Screagle', ariaLabel: 'Red Reverse Retro jersey' },
-]
 
 export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay }) {
     return (
@@ -26,23 +17,38 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                     <Accordion.Body className="p-3">
                         <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
-                                {JERSEYS.slice(0, 4).map(({ filter, title, src, size, alt, ariaLabel }) => (
-                                    <button key={filter} onClick={() => filterGoal([filter])} disabled={!canFilter([filter])} className="button jersey-button" title={title} aria-label={ariaLabel ?? title} type="button">
-                                        <img alt={alt ?? title} className="jersey-logo" src={`/jerseys/${src}.svg`} width={size} height={size}/>
-                                    </button>
-                                ))}
+                                <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" aria-label="Capitol" type="button">
+                                    <img alt="Capitol" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
+                                </button>
+                                <button onClick={() => filterGoal(['Screagle'])} disabled={!canFilter(['Screagle'])} className="button jersey-button" title="Screagle" aria-label="Screagle" type="button">
+                                    <img alt="Screagle" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
+                                </button>
+                                <button onClick={() => filterGoal(['Red'])} disabled={!canFilter(['Red'])} className="button jersey-button" title="Red" aria-label="Red jersey" type="button">
+                                    <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                </button>
+                                <button onClick={() => filterGoal(['White'])} disabled={!canFilter(['White'])} className="button jersey-button" title="White" aria-label="White jersey" type="button">
+                                    <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
+                                </button>
                                 <button onClick={() => filterGoal(['Throwback'])} disabled={!canFilter(['Throwback'])} className="button jersey-button" title="Throwback" aria-label="Throwback jersey" type="button">
                                     ☆&nbsp;&nbsp;<img alt="Throwback" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
                                 </button>
                                 <button onClick={outdoor} disabled={!canRandom(jsonData.filter(item => [440, 475, 598, 602].includes(item.goal)))} className="button jersey-button multi-logo" title="Brick / Stadium" aria-label="Brick or Stadium Series jersey" type="button">
-                                    <span><img alt="Brick" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/></span>
-                                    <span><img alt="Caps" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/></span>
+                                    <span>
+                                        <img alt="Brick" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
+                                    </span>
+                                    <span>
+                                        <img alt="Caps" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
+                                    </span>
                                 </button>
-                                {JERSEYS.slice(4).map(({ filter, title, src, size, alt, ariaLabel }) => (
-                                    <button key={filter} onClick={() => filterGoal([filter])} disabled={!canFilter([filter])} className="button jersey-button" title={title} aria-label={ariaLabel ?? title} type="button">
-                                        <img alt={alt ?? title} className="jersey-logo" src={`/jerseys/${src}.svg`} width={size} height={size}/>
-                                    </button>
-                                ))}
+                                <button onClick={() => filterGoal(['Navy W'])} disabled={!canFilter(['Navy W'])} className="button jersey-button" title="Navy" aria-label="Navy jersey" type="button">
+                                    <img alt="Navy" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
+                                </button>
+                                <button onClick={() => filterGoal(['Black Reverse Retro'])} disabled={!canFilter(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" aria-label="Black Reverse Retro jersey" type="button">
+                                    <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                </button>
+                                <button onClick={() => filterGoal(['Red Reverse Retro'])} disabled={!canFilter(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" aria-label="Red Reverse Retro jersey" type="button">
+                                    <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
+                                </button>
                             </div>
                             <div className="d-flex flex-column gap-2">
                                 <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 0))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">Away</button>

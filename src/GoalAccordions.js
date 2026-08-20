@@ -57,7 +57,8 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                     {result.series && <span className="badge text-bg-warning">{result.series}</span>}
                                     {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
                                     <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
-                                    <span className="badge text-bg-secondary">{result.time} {PERIOD_NAME[result.period] ?? result.period}</span>
+                                    <span className="badge text-bg-secondary">{result.time}</span>
+                                    <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
                                     {result.a1 && <span className="assist badge">{result.a1}</span>}
                                     {result.a2 && <span className="assist badge">{result.a2}</span>}
                                 </small>

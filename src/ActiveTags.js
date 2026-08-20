@@ -8,14 +8,14 @@ export default function ActiveTags({terms, disabledLeagues}) {
         <div className="d-flex flex-column gap-1">
             {terms?.length > 0 && (
                 <div className="align-items-center d-flex flex-row gap-1">
-                    <small className="me-1">Search</small>
+                    <small>Search</small>
                     {termBadges}
                 </div>
             )}
             {excluded.length > 0 && (
                 <div className="align-items-center d-flex flex-row gap-1">
-                    <small className="me-1">Exclude</small>
-                    {excluded.map(l => <strong key={l} className="badge">✕ {l}</strong>)}
+                    <small>Excluding</small>
+                    {excluded.map(l => <strong key={l} className="badge">{l}</strong>)}
                 </div>
             )}
         </div>

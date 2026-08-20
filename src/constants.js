@@ -15,9 +15,9 @@ export const normalize = (s) => s.toString().normalize('NFD').replace(/[̀-ͯ]/g
 
 export const TEAMS = [
     ['Anaheim Ducks'],
-    ['Mighty Ducks of Anaheim', '• Mighty Ducks'],
+    ['Mighty Ducks of Anaheim', '• Mighty Ducks'],
     ['Arizona Coyotes'],
-    ['Phoenix Coyotes', '• Phoenix Coyotes'],
+    ['Phoenix Coyotes', '• Phoenix Coyotes'],
     ['Atlanta Thrashers'],
     ['Boston Bruins'],
     ['Buffalo Sabres'],
