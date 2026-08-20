@@ -7,7 +7,7 @@ const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay }) {
     return (
         <div className="d-flex flex-column w-100" id="random-search">
-            <div className="align-items-end d-flex gap-2 mb-2 px-2 px-sm-3">
+            <div className="align-items-end d-flex gap-2 mb-3 px-2 px-md-3">
                 <label className="fw-bold" htmlFor="autoplay">Autoplay</label>
                 <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
             </div>
