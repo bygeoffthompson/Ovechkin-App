@@ -1,10 +1,15 @@
+import {useState, useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import ActiveTags from './ActiveTags'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 
-export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, sortOrder, setSortOrder, activeTerms, loadedKeys, setLoadedKeys, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
+export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, sortOrder, setSortOrder, activeTerms, autoplay, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
+    const [activeKey, setActiveKey] = useState(null)
+    useEffect(() => {
+        setActiveKey(sortedResults.length > 0 ? '0' : null)
+    }, [sortedResults])
     return (
         <div className="goal-results w-100">
             {sortedResults.length > 0 && (
@@ -19,12 +24,13 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
             )}
 
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
-            <Accordion className="goal-accordion shadow-lg w-100" defaultActiveKey="0" flush onSelect={(key) => key !== null && setLoadedKeys(prev => ({...prev, [key]: true}))}>
+            <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
-                    const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1'
+                    const key = index.toString()
+                    const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '')
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
-                    <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={index.toString()}>
+                    <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
                         <div className="accordion-header">
                             <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
@@ -56,8 +62,8 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                     {result.a2 && <span className="assist badge">{result.a2}</span>}
                                 </small>
                             </div>
-                            {loadedKeys[index]
-                                ? <iframe className="bg-black h-100 w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                            {activeKey === key
+                                ? <iframe allow="autoplay" className="bg-black h-100 w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                                 : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>

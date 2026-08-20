@@ -33,7 +33,7 @@ function App() {
     const [searchText, setSearchText] = useState('')
     const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
-    const [loadedKeys, setLoadedKeys] = useState({})
+    const [autoplay, setAutoplay] = useState(false)
     const { anim, isAnimating } = useGoalCounter()
     const [filters, setFilters] = useState({ team: '', location: '', period: '', month: '', season: '', year: '' })
     const [disabledLeagues, setDisabledLeagues] = useState({})
@@ -207,12 +207,6 @@ function App() {
 
     useUrlQuery(setSearchGoal, setSearchText)
 
-    const sortedGoalIds = useMemo(() => sortedResults.map(r => r.goal).join(','), [sortedResults])
-
-    useEffect(() => {
-        setLoadedKeys(sortedGoalIds ? { "0": true } : {})
-    }, [sortedGoalIds])
-
     useEffect(() => {
         if (textResults.length === 0) return
         gaRef.current?.event({
@@ -370,6 +364,8 @@ function App() {
                     outdoor={outdoor}
                     hatTrick={hatTrick}
                     reset={reset}
+                    autoplay={autoplay}
+                    setAutoplay={setAutoplay}
                 />
                 <GoalAccordions
                     sortedResults={sortedResults}
@@ -379,8 +375,7 @@ function App() {
                     sortOrder={sortOrder}
                     setSortOrder={setSortOrder}
                     activeTerms={activeTerms}
-                    loadedKeys={loadedKeys}
-                    setLoadedKeys={setLoadedKeys}
+                    autoplay={autoplay}
                     ga={gaRef}
                     noResults={noResults}
                     isIdle={isIdle}

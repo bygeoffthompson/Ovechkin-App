@@ -3,9 +3,13 @@ import Accordion from 'react-bootstrap/Accordion'
 const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 
-export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset }) {
+export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay }) {
     return (
         <div className="d-flex flex-column w-100" id="random-search">
+            <div className="align-items-end d-flex gap-2 mb-2 px-2 px-sm-3">
+                <label className="fw-bold" htmlFor="autoplay">Autoplay</label>
+                <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
+            </div>
             <Accordion className="mb-1 shadow-lg">
                 <Accordion.Item eventKey="random">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
@@ -174,7 +178,7 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <div className="text-center">
+            <div className="px-2 px-sm-3">
                 <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
             </div>
         </div>
