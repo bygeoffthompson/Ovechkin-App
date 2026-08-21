@@ -4,6 +4,7 @@ import {LEAGUE, PERIOD_NAME} from './constants'
 import ActiveTags from './ActiveTags'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
+import YoutubeFrame from './YoutubeFrame'
 
 export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, showResults, sortOrder, setSortOrder, activeTerms, autoplay, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
     const [activeKey, setActiveKey] = useState(null)
@@ -27,7 +28,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
                     const key = index.toString()
-                    const goalLink = 'https://www.youtube-nocookie.com/embed' + result.link + '&autohide=0&rel=0&modestbranding=1' + (autoplay ? '&autoplay=1&mute=1' : '')
+                    const videoId = result.link.replace(/^\//, '').split('?')[0]
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
@@ -64,7 +65,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                 </small>
                             </div>
                             {activeKey === key
-                                ? <iframe allow="autoplay" className="bg-black h-100 w-100" width="560" height="315" src={goalLink} title="Alex Ovechkin Goal Video" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                                ? <YoutubeFrame videoId={videoId} autoplay={autoplay} />
                                 : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>
