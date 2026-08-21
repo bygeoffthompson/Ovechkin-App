@@ -45,6 +45,10 @@ form {
 
 .badge {
   background: #062D60;
+
+    &.text-bg-danger {
+        background: #C81020 !important;
+    }
 }
 
 .goal-siren {
@@ -441,10 +445,6 @@ form {
 #random-search {
     @media (min-width: 992px) {
         max-width: 365px;
-    }
-
-    select {
-        color: #C8102E;
     }
 }
 

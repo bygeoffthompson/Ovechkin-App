@@ -5,14 +5,14 @@ import ActiveTags from './ActiveTags'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 
-export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, sortOrder, setSortOrder, activeTerms, autoplay, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
+export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, showResults, sortOrder, setSortOrder, activeTerms, autoplay, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
     }, [sortedResults])
     return (
         <div className="goal-results w-100">
-            {sortedResults.length > 0 && (
+            {sortedResults.length > 0 && showResults && (
                 <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start mb-3 w-100" id="results">
                     <strong className="badge py-2" data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>
                     {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>

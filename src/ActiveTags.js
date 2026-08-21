@@ -15,7 +15,7 @@ export default function ActiveTags({terms, disabledLeagues}) {
             {excluded.length > 0 && (
                 <div className="align-items-center d-flex flex-row gap-1">
                     <small>Excluding</small>
-                    {excluded.map(l => <strong key={l} className="badge">{l}</strong>)}
+                    {excluded.map(l => <strong key={l} className="badge text-bg-danger">{l}</strong>)}
                 </div>
             )}
         </div>

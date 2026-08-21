@@ -11,7 +11,6 @@ export default function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}
                 <div className="accordion-header"><Accordion.Button className="fw-bold">Welcome to Ovechkin App</Accordion.Button></div>
                 <Accordion.Body>
                     <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
-                        <img alt="Goal Light" height="33" src="/gifs/goal-light.gif" width="18" />
                         <p className="lead m-0">Click or search to watch goals</p>
                         <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
                         <div>
