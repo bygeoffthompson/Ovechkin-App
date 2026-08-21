@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
-import ActiveTags from './ActiveTags'
+import Results from './Results'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 import YoutubeFrame from './YoutubeFrame'
@@ -11,19 +11,9 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
     }, [sortedResults])
-    const hasExcluded = Object.values(disabledLeagues ?? {}).some(v => v)
     return (
         <div className="goal-results w-100">
-            {(sortedResults.length > 0 || hasExcluded) && (
-                <div className="align-items-start align-items-sm-center  d-flex flex-column flex-sm-row gap-1 justify-content-start p-2 rounded-top text-bg-light w-100" id="results">
-                    {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-                        <option value="asc">Ascend</option>
-                        <option value="desc">Descend</option>
-                    </select>}
-                    {resultCount >= 1 && <strong className="badge text-bg-dark" data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>}
-                    <ActiveTags terms={activeTerms} disabledLeagues={disabledLeagues} />
-                </div>
-            )}
+            <Results terms={activeTerms} disabledLeagues={disabledLeagues} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
 
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>

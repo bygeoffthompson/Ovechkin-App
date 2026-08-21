@@ -1,12 +1,15 @@
-const LEAGUES = [
-    { key: 1, label: 'NHL',       title: 'NHL Regular Season' },
-    { key: 2, label: 'Playoffs',  title: 'NHL Playoffs' },
-    { key: 7, label: 'All Star',  title: 'All Star' },
-    { key: 3, label: 'KHL',       title: 'KHL',                extraClass: 'khl' },
-    { key: 4, label: 'Olympics',  title: 'Olympics' },
-    { key: 5, label: 'Worlds',    title: 'World Championships', extraClass: 'gold' },
-    { key: 6, label: 'World Cup', title: 'World Cup',           small: true },
-]
+import {LEAGUE_ORDER} from './constants'
+
+const LEAGUE_META = {
+    1: { label: 'NHL',       title: 'NHL Regular Season' },
+    2: { label: 'Playoffs',  title: 'NHL Playoffs' },
+    3: { label: 'KHL',       title: 'KHL',                extraClass: 'khl' },
+    4: { label: 'Olympics',  title: 'Olympics' },
+    5: { label: 'Worlds',    title: 'World Championships', extraClass: 'gold' },
+    6: { label: 'World Cup', title: 'World Cup',           small: true },
+    7: { label: 'All Star',  title: 'All Star' },
+}
+const LEAGUES = LEAGUE_ORDER.map(key => ({ key, ...LEAGUE_META[key] }))
 
 export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimating, anim, totalDisplay, activeLeagueGoals, toggleLeague, randomGoal, jsonData }) {
     return (
