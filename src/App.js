@@ -181,7 +181,6 @@ function App() {
     const searchResults = hasTextQuery ? textResults : goalResults
     const isIdle = !hasTextQuery && !searchGoal
     const showSort = !hatTrickMode && searchResults.length > 1
-    const showResults = hatTrickMode || hasTextQuery
 
     const sortedResults = useMemo(() => {
         return [...searchResults].sort((first, last) => {
@@ -373,7 +372,6 @@ function App() {
                     tooShort={tooShort}
                     resultCount={resultCount}
                     showSort={showSort}
-                    showResults={showResults}
                     sortOrder={sortOrder}
                     setSortOrder={setSortOrder}
                     activeTerms={activeTerms}
