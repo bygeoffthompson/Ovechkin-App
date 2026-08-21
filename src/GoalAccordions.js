@@ -28,7 +28,11 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
                     const key = index.toString()
-                    const videoId = result.link.replace(/^\//, '').split('?')[0]
+                    const [linkPath, linkQuery] = result.link.split('?')
+                    const videoId = linkPath.replace(/^\//, '')
+                    const linkParams = new URLSearchParams((linkQuery || '').replace(/&amp;/g, '&'))
+                    const start = linkParams.get('start')
+                    const end = linkParams.get('end')
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
@@ -65,7 +69,7 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                                 </small>
                             </div>
                             {activeKey === key
-                                ? <YoutubeFrame videoId={videoId} autoplay={autoplay} />
+                                ? <YoutubeFrame videoId={videoId} autoplay={autoplay} start={start} end={end} />
                                 : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>

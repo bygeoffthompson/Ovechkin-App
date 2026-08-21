@@ -23,7 +23,7 @@ function onYtReady(cb) {
   }
 }
 
-export default function YoutubeFrame({ videoId, autoplay }) {
+export default function YoutubeFrame({ videoId, autoplay, start, end }) {
   const wrapperRef = useRef(null)
   const playerRef = useRef(null)
   useEffect(() => {
@@ -36,13 +36,12 @@ export default function YoutubeFrame({ videoId, autoplay }) {
     onYtReady(() => {
       if (cancelled) return
       playerRef.current = new window.YT.Player(div, {
-        videoId,
         host: 'https://www.youtube-nocookie.com',
         playerVars: {
           autohide: 0,
           rel: 0,
           modestbranding: 1,
-          ...(autoplay ? { autoplay: 1, mute: 1 } : {}),
+          ...(autoplay ? { mute: 1 } : {}),
         },
         events: {
           onReady: (e) => {
@@ -51,6 +50,12 @@ export default function YoutubeFrame({ videoId, autoplay }) {
             iframe.classList.add('w-100')
             iframe.removeAttribute('height')
             iframe.removeAttribute('width')
+            const opts = {
+              videoId,
+              ...(start ? { startSeconds: Number(start) } : {}),
+              ...(end ? { endSeconds: Number(end) } : {}),
+            }
+            autoplay ? e.target.loadVideoById(opts) : e.target.cueVideoById(opts)
           },
         },
       })
