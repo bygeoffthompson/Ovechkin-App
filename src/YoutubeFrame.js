@@ -42,9 +42,9 @@ export default function YoutubeFrame({ videoId, autoplay, start, end }) {
       playerRef.current = new window.YT.Player(div, {
         host: 'https://www.youtube-nocookie.com',
         playerVars: {
-          autohide: 0,
           rel: 0,
-          modestbranding: 1,
+          playsinline: 1,
+          origin: window.location.origin,
           ...(autoplay ? { mute: 1 } : {}),
         },
         events: {
