@@ -26,8 +26,12 @@ function onYtReady(cb) {
 export default function YoutubeFrame({ videoId, autoplay, start, end }) {
   const wrapperRef = useRef(null)
   const playerRef = useRef(null)
+  const readyRef = useRef(false)
+  const autoplayRef = useRef(autoplay)
+  autoplayRef.current = autoplay
   useEffect(() => {
     if (!videoId || !wrapperRef.current) return
+    const autoplay = autoplayRef.current
     let cancelled = false
 
     const div = document.createElement('div')
@@ -46,6 +50,7 @@ export default function YoutubeFrame({ videoId, autoplay, start, end }) {
         events: {
           onReady: (e) => {
             if (cancelled) return
+            readyRef.current = true
             const iframe = e.target.getIframe()
             iframe.classList.add('w-100')
             iframe.removeAttribute('height')
@@ -63,11 +68,16 @@ export default function YoutubeFrame({ videoId, autoplay, start, end }) {
 
     return () => {
       cancelled = true
+      readyRef.current = false
       playerRef.current?.destroy()
       playerRef.current = null
       if (div.parentNode) div.parentNode.removeChild(div)
     }
-  }, [videoId, autoplay]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [videoId, start, end])
+
+  useEffect(() => {
+    if (autoplay && readyRef.current) playerRef.current?.playVideo()
+  }, [autoplay])
 
   return <div ref={wrapperRef} className="bg-black h-100 w-100" />
 }

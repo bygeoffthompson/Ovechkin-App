@@ -1,7 +1,17 @@
+#results {
+    select {
+        font-size: .875rem;
+    }
+}
+
 .alert {
     p:last-of-type {
         margin-bottom: 0;
     }
+}
+
+.border-radius-0 {
+    border-radius: 0 !important;
 }
 
 .ice {
@@ -445,6 +455,10 @@ form {
 #random-search {
     @media (min-width: 992px) {
         max-width: 365px;
+    }
+
+    .accordion-button {
+        font-size: 1rem !important;
     }
 }
 

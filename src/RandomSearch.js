@@ -1,20 +1,13 @@
 import Accordion from 'react-bootstrap/Accordion'
-import {TEAMS} from './constants'
-
-const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
-const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
+import {TEAMS, canadianTeams, youngGunsPlayers} from './constants'
 
 export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay }) {
     return (
         <div className="d-flex flex-column w-100" id="random-search">
-            <div className="align-items-end d-flex gap-2 mb-3 px-2 px-md-3">
-                <label className="fw-bold" htmlFor="autoplay">Autoplay</label>
-                <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
-            </div>
             <Accordion className="mb-1 shadow-lg">
                 <Accordion.Item eventKey="random">
-                    <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
-                    <Accordion.Body className="p-3">
+                    <div className="accordion-header"><Accordion.Button className="fw-bold p-2 px-3">Random</Accordion.Button></div>
+                    <Accordion.Body className="p-3 text-bg-light">
                         <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
                                 <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" aria-label="Capitol" type="button">
@@ -76,8 +69,8 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="search">
-                    <div className="accordion-header"><Accordion.Button className="fw-bold">Search</Accordion.Button></div>
-                    <Accordion.Body>
+                    <div className="accordion-header"><Accordion.Button className="fw-bold p-2 px-3">Search</Accordion.Button></div>
+                    <Accordion.Body className="text-bg-light">
                     <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                         <div className="align-items-center d-flex flex-row gap-3">
                             <label htmlFor="goal-number">Number</label>
@@ -147,8 +140,15 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <div className="px-2 px-sm-3">
+
+            <div className="align-items-start d-flex flex-row justify-content-between pe-2 pe-md-1 ps-2 ps-md-3">
+                <div className="align-items-end d-flex gap-2">
+                    <label className="fw-bold small" htmlFor="autoplay">Autoplay</label>
+                    <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
+                </div>
+
                 <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
+
             </div>
         </div>
     )

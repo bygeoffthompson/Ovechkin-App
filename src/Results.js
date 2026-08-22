@@ -1,13 +1,13 @@
-import {LEAGUE_LABEL, LEAGUE_ORDER} from './constants'
+import {LEAGUE_META, LEAGUE_ORDER} from './constants'
 
 export default function Results({terms, disabledLeagues, resultCount, showSort, sortOrder, setSortOrder}) {
-    const excluded = LEAGUE_ORDER.filter(k => disabledLeagues?.[k]).map(k => LEAGUE_LABEL[k]).filter(Boolean)
+    const excluded = LEAGUE_ORDER.filter(k => disabledLeagues?.[k]).map(k => LEAGUE_META[k]?.label).filter(Boolean)
     const termBadges = terms?.flatMap(t => t.split(' + ')).map(t => <strong key={t} className="badge">{t}</strong>)
     const excludedBadges = excluded.map(l => <strong key={l} className="badge text-bg-danger">✕&nbsp;{l}</strong>)
     if (resultCount < 1 && !excluded.length) return null
     return (
-        <div className="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start p-2 rounded-top text-bg-light w-100" id="results">
-            {showSort && <select className="form-select w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+        <div className="align-items-start align-items-sm-center border-2 border-bottom d-flex flex-column flex-sm-row gap-1 justify-content-start p-2 text-bg-light w-100" id="results">
+            {showSort && <select className="form-select py-0 w-auto" name="Sort" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                 <option value="asc">Ascend</option>
                 <option value="desc">Descend</option>
             </select>}

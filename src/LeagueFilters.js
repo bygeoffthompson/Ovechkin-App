@@ -1,24 +1,15 @@
-import {LEAGUE_ORDER} from './constants'
+import {LEAGUE_ORDER, LEAGUE_META} from './constants'
 
-const LEAGUE_META = {
-    1: { label: 'NHL',       title: 'NHL Regular Season' },
-    2: { label: 'Playoffs',  title: 'NHL Playoffs' },
-    3: { label: 'KHL',       title: 'KHL',                extraClass: 'khl' },
-    4: { label: 'Olympics',  title: 'Olympics' },
-    5: { label: 'Worlds',    title: 'World Championships', extraClass: 'gold' },
-    6: { label: 'World Cup', title: 'World Cup',           small: true },
-    7: { label: 'All Star',  title: 'All Star' },
-}
 const LEAGUES = LEAGUE_ORDER.map(key => ({ key, ...LEAGUE_META[key] }))
 
 export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimating, anim, totalDisplay, activeLeagueGoals, toggleLeague, randomGoal, jsonData }) {
     return (
-        <div className="d-flex flex-wrap gap-2 mb-3">
-            {LEAGUES.map(({ key, label, title, extraClass, small }) => (
+        <div className="d-flex flex-wrap gap-1 mb-3">
+            {LEAGUES.map(({ key, label, title }) => (
                 <div key={key} className={`d-flex flex-column align-items-center${disabledLeagues[key] ? ' excluded' : ''}`}>
-                    <button className={`button counter${extraClass ? ` ${extraClass}` : ''}`} disabled={isAnimating || !!disabledLeagues[key]} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
+                    <button className="button counter" disabled={isAnimating || !!disabledLeagues[key]} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
                         <div className="h4 m-0" data-goals={leagueCounts[key]}>{anim(leagueCounts[key])}</div>
-                        {small ? <small>{label}</small> : <div>{label}</div>}
+                        <div>{label}</div>
                     </button>
                     <button className={`button exclude${disabledLeagues[key] ? ' include' : ''}`} disabled={isAnimating} onClick={() => toggleLeague(key)} title={disabledLeagues[key] ? 'Include' : 'Exclude'} type="button">
                         <small>{disabledLeagues[key] ? 'Include' : 'Exclude'}</small>

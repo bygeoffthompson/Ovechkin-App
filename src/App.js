@@ -108,7 +108,7 @@ function App() {
                 PERIOD_NAME[item.period].replace('OT', 'OT Overtime'),
                 item.time,
                 item.hoa === 1 ? 'Home' : item.hoa === 0 ? 'Away' : null,
-                item.jersey,
+                item.jersey?.replace('Dynamo', 'Dynamo Moscow'),
                 item.series,
                 item.game && 'G' + item.game,
                 item.search,
