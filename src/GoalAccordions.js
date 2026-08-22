@@ -1,17 +1,15 @@
 import {useState, useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
-import Results from './Results'
 import YoutubeFrame from './YoutubeFrame'
 
-export default function GoalAccordions({ sortedResults, tooShort, showSort, sortOrder, setSortOrder, terms, excludedLabels, showResults, autoplay, ga }) {
+export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
     }, [sortedResults])
     return (
         <>
-            <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={sortedResults.length} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
@@ -25,7 +23,7 @@ export default function GoalAccordions({ sortedResults, tooShort, showSort, sort
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
                         <div className="accordion-header">
-                            <Accordion.Button className="py-2" onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
+                            <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
                                         {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}

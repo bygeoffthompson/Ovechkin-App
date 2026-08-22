@@ -6,6 +6,7 @@ import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDo
 import LeagueFilters from './LeagueFilters'
 import RandomSearch from './RandomSearch'
 import GoalAccordions from './GoalAccordions'
+import Results from './Results'
 import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 
@@ -228,7 +229,10 @@ function App() {
         setDisabledLeagues(prev => {
             const next = { ...prev }
             if (next[key]) delete next[key]
-            else next[key] = true
+            else {
+                if (LEAGUE_ORDER.every(k => k === key || next[k])) return prev
+                next[key] = true
+            }
             return next
         })
     }, [])
@@ -347,6 +351,7 @@ function App() {
                 randomGoal={randomGoal}
                 jsonData={jsonData}
             />
+            <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
                 <RandomSearch
                     jsonData={jsonData}
@@ -375,12 +380,6 @@ function App() {
                     <GoalAccordions
                         sortedResults={sortedResults}
                         tooShort={tooShort}
-                        showSort={showSort}
-                        sortOrder={sortOrder}
-                        setSortOrder={setSortOrder}
-                        terms={terms}
-                        excludedLabels={excludedLabels}
-                        showResults={showResults}
                         autoplay={autoplay}
                         ga={gaRef}
                     />
