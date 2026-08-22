@@ -61,17 +61,6 @@ form {
     }
 }
 
-.goal-siren {
-    img {
-        height: auto;
-        width: 36px;
-
-        @media (min-width: 768px) {
-            width: 48px;
-        }
-    }
-}
-
 .link {
     z-index: 2;
 }

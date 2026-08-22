@@ -28,14 +28,14 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} data-league={LEAGUE[result.league]} eventKey={key}>
                         <div className="accordion-header">
-                            <Accordion.Button className="p-2 px-3" onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
+                            <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
                                         {result.league !== 1 && <small className="fw-bold me-1">{result.league === 2 ? 'Playoffs' : result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
                                         <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                     </strong>
-                                    <div className="align-items-center d-flex justify-content-center goal-siren">
-                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="36" height="36"/>
+                                    <div className="align-items-center d-flex justify-content-center">
+                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="40" height="40"/>
                                         <strong className="position-absolute type">{result.type}</strong>
                                     </div>
                                     <div className="align-items-center d-flex justify-content-center team-logo">
