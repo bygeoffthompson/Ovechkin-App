@@ -2,10 +2,12 @@ import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
-import {PERIOD_NAME, DOTW, LEAGUE, itemSeason, itemDotw, random, normalize} from './constants'
+import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDotw, random, normalize} from './constants'
 import LeagueFilters from './LeagueFilters'
 import RandomSearch from './RandomSearch'
 import GoalAccordions from './GoalAccordions'
+import WelcomeMessage from './WelcomeMessage'
+import NoResults from './NoResults'
 
 function App() {
     const [data, setData] = useState(null)
@@ -192,8 +194,8 @@ function App() {
     }, [searchResults, sortOrder])
 
     const noResults = !tooShort && sortedResults.length === 0
-    const activeTerms = [
-        searchText.toUpperCase().replace(/\s*\+\s*/g, ' + '),
+    const terms = [
+        ...searchText.split('+').map(t => t.trim().toUpperCase()).filter(Boolean),
         filters.team,
         filters.location,
         filters.period && PERIOD_NAME[filters.period],
@@ -201,8 +203,10 @@ function App() {
         filters.season,
         filters.year,
     ].filter(Boolean)
+    const excludedLabels = LEAGUE_ORDER.filter(k => disabledLeagues[k]).map(k => LEAGUE_META[k]?.label).filter(Boolean)
     const canHatTrick = jsonData.some(item => !disabledLeagues[item.league] && [item.btn1, item.btn2, item.btn3].includes('Hat Trick'))
     const resultCount = sortedResults.length
+    const showResults = hatTrickMode || resultCount > 1 || terms.length > 0 || excludedLabels.length > 0
     const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
 
     useUrlQuery(setSearchGoal, setSearchText)
@@ -367,22 +371,21 @@ function App() {
                     autoplay={autoplay}
                     setAutoplay={setAutoplay}
                 />
-                <GoalAccordions
-                    sortedResults={sortedResults}
-                    tooShort={tooShort}
-                    resultCount={resultCount}
-                    showSort={showSort}
-                    sortOrder={sortOrder}
-                    setSortOrder={setSortOrder}
-                    activeTerms={activeTerms}
-                    autoplay={autoplay}
-                    ga={gaRef}
-                    noResults={noResults}
-                    isIdle={isIdle}
-                    jsonData={jsonData}
-                    disabledLeagues={disabledLeagues}
-                    onGoalSelect={onGoalSelect}
-                />
+                <div className="goal-results w-100">
+                    <GoalAccordions
+                        sortedResults={sortedResults}
+                        tooShort={tooShort}
+                        showSort={showSort}
+                        sortOrder={sortOrder}
+                        setSortOrder={setSortOrder}
+                        terms={terms}
+                        excludedLabels={excludedLabels}
+                        showResults={showResults}
+                        autoplay={autoplay}
+                        ga={gaRef}
+                    />
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={onGoalSelect} /> : <NoResults />)}
+                </div>
             </div>
         </div>
     )

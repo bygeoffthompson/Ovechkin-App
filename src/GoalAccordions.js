@@ -2,19 +2,16 @@ import {useState, useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import Results from './Results'
-import WelcomeMessage from './WelcomeMessage'
-import NoResults from './NoResults'
 import YoutubeFrame from './YoutubeFrame'
 
-export default function GoalAccordions({ sortedResults, tooShort, resultCount, showSort, sortOrder, setSortOrder, activeTerms, autoplay, ga, noResults, isIdle, jsonData, disabledLeagues, onGoalSelect }) {
+export default function GoalAccordions({ sortedResults, tooShort, showSort, sortOrder, setSortOrder, terms, excludedLabels, showResults, autoplay, ga }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
     }, [sortedResults])
     return (
-        <div className="goal-results w-100">
-            <Results terms={activeTerms} disabledLeagues={disabledLeagues} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
-
+        <>
+            <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={sortedResults.length} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
@@ -69,7 +66,6 @@ export default function GoalAccordions({ sortedResults, tooShort, resultCount, s
                     )
                 })}
             </Accordion>
-            {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={onGoalSelect} /> : <NoResults />)}
-        </div>
+        </>
     )
 }
