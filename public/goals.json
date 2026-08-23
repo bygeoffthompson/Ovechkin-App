@@ -13554,6 +13554,8 @@
         "day": 7,
         "year": 2018,
         "type": "PPG",
+        "btn1": "Slapshot",
+        "search": "John Druce",
         "series": "Stanley Cup Finals",
         "game": 5,
         "league": 2,
@@ -13561,7 +13563,7 @@
         "period": 2,
         "time": "10:14",
         "jersey": "White",
-        "btn1": "Slapshot",
+
         "result": 1
     },
     {
