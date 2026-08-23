@@ -2,7 +2,7 @@ import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
-import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDotw, random, normalize} from './constants'
+import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDotw, random, normalize, DEFAULT_FILTERS, formatMonth, buildFilterSets} from './constants'
 import LeagueFilters from './LeagueFilters'
 import RandomSearch from './RandomSearch'
 import GoalAccordions from './GoalAccordions'
@@ -38,7 +38,7 @@ function App() {
     const [sortOrder, setSortOrder] = useState('asc')
     const [autoplay, setAutoplay] = useState(false)
     const { anim, isAnimating } = useGoalCounter()
-    const [filters, setFilters] = useState({ team: '', location: '', period: '', month: '', season: '', year: '' })
+    const [filters, setFilters] = useState(DEFAULT_FILTERS)
     const [disabledLeagues, setDisabledLeagues] = useState({})
 
     const leagueCounts = useMemo(() => {
@@ -55,19 +55,7 @@ function App() {
     )
     const totalDisplay = useCounterChange(activeLeagueGoals.length)
 
-    const activeFilters = useMemo(() => {
-        const teams = new Set(), months = new Set(), periods = new Set(),
-              locations = new Set(), seasons = new Set(), years = new Set()
-        for (const item of activeLeagueGoals) {
-            if (item.team) teams.add(item.team)
-            months.add(item.month)
-            periods.add(item.period)
-            locations.add(item.hoa)
-            seasons.add(itemSeason(item))
-            years.add(item.year)
-        }
-        return { teams, months, periods, locations, seasons, years }
-    }, [activeLeagueGoals])
+    const activeFilters = useMemo(() => buildFilterSets(activeLeagueGoals), [activeLeagueGoals])
 
     const seasonOptions = useMemo(() => {
         const max = jsonData.reduce((m, i) => Math.max(m, itemSeason(i)), 0)
@@ -95,7 +83,7 @@ function App() {
 
     const searchStrings = useMemo(() =>
         jsonData.map(item => {
-            const month = new Date(0, item.month - 1).toLocaleString('default', { month: 'long' })
+            const month = formatMonth(item.month)
             return normalize([
                 item.result === 1 ? 'Win' : item.result === 0 ? 'Loss' : null,
                 LEAGUE[item.league].replace('All Star', 'All Star All-Star'),
@@ -157,29 +145,12 @@ function App() {
         return [item]
     }, [jsonData, searchGoal, hatTrickMode, disabledLeagues])
 
-    const resultFilters = useMemo(() => {
-        if (textResults.length === 0) return null
-        const teams = new Set(), months = new Set(), periods = new Set(),
-              locations = new Set(), seasons = new Set(), years = new Set()
-        for (const item of textResults) {
-            if (item.team) teams.add(item.team)
-            months.add(item.month)
-            periods.add(item.period)
-            locations.add(item.hoa)
-            seasons.add(itemSeason(item))
-            years.add(item.year)
-        }
-        return { teams, months, periods, locations, seasons, years }
-    }, [textResults])
+    const resultFilters = useMemo(() => textResults.length === 0 ? null : buildFilterSets(textResults), [textResults])
 
-    const filterOptions = {
-        teams:     filters.team     ? activeFilters.teams     : (resultFilters?.teams     ?? activeFilters.teams),
-        locations: filters.location ? activeFilters.locations : (resultFilters?.locations ?? activeFilters.locations),
-        periods:   filters.period   ? activeFilters.periods   : (resultFilters?.periods   ?? activeFilters.periods),
-        months:    filters.month    ? activeFilters.months    : (resultFilters?.months    ?? activeFilters.months),
-        seasons:   filters.season   ? activeFilters.seasons   : (resultFilters?.seasons   ?? activeFilters.seasons),
-        years:     filters.year     ? activeFilters.years     : (resultFilters?.years     ?? activeFilters.years),
-    }
+    const filterOptions = Object.fromEntries(
+        [['teams','team'],['locations','location'],['periods','period'],['months','month'],['seasons','season'],['years','year']]
+            .map(([setKey, filterKey]) => [setKey, filters[filterKey] ? activeFilters[setKey] : (resultFilters?.[setKey] ?? activeFilters[setKey])])
+    )
 
     const searchResults = hasTextQuery ? textResults : goalResults
     const isIdle = !hasTextQuery && !searchGoal
@@ -200,7 +171,7 @@ function App() {
         filters.team,
         filters.location,
         filters.period && PERIOD_NAME[filters.period],
-        filters.month && new Date(0, filters.month - 1).toLocaleString('default', {month: 'long'}),
+        filters.month && formatMonth(filters.month),
         filters.season,
         filters.year,
     ].filter(Boolean)
@@ -220,10 +191,6 @@ function App() {
             label: textResults[0].goal.toString()
         })
     }, [textResults])
-
-    const clearAdvanced = useCallback(() => {
-        setFilters({ team: '', location: '', period: '', month: '', season: '', year: '' })
-    }, [])
 
     const toggleLeague = useCallback((key) => {
         setDisabledLeagues(prev => {
@@ -254,20 +221,14 @@ function App() {
     const handleGoalNumber = useCallback((e) => {
         setSearchText('')
         setHatTrickMode(false)
-        clearAdvanced()
+        setFilters(DEFAULT_FILTERS)
         const val = e.target.value
         const found = jsonData.find(item => item.goal === parseFloat(val))
         if (found && disabledLeagues[found.league]) {
             setDisabledLeagues(prev => { const next = { ...prev }; delete next[found.league]; return next })
         }
         setSearchGoal(val)
-    }, [jsonData, disabledLeagues, clearAdvanced])
-
-    const resetSearch = useCallback(() => {
-        clearAdvanced()
-        setSearchText('')
-        setHatTrickMode(false)
-    }, [clearAdvanced])
+    }, [jsonData, disabledLeagues])
 
     const handleFilter = useCallback((key, value) => {
         setSearchGoal('')
@@ -279,12 +240,14 @@ function App() {
         setSearchGoal('')
         setHatTrickMode(false)
         setSortOrder('asc')
-        clearAdvanced()
+        setFilters(DEFAULT_FILTERS)
         setDisabledLeagues({})
-    }, [clearAdvanced])
+    }, [])
 
     function outdoor() {
-        resetSearch()
+        setFilters(DEFAULT_FILTERS)
+        setSearchText('')
+        setHatTrickMode(false)
         const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
@@ -303,21 +266,21 @@ function App() {
     }
 
     function randomGoal(filtered) {
-        resetSearch()
+        setFilters(DEFAULT_FILTERS); setSearchText(''); setHatTrickMode(false)
         const active = filtered.filter(item => !disabledLeagues[item.league])
         if (active.length === 0) return
         setSearchGoal(pickRandom(active).goal)
     }
 
     function filterGoal(match) {
-        resetSearch()
+        setFilters(DEFAULT_FILTERS); setSearchText(''); setHatTrickMode(false)
         const result = jsonData.filter(item => !disabledLeagues[item.league] && Object.values(item).some(value => match.includes(value)))
         if (result.length === 0) return
         setSearchGoal(pickRandom(result).goal)
     }
 
     function hatTrick() {
-        clearAdvanced()
+        setFilters(DEFAULT_FILTERS)
         setSearchText('')
         const hatTrickGoals = jsonData.filter(item =>
             !disabledLeagues[item.league] && [item.btn1, item.btn2, item.btn3].includes('Hat Trick')

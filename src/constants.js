@@ -12,6 +12,24 @@ export const LEAGUE_META = {
     7: { label: 'All Star',  title: 'All Star' },
 }
 
+export const DEFAULT_FILTERS = { team: '', location: '', period: '', month: '', season: '', year: '' }
+
+export const formatMonth = (n) => new Date(0, n - 1).toLocaleString('default', { month: 'long' })
+
+export function buildFilterSets(items) {
+    const teams = new Set(), months = new Set(), periods = new Set(),
+          locations = new Set(), seasons = new Set(), years = new Set()
+    for (const item of items) {
+        if (item.team) teams.add(item.team)
+        months.add(item.month)
+        periods.add(item.period)
+        locations.add(item.hoa)
+        seasons.add(itemSeason(item))
+        years.add(item.year)
+    }
+    return { teams, months, periods, locations, seasons, years }
+}
+
 export const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 export const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
 export const itemSeason = (item) => item.year - (item.month >= 10 ? 2004 : 2005)
