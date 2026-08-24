@@ -110,4 +110,16 @@
 
     </url>
 
+    <url>
+
+        <loc>https://www.ovechkin.app/voting.html</loc>
+
+        <lastmod>2026-8-23</lastmod>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.5</priority>
+
+    </url>
+
 </urlset>

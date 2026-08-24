@@ -2,6 +2,7 @@ import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter, useCounterChange} from './useGoalCounter'
+import {useVote} from './useVote'
 import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDotw, random, normalize, DEFAULT_FILTERS, formatMonth, buildFilterSets} from './constants'
 import LeagueFilters from './LeagueFilters'
 import RandomSearch from './RandomSearch'
@@ -38,6 +39,7 @@ function App() {
     const [sortOrder, setSortOrder] = useState('asc')
     const [autoplay, setAutoplay] = useState(false)
     const { anim, isAnimating } = useGoalCounter()
+    const { votedGoalId, vote } = useVote()
     const [filters, setFilters] = useState(DEFAULT_FILTERS)
     const [disabledLeagues, setDisabledLeagues] = useState({})
 
@@ -345,6 +347,8 @@ function App() {
                         tooShort={tooShort}
                         autoplay={autoplay}
                         ga={gaRef}
+                        votedGoalId={votedGoalId}
+                        onVote={vote}
                     />
                     {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={onGoalSelect} /> : <NoResults />)}
                 </div>

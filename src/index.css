@@ -57,14 +57,14 @@ form {
 
 .badge {
   background: #062D60;
-
-    &.text-bg-danger {
-        background: #C81020 !important;
-    }
 }
 
 .link {
     z-index: 2;
+}
+
+.text-bg-danger {
+    background: #C81020 !important;
 }
 
 .type {
@@ -76,6 +76,10 @@ form {
     @media (min-width: 768px) {
         font-size: 1.125rem;
     }
+}
+
+.vote {
+    height: 22px;
 }
 
 .logo {

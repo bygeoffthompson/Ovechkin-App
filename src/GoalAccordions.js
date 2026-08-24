@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import YoutubeFrame from './YoutubeFrame'
 
-export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga }) {
+export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga, votedGoalId, onVote }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
@@ -44,7 +44,7 @@ export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga }
                         <Accordion.Body className="p-0 position-relative">
                             <div className="d-flex flex-column px-3 py-2">
                                 {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
-                                <small className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
+                                <div className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
                                     {result.series && <span className="badge text-bg-warning">{result.series}</span>}
                                     {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
                                     <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
@@ -52,7 +52,13 @@ export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga }
                                     <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
                                     {result.a1 && <span className="assist badge">{result.a1}</span>}
                                     {result.a2 && <span className="assist badge">{result.a2}</span>}
-                                </small>
+                                    <button
+                                        className={`align-items-center d-flex small vote ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
+                                        disabled={String(result.goal) === votedGoalId}
+                                        onClick={() => onVote(String(result.goal))}
+                                    >{String(result.goal) === votedGoalId ? 'Voted' : 'Vote'}</button>
+                                </div>
+
                             </div>
                             {activeKey === key
                                 ? <YoutubeFrame videoId={videoId} autoplay={autoplay} start={start} end={end} />
