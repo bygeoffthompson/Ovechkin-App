@@ -444,9 +444,8 @@ form {
 }
 
 #random-search {
-    @media (min-width: 992px) {
-        max-width: 365px;
-    }
+    flex-shrink: 0;
+    max-width: 365px;
 
     .accordion-button {
         font-size: 1rem !important;
@@ -457,6 +456,7 @@ iframe {
     aspect-ratio: 16 / 9;
     background: #111;
     margin-bottom: -6px;
+    max-width: 100%;
     min-height: 0;
     z-index: 2;
 }
