@@ -316,7 +316,6 @@ function App() {
                 randomGoal={randomGoal}
                 jsonData={jsonData}
             />
-            <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
                 <RandomSearch
                     jsonData={jsonData}
@@ -341,7 +340,8 @@ function App() {
                     autoplay={autoplay}
                     setAutoplay={setAutoplay}
                 />
-                <div className="goal-results w-100">
+                <div className="d-flex flex-column goal-results w-100">
+                    <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
                     <GoalAccordions
                         sortedResults={sortedResults}
                         tooShort={tooShort}
