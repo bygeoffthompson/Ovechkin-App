@@ -49,9 +49,13 @@
                     }
                 });
 
+                entries.sort((a, b) => (a.year * 10000 + a.month * 100 + a.day) - (b.year * 10000 + b.month * 100 + b.day));
+
                 const tableBody = document.querySelector('tbody');
-                entries.forEach(({ name, league, month, day, year }) => {
+                entries.forEach(({ name, league, month, day, year }, index) => {
                     const row = tableBody.insertRow();
+
+                    row.insertCell().textContent = index + 1;
 
                     const playerCell = row.insertCell();
                     const link = document.createElement('a');
@@ -69,13 +73,13 @@
                 new DataTable('#ovechkin-players', {
                     paging: false,
                     responsive: true,
-                    order: [[2, 'asc']],
+                    order: [[3, 'asc']],
                     searching: false,
                     stateSave: false,
                     info: false,
                     columnDefs: [
-                        { type: 'num', orderSequence: ['asc', 'desc'], targets: [2] },
-                        { orderable: false, targets: [0, 1] }
+                        { type: 'num', orderSequence: ['asc', 'desc'], targets: [3] },
+                        { orderable: false, targets: [0, 1, 2] }
                     ]
                 });
             } catch (error) {
@@ -99,6 +103,7 @@
         <table id="ovechkin-players">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Player</th>
                     <th>League</th>
                     <th>Date</th>
