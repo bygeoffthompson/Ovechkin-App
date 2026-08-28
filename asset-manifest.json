@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.54606a4f.css",
-    "main.js": "/static/js/main.a8bfedff.js",
+    "main.css": "/static/css/main.d9ea2903.css",
+    "main.js": "/static/js/main.d841fcbf.js",
     "static/js/279.f274f00d.chunk.js": "/static/js/279.f274f00d.chunk.js",
     "static/media/ice-dark.jpg": "/static/media/ice-dark.242c5db446224fd7a346.jpg",
     "service-worker.js": "/service-worker.js",
     "index.html": "/index.html",
-    "main.54606a4f.css.map": "/static/css/main.54606a4f.css.map",
-    "main.a8bfedff.js.map": "/static/js/main.a8bfedff.js.map",
+    "main.d9ea2903.css.map": "/static/css/main.d9ea2903.css.map",
+    "main.d841fcbf.js.map": "/static/js/main.d841fcbf.js.map",
     "279.f274f00d.chunk.js.map": "/static/js/279.f274f00d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.54606a4f.css",
-    "static/js/main.a8bfedff.js"
+    "static/css/main.d9ea2903.css",
+    "static/js/main.d841fcbf.js"
   ]
 }
