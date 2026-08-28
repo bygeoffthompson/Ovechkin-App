@@ -30,25 +30,37 @@
         gtag('js', new Date());
         gtag('config', 'G-K4X7EL6PW3');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        async function fetchDataAndCreateTable() {
+        async function fetchDataAndRenderChart() {
             try {
-                const votesSnap = await firebase.firestore().collection('goalVotes').orderBy('count', 'desc').get();
-
-                const tableBody = document.querySelector('tbody');
-                votesSnap.forEach(doc => {
-                    const goalId = doc.id;
-                    const count = doc.data().count;
-                    const row = tableBody.insertRow();
-                    row.insertCell().innerHTML = `<a href="/?${goalId}">${goalId}</a>`;
-                    row.insertCell().innerHTML = `<strong>${count}</strong>`;
+                const votesSnap = await firebase.firestore().collection('goalVotes').get();
+                const entries = [];
+                votesSnap.forEach(doc => entries.push({ id: Number(doc.id), count: doc.data().count }));
+                entries.sort((a, b) => b.count - a.count || a.id - b.id);
+                const labels = entries.map(e => e.id);
+                const data = entries.map(e => e.count);
+                new Chart(document.getElementById('votes-chart'), {
+                    type: 'bar',
+                    data: {
+                        labels,
+                        datasets: [{
+                            label: 'Votes',
+                            data,
+                            backgroundColor: '#C81020',
+                        }]
+                    },
+                    options: {
+                        plugins: { legend: { display: false } },
+                        scales: { y: { ticks: { precision: 0 } } }
+                    }
                 });
             } catch (error) {
                 console.error('Error:', error);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', fetchDataAndCreateTable);
+        document.addEventListener('DOMContentLoaded', fetchDataAndRenderChart);
     </script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
@@ -70,15 +82,7 @@
       <p>A record of visitor's votes for their favorite Ovechkin goals.</p>
     </header>
     <main>
-        <table id="ovechkin-votes" style="max-width:300px;">
-            <thead>
-              <tr>
-                  <th>Goal</th>
-                  <th>Votes</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <canvas id="votes-chart"></canvas>
     </main>
   </div>
   <footer class="align-items-start d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">

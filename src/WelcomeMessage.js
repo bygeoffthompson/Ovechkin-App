@@ -6,8 +6,7 @@ export default function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}
     const activeDotwMatches = dotwMatches.filter(g => !disabledLeagues[g.league])
     return (
         <div className="alert alert-secondary border-radius-0 shadow-lg text-bg-light w-100" role="alert">
-            <p className="alert-heading fw-bold">Welcome</p>
-            <hr className="my-3"/>
+            <p className="alert-heading h1 mb-3">Welcome</p>
             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                 <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
                 <p className="m-0">Click or search to watch goals</p>

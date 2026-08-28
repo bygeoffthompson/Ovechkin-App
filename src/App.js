@@ -5,7 +5,7 @@ import {useGoalCounter, useCounterChange} from './useGoalCounter'
 import {useVote} from './useVote'
 import {PERIOD_NAME, DOTW, LEAGUE, LEAGUE_META, LEAGUE_ORDER, itemSeason, itemDotw, random, normalize, DEFAULT_FILTERS, formatMonth, buildFilterSets} from './constants'
 import LeagueFilters from './LeagueFilters'
-import RandomSearch from './RandomSearch'
+import ExcludeRandomSearch from './ExcludeRandomSearch'
 import GoalAccordions from './GoalAccordions'
 import Results from './Results'
 import WelcomeMessage from './WelcomeMessage'
@@ -302,7 +302,7 @@ function App() {
                 const btn = e.target.closest('button')
                 if (!btn) return
                 const title = btn.title
-                if (!title || title === 'Exclude' || title === 'Include') return
+                if (!title) return
                 gaRef.current?.event({ category: 'Click', action: 'Button Click', label: title })
             }}>
             <LeagueFilters
@@ -312,17 +312,16 @@ function App() {
                 anim={anim}
                 totalDisplay={totalDisplay}
                 activeLeagueGoals={activeLeagueGoals}
-                toggleLeague={toggleLeague}
                 randomGoal={randomGoal}
                 jsonData={jsonData}
+                searchGoal={searchGoal}
+                handleGoalNumber={handleGoalNumber}
             />
             <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
-                <RandomSearch
+                <ExcludeRandomSearch
                     jsonData={jsonData}
-                    searchGoal={searchGoal}
                     searchText={searchText}
                     filters={filters}
-                    leagueCounts={leagueCounts}
                     filterOptions={filterOptions}
                     seasonOptions={seasonOptions}
                     yearOptions={yearOptions}
@@ -330,7 +329,6 @@ function App() {
                     canRandom={canRandom}
                     canHatTrick={canHatTrick}
                     handleText={handleText}
-                    handleGoalNumber={handleGoalNumber}
                     handleFilter={handleFilter}
                     filterGoal={filterGoal}
                     randomGoal={randomGoal}
@@ -339,6 +337,8 @@ function App() {
                     reset={reset}
                     autoplay={autoplay}
                     setAutoplay={setAutoplay}
+                    toggleLeague={toggleLeague}
+                    disabledLeagues={disabledLeagues}
                 />
                 <div className="d-flex flex-column goal-results w-100">
                     <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />

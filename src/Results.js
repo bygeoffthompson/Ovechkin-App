@@ -1,7 +1,7 @@
 export default function Results({showResults, terms, excludedLabels, resultCount, showSort, sortOrder, setSortOrder}) {
     if (!showResults) return null
     const termBadges = terms?.map(t => <strong key={t} className="badge bg-white text-dark">{t}</strong>)
-    const excludedBadges = excludedLabels?.map(l => <strong key={l} className="badge text-bg-danger">{l}</strong>)
+    const excludedBadges = excludedLabels?.map(l => <strong key={l} className="badge text-bg-danger">- {l}</strong>)
     return (
         <div className="align-items-start d-flex flex-column flex-sm-row gap-1 justify-content-between p-2 text-bg-light w-100" id="results">
             <div className="align-items-center d-flex flex-row flex-wrap gap-1">

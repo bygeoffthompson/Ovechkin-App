@@ -1,10 +1,23 @@
 import Accordion from 'react-bootstrap/Accordion'
-import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth} from './constants'
+import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth, LEAGUE_ORDER, LEAGUE_META} from './constants'
 
-export default function RandomSearch({ jsonData, searchGoal, searchText, filters, leagueCounts, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleGoalNumber, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay }) {
+export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay, toggleLeague, disabledLeagues }) {
     return (
-        <div className="d-flex flex-column w-100" id="random-search">
+        <div className="d-flex flex-column w-100" id="exclude-random-search">
             <Accordion className="mb-1 shadow-lg">
+                <Accordion.Item eventKey="exclude">
+                    <div className="accordion-header"><Accordion.Button className="fw-bold">Exclude</Accordion.Button></div>
+                    <Accordion.Body className="text-bg-light">
+                        <div className="d-flex flex-column gap-1 small">
+                            {LEAGUE_ORDER.map(key => (
+                                <div key={key} className="form-check mb-0">
+                                    <input className="form-check-input" type="checkbox" id={`exclude-${key}`} checked={!!disabledLeagues[key]} onChange={() => toggleLeague(key)} />
+                                    <label className="form-check-label" htmlFor={`exclude-${key}`}>{LEAGUE_META[key].title}</label>
+                                </div>
+                            ))}
+                        </div>
+                    </Accordion.Body>
+                </Accordion.Item>
                 <Accordion.Item eventKey="random">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                     <Accordion.Body className="p-3 text-bg-light">
@@ -73,10 +86,6 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                     <Accordion.Body className="text-bg-light">
                     <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                         <div className="align-items-center d-flex flex-row gap-3">
-                            <label htmlFor="goal-number">Number</label>
-                            <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
-                        </div>
-                        <div className="align-items-center d-flex flex-row gap-3">
                         <label htmlFor="search-text-1">Text</label>
                         <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                         </div>
@@ -141,14 +150,12 @@ export default function RandomSearch({ jsonData, searchGoal, searchText, filters
                 </Accordion.Item>
             </Accordion>
 
-            <div className="align-items-start d-flex flex-row justify-content-between pe-2 pe-md-1 ps-2 ps-md-3">
-                <div className="align-items-end d-flex gap-2">
+            <div className="d-flex flex-row justify-content-end">
+{/*                <div className="align-items-end d-flex gap-2">
                     <label className="fw-bold small" htmlFor="autoplay">Autoplay</label>
                     <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
-                </div>
-
+                </div>*/}
                 <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
-
             </div>
         </div>
     )

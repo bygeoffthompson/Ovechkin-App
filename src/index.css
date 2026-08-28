@@ -6,14 +6,15 @@
 
 .alert {
     border-radius: 0 !important;
-
-    p:last-of-type {
-        margin-bottom: 0;
-    }
 }
 
 .border-radius-0 {
     border-radius: 0 !important;
+}
+
+.form-check-label {
+    position: relative;
+    top: 6px;
 }
 
 .ice {
@@ -29,6 +30,10 @@
 
 .iframe {
     aspect-ratio: 16 / 9;
+}
+
+.text-red {
+    color: #C8102E !important;
 }
 
 form {
@@ -57,6 +62,7 @@ form {
 
 .badge {
   background: #062D60;
+  cursor: default;
 }
 
 .link {
@@ -115,6 +121,10 @@ form {
     font-size: .875rem !important;
     padding: 1rem !important;
     z-index: auto !important;
+
+    * {
+        cursor: pointer !important;
+    }
 
     @media (max-width: 768px) {
         padding: 1rem .625rem !important;
@@ -324,27 +334,6 @@ form {
     transform: none !important;
   }
 
-    &.counter {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        position: relative;
-        z-index: 1;
-    }
-
-    &.exclude {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        min-height: unset;
-        padding: .5rem;
-
-        &.include,
-        &:active,
-        &:hover {
-            background: #C81020 !important;
-            color: #FFF !important;
-        }
-    }
-
     &.cup {
         background: #E0E0E0 url('../public/bg/cup.jpg') no-repeat scroll center / 100%;
         border: 1px solid #E0E0E0 !important;
@@ -399,7 +388,12 @@ form {
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
-        width: auto;
+        min-width: 0;
+        width: 45px;
+
+        @media (min-width: 576px) {
+            width: 60px;
+        }
 
         &:hover,
         &:active {
@@ -443,7 +437,7 @@ form {
     max-width: 1.5rem;
 }
 
-#random-search {
+#exclude-random-search {
     flex-shrink: 0;
     max-width: 365px;
 
@@ -483,6 +477,7 @@ input {
     }
 
     &[type='number'] {
+        font-size: 1.5rem !important;
         max-width: 100px;
     }
 
@@ -497,7 +492,3 @@ input {
     width: auto;
 }
 
-.excluded {
-    transform: scale(.75);
-    transition: all 500ms ease-in;
-}
