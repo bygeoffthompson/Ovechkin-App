@@ -314,7 +314,7 @@ form {
 
     @media (min-width: 576px) {
         font-size: .875rem;
-        min-width: 105px;
+        min-width: 95px;
     }
 
   &:hover,
@@ -439,7 +439,7 @@ form {
 
 #exclude-random-search {
     flex-shrink: 0;
-    max-width: 365px;
+    max-width: 333px;
 
     .accordion-button {
         font-size: 1rem !important;

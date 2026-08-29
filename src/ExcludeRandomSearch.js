@@ -149,9 +149,7 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <div className="d-flex flex-row justify-content-end">
-                <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
-            </div>
+            <button className="button ps-2 ps-md-3" onClick={reset} title="Reset" type="button">Reset</button>
         </div>
     )
 }
