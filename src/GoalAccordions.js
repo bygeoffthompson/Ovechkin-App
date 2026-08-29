@@ -36,30 +36,29 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                     <div className="align-items-center d-flex justify-content-center team-logo">
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                     </div>
-                                    <span className="badge fs-6">{result.month}/{result.day}/{result.year}</span>
+                                    {result.goalie && <span className="d-none d-sm-inline fw-bold h6 m-0">{result.goalie}</span>}
+                                    <span className="badge date">{result.month}/{result.day}/{result.year}</span>
                                 </div>
                             {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
                             </Accordion.Button>
                         </div>
                         <Accordion.Body className="p-0 position-relative">
-                            <div className="d-flex flex-column px-3 py-2">
-                                {result.goalie && <p className="h5 ps-1">{result.goalie}</p>}
-                                <div className="align-items-start align-items-sm-center d-flex flex-wrap gap-1">
-                                    {result.series && <span className="badge text-bg-warning">{result.series}</span>}
-                                    {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                    <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
-                                    <span className="badge text-bg-secondary">{result.time}</span>
-                                    <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
-                                    {result.a1 && <span className="assist badge">{result.a1}</span>}
-                                    {result.a2 && <span className="assist badge">{result.a2}</span>}
-                                    <button
-                                        className={`align-items-center d-flex small vote ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
-                                        disabled={String(result.goal) === votedGoalId}
-                                        onClick={() => onVote(String(result.goal))} title="Vote"
-                                    >{String(result.goal) === votedGoalId ? 'Voted' : 'Vote'}</button>
-                                </div>
-
+                            <div className="align-items-start align-items-sm-center d-flex flex-wrap gap-1 p-2">
+                                {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
+                                {result.series && <span className="badge text-bg-warning">{result.series}</span>}
+                                {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
+                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
+                                <span className="badge text-bg-secondary">{result.time}</span>
+                                <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
+                                {result.a1 && <span className="assist badge">{result.a1}</span>}
+                                {result.a2 && <span className="assist badge">{result.a2}</span>}
+                                <button
+                                    className={`align-items-center d-flex small vote ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
+                                    disabled={String(result.goal) === votedGoalId}
+                                    onClick={() => onVote(String(result.goal))} title="Vote"
+                                >{String(result.goal) === votedGoalId ? 'Voted' : 'Vote'}</button>
                             </div>
+
                             {activeKey === key
                                 ? <YoutubeFrame videoId={videoId} start={start} end={end} />
                                 : <div className="iframe w-100" />

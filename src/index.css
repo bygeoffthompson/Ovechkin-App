@@ -12,6 +12,10 @@
     border-radius: 0 !important;
 }
 
+.date {
+    font-size: .875rem !important;
+}
+
 .form-check-label {
     position: relative;
     top: 6px;
