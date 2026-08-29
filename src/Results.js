@@ -6,6 +6,7 @@ export default function Results({showResults, terms, excludedLabels, resultCount
         <div className="align-items-start d-flex flex-column flex-sm-row gap-1 justify-content-between p-2 text-bg-light w-100" id="results">
             <div className="align-items-center d-flex flex-row flex-wrap gap-1">
                 {resultCount >= 1 && <strong className="badge text-bg-dark" data-count={resultCount}>{`${resultCount} Result${resultCount !== 1 ? 's' : ''}`}</strong>}
+                {termBadges?.length > 0 && <small><small>for</small></small>}
                 {termBadges}
                 {excludedBadges}
             </div>

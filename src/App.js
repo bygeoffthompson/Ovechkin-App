@@ -37,7 +37,7 @@ function App() {
     const [searchText, setSearchText] = useState('')
     const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
-    const [autoplay, setAutoplay] = useState(false)
+
     const { anim, isAnimating } = useGoalCounter()
     const { votedGoalId, vote } = useVote()
     const [filters, setFilters] = useState(DEFAULT_FILTERS)
@@ -317,7 +317,7 @@ function App() {
                 searchGoal={searchGoal}
                 handleGoalNumber={handleGoalNumber}
             />
-            <div className="align-items-start d-flex flex-column flex-lg-row gap-3 justify-content-between mb-4">
+            <div className="align-items-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between mb-3">
                 <ExcludeRandomSearch
                     jsonData={jsonData}
                     searchText={searchText}
@@ -335,8 +335,6 @@ function App() {
                     outdoor={outdoor}
                     hatTrick={hatTrick}
                     reset={reset}
-                    autoplay={autoplay}
-                    setAutoplay={setAutoplay}
                     toggleLeague={toggleLeague}
                     disabledLeagues={disabledLeagues}
                 />
@@ -345,7 +343,6 @@ function App() {
                     <GoalAccordions
                         sortedResults={sortedResults}
                         tooShort={tooShort}
-                        autoplay={autoplay}
                         ga={gaRef}
                         votedGoalId={votedGoalId}
                         onVote={vote}

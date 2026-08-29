@@ -1,7 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion'
 import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth, LEAGUE_ORDER, LEAGUE_META} from './constants'
 
-export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, autoplay, setAutoplay, toggleLeague, disabledLeagues }) {
+export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, toggleLeague, disabledLeagues }) {
     return (
         <div className="d-flex flex-column w-100" id="exclude-random-search">
             <Accordion className="mb-1 shadow-lg">
@@ -12,7 +12,7 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                             {LEAGUE_ORDER.map(key => (
                                 <div key={key} className="form-check mb-0">
                                     <input className="form-check-input" type="checkbox" id={`exclude-${key}`} checked={!!disabledLeagues[key]} onChange={() => toggleLeague(key)} />
-                                    <label className="form-check-label" htmlFor={`exclude-${key}`}>{LEAGUE_META[key].title}</label>
+                                    <label className="form-check-label" htmlFor={`exclude-${key}`}>{LEAGUE_META[key].label}</label>
                                 </div>
                             ))}
                         </div>
@@ -149,12 +149,7 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-
             <div className="d-flex flex-row justify-content-end">
-{/*                <div className="align-items-end d-flex gap-2">
-                    <label className="fw-bold small" htmlFor="autoplay">Autoplay</label>
-                    <input checked={autoplay} className="form-check-input" id="autoplay" onChange={(e) => setAutoplay(e.target.checked)} type="checkbox" />
-                </div>*/}
                 <button className="button" onClick={reset} title="Reset" type="button">Reset</button>
             </div>
         </div>

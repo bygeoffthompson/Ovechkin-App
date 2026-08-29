@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import YoutubeFrame from './YoutubeFrame'
 
-export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga, votedGoalId, onVote }) {
+export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalId, onVote }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
@@ -61,7 +61,7 @@ export default function GoalAccordions({ sortedResults, tooShort, autoplay, ga, 
 
                             </div>
                             {activeKey === key
-                                ? <YoutubeFrame videoId={videoId} autoplay={autoplay} start={start} end={end} />
+                                ? <YoutubeFrame videoId={videoId} start={start} end={end} />
                                 : <div className="iframe w-100" />
                             }
                             <small className="bottom-0 link position-absolute px-1 start-0 text-bg-dark"><strong>ovechkin.app/?{result.goal}</strong></small>

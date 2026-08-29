@@ -14,10 +14,8 @@ export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimati
             <button className="button" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
                 <span className="h2 m-0" data-goals={activeLeagueGoals.length}>{isAnimating ? anim(activeLeagueGoals.length) : totalDisplay}</span>
             </button>
-            <div className="align-items-center d-flex gap-2 mx-2">
-                <label className="h5 m-0 text-red" htmlFor="goal-number">Goal</label>
-                <input id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
-            </div>
+            <label htmlFor="goal-number" hidden>Goal</label>
+            <input className="text-center" id="goal-number" min={0} max={leagueCounts[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
         </div>
     )
 }
