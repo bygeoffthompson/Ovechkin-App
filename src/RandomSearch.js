@@ -1,6 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion'
 import {useTranslation} from 'react-i18next'
-import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth, LEAGUE_ORDER, LEAGUE_META} from './constants'
+import {TEAMS, canadianTeams, youngGunsPlayers, LEAGUE_ORDER, LEAGUE_META} from './constants'
 
 export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, searchGoal, handleGoalNumber, leagueCounts }) {
     const {t} = useTranslation()
@@ -114,7 +114,7 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                             <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => handleFilter('month', e.target.value)}>
                                 <option value=""></option>
                                 {Array.from({length: 12}, (_, i) => (
-                                    <option key={i+1} value={i+1} disabled={!filterOptions.months.has(i+1)}>{formatMonth(i+1)}</option>
+                                    <option key={i+1} value={i+1} disabled={!filterOptions.months.has(i+1)}>{t(`months.${i+1}`)}</option>
                                 ))}
                             </select>
                         </div>

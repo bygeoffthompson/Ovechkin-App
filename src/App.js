@@ -157,7 +157,7 @@ function App() {
         filters.team,
         filters.location,
         filters.period && PERIOD_NAME[filters.period],
-        filters.month && formatMonth(filters.month),
+        filters.month && t(`months.${filters.month}`),
         filters.season,
         filters.year,
     ].filter(Boolean)

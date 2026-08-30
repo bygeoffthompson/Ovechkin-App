@@ -38,7 +38,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                             <Accordion.Button onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Open Goal Accordion', label: result.goal.toString() })} }}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
-                                        {result.league !== 1 && result.league !== 2 && <small className="fw-bold me-1">{result.league === 5 ? 'Worlds' : LEAGUE[result.league]}</small>}
+                                        {result.league !== 1 && result.league !== 2 && <small className="fw-bold me-1">{t(`leagueLabel.${result.league}`)}</small>}
                                         <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
                                     </strong>
                                     <div className="align-items-center d-flex justify-content-center">

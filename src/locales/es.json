@@ -56,7 +56,7 @@
   },
   "404": { "title": "Página No Encontrada" },
   "leagueLabel": {
-    "1": "NHL", "2": "Playoffs", "3": "KHL", "4": "Olimpiadas", "5": "Mundiales", "6": "Copa"
+    "1": "NHL", "2": "Eliminatorios", "3": "KHL", "4": "Olimpiadas", "5": "Mundiales", "6": "Copa"
   },
   "app": {
     "loading": "Cargando",
@@ -90,6 +90,11 @@
     "inCanada": "En Canadá", "post": "Poste", "rookie": "Novato",
     "slapshot": "Slapshot", "teammate": "Compañero", "tip": "Desvío",
     "unassisted": "Sin Asistencia", "youngGuns": "Jóvenes"
+  },
+  "months": {
+    "1": "Enero", "2": "Febrero", "3": "Marzo", "4": "Abril",
+    "5": "Mayo", "6": "Junio", "7": "Julio", "8": "Agosto",
+    "9": "Septiembre", "10": "Octubre", "11": "Noviembre", "12": "Diciembre"
   },
   "search": {
     "random": "Aleatorio", "search": "Buscar", "goalNumber": "Gol #",
