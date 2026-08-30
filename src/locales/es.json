@@ -89,12 +89,12 @@
     "backhand": "Revés", "cupRun": "Por la Copa", "fromNick": "De Nick", "hatTrick": "Hat Trick",
     "inCanada": "En Canadá", "post": "Poste", "rookie": "Novato",
     "slapshot": "Slapshot", "teammate": "Compañero", "tip": "Desvío",
-    "unassisted": "Sin asistencia", "youngGuns": "Jóvenes"
+    "unassisted": "Sin Asistencia", "youngGuns": "Jóvenes"
   },
   "search": {
     "random": "Aleatorio", "search": "Buscar", "goalNumber": "Gol #",
     "text": "Texto", "searchPlaceholder": "Buscar",
-    "team": "Equipo", "location": "Ubicación", "home": "Local", "away": "Visitante",
+    "team": "Equipo", "location": "Ubicación", "home": "Hogar", "away": "Lejos",
     "period": "Período", "first": "Primero", "second": "Segundo", "third": "Tercero", "overtime": "Tiempo Extra",
     "month": "Mes", "season": "Temporada", "year": "Año", "league": "Liga",
     "reset": "Restablecer", "draft": "Draft", "twoChars": "La búsqueda requiere 2 caracteres"

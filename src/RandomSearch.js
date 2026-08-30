@@ -12,22 +12,22 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                     <Accordion.Body className="p-3 text-bg-light">
                         <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
-                                <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button" title={t('jersey.capitol')} aria-label="Capitol" type="button">
+                                <button onClick={() => filterGoal(['Capitol'])} className="button jersey-button capitol" title={t('jersey.capitol')} aria-label="Capitol" type="button">
                                     <img alt="Capitol" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Screagle'])} className="button jersey-button" title={t('jersey.screagle')} aria-label="Screagle" type="button">
+                                <button onClick={() => filterGoal(['Screagle'])} className="button jersey-button screagle" title={t('jersey.screagle')} aria-label="Screagle" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Red'])} className="button jersey-button" title={t('jersey.red')} aria-label="Red jersey" type="button">
+                                <button onClick={() => filterGoal(['Red'])} className="button jersey-button red" title={t('jersey.red')} aria-label="Red jersey" type="button">
                                     <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['White'])} className="button jersey-button" title={t('jersey.white')} aria-label="White jersey" type="button">
+                                <button onClick={() => filterGoal(['White'])} className="button jersey-button white" title={t('jersey.white')} aria-label="White jersey" type="button">
                                     <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Throwback'])} className="button jersey-button" title={t('jersey.throwback')} aria-label="Throwback jersey" type="button">
+                                <button onClick={() => filterGoal(['Throwback'])} className="button jersey-button throwback" title={t('jersey.throwback')} aria-label="Throwback jersey" type="button">
                                     ☆&nbsp;&nbsp;<img alt="Throwback" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
                                 </button>
-                                <button onClick={outdoor} className="button jersey-button multi-logo" title={t('jersey.brickStadium')} aria-label="Brick or Stadium Series jersey" type="button">
+                                <button onClick={outdoor} className="button jersey-button multi-logo brick-stadium" title={t('jersey.brickStadium')} aria-label="Brick or Stadium Series jersey" type="button">
                                     <span>
                                         <img alt="Brick" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
                                     </span>
@@ -35,13 +35,13 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                                         <img alt="Caps" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
                                     </span>
                                 </button>
-                                <button onClick={() => filterGoal(['Navy W'])} className="button jersey-button" title={t('jersey.navy')} aria-label="Navy jersey" type="button">
+                                <button onClick={() => filterGoal(['Navy W'])} className="button jersey-button navy" title={t('jersey.navy')} aria-label="Navy jersey" type="button">
                                     <img alt="Navy" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Black Reverse Retro'])} className="button jersey-button" title={t('jersey.blackReverseRetro')} aria-label="Black Reverse Retro jersey" type="button">
+                                <button onClick={() => filterGoal(['Black Reverse Retro'])} className="button jersey-button black-reverse-retro" title={t('jersey.blackReverseRetro')} aria-label="Black Reverse Retro jersey" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Red Reverse Retro'])} className="button jersey-button" title={t('jersey.redReverseRetro')} aria-label="Red Reverse Retro jersey" type="button">
+                                <button onClick={() => filterGoal(['Red Reverse Retro'])} className="button jersey-button red-reverse-retro" title={t('jersey.redReverseRetro')} aria-label="Red Reverse Retro jersey" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                 </button>
                             </div>

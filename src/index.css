@@ -407,17 +407,17 @@ form {
         }
     }
 
-    &[title='Black Reverse Retro'],
-    &[title='Capitol'] {
+    &.black-reverse-retro,
+    &.capitol {
         background: #111;
     }
 
-    &[title*='Red'] {
+    &[class*='red'] {
         background: #C81020;
     }
 
-    &[title='Screagle'],
-    &[title='White'] {
+    &.screagle,
+    &.white {
         background: #FFF;
     }
 
@@ -435,12 +435,12 @@ form {
         }
     }
 
-    &[title='Throwback'] {
+    &.throwback {
         background-image: linear-gradient(-75deg, #E13A3E 28%, #FFF 29%, #FFF 71%, #E13A3E 72%) !important;
         color: #FFF;
     }
 
-    &[title='Navy'] {
+    &.navy {
         background: #062D60;
         background-image: linear-gradient(#FFF 6%, #062D60 7%, #062D60 90%, #C8102E 91%) !important;
     }

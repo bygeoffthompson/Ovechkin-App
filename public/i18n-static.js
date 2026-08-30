@@ -124,8 +124,13 @@
         var footer = document.querySelector('footer');
         if (!footer) return;
 
+        var label = document.createElement('label');
+        label.setAttribute('for', 'language');
+        label.textContent = 'Language';
+        label.hidden = true;
+
         var select = document.createElement('select');
-        select.setAttribute('aria-label', 'Language');
+        select.id = 'language';
         for (var i = 0; i < LANGUAGES.length; i++) {
             var opt = document.createElement('option');
             opt.value = LANGUAGES[i].code;
@@ -144,6 +149,7 @@
 
         footer.insertBefore(sep, footer.firstChild);
         footer.insertBefore(select, footer.firstChild);
+        footer.insertBefore(label, footer.firstChild);
     }
 
     document.addEventListener('DOMContentLoaded', function () {
