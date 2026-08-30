@@ -68,20 +68,6 @@ function App() {
         return Array.from({length: max - 2004 + 1}, (_, i) => 2004 + i)
     }, [jsonData])
 
-    const valueIndex = useMemo(() => {
-        const idx = new Map()
-        jsonData.forEach(item => {
-            for (const v of Object.values(item)) {
-                if (v != null) {
-                    const key = String(v)
-                    if (!idx.has(key)) idx.set(key, [])
-                    idx.get(key).push(item)
-                }
-            }
-        })
-        return idx
-    }, [jsonData])
-
     const searchStrings = useMemo(() =>
         jsonData.map(item => {
             const month = formatMonth(item.month)
@@ -175,7 +161,6 @@ function App() {
         filters.season,
         filters.year,
     ].filter(Boolean)
-    const canHatTrick = jsonData.some(item => [item.btn1, item.btn2, item.btn3].includes('Hat Trick'))
     const resultCount = sortedResults.length
     const showResults = hatTrickMode || resultCount > 1 || terms.length > 0
     const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
@@ -191,14 +176,6 @@ function App() {
             label: textResults[0].goal.toString()
         })
     }, [textResults])
-
-    function canFilter(match) {
-        return match.some(m => (valueIndex.get(m) ?? []).length > 0)
-    }
-
-    function canRandom(arr) {
-        return arr.length > 0
-    }
 
     const handleText = useCallback((e) => {
         setSearchGoal('')
@@ -302,9 +279,6 @@ function App() {
                     filterOptions={filterOptions}
                     seasonOptions={seasonOptions}
                     yearOptions={yearOptions}
-                    canFilter={canFilter}
-                    canRandom={canRandom}
-                    canHatTrick={canHatTrick}
                     handleText={handleText}
                     handleFilter={handleFilter}
                     filterGoal={filterGoal}
