@@ -96,37 +96,38 @@
   <body>
   <div class="container">
     <header class="my-4">
-      <h1>Players in the Ovechkin App</h1>
-      <p>A chronological list of every player in Ovechkin App.</p>
+      <h1 data-i18n="players.title">Players in the Ovechkin App</h1>
+      <p data-i18n="players.description">A chronological list of every player in Ovechkin App.</p>
     </header>
     <main>
         <table id="ovechkin-players">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Player</th>
-                    <th>League</th>
-                    <th>Date</th>
+                    <th data-i18n="col.number">#</th>
+                    <th data-i18n="col.player">Player</th>
+                    <th data-i18n="col.league">League</th>
+                    <th data-i18n="col.date">Date</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
     </main>
   </div>
-  <footer class="align-items-start d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">
-      <a href="/">Home</a>
+  <footer class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">
+      <a href="/" data-i18n="nav.home">Home</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/about.html">About</a>
+      <a href="/about.html" data-i18n="nav.about">About</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/assists.html">Assists</a>
+      <a href="/assists.html" data-i18n="nav.assists">Assists</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/goals.html">Goals</a>
+      <a href="/goals.html" data-i18n="nav.goals">Goals</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/goalies.html">Goalies</a>
+      <a href="/goalies.html" data-i18n="nav.goalies">Goalies</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/graph.html">Graph</a>
+      <a href="/graph.html" data-i18n="nav.graph">Graph</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/help.html">Help</a>
+      <a href="/help.html" data-i18n="nav.help">Help</a>
   </footer>
+  <script src="/i18n-static.js"></script>
   </body>
 </html>

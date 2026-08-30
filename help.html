@@ -33,10 +33,10 @@
   <body>
   <div class="container">
     <header class="my-4">
-      <h1>Ovechkin App Help</h1>
+      <h1 data-i18n="help.title">Ovechkin App Help</h1>
     </header>
     <main>
-      <h2 id="assist">Assist Search</h2>
+      <h2 id="assist" data-i18n="help.assistSearch">Assist Search</h2>
         <p>Assist data is stored in two formats:</p>
         <p><code>[Primary Assist Name] [Secondary Assist Name]</code></p>
       <ul>
@@ -50,7 +50,7 @@
             <li>P:Nicklas Backstrom</li>
             <li>S:Pierre Luc Dubois</li>
         </ul>
-      <h2 id="date">Date Search</h2>
+      <h2 id="date" data-i18n="help.dateSearch">Date Search</h2>
         <p>Dates are stored in three formats:</p>
         <p><code>[Month]/[Day]/[Year]</code> (no leading zeros)</p>
         <ul>
@@ -67,7 +67,7 @@
             <li>November 2018</li>
             <li>March 2024</li>
         </ul>
-      <h2 id="goal">Goal Search</h2>
+      <h2 id="goal" data-i18n="help.goalSearch">Goal Search</h2>
       <p>Goals are identified by a unique number.</p>
       <p>NHL regular season goals are indexed 1 to 929. All other goals are intertwined
           as floats with format</p>
@@ -81,7 +81,7 @@
         <li>897.75 is Playoff Goal #75 (2025)</li>
       </ul>
       <p>In a few cases this cataloging produced duplicate floats which were resolved by incrementing the NHL regular season goal number by one.</p>
-      <h2>League Search</h2>
+      <h2 data-i18n="help.leagueSearch">League Search</h2>
       <ul>
       <li>"NHL"</li>
       <ul>
@@ -95,7 +95,7 @@
       <li>"All Star"</li>
 
       </ul>
-      <h2 id="text">Text Search</h2>
+      <h2 id="text" data-i18n="help.textSearch">Text Search</h2>
         <ul>
             <li>20th goals <a href="/?20th">20th</a></li>
             <li>30th goals <a href="/?30th">30th</a></li>
@@ -145,24 +145,25 @@
             <li>2015 Winter Classic jersey <a href="/?brick">Brick</a></li>
             <li>2018 Stadium Series jersey <a href="/?stadium">Stadium</a></li>
         </ul>
-      <h2>URL Queries</h2>
+      <h2 data-i18n="help.urlQueries">URL Queries</h2>
       <p>Ovechkin App accepts URL queries to return specific goals (<a href="/?1">?1</a> to <a href="/?929">?929</a>) or a set of filtered search results (<a href="/?fleury+golden-knights">?fleury+golden-knights</a>).</p>
     </main>
   </div>
-  <footer class="align-items-start d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">
-      <a href="/">Home</a>
+  <footer class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">
+      <a href="/" data-i18n="nav.home">Home</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/about.html">About</a>
+      <a href="/about.html" data-i18n="nav.about">About</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/assists.html">Assists</a>
+      <a href="/assists.html" data-i18n="nav.assists">Assists</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/goals.html">Goals</a>
+      <a href="/goals.html" data-i18n="nav.goals">Goals</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/goalies.html">Goalies</a>
+      <a href="/goalies.html" data-i18n="nav.goalies">Goalies</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/graph.html">Graph</a>
+      <a href="/graph.html" data-i18n="nav.graph">Graph</a>
       <span class="d-none d-sm-block">|</span>
-      <a href="/players.html">Players</a>
+      <a href="/players.html" data-i18n="nav.players">Players</a>
   </footer>
+  <script src="/i18n-static.js"></script>
   </body>
 </html>
