@@ -210,7 +210,7 @@ function App() {
         setFilters(DEFAULT_FILTERS)
         const val = e.target.value
         setSearchGoal(val)
-    }, [jsonData])
+    }, [])
 
     const handleFilter = useCallback((key, value) => {
         setSearchGoal('')

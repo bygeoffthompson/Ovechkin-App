@@ -1,26 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
-
-export function useCounterChange(value) {
-    const [animated, setAnimated] = useState(value)
-    const animatedRef = useRef(animated)
-    animatedRef.current = animated
-
-    useEffect(() => {
-        const from = animatedRef.current
-        if (from === value) return
-        const start = performance.now()
-        let raf
-        const frame = (now) => {
-            const p = Math.max(0, Math.min((now - start) / 250, 1))
-            setAnimated(Math.round(from + (value - from) * p))
-            if (p < 1) raf = requestAnimationFrame(frame)
-        }
-        raf = requestAnimationFrame(frame)
-        return () => cancelAnimationFrame(raf)
-    }, [value])
-
-    return animated
-}
+import { useState, useEffect } from 'react'
 
 export function useGoalCounter() {
     const [progress, setProgress] = useState(0)
