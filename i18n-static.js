@@ -91,11 +91,12 @@
             'players-2': 'A chronological list of every player in Ovechkin App.',
             'players-3': '#', 'players-4': 'Player', 'players-5': 'League', 'players-6': 'Date',
 
-            'voting-1': 'Ovechkin App Voting',
-            'voting-2': "A record of visitor's votes for their favorite Ovechkin goals.",
+            'vote-1': 'Ovechkin App Voting',
+            'vote-2': "A record of visitor's votes for their favorite Ovechkin goals.",
+            'vote-3': 'Vote for your favorite goal with the [Vote] button that displays above goal videos.',
 
             'footer-1': 'Home', 'footer-2': 'About', 'footer-3': 'Assists', 'footer-4': 'Goals',
-            'footer-5': 'Goalies', 'footer-6': 'Graph', 'footer-7': 'Help', 'footer-8': 'Players'
+            'footer-5': 'Goalies', 'footer-6': 'Graph', 'footer-7': 'Help', 'footer-8': 'Players', 'footer-9': 'Vote'
         },
         es: {
             '404-1': 'Página No Encontrada',
@@ -176,11 +177,12 @@
             'players-2': 'Una lista cronológica de cada jugador en Ovechkin App.',
             'players-3': '#', 'players-4': 'Jugador', 'players-5': 'Liga', 'players-6': 'Fecha',
 
-            'voting-1': 'Votación de Ovechkin App',
-            'voting-2': 'Un registro de los votos de los visitantes por sus goles favoritos de Ovechkin.',
+            'vote-1': 'Votación de Ovechkin App',
+            'vote-2': 'Un registro de los votos de los visitantes por sus goles favoritos de Ovechkin.',
+            'vote-3': 'Vota por tu gol favorito con el botón [Votar] que aparece encima de los videos de goles.',
 
             'footer-1': 'Inicio', 'footer-2': 'Acerca de', 'footer-3': 'Asistencias', 'footer-4': 'Goles',
-            'footer-5': 'Porteros', 'footer-6': 'Gráfica', 'footer-7': 'Ayuda', 'footer-8': 'Jugadores'
+            'footer-5': 'Porteros', 'footer-6': 'Gráfica', 'footer-7': 'Ayuda', 'footer-8': 'Jugadores', 'footer-9': 'Votar'
         },
         fr: {
             '404-1': 'Page Introuvable',
@@ -261,11 +263,12 @@
             'players-2': 'Une liste chronologique de chaque joueur dans Ovechkin App.',
             'players-3': '#', 'players-4': 'Joueur', 'players-5': 'Ligue', 'players-6': 'Date',
 
-            'voting-1': 'Vote Ovechkin App',
-            'voting-2': "Un historique des votes des visiteurs pour leurs buts préférés d'Ovechkin.",
+            'vote-1': 'Vote Ovechkin App',
+            'vote-2': "Un historique des votes des visiteurs pour leurs buts préférés d'Ovechkin.",
+            'vote-3': "Votez pour votre but préféré avec le bouton [Voter] qui s'affiche au-dessus des vidéos de buts.",
 
             'footer-1': 'Accueil', 'footer-2': 'À propos', 'footer-3': 'Passes', 'footer-4': 'Buts',
-            'footer-5': 'Gardiens', 'footer-6': 'Graphique', 'footer-7': 'Aide', 'footer-8': 'Joueurs'
+            'footer-5': 'Gardiens', 'footer-6': 'Graphique', 'footer-7': 'Aide', 'footer-8': 'Joueurs', 'footer-9': 'Vote'
         },
         ru: {
             '404-1': 'Страница Не Найдена',
@@ -346,11 +349,12 @@
             'players-2': 'Хронологический список всех игроков в Ovechkin App.',
             'players-3': '#', 'players-4': 'Игрок', 'players-5': 'Лига', 'players-6': 'Дата',
 
-            'voting-1': 'Голосование Ovechkin App',
-            'voting-2': 'Запись голосований посетителей за любимые голы Овечкина.',
+            'vote-1': 'Голосование Ovechkin App',
+            'vote-2': 'Запись голосований посетителей за любимые голы Овечкина.',
+            'vote-3': 'Голосуйте за любимый гол с помощью кнопки [Голосовать], которая отображается над видео с голами.',
 
             'footer-1': 'Главная', 'footer-2': 'О нас', 'footer-3': 'Передачи', 'footer-4': 'Голы',
-            'footer-5': 'Вратари', 'footer-6': 'График', 'footer-7': 'Помощь', 'footer-8': 'Игроки'
+            'footer-5': 'Вратари', 'footer-6': 'График', 'footer-7': 'Помощь', 'footer-8': 'Игроки', 'footer-9': 'Голосовать'
         },
         sv: {
             '404-1': 'Sidan Hittades Inte',
@@ -431,11 +435,12 @@
             'players-2': 'En kronologisk lista över varje spelare i Ovechkin App.',
             'players-3': '#', 'players-4': 'Spelare', 'players-5': 'Liga', 'players-6': 'Datum',
 
-            'voting-1': 'Ovechkin App Röstning',
-            'voting-2': 'En registrering av besökares röster för sina favoritmmål av Ovechkin.',
+            'vote-1': 'Ovechkin App Röstning',
+            'vote-2': 'En registrering av besökares röster för sina favoritmmål av Ovechkin.',
+            'vote-3': 'Rösta på ditt favoritmål med knappen [Rösta] som visas ovanför målvideorna.',
 
             'footer-1': 'Hem', 'footer-2': 'Om', 'footer-3': 'Assistpoäng', 'footer-4': 'Mål',
-            'footer-5': 'Målvakter', 'footer-6': 'Graf', 'footer-7': 'Hjälp', 'footer-8': 'Spelare'
+            'footer-5': 'Målvakter', 'footer-6': 'Graf', 'footer-7': 'Hjälp', 'footer-8': 'Spelare', 'footer-9': 'Rösta'
         },
         fi: {
             '404-1': 'Sivua Ei Löydy',
@@ -516,11 +521,12 @@
             'players-2': 'Kronologinen luettelo kaikista pelaajista Ovechkin App:ssä.',
             'players-3': '#', 'players-4': 'Pelaaja', 'players-5': 'Liiga', 'players-6': 'Päivämäärä',
 
-            'voting-1': 'Ovechkin App Äänestys',
-            'voting-2': 'Kirjaus vierailijoiden äänistä heidän suosikeistaan Ovechkinin maaleista.',
+            'vote-1': 'Ovechkin App Äänestys',
+            'vote-2': 'Kirjaus vierailijoiden äänistä heidän suosikeistaan Ovechkinin maaleista.',
+            'vote-3': 'Äänestä suosikkimaaliasi [Äänestä]-painikkeella, joka näkyy maalivideoiden yläpuolella.',
 
             'footer-1': 'Etusivu', 'footer-2': 'Tietoja', 'footer-3': 'Syötöt', 'footer-4': 'Maalit',
-            'footer-5': 'Maalivahdit', 'footer-6': 'Kaavio', 'footer-7': 'Ohje', 'footer-8': 'Pelaajat'
+            'footer-5': 'Maalivahdit', 'footer-6': 'Kaavio', 'footer-7': 'Ohje', 'footer-8': 'Pelaajat', 'footer-9': 'Äänestä'
         }
     };
 
