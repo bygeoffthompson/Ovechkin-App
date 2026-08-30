@@ -3,11 +3,15 @@ import Accordion from 'react-bootstrap/Accordion'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import YoutubeFrame from './YoutubeFrame'
 
-export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalId, onVote }) {
+export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalId, onVote, onActiveGoal }) {
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
     }, [sortedResults])
+    useEffect(() => {
+        const result = sortedResults[parseInt(activeKey)]
+        if (result != null) onActiveGoal?.(result.goal)
+    }, [activeKey, sortedResults, onActiveGoal])
     return (
         <>
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}

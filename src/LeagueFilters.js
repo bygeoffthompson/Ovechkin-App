@@ -25,7 +25,7 @@ function FlipDigit({ ch }) {
     }, [animating])
 
     return (
-        <span className={`d-inline-block flip-digit h-100 overflow-hidden position-relative shadow${animating ? ' flip-digit-animate' : ''}`}>
+        <span className={`d-inline-block flip-digit overflow-hidden position-relative shadow${animating ? ' flip-digit-animate' : ''}`}>
             <span className="end-0 fd-piece fd-top h-50 overflow-hidden position-absolute start-0 top-0"><span>{ch}</span></span>
             <span className="bottom-0 end-0 fd-piece fd-bottom h-50 overflow-hidden position-absolute start-0"><span>{ch}</span></span>
             {animKey > 0 && <span key={animKey} className="end-0 fd-flap fd-piece overflow-hidden position-absolute start-0 top-0"><span>{prev}</span></span>}
@@ -35,7 +35,7 @@ function FlipDigit({ ch }) {
 
 export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimating, anim, totalDisplay, activeLeagueGoals, randomGoal, jsonData, searchGoal }) {
     return (
-        <div className="d-flex flex-wrap align-items-stretch gap-1 mb-3">
+        <div className="d-flex flex-wrap align-items-stretch gap-2 mb-3">
             {LEAGUES.map(({ key, label, title }) => (
                 <button key={key} className="button counter" disabled={isAnimating || !!disabledLeagues[key]} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[key]}>{anim(leagueCounts[key])}</div>
@@ -45,22 +45,21 @@ export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimati
             <button className="button" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
                 <span className="h2 m-0" data-goals={activeLeagueGoals.length}>{isAnimating ? anim(activeLeagueGoals.length) : totalDisplay}</span>
             </button>
-            {searchGoal !== '' && (() => {
+            {(() => {
                 const raw = String(searchGoal)
                 const formatted = raw.includes('.')
                     ? raw.split('.')[0] + '.' + raw.split('.')[1].padEnd(2, '0')
                     : raw
                 const digitCount = formatted.replace('.', '').length
                 const padCount = Math.max(0, 3 - digitCount)
-                const totalSlots = digitCount + padCount
                 const items = []
-                let rIdx = totalSlots - 1
-                for (let i = 0; i < padCount; i++) items.push(<FlipDigit key={`r${rIdx--}`} ch="" />)
+                let rIdx = digitCount + padCount - 1
+                for (let i = 0; i < padCount; i++) items.push(<FlipDigit key={`r${rIdx--}`} ch={!formatted && i === padCount - 1 ? '#' : ''} />)
                 for (const ch of formatted) {
-                    if (ch === '.') items.push(<span key="sep" className="d-inline-block flip-digit fw-bold h-100 h4 text-center shadow text-white" id="flip-dot"><strong>.</strong></span>)
+                    if (ch === '.') items.push(<span key="sep" className="d-inline-block flip-digit fw-bold h4 text-center shadow text-white" id="flip-dot"><strong>.</strong></span>)
                     else items.push(<FlipDigit key={`r${rIdx--}`} ch={ch} />)
                 }
-                return <div className="align-items-stretch d-flex gap-1 pe-none user-select-none" id="flip-counter" aria-label={`Goal ${formatted}`}>{items}</div>
+                return <div className="align-items-stretch d-flex gap-1 pe-none user-select-none" id="flip-counter" aria-label={formatted ? `Goal ${formatted}` : ''}>{items}</div>
             })()}
         </div>
     )

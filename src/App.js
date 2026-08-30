@@ -182,6 +182,7 @@ function App() {
     const resultCount = sortedResults.length
     const showResults = hatTrickMode || resultCount > 1 || terms.length > 0 || excludedLabels.length > 0
     const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
+    const onActiveGoal = useCallback((goal) => { setSearchGoal(goal !== '' ? String(goal) : '') }, [])
 
     useUrlQuery(setSearchGoal, setSearchText)
 
@@ -348,6 +349,7 @@ function App() {
                         ga={gaRef}
                         votedGoalId={votedGoalId}
                         onVote={vote}
+                        onActiveGoal={onActiveGoal}
                     />
                     {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} disabledLeagues={disabledLeagues} onGoalSelect={onGoalSelect} /> : <NoResults />)}
                 </div>
