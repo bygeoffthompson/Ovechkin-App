@@ -13,14 +13,11 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
         if (result != null) onActiveGoal?.(result.goal)
     }, [activeKey, sortedResults, onActiveGoal])
     useEffect(() => {
-        const root = document.getElementById('root')
-        if (!root) return
         const result = sortedResults[parseInt(activeKey)]
         const leagueLabel = result != null ? LEAGUE[result.league] : null
-        if (leagueLabel) root.setAttribute('data-league', leagueLabel)
-        else root.removeAttribute('data-league')
-        return () => root.removeAttribute('data-league')
+        if (leagueLabel) document.body.setAttribute('data-league', leagueLabel)
     }, [activeKey, sortedResults])
+    useEffect(() => () => document.body.removeAttribute('data-league'), [])
     return (
         <>
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}

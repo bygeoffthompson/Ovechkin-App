@@ -1,9 +1,8 @@
 import {useOnThisDay} from './useOnThisDay'
 import {LEAGUE_META, random} from './constants'
 
-export default function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}) {
+export default function WelcomeMessage({jsonData, onGoalSelect}) {
     const { onThisDayGoals, month, day, dotwName, dotwMatches } = useOnThisDay(jsonData)
-    const activeDotwMatches = dotwMatches.filter(g => !disabledLeagues[g.league])
     return (
         <div className="alert alert-secondary border-radius-0 shadow-lg text-bg-light w-100" role="alert">
             <p className="alert-heading h1 mb-3">Welcome</p>
@@ -15,9 +14,9 @@ export default function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}
             <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                 <span className="h6 m-0">DOTW</span>
                 Watch a
-                <button className="button dotw" disabled={activeDotwMatches.length === 0} title={`${dotwName} Goal`} type="button" onClick={() => {
-                    if (!activeDotwMatches.length) return
-                    onGoalSelect(activeDotwMatches[random(0, activeDotwMatches.length - 1)].goal)
+                <button className="button dotw" disabled={dotwMatches.length === 0} title={`${dotwName} Goal`} type="button" onClick={() => {
+                    if (!dotwMatches.length) return
+                    onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
                 }}>{dotwName} Goal</button>
             </div>
             <hr className="my-3"/>
@@ -25,7 +24,7 @@ export default function WelcomeMessage({jsonData, disabledLeagues, onGoalSelect}
                 <span className="h6 m-0">OTD</span><span className="badge p-2">{month}/{day}</span>
                 {onThisDayGoals.length > 0 && <p className="m-0">Year</p>}
                 {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
-                    <button className="button" disabled={!!disabledLeagues[goal.league]} key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
+                    <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
                         {goal.year} {LEAGUE_META[goal.league]?.label}
                     </button>
                 )) : (

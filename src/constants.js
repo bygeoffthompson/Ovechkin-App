@@ -1,7 +1,7 @@
 export const PERIOD_NAME = { 1: 'P1', 2: 'P2', 3: 'P3', 4: 'OT' }
 export const DOTW = { 1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday' }
-export const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup', 7: 'All Star' }
-export const LEAGUE_ORDER = [1, 2, 3, 4, 5, 6, 7]
+export const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' }
+export const LEAGUE_ORDER = [1, 2, 3, 4, 5, 6]
 export const LEAGUE_META = {
     1: { label: 'NHL',       title: 'NHL Regular Season' },
     2: { label: 'Playoffs',  title: 'NHL Playoffs' },
@@ -9,16 +9,15 @@ export const LEAGUE_META = {
     4: { label: 'Olympics',  title: 'Olympics' },
     5: { label: 'Worlds',    title: 'World Championships' },
     6: { label: 'World Cup', title: 'World Cup' },
-    7: { label: 'All Star',  title: 'All Star' },
 }
 
-export const DEFAULT_FILTERS = { team: '', location: '', period: '', month: '', season: '', year: '' }
+export const DEFAULT_FILTERS = { league: '', team: '', location: '', period: '', month: '', season: '', year: '' }
 
 export const formatMonth = (n) => new Date(0, n - 1).toLocaleString('default', { month: 'long' })
 
 export function buildFilterSets(items) {
     const teams = new Set(), months = new Set(), periods = new Set(),
-          locations = new Set(), seasons = new Set(), years = new Set()
+          locations = new Set(), seasons = new Set(), years = new Set(), leagues = new Set()
     for (const item of items) {
         if (item.team) teams.add(item.team)
         months.add(item.month)
@@ -26,8 +25,9 @@ export function buildFilterSets(items) {
         locations.add(item.hoa)
         seasons.add(itemSeason(item))
         years.add(item.year)
+        if (item.league) leagues.add(item.league)
     }
-    return { teams, months, periods, locations, seasons, years }
+    return { teams, months, periods, locations, seasons, years, leagues }
 }
 
 export const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']

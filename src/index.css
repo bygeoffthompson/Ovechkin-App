@@ -283,6 +283,10 @@ form {
         background: #0033A0;
     }
 
+    .fd-flap {
+        background: #002980;
+    }
+
     .goal-count {
         color: #0033A0;
     }
@@ -291,20 +295,6 @@ form {
 [data-league]:not([data-league*='NHL']) {
     .logo {
         width: 32px;
-    }
-}
-
-[data-league='All Star'] {
-    .digit {
-        color: #111;
-    }
-
-    .fd-bottom {
-        border-color: #111;
-    }
-
-    .fd-piece {
-        background: #FF4F00;
     }
 }
 
@@ -319,6 +309,10 @@ form {
 
     .fd-piece {
         background: #C28E4D;
+    }
+
+    .fd-flap {
+        background: #A17237;
     }
 
     .goal-count {
@@ -479,7 +473,7 @@ form {
     max-width: 1.5rem;
 }
 
-#exclude-random-search {
+#random-search {
     flex-shrink: 0;
     max-width: 333px;
 

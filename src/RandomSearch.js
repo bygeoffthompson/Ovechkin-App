@@ -1,23 +1,10 @@
 import Accordion from 'react-bootstrap/Accordion'
 import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth, LEAGUE_ORDER, LEAGUE_META} from './constants'
 
-export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, toggleLeague, disabledLeagues, searchGoal, handleGoalNumber, leagueCounts }) {
+export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, searchGoal, handleGoalNumber, leagueCounts }) {
     return (
-        <div className="d-flex flex-column w-100" id="exclude-random-search">
+        <div className="d-flex flex-column w-100" id="random-search">
             <Accordion className="mb-1 shadow-lg">
-                <Accordion.Item eventKey="exclude">
-                    <div className="accordion-header"><Accordion.Button className="fw-bold">Exclude</Accordion.Button></div>
-                    <Accordion.Body className="text-bg-light">
-                        <div className="d-flex flex-column gap-1 small">
-                            {LEAGUE_ORDER.map(key => (
-                                <div key={key} className="form-check mb-0">
-                                    <input className="form-check-input" type="checkbox" id={`exclude-${key}`} checked={!!disabledLeagues[key]} onChange={() => toggleLeague(key)} />
-                                    <label className="form-check-label" htmlFor={`exclude-${key}`}>{LEAGUE_META[key].label}</label>
-                                </div>
-                            ))}
-                        </div>
-                    </Accordion.Body>
-                </Accordion.Item>
                 <Accordion.Item eventKey="random">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">Random</Accordion.Button></div>
                     <Accordion.Body className="p-3 text-bg-light">
@@ -148,6 +135,15 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                                     ))}
                                 </select>
                             </div>
+                        </div>
+                        <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
+                            <label htmlFor="league">League</label>
+                            <select className="form-select py-1" id="league" name="League" value={filters.league} onChange={(e) => handleFilter('league', e.target.value)}>
+                                <option value=""></option>
+                                {LEAGUE_ORDER.map(key => (
+                                    <option key={key} value={key} disabled={!filterOptions.leagues?.has(key)}>{LEAGUE_META[key].label}</option>
+                                ))}
+                            </select>
                         </div>
                     </form>
                     </Accordion.Body>
