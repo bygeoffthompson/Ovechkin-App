@@ -315,7 +315,6 @@ function App() {
                 randomGoal={randomGoal}
                 jsonData={jsonData}
                 searchGoal={searchGoal}
-                handleGoalNumber={handleGoalNumber}
             />
             <div className="align-items-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between mb-3">
                 <ExcludeRandomSearch
@@ -337,6 +336,9 @@ function App() {
                     reset={reset}
                     toggleLeague={toggleLeague}
                     disabledLeagues={disabledLeagues}
+                    searchGoal={searchGoal}
+                    handleGoalNumber={handleGoalNumber}
+                    leagueCounts={leagueCounts}
                 />
                 <div className="d-flex flex-column goal-results w-100">
                     <Results showResults={showResults} terms={terms} excludedLabels={excludedLabels} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />

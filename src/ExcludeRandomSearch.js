@@ -1,7 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion'
 import {TEAMS, canadianTeams, youngGunsPlayers, formatMonth, LEAGUE_ORDER, LEAGUE_META} from './constants'
 
-export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, toggleLeague, disabledLeagues }) {
+export default function ExcludeRandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, canFilter, canRandom, canHatTrick, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, toggleLeague, disabledLeagues, searchGoal, handleGoalNumber, leagueCounts }) {
     return (
         <div className="d-flex flex-column w-100" id="exclude-random-search">
             <Accordion className="mb-1 shadow-lg">
@@ -86,8 +86,12 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                     <Accordion.Body className="text-bg-light">
                     <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
                         <div className="align-items-center d-flex flex-row gap-3">
-                        <label htmlFor="search-text-1">Text</label>
-                        <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
+                            <label htmlFor="goal-number">Goal #</label>
+                            <input className="text-center" id="goal-number" min={0} max={leagueCounts?.[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
+                        </div>
+                        <div className="align-items-center d-flex flex-row gap-3">
+                            <label htmlFor="search-text-1">Text</label>
+                            <input id="search-text-1" type="text" placeholder="Search" value={searchText} onChange={handleText}/>
                         </div>
                         <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
                             <label htmlFor="team">Team</label>

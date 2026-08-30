@@ -461,7 +461,9 @@ iframe {
 
 input {
     background: transparent;
-    border: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
     border-radius: 0;
     caret-color: #C8102E;
     color: #C8102E;
@@ -479,19 +481,78 @@ input {
     }
 
     &[type='number'] {
-        font-size: 1.75rem !important;
         max-width: 110px;
-
-        &::placeholder {
-            font-size: 1.5rem !important;
-        }
     }
 
     &[type='text'] {
-        border-bottom: 1px solid #767676;
         height: auto;
         width: 100%;
     }
+}
+
+@keyframes flap-fold {
+    from { transform: perspective(300px) rotateX(0deg); }
+    to   { transform: perspective(300px) rotateX(90deg); }
+}
+
+.flip-digit {
+    border-radius: .25rem;
+    min-height: 60px;
+    width: 50px;
+}
+
+#flip-counter {
+    font-family: system-ui;
+}
+
+#flip-dot {
+    min-width: 0;
+    width: 1rem;
+
+    strong {
+        margin-bottom: -1.125rem;
+    }
+}
+
+.fd-piece {
+    background: #C81020;
+
+    > span {
+        align-items: center;
+        color: #fff;
+        display: flex;
+        font-size: 2.75rem;
+        font-weight: 700;
+        height: 200%;
+        justify-content: center;
+        left: 0;
+        line-height: 1;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+    }
+}
+
+.fd-flap {
+    animation: flap-fold 0.28s ease-in forwards;
+    background: #a00d1a;
+    border-radius: 4px 4px 0 0;
+    height: 50%;
+    transform-origin: bottom center;
+    z-index: 5;
+}
+
+.fd-top > span,
+.fd-flap > span {
+    top: 0;
+}
+
+.fd-bottom > span {
+    bottom: 0;
+}
+
+.flip-digit-animate .fd-bottom > span {
+    visibility: hidden;
 }
 
 .dotw {
