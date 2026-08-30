@@ -41,6 +41,7 @@
                 const seen = new Set();
                 const entries = [];
                 data.forEach(item => {
+                    if (item.league === 7) return;
                     for (const name of [item.goalie, item.a1, item.a2]) {
                         if (name && !seen.has(name)) {
                             seen.add(name);
