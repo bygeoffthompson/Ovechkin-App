@@ -1,0 +1,97 @@
+{
+  "tagline": "Relive the Red Lights",
+  "nav": {
+    "home": "Home", "about": "About", "assists": "Assists", "goals": "Goals",
+    "goalies": "Goalies", "graph": "Graph", "help": "Help", "players": "Players"
+  },
+  "col": {
+    "player": "Player", "goalie": "Goalie", "nhlReg": "NHL Regular",
+    "nhlPlayoffs": "NHL Playoffs", "khl": "KHL", "olympic": "Olympic",
+    "worldChampionship": "World Championship", "worldCup": "World Cup",
+    "date": "Date", "goal": "Goal", "leagueSeason": "League/Season",
+    "opponent": "Opponent", "period": "Period", "league": "League", "number": "#"
+  },
+  "about": {
+    "title": "About Ovechkin App",
+    "description": "The complete catalog of Ovechkin goal videos from first to last including Playoff, KHL, Olympic, World Championship, and World Cup goals.",
+    "body1": "Our searchable and sequential index allows users to find Ovi goals in a new and useful way.",
+    "body2": "Specific goals and curated sets of goals can be retrieved by text search for date, opponent, goaltender, period, points, jersey, and other tags.",
+    "thankYou": "Thank You",
+    "thankYouBody": "To all embedded Youtube channels.",
+    "contact": "Contact"
+  },
+  "assists": {
+    "title": "Ovechkin Goal Assists",
+    "description": "A report of players who have registered an assist on Ovechkin goals."
+  },
+  "goals": {
+    "title": "All Ovechkin Goals",
+    "description": "A chronological and comprehensive list of Ovechkin goals with supporting details."
+  },
+  "goalies": {
+    "title": "Ovechkin Goal Goalies",
+    "description": "A list of goalies who have been scored on by Ovechkin."
+  },
+  "graph": {
+    "title": "Goal Graph",
+    "description": "A timeline of Ovechkin's NHL goals shows his complete career scoring arc. Goals can be filtered with several available options.",
+    "allNhlGoals": "All NHL Goals",
+    "league": "League", "homeAway": "Home/Away", "home": "Home", "away": "Away",
+    "period": "Period", "first": "First", "second": "Second", "third": "Third", "overtime": "Overtime",
+    "winLoss": "Win/Loss", "win": "Win", "loss": "Loss", "type": "Type", "all": "All"
+  },
+  "help": {
+    "title": "Ovechkin App Help",
+    "assistSearch": "Assist Search", "dateSearch": "Date Search",
+    "goalSearch": "Goal Search", "leagueSearch": "League Search",
+    "textSearch": "Text Search", "urlQueries": "URL Queries"
+  },
+  "players": {
+    "title": "Players in the Ovechkin App",
+    "description": "A chronological list of every player in Ovechkin App."
+  },
+  "voting": {
+    "title": "Ovechkin App Voting",
+    "description": "A record of visitor's votes for their favorite Ovechkin goals."
+  },
+  "404": { "title": "Page Not Found" },
+  "leagueLabel": {
+    "1": "NHL", "2": "Playoffs", "3": "KHL", "4": "Olympics", "5": "Worlds", "6": "World Cup"
+  },
+  "app": {
+    "loading": "Loading",
+    "error": "Data error. Please try again later."
+  },
+  "welcome": {
+    "title": "Welcome",
+    "clickToSearch": "Click or search to watch goals",
+    "dotw": "DOTW", "watchA": "Watch a", "goal": "Goal",
+    "otd": "OTD", "year": "Year", "noGoals": "No Goals"
+  },
+  "noResults": { "title": "No Results", "help": "Help" },
+  "results": {
+    "result": "Result", "results": "Results", "for": "for",
+    "ascend": "Ascend", "descend": "Descend"
+  },
+  "series": {
+    "Quarterfinals": "Quarterfinals",
+    "Semifinals": "Semifinals",
+    "Eastern Conference Finals": "Eastern Conference Finals",
+    "Stanley Cup Finals": "Stanley Cup Finals"
+  },
+  "goal": { "win": "Win", "loss": "Loss", "vote": "Vote", "voted": "Voted" },
+  "btn": {
+    "backhand": "Backhand", "cupRun": "Cup Run", "fromNick": "From Nick", "hatTrick": "Hat Trick",
+    "inCanada": "In Canada", "post": "Post", "rookie": "Rookie",
+    "slapshot": "Slapshot", "teammate": "Teammate", "tip": "Tip",
+    "unassisted": "Unassisted", "youngGuns": "Young Guns"
+  },
+  "search": {
+    "random": "Random", "search": "Search", "goalNumber": "Goal #",
+    "text": "Text", "searchPlaceholder": "Search",
+    "team": "Team", "location": "Location", "home": "Home", "away": "Away",
+    "period": "Period", "first": "First", "second": "Second", "third": "Third", "overtime": "Overtime",
+    "month": "Month", "season": "Season", "year": "Year", "league": "League",
+    "reset": "Reset", "draft": "Draft", "twoChars": "Search Requires 2 Characters"
+  }
+}

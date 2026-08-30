@@ -1,4 +1,5 @@
 import {useState, useEffect, useMemo, useCallback, useRef} from 'react'
+import {useTranslation} from 'react-i18next'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {useUrlQuery} from './useUrlQuery'
 import {useGoalCounter} from './useGoalCounter'
@@ -12,6 +13,7 @@ import WelcomeMessage from './WelcomeMessage'
 import NoResults from './NoResults'
 
 function App() {
+    const {t} = useTranslation()
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const gaRef = useRef(null)
@@ -272,8 +274,8 @@ function App() {
         setSearchGoal(picked.goal)
     }
 
-    if (error) return <div className="alert alert-danger" role="alert">Data error. Please try again later.</div>
-    if (!data) return <div className="alert alert-light" role="alert">Loading</div>
+    if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>
+    if (!data) return <div className="alert alert-light" role="alert">{t('app.loading')}</div>
 
     return (
         <div onClick={(e) => {

@@ -347,6 +347,7 @@ form {
   position: relative;
   transition: transform .2s;
   user-select: none;
+  white-space: nowrap;
 
     @media (min-width: 576px) {
         font-size: .875rem;
@@ -421,15 +422,11 @@ form {
     }
 
     &#reset {
+        align-self: flex-start;
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
         min-width: 0;
-        width: 45px;
-
-        @media (min-width: 576px) {
-            width: 60px;
-        }
 
         &:hover,
         &:active {

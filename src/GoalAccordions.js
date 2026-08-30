@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react'
 import Accordion from 'react-bootstrap/Accordion'
+import {useTranslation} from 'react-i18next'
 import {LEAGUE, PERIOD_NAME} from './constants'
 import YoutubeFrame from './YoutubeFrame'
 
 export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalId, onVote, onActiveGoal }) {
+    const {t} = useTranslation()
     const [activeKey, setActiveKey] = useState(null)
     useEffect(() => {
         setActiveKey(sortedResults.length > 0 ? '0' : null)
@@ -20,7 +22,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
     useEffect(() => () => document.body.removeAttribute('data-league'), [])
     return (
         <>
-            {tooShort && <div className="alert alert-light" role="alert"><span className="h6">Search Requires 2 Characters</span></div>}
+            {tooShort && <div className="alert alert-light" role="alert"><span className="h6">{t('search.twoChars')}</span></div>}
             <Accordion activeKey={activeKey} className="goal-accordion shadow-lg w-100" flush onSelect={setActiveKey}>
                 {sortedResults.map((result, index) => {
                     const key = index.toString()
@@ -55,9 +57,9 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                         <Accordion.Body className="p-0 position-relative">
                             <div className="align-items-start align-items-sm-center d-flex flex-wrap gap-1 p-2">
                                 {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
-                                {result.series && <span className="badge text-bg-warning">{result.series}</span>}
+                                {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
                                 {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? 'Win' : result.result === 0 ? 'Loss' : null}</span>
+                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
                                 <span className="badge text-bg-secondary">{result.time}</span>
                                 <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
                                 {result.a1 && <span className="assist badge">{result.a1}</span>}
@@ -66,7 +68,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                     className={`align-items-center d-flex small vote ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
                                     disabled={String(result.goal) === votedGoalId}
                                     onClick={() => onVote(String(result.goal))} title="Vote"
-                                >{String(result.goal) === votedGoalId ? 'Voted' : 'Vote'}</button>
+                                >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
                             </div>
 
                             {activeKey === key

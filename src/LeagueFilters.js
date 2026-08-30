@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {useTranslation} from 'react-i18next'
 import {LEAGUE_ORDER, LEAGUE_META} from './constants'
 
 const LEAGUES = LEAGUE_ORDER.map(key => ({ key, ...LEAGUE_META[key] }))
@@ -34,12 +35,13 @@ function FlipDigit({ ch }) {
 }
 
 export default function LeagueFilters({ leagueCounts, isAnimating, anim, activeLeagueGoals, randomGoal, jsonData, searchGoal }) {
+    const {t} = useTranslation()
     return (
         <div className="d-flex flex-wrap align-items-stretch column-gap-2 row-gap-3 mb-3">
-            {LEAGUES.map(({ key, label, title }) => (
+            {LEAGUES.map(({ key, title }) => (
                 <button key={key} className="button counter" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[key]}>{anim(leagueCounts[key])}</div>
-                    <div>{label}</div>
+                    <div>{t(`leagueLabel.${key}`)}</div>
                 </button>
             ))}
             <button className="button" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">

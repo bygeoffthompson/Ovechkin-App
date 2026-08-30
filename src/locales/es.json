@@ -1,0 +1,97 @@
+{
+  "tagline": "Revive las Luces Rojas",
+  "nav": {
+    "home": "Inicio", "about": "Acerca de", "assists": "Asistencias", "goals": "Goles",
+    "goalies": "Porteros", "graph": "Gráfica", "help": "Ayuda", "players": "Jugadores"
+  },
+  "col": {
+    "player": "Jugador", "goalie": "Portero", "nhlReg": "NHL Regular",
+    "nhlPlayoffs": "Playoffs NHL", "khl": "KHL", "olympic": "Olímpico",
+    "worldChampionship": "Campeonato Mundial", "worldCup": "Copa del Mundo",
+    "date": "Fecha", "goal": "Gol", "leagueSeason": "Liga/Temporada",
+    "opponent": "Oponente", "period": "Período", "league": "Liga", "number": "#"
+  },
+  "about": {
+    "title": "Acerca de Ovechkin App",
+    "description": "El catálogo completo de videos de goles de Ovechkin, del primero al último, incluyendo Playoffs, KHL, Olímpicos, Campeonato Mundial y Copa del Mundo.",
+    "body1": "Nuestro índice secuencial y buscable permite a los usuarios encontrar los goles de Ovi de una manera nueva y útil.",
+    "body2": "Goles específicos y conjuntos seleccionados pueden recuperarse mediante búsqueda de texto por fecha, rival, portero, período, puntos, camiseta y otras etiquetas.",
+    "thankYou": "Gracias",
+    "thankYouBody": "A todos los canales de Youtube incluidos.",
+    "contact": "Contacto"
+  },
+  "assists": {
+    "title": "Asistencias en Goles de Ovechkin",
+    "description": "Un informe de los jugadores que han registrado una asistencia en los goles de Ovechkin."
+  },
+  "goals": {
+    "title": "Todos los Goles de Ovechkin",
+    "description": "Una lista cronológica y completa de los goles de Ovechkin con detalles de apoyo."
+  },
+  "goalies": {
+    "title": "Porteros de Goles de Ovechkin",
+    "description": "Una lista de porteros a los que Ovechkin ha marcado."
+  },
+  "graph": {
+    "title": "Gráfica de Goles",
+    "description": "Una línea de tiempo de los goles NHL de Ovechkin que muestra el arco de anotación de toda su carrera. Los goles se pueden filtrar con varias opciones disponibles.",
+    "allNhlGoals": "Todos los Goles NHL",
+    "league": "Liga", "homeAway": "Local/Visitante", "home": "Local", "away": "Visitante",
+    "period": "Período", "first": "Primero", "second": "Segundo", "third": "Tercero", "overtime": "Tiempo Extra",
+    "winLoss": "Victoria/Derrota", "win": "Victoria", "loss": "Derrota", "type": "Tipo", "all": "Todos"
+  },
+  "help": {
+    "title": "Ayuda de Ovechkin App",
+    "assistSearch": "Búsqueda de Asistencias", "dateSearch": "Búsqueda por Fecha",
+    "goalSearch": "Búsqueda de Goles", "leagueSearch": "Búsqueda por Liga",
+    "textSearch": "Búsqueda de Texto", "urlQueries": "Consultas URL"
+  },
+  "players": {
+    "title": "Jugadores en Ovechkin App",
+    "description": "Una lista cronológica de cada jugador en Ovechkin App."
+  },
+  "voting": {
+    "title": "Votación de Ovechkin App",
+    "description": "Un registro de los votos de los visitantes por sus goles favoritos de Ovechkin."
+  },
+  "404": { "title": "Página No Encontrada" },
+  "leagueLabel": {
+    "1": "NHL", "2": "Playoffs", "3": "KHL", "4": "Olimpiadas", "5": "Mundiales", "6": "Copa"
+  },
+  "app": {
+    "loading": "Cargando",
+    "error": "Error de datos. Por favor, inténtelo de nuevo más tarde."
+  },
+  "welcome": {
+    "title": "Bienvenido",
+    "clickToSearch": "Haz clic o busca para ver los goles",
+    "dotw": "DDS", "watchA": "Ver un", "goal": "Gol",
+    "otd": "HOY", "year": "Año", "noGoals": "Sin Goles"
+  },
+  "noResults": { "title": "Sin Resultados", "help": "Ayuda" },
+  "results": {
+    "result": "Resultado", "results": "Resultados", "for": "para",
+    "ascend": "Ascendente", "descend": "Descendente"
+  },
+  "series": {
+    "Quarterfinals": "Cuartos de Final",
+    "Semifinals": "Semifinales",
+    "Eastern Conference Finals": "Final del Este",
+    "Stanley Cup Finals": "Final de la Copa Stanley"
+  },
+  "goal": { "win": "Victoria", "loss": "Derrota", "vote": "Votar", "voted": "Votado" },
+  "btn": {
+    "backhand": "Revés", "cupRun": "Por la Copa", "fromNick": "De Nick", "hatTrick": "Hat Trick",
+    "inCanada": "En Canadá", "post": "Poste", "rookie": "Novato",
+    "slapshot": "Slapshot", "teammate": "Compañero", "tip": "Desvío",
+    "unassisted": "Sin asistencia", "youngGuns": "Jóvenes"
+  },
+  "search": {
+    "random": "Aleatorio", "search": "Buscar", "goalNumber": "Gol #",
+    "text": "Texto", "searchPlaceholder": "Buscar",
+    "team": "Equipo", "location": "Ubicación", "home": "Local", "away": "Visitante",
+    "period": "Período", "first": "Primero", "second": "Segundo", "third": "Tercero", "overtime": "Tiempo Extra",
+    "month": "Mes", "season": "Temporada", "year": "Año", "league": "Liga",
+    "reset": "Restablecer", "draft": "Draft", "twoChars": "La búsqueda requiere 2 caracteres"
+  }
+}
