@@ -1,62 +1,11 @@
 {
-  "tagline": "Återupplev de röda ljusen",
-  "nav": {
-    "home": "Hem", "about": "Om", "assists": "Assistpoäng", "goals": "Mål",
-    "goalies": "Målvakter", "graph": "Graf", "help": "Hjälp", "players": "Spelare"
-  },
-  "col": {
-    "player": "Spelare", "goalie": "Målvakt", "nhlReg": "NHL Regular",
-    "nhlPlayoffs": "NHL Playoffs", "khl": "KHL", "olympic": "Olympisk",
-    "worldChampionship": "VM", "worldCup": "World Cup",
-    "date": "Datum", "goal": "Mål", "leagueSeason": "Liga/Säsong",
-    "opponent": "Motståndare", "period": "Period", "league": "Liga", "number": "#"
-  },
-  "about": {
-    "title": "Om Ovechkin App",
-    "description": "Den kompletta katalogen av Ovechkins målvideor från det första till det sista, inklusive slutspel, KHL, OS, VM och World Cup.",
-    "body1": "Vårt sökbara och sekventiella index låter användare hitta Ovis mål på ett nytt och användbart sätt.",
-    "body2": "Specifika mål och utvalda samlingar kan hämtas via textsökning på datum, motståndare, målvakt, period, poäng, tröja och andra taggar.",
-    "thankYou": "Tack",
-    "thankYouBody": "Till alla inbäddade Youtube-kanaler.",
-    "contact": "Kontakt"
-  },
-  "assists": {
-    "title": "Assistpoäng på Ovechkins Mål",
-    "description": "En rapport över spelare som registrerat en assist på Ovechkins mål."
-  },
-  "goals": {
-    "title": "Alla Ovechkins Mål",
-    "description": "En kronologisk och fullständig lista över Ovechkins mål med kompletterande detaljer."
-  },
-  "goalies": {
-    "title": "Målvakter vid Ovechkins Mål",
-    "description": "En lista över målvakter som Ovechkin har gjort mål mot."
-  },
-  "graph": {
-    "title": "Målgraf",
-    "description": "En tidslinje över Ovechkins NHL-mål som visar hela karriärens poängbåge. Mål kan filtreras med flera tillgängliga alternativ.",
-    "allNhlGoals": "Alla NHL-mål",
-    "league": "Liga", "homeAway": "Hemma/Borta", "home": "Hemma", "away": "Borta",
-    "period": "Period", "first": "Första", "second": "Andra", "third": "Tredje", "overtime": "Övertid",
-    "winLoss": "Vinst/Förlust", "win": "Vinst", "loss": "Förlust", "type": "Typ", "all": "Alla"
-  },
-  "help": {
-    "title": "Hjälp för Ovechkin App",
-    "assistSearch": "Assistsökning", "dateSearch": "Datumsökning",
-    "goalSearch": "Målsökning", "leagueSearch": "Ligasökning",
-    "textSearch": "Textsökning", "urlQueries": "URL-frågor"
-  },
-  "players": {
-    "title": "Spelare i Ovechkin App",
-    "description": "En kronologisk lista över varje spelare i Ovechkin App."
-  },
-  "voting": {
-    "title": "Ovechkin App Röstning",
-    "description": "En registrering av besökares röster för sina favoritmmål av Ovechkin."
-  },
-  "404": { "title": "Sidan Hittades Inte" },
   "leagueLabel": {
-    "1": "NHL", "2": "Slutspel", "3": "KHL", "4": "OS", "5": "VM", "6": "WC"
+    "1": "NHL",
+    "2": "Slutspel",
+    "3": "KHL",
+    "4": "OS",
+    "5": "VM",
+    "6": "WC"
   },
   "app": {
     "loading": "Laddar",
@@ -65,13 +14,23 @@
   "welcome": {
     "title": "Välkommen",
     "clickToSearch": "Klicka eller sök för att se mål",
-    "dotw": "VDAG", "watchA": "Se ett", "goal": "Mål",
-    "otd": "IDG", "year": "År", "noGoals": "Inga Mål"
+    "dotw": "VDAG",
+    "watchA": "Se ett",
+    "goal": "Mål",
+    "otd": "IDG",
+    "year": "År",
+    "noGoals": "Inga Mål"
   },
-  "noResults": { "title": "Inga Resultat", "help": "Hjälp" },
+  "noResults": {
+    "title": "Inga Resultat",
+    "help": "Hjälp"
+  },
   "results": {
-    "result": "Resultat", "results": "Resultat", "for": "för",
-    "ascend": "Stigande", "descend": "Fallande"
+    "result": "Resultat",
+    "results": "Resultat",
+    "for": "för",
+    "ascend": "Stigande",
+    "descend": "Fallande"
   },
   "series": {
     "Quarterfinals": "Kvartsfinal",
@@ -79,29 +38,72 @@
     "Eastern Conference Finals": "Östra konf.-final",
     "Stanley Cup Finals": "Stanley Cup-final"
   },
-  "goal": { "win": "Vinst", "loss": "Förlust", "vote": "Rösta", "voted": "Röstad" },
+  "goal": {
+    "win": "Vinst",
+    "loss": "Förlust",
+    "vote": "Rösta",
+    "voted": "Röstad"
+  },
   "jersey": {
-    "capitol": "Kapitoliet", "screagle": "Screagle", "red": "Röd", "white": "Vit",
-    "throwback": "Retro", "brickStadium": "Brick / Stadion", "navy": "Mörkblå",
-    "blackReverseRetro": "Svart Retro", "redReverseRetro": "Röd Retro"
+    "capitol": "Kapitoliet",
+    "screagle": "Screagle",
+    "red": "Röd",
+    "white": "Vit",
+    "throwback": "Retro",
+    "brickStadium": "Brick / Stadion",
+    "navy": "Mörkblå",
+    "blackReverseRetro": "Svart Retro",
+    "redReverseRetro": "Röd Retro"
   },
   "btn": {
-    "backhand": "Backhand", "cupRun": "Cupresa", "fromNick": "Från Nick", "hatTrick": "Hattrick",
-    "inCanada": "I Kanada", "post": "Stolpe", "rookie": "Rookie",
-    "slapshot": "Slottskott", "teammate": "Lagkamrat", "tip": "Styrning",
-    "unassisted": "Utan Assist", "youngGuns": "Unga"
+    "backhand": "Backhand",
+    "cupRun": "Cupresa",
+    "fromNick": "Från Nick",
+    "hatTrick": "Hattrick",
+    "inCanada": "I Kanada",
+    "post": "Stolpe",
+    "rookie": "Rookie",
+    "slapshot": "Slottskott",
+    "teammate": "Lagkamrat",
+    "tip": "Styrning",
+    "unassisted": "Utan Assist",
+    "youngGuns": "Unga"
   },
   "months": {
-    "1": "Januari", "2": "Februari", "3": "Mars", "4": "April",
-    "5": "Maj", "6": "Juni", "7": "Juli", "8": "Augusti",
-    "9": "September", "10": "Oktober", "11": "November", "12": "December"
+    "1": "Januari",
+    "2": "Februari",
+    "3": "Mars",
+    "4": "April",
+    "5": "Maj",
+    "6": "Juni",
+    "7": "Juli",
+    "8": "Augusti",
+    "9": "September",
+    "10": "Oktober",
+    "11": "November",
+    "12": "December"
   },
   "search": {
-    "random": "Slumpmässig", "search": "Sök", "goalNumber": "Mål #",
-    "text": "Text", "searchPlaceholder": "Sök",
-    "team": "Lag", "location": "Plats", "home": "Hemma", "away": "Borta",
-    "period": "Period", "first": "Första", "second": "Andra", "third": "Tredje", "overtime": "Övertid",
-    "month": "Månad", "season": "Säsong", "year": "År", "league": "Liga",
-    "reset": "Återställ", "draft": "Draft", "twoChars": "Sökning kräver 2 tecken"
+    "random": "Slumpmässig",
+    "search": "Sök",
+    "goalNumber": "Mål #",
+    "text": "Text",
+    "searchPlaceholder": "Sök",
+    "team": "Lag",
+    "location": "Plats",
+    "home": "Hemma",
+    "away": "Borta",
+    "period": "Period",
+    "first": "Första",
+    "second": "Andra",
+    "third": "Tredje",
+    "overtime": "Övertid",
+    "month": "Månad",
+    "season": "Säsong",
+    "year": "År",
+    "league": "Liga",
+    "reset": "Återställ",
+    "draft": "Draft",
+    "twoChars": "Sökning kräver 2 tecken"
   }
 }

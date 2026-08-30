@@ -1,62 +1,11 @@
 {
-  "tagline": "Elä uudelleen punaiset valot",
-  "nav": {
-    "home": "Etusivu", "about": "Tietoja", "assists": "Syötöt", "goals": "Maalit",
-    "goalies": "Maalivahdit", "graph": "Kaavio", "help": "Ohje", "players": "Pelaajat"
-  },
-  "col": {
-    "player": "Pelaaja", "goalie": "Maalivaht", "nhlReg": "NHL Runkosarja",
-    "nhlPlayoffs": "NHL Pudotuspelit", "khl": "KHL", "olympic": "Olympia",
-    "worldChampionship": "MM-kisat", "worldCup": "World Cup",
-    "date": "Päivämäärä", "goal": "Maali", "leagueSeason": "Liiga/Kausi",
-    "opponent": "Vastustaja", "period": "Erä", "league": "Liiga", "number": "#"
-  },
-  "about": {
-    "title": "Tietoja Ovechkin App:stä",
-    "description": "Täydellinen luettelo Ovechkinin maalivideosta ensimmäisestä viimeiseen, mukaan lukien pudotuspelit, KHL, olympialaiset, MM-kisat ja World Cup.",
-    "body1": "Haettava ja peräkkäinen hakemistomme antaa käyttäjille mahdollisuuden löytää Ovin maalit uudella ja hyödyllisellä tavalla.",
-    "body2": "Tiettyjä maaleja ja valittuja kokoelmia voidaan hakea tekstihaulla päivämäärän, vastustajan, maalivahdin, erän, pisteiden, paidan ja muiden tunnisteiden mukaan.",
-    "thankYou": "Kiitos",
-    "thankYouBody": "Kaikille upotetuille Youtube-kanaville.",
-    "contact": "Yhteystiedot"
-  },
-  "assists": {
-    "title": "Syötöt Ovechkinin Maaleille",
-    "description": "Raportti pelaajista, jotka ovat rekisteröineet syötön Ovechkinin maaleille."
-  },
-  "goals": {
-    "title": "Kaikki Ovechkinin Maalit",
-    "description": "Kronologinen ja kattava luettelo Ovechkinin maaleista tukevine tietoineen."
-  },
-  "goalies": {
-    "title": "Ovechkinin Maalien Maalivahdit",
-    "description": "Luettelo maalivahdista, joille Ovechkin on tehnyt maaleja."
-  },
-  "graph": {
-    "title": "Maalikaavio",
-    "description": "Aikajana Ovechkinin NHL-maaleista, joka näyttää hänen uransa täydellisen pistekäyrän. Maaleja voidaan suodattaa useilla käytettävissä olevilla vaihtoehdoilla.",
-    "allNhlGoals": "Kaikki NHL-maalit",
-    "league": "Liiga", "homeAway": "Koti/Vieras", "home": "Koti", "away": "Vieras",
-    "period": "Erä", "first": "Ensimmäinen", "second": "Toinen", "third": "Kolmas", "overtime": "Jatkoaika",
-    "winLoss": "Voitto/Tappio", "win": "Voitto", "loss": "Tappio", "type": "Tyyppi", "all": "Kaikki"
-  },
-  "help": {
-    "title": "Ovechkin App Ohje",
-    "assistSearch": "Syöttöhaku", "dateSearch": "Päivämäärähaku",
-    "goalSearch": "Maalihaku", "leagueSearch": "Liigahaku",
-    "textSearch": "Tekstihaku", "urlQueries": "URL-kyselyt"
-  },
-  "players": {
-    "title": "Pelaajat Ovechkin App:ssä",
-    "description": "Kronologinen luettelo kaikista pelaajista Ovechkin App:ssä."
-  },
-  "voting": {
-    "title": "Ovechkin App Äänestys",
-    "description": "Kirjaus vierailijoiden äänistä heidän suosikeistaan Ovechkinin maaleista."
-  },
-  "404": { "title": "Sivua Ei Löydy" },
   "leagueLabel": {
-    "1": "NHL", "2": "Pudotuspelit", "3": "KHL", "4": "Olympia", "5": "MM", "6": "World Cup"
+    "1": "NHL",
+    "2": "Pudotuspelit",
+    "3": "KHL",
+    "4": "Olympia",
+    "5": "MM",
+    "6": "World Cup"
   },
   "app": {
     "loading": "Ladataan",
@@ -65,13 +14,23 @@
   "welcome": {
     "title": "Tervetuloa",
     "clickToSearch": "Napsauta tai hae katsoaksesi maaleja",
-    "dotw": "VPVÄ", "watchA": "Katso", "goal": "Maali",
-    "otd": "TÄNÄÄN", "year": "Vuosi", "noGoals": "Ei Maaleja"
+    "dotw": "VPVÄ",
+    "watchA": "Katso",
+    "goal": "Maali",
+    "otd": "TÄNÄÄN",
+    "year": "Vuosi",
+    "noGoals": "Ei Maaleja"
   },
-  "noResults": { "title": "Ei Tuloksia", "help": "Ohje" },
+  "noResults": {
+    "title": "Ei Tuloksia",
+    "help": "Ohje"
+  },
   "results": {
-    "result": "Tulos", "results": "Tulokset", "for": "haulle",
-    "ascend": "Nouseva", "descend": "Laskeva"
+    "result": "Tulos",
+    "results": "Tulokset",
+    "for": "haulle",
+    "ascend": "Nouseva",
+    "descend": "Laskeva"
   },
   "series": {
     "Quarterfinals": "Neljännesvälierä",
@@ -79,29 +38,72 @@
     "Eastern Conference Finals": "Itäinen konf.-finaali",
     "Stanley Cup Finals": "Stanley Cup -finaali"
   },
-  "goal": { "win": "Voitto", "loss": "Tappio", "vote": "Äänestä", "voted": "Äänestetty" },
+  "goal": {
+    "win": "Voitto",
+    "loss": "Tappio",
+    "vote": "Äänestä",
+    "voted": "Äänestetty"
+  },
   "jersey": {
-    "capitol": "Kapitoli", "screagle": "Screagle", "red": "Punainen", "white": "Valkoinen",
-    "throwback": "Retro", "brickStadium": "Brick / Stadion", "navy": "Tummansininen",
-    "blackReverseRetro": "Musta Retro", "redReverseRetro": "Punainen Retro"
+    "capitol": "Kapitoli",
+    "screagle": "Screagle",
+    "red": "Punainen",
+    "white": "Valkoinen",
+    "throwback": "Retro",
+    "brickStadium": "Brick / Stadion",
+    "navy": "Tummansininen",
+    "blackReverseRetro": "Musta Retro",
+    "redReverseRetro": "Punainen Retro"
   },
   "btn": {
-    "backhand": "Rystylyönti", "cupRun": "Cup-ajelu", "fromNick": "Nickiltä", "hatTrick": "Hattutemppu",
-    "inCanada": "Kanadassa", "post": "Tolppa", "rookie": "Aloittelija",
-    "slapshot": "Laukaus", "teammate": "Joukkuetoveri", "tip": "Ohjaus",
-    "unassisted": "Ilman Syöttöä", "youngGuns": "Nuoret"
+    "backhand": "Rystylyönti",
+    "cupRun": "Cup-ajelu",
+    "fromNick": "Nickiltä",
+    "hatTrick": "Hattutemppu",
+    "inCanada": "Kanadassa",
+    "post": "Tolppa",
+    "rookie": "Aloittelija",
+    "slapshot": "Laukaus",
+    "teammate": "Joukkuetoveri",
+    "tip": "Ohjaus",
+    "unassisted": "Ilman Syöttöä",
+    "youngGuns": "Nuoret"
   },
   "months": {
-    "1": "Tammikuu", "2": "Helmikuu", "3": "Maaliskuu", "4": "Huhtikuu",
-    "5": "Toukokuu", "6": "Kesäkuu", "7": "Heinäkuu", "8": "Elokuu",
-    "9": "Syyskuu", "10": "Lokakuu", "11": "Marraskuu", "12": "Joulukuu"
+    "1": "Tammikuu",
+    "2": "Helmikuu",
+    "3": "Maaliskuu",
+    "4": "Huhtikuu",
+    "5": "Toukokuu",
+    "6": "Kesäkuu",
+    "7": "Heinäkuu",
+    "8": "Elokuu",
+    "9": "Syyskuu",
+    "10": "Lokakuu",
+    "11": "Marraskuu",
+    "12": "Joulukuu"
   },
   "search": {
-    "random": "Satunnainen", "search": "Hae", "goalNumber": "Maali #",
-    "text": "Teksti", "searchPlaceholder": "Hae",
-    "team": "Joukkue", "location": "Sijainti", "home": "Koti", "away": "Vieras",
-    "period": "Erä", "first": "Ensimmäinen", "second": "Toinen", "third": "Kolmas", "overtime": "Jatkoaika",
-    "month": "Kuukausi", "season": "Kausi", "year": "Vuosi", "league": "Liiga",
-    "reset": "Nollaa", "draft": "Draft", "twoChars": "Haku vaatii 2 merkkiä"
+    "random": "Satunnainen",
+    "search": "Hae",
+    "goalNumber": "Maali #",
+    "text": "Teksti",
+    "searchPlaceholder": "Hae",
+    "team": "Joukkue",
+    "location": "Sijainti",
+    "home": "Koti",
+    "away": "Vieras",
+    "period": "Erä",
+    "first": "Ensimmäinen",
+    "second": "Toinen",
+    "third": "Kolmas",
+    "overtime": "Jatkoaika",
+    "month": "Kuukausi",
+    "season": "Kausi",
+    "year": "Vuosi",
+    "league": "Liiga",
+    "reset": "Nollaa",
+    "draft": "Draft",
+    "twoChars": "Haku vaatii 2 merkkiä"
   }
 }

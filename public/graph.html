@@ -36,41 +36,41 @@
   <body>
   <div class="container">
     <header class="my-4">
-      <h1 data-i18n="graph.title">Goal Graph</h1>
-      <p data-i18n="graph.description">A timeline of Ovechkin's NHL goals shows his complete career scoring arc. Goals can be filtered with several available options.</p>
+      <h1 data-i18n="graph-1">Goal Graph</h1>
+      <p data-i18n="graph-2">A timeline of Ovechkin's NHL goals shows his complete career scoring arc. Goals can be filtered with several available options.</p>
     </header>
     <main>
-        <h2 data-i18n="graph.allNhlGoals">All NHL Goals</h2>
+        <h2 data-i18n="graph-3">All NHL Goals</h2>
         <div class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-1 justify-content-start my-3 small">
-            <label for="combined-league" data-i18n="graph.league">League</label>
+            <label for="combined-league" data-i18n="graph-4">League</label>
             <select id="combined-league">
-                <option value="" data-i18n="graph.all">All</option>
-                <option value="1" data-i18n="col.nhlReg">NHL Regular</option>
-                <option value="2" data-i18n="col.nhlPlayoffs">NHL Playoffs</option>
+                <option value="" data-i18n="graph-5">All</option>
+                <option value="1" data-i18n="graph-6">NHL Regular</option>
+                <option value="2" data-i18n="graph-7">NHL Playoffs</option>
             </select>
-            <label for="combined-hoa" data-i18n="graph.homeAway">Home/Away</label>
+            <label for="combined-hoa" data-i18n="graph-8">Home/Away</label>
             <select id="combined-hoa">
-                <option value="" data-i18n="graph.all">All</option>
-                <option value="1" data-i18n="graph.home">Home</option>
-                <option value="0" data-i18n="graph.away">Away</option>
+                <option value="" data-i18n="graph-9">All</option>
+                <option value="1" data-i18n="graph-10">Home</option>
+                <option value="0" data-i18n="graph-11">Away</option>
             </select>
-            <label for="combined-period" data-i18n="graph.period">Period</label>
+            <label for="combined-period" data-i18n="graph-12">Period</label>
             <select id="combined-period">
-                <option value="" data-i18n="graph.all">All</option>
-                <option value="1" data-i18n="graph.first">First</option>
-                <option value="2" data-i18n="graph.second">Second</option>
-                <option value="3" data-i18n="graph.third">Third</option>
-                <option value="4" data-i18n="graph.overtime">Overtime</option>
+                <option value="" data-i18n="graph-13">All</option>
+                <option value="1" data-i18n="graph-14">First</option>
+                <option value="2" data-i18n="graph-15">Second</option>
+                <option value="3" data-i18n="graph-16">Third</option>
+                <option value="4" data-i18n="graph-17">Overtime</option>
             </select>
-            <label for="combined-result" data-i18n="graph.winLoss">Win/Loss</label>
+            <label for="combined-result" data-i18n="graph-18">Win/Loss</label>
             <select id="combined-result">
-                <option value="" data-i18n="graph.all">All</option>
-                <option value="1" data-i18n="graph.win">Win</option>
-                <option value="0" data-i18n="graph.loss">Loss</option>
+                <option value="" data-i18n="graph-19">All</option>
+                <option value="1" data-i18n="graph-20">Win</option>
+                <option value="0" data-i18n="graph-21">Loss</option>
             </select>
-            <label for="combined-type" data-i18n="graph.type">Type</label>
+            <label for="combined-type" data-i18n="graph-22">Type</label>
             <select id="combined-type">
-                <option value="" data-i18n="graph.all">All</option>
+                <option value="" data-i18n="graph-23">All</option>
                 <option value="Backhand">Backhand</option>
                 <option value="Empty Net">Empty Net</option>
                 <option value="Hat Trick">Hat Trick</option>
@@ -82,21 +82,8 @@
         <canvas id="combinedChart"></canvas>
     </main>
   </div>
-  <footer class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3">
-      <a href="/" data-i18n="nav.home">Home</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/about.html" data-i18n="nav.about">About</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/assists.html" data-i18n="nav.assists">Assists</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/goalies.html" data-i18n="nav.goalies">Goalies</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/goals.html" data-i18n="nav.goals">Goals</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/help.html" data-i18n="nav.help">Help</a>
-      <span class="d-none d-sm-block">|</span>
-      <a href="/players.html" data-i18n="nav.players">Players</a>
-  </footer>
+  <footer class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3"></footer>
+  <script src="/footer.js"></script>
   <script src="/i18n-static.js"></script>
   <script>
 

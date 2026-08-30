@@ -3,13 +3,9 @@
 ## React i18n
 After adding content, updating content, or removing content the content translations need to be updated.
 
-Details:
-* Review all .html files in public/ for translatable strings and compare against i18n-static.js
-* Update the translations by adding new keys, removing stale ones, and fixing any mismatches
-
 Claude Prompt:
 ```
-Run the language audit prompt 
+Review all .html files in public/ for translatable strings and compare against i18n-static.js. Update the translations by adding new keys, removing stale ones, and fixing any mismatches.
 ```
 
 ## Getting Started with Create React App

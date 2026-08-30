@@ -1,62 +1,11 @@
 {
-  "tagline": "Revivez les Lumières Rouges",
-  "nav": {
-    "home": "Accueil", "about": "À propos", "assists": "Passes", "goals": "Buts",
-    "goalies": "Gardiens", "graph": "Graphique", "help": "Aide", "players": "Joueurs"
-  },
-  "col": {
-    "player": "Joueur", "goalie": "Gardien", "nhlReg": "LNH Régulier",
-    "nhlPlayoffs": "Séries LNH", "khl": "KHL", "olympic": "Olympique",
-    "worldChampionship": "Championnat du Monde", "worldCup": "Coupe du Monde",
-    "date": "Date", "goal": "But", "leagueSeason": "Ligue/Saison",
-    "opponent": "Adversaire", "period": "Période", "league": "Ligue", "number": "#"
-  },
-  "about": {
-    "title": "À propos d'Ovechkin App",
-    "description": "Le catalogue complet des vidéos de buts d'Ovechkin, du premier au dernier, incluant les séries éliminatoires, la KHL, les Jeux olympiques, le Championnat du monde et la Coupe du monde.",
-    "body1": "Notre index séquentiel et consultable permet aux utilisateurs de trouver les buts d'Ovi d'une manière nouvelle et pratique.",
-    "body2": "Des buts spécifiques et des ensembles sélectionnés peuvent être récupérés par recherche textuelle par date, adversaire, gardien, période, points, maillot et autres balises.",
-    "thankYou": "Merci",
-    "thankYouBody": "À toutes les chaînes Youtube intégrées.",
-    "contact": "Contact"
-  },
-  "assists": {
-    "title": "Passes sur les Buts d'Ovechkin",
-    "description": "Un rapport des joueurs qui ont enregistré une passe sur les buts d'Ovechkin."
-  },
-  "goals": {
-    "title": "Tous les Buts d'Ovechkin",
-    "description": "Une liste chronologique et complète des buts d'Ovechkin avec les détails."
-  },
-  "goalies": {
-    "title": "Gardiens des Buts d'Ovechkin",
-    "description": "Une liste des gardiens sur lesquels Ovechkin a marqué."
-  },
-  "graph": {
-    "title": "Graphique des Buts",
-    "description": "Une chronologie des buts NHL d'Ovechkin montrant l'arc complet de sa carrière de buteur. Les buts peuvent être filtrés avec plusieurs options disponibles.",
-    "allNhlGoals": "Tous les Buts NHL",
-    "league": "Ligue", "homeAway": "Domicile/Extérieur", "home": "Domicile", "away": "Extérieur",
-    "period": "Période", "first": "Première", "second": "Deuxième", "third": "Troisième", "overtime": "Prolongation",
-    "winLoss": "Victoire/Défaite", "win": "Victoire", "loss": "Défaite", "type": "Type", "all": "Tous"
-  },
-  "help": {
-    "title": "Aide Ovechkin App",
-    "assistSearch": "Recherche de Passes", "dateSearch": "Recherche par Date",
-    "goalSearch": "Recherche de Buts", "leagueSearch": "Recherche par Ligue",
-    "textSearch": "Recherche Textuelle", "urlQueries": "Requêtes URL"
-  },
-  "players": {
-    "title": "Joueurs dans Ovechkin App",
-    "description": "Une liste chronologique de chaque joueur dans Ovechkin App."
-  },
-  "voting": {
-    "title": "Vote Ovechkin App",
-    "description": "Un historique des votes des visiteurs pour leurs buts préférés d'Ovechkin."
-  },
-  "404": { "title": "Page Introuvable" },
   "leagueLabel": {
-    "1": "NHL", "2": "Séries", "3": "KHL", "4": "JO", "5": "Mondiaux", "6": "Coupe"
+    "1": "NHL",
+    "2": "Séries",
+    "3": "KHL",
+    "4": "JO",
+    "5": "Mondiaux",
+    "6": "Coupe"
   },
   "app": {
     "loading": "Chargement",
@@ -65,13 +14,23 @@
   "welcome": {
     "title": "Bienvenue",
     "clickToSearch": "Cliquez ou recherchez pour regarder les buts",
-    "dotw": "JDLS", "watchA": "Voir un", "goal": "But",
-    "otd": "AJD", "year": "Année", "noGoals": "Aucun But"
+    "dotw": "JDLS",
+    "watchA": "Voir un",
+    "goal": "But",
+    "otd": "AJD",
+    "year": "Année",
+    "noGoals": "Aucun But"
   },
-  "noResults": { "title": "Aucun Résultat", "help": "Aide" },
+  "noResults": {
+    "title": "Aucun Résultat",
+    "help": "Aide"
+  },
   "results": {
-    "result": "Résultat", "results": "Résultats", "for": "pour",
-    "ascend": "Ascendant", "descend": "Descendant"
+    "result": "Résultat",
+    "results": "Résultats",
+    "for": "pour",
+    "ascend": "Ascendant",
+    "descend": "Descendant"
   },
   "series": {
     "Quarterfinals": "Quarts de Finale",
@@ -79,29 +38,72 @@
     "Eastern Conference Finals": "Finale Conf. Est",
     "Stanley Cup Finals": "Finale Coupe Stanley"
   },
-  "goal": { "win": "Victoire", "loss": "Défaite", "vote": "Voter", "voted": "Voté" },
+  "goal": {
+    "win": "Victoire",
+    "loss": "Défaite",
+    "vote": "Voter",
+    "voted": "Voté"
+  },
   "jersey": {
-    "capitol": "Capitole", "screagle": "Screagle", "red": "Rouge", "white": "Blanc",
-    "throwback": "Rétro", "brickStadium": "Brick / Stade", "navy": "Marine",
-    "blackReverseRetro": "Rétro Inversé Noir", "redReverseRetro": "Rétro Inversé Rouge"
+    "capitol": "Capitole",
+    "screagle": "Screagle",
+    "red": "Rouge",
+    "white": "Blanc",
+    "throwback": "Rétro",
+    "brickStadium": "Brick / Stade",
+    "navy": "Marine",
+    "blackReverseRetro": "Rétro Inversé Noir",
+    "redReverseRetro": "Rétro Inversé Rouge"
   },
   "btn": {
-    "backhand": "Revers", "cupRun": "Pour la Coupe", "fromNick": "De Nick", "hatTrick": "Hat-trick",
-    "inCanada": "Au Canada", "post": "Poteau", "rookie": "Recrue",
-    "slapshot": "Tir frappé", "teammate": "Coéquipier", "tip": "Déviation",
-    "unassisted": "Sans Passe", "youngGuns": "Jeunes"
+    "backhand": "Revers",
+    "cupRun": "Pour la Coupe",
+    "fromNick": "De Nick",
+    "hatTrick": "Hat-trick",
+    "inCanada": "Au Canada",
+    "post": "Poteau",
+    "rookie": "Recrue",
+    "slapshot": "Tir frappé",
+    "teammate": "Coéquipier",
+    "tip": "Déviation",
+    "unassisted": "Sans Passe",
+    "youngGuns": "Jeunes"
   },
   "months": {
-    "1": "Janvier", "2": "Février", "3": "Mars", "4": "Avril",
-    "5": "Mai", "6": "Juin", "7": "Juillet", "8": "Août",
-    "9": "Septembre", "10": "Octobre", "11": "Novembre", "12": "Décembre"
+    "1": "Janvier",
+    "2": "Février",
+    "3": "Mars",
+    "4": "Avril",
+    "5": "Mai",
+    "6": "Juin",
+    "7": "Juillet",
+    "8": "Août",
+    "9": "Septembre",
+    "10": "Octobre",
+    "11": "Novembre",
+    "12": "Décembre"
   },
   "search": {
-    "random": "Aléatoire", "search": "Rechercher", "goalNumber": "But #",
-    "text": "Texte", "searchPlaceholder": "Rechercher",
-    "team": "Équipe", "location": "Lieu", "home": "Domicile", "away": "Extérieur",
-    "period": "Période", "first": "Première", "second": "Deuxième", "third": "Troisième", "overtime": "Prolongation",
-    "month": "Mois", "season": "Saison", "year": "Année", "league": "Ligue",
-    "reset": "Réinitialiser", "draft": "Draft", "twoChars": "La recherche nécessite 2 caractères"
+    "random": "Aléatoire",
+    "search": "Rechercher",
+    "goalNumber": "But #",
+    "text": "Texte",
+    "searchPlaceholder": "Rechercher",
+    "team": "Équipe",
+    "location": "Lieu",
+    "home": "Domicile",
+    "away": "Extérieur",
+    "period": "Période",
+    "first": "Première",
+    "second": "Deuxième",
+    "third": "Troisième",
+    "overtime": "Prolongation",
+    "month": "Mois",
+    "season": "Saison",
+    "year": "Année",
+    "league": "Ligue",
+    "reset": "Réinitialiser",
+    "draft": "Draft",
+    "twoChars": "La recherche nécessite 2 caractères"
   }
 }
