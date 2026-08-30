@@ -510,7 +510,8 @@ input {
     width: 1rem;
 
     strong {
-        margin-bottom: -1.125rem;
+        display: block;
+        margin-top: 1.75rem;
     }
 }
 
