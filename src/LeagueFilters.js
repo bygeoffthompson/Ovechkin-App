@@ -57,10 +57,10 @@ export default function LeagueFilters({ leagueCounts, disabledLeagues, isAnimati
                 let rIdx = totalSlots - 1
                 for (let i = 0; i < padCount; i++) items.push(<FlipDigit key={`r${rIdx--}`} ch="" />)
                 for (const ch of formatted) {
-                    if (ch === '.') items.push(<span key="sep" className="d-inline-block flip-digit fd-piece fw-bold h-100 h4 text-center shadow text-white" id="flip-dot"><strong>.</strong></span>)
+                    if (ch === '.') items.push(<span key="sep" className="d-inline-block flip-digit fw-bold h-100 h4 text-center shadow text-white" id="flip-dot"><strong>.</strong></span>)
                     else items.push(<FlipDigit key={`r${rIdx--}`} ch={ch} />)
                 }
-                return <div className="align-items-stretch d-flex gap-1 user-select-none" id="flip-counter" aria-label={`Goal ${formatted}`}>{items}</div>
+                return <div className="align-items-stretch d-flex gap-1 pe-none user-select-none" id="flip-counter" aria-label={`Goal ${formatted}`}>{items}</div>
             })()}
         </div>
     )

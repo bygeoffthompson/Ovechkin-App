@@ -496,9 +496,10 @@ input {
 }
 
 .flip-digit {
+    background: #C81020;
     border-radius: .25rem;
     min-height: 60px;
-    width: 50px;
+    width: 60px;
 }
 
 #flip-counter {
@@ -506,8 +507,9 @@ input {
 }
 
 #flip-dot {
+    background: #C81020;
     min-width: 0;
-    width: 1rem;
+    width: 2rem;
 
     strong {
         display: block;
@@ -516,8 +518,6 @@ input {
 }
 
 .fd-piece {
-    background: #C81020;
-
     > span {
         align-items: center;
         color: #fff;
@@ -546,6 +546,10 @@ input {
 .fd-top > span,
 .fd-flap > span {
     top: 0;
+}
+
+.fd-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .5);
 }
 
 .fd-bottom > span {
