@@ -80,6 +80,11 @@
     "Stanley Cup Finals": "Stanley Cup Finals"
   },
   "goal": { "win": "Win", "loss": "Loss", "vote": "Vote", "voted": "Voted" },
+  "jersey": {
+    "capitol": "Capitol", "screagle": "Screagle", "red": "Red", "white": "White",
+    "throwback": "Throwback", "brickStadium": "Brick / Stadium", "navy": "Navy",
+    "blackReverseRetro": "Black Reverse Retro", "redReverseRetro": "Red Reverse Retro"
+  },
   "btn": {
     "backhand": "Backhand", "cupRun": "Cup Run", "fromNick": "From Nick", "hatTrick": "Hat Trick",
     "inCanada": "In Canada", "post": "Post", "rookie": "Rookie",

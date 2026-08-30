@@ -12,22 +12,22 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                     <Accordion.Body className="p-3 text-bg-light">
                         <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
-                                <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title="Capitol" aria-label="Capitol" type="button">
+                                <button onClick={() => filterGoal(['Capitol'])} disabled={!canFilter(['Capitol'])} className="button jersey-button" title={t('jersey.capitol')} aria-label="Capitol" type="button">
                                     <img alt="Capitol" className="jersey-logo" src="/jerseys/capitol.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Screagle'])} disabled={!canFilter(['Screagle'])} className="button jersey-button" title="Screagle" aria-label="Screagle" type="button">
+                                <button onClick={() => filterGoal(['Screagle'])} disabled={!canFilter(['Screagle'])} className="button jersey-button" title={t('jersey.screagle')} aria-label="Screagle" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/screagle.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Red'])} disabled={!canFilter(['Red'])} className="button jersey-button" title="Red" aria-label="Red jersey" type="button">
+                                <button onClick={() => filterGoal(['Red'])} disabled={!canFilter(['Red'])} className="button jersey-button" title={t('jersey.red')} aria-label="Red jersey" type="button">
                                     <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['White'])} disabled={!canFilter(['White'])} className="button jersey-button" title="White" aria-label="White jersey" type="button">
+                                <button onClick={() => filterGoal(['White'])} disabled={!canFilter(['White'])} className="button jersey-button" title={t('jersey.white')} aria-label="White jersey" type="button">
                                     <img alt="Capitals" className="jersey-logo" src="/jerseys/capitals.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Throwback'])} disabled={!canFilter(['Throwback'])} className="button jersey-button" title="Throwback" aria-label="Throwback jersey" type="button">
+                                <button onClick={() => filterGoal(['Throwback'])} disabled={!canFilter(['Throwback'])} className="button jersey-button" title={t('jersey.throwback')} aria-label="Throwback jersey" type="button">
                                     ☆&nbsp;&nbsp;<img alt="Throwback" className="jersey-logo" src="/jerseys/throwback.svg" width="36" height="36"/>&nbsp;&nbsp;☆
                                 </button>
-                                <button onClick={outdoor} disabled={!canRandom(jsonData.filter(item => [440, 475, 598, 602].includes(item.goal)))} className="button jersey-button multi-logo" title="Brick / Stadium" aria-label="Brick or Stadium Series jersey" type="button">
+                                <button onClick={outdoor} disabled={!canRandom(jsonData.filter(item => [440, 475, 598, 602].includes(item.goal)))} className="button jersey-button multi-logo" title={t('jersey.brickStadium')} aria-label="Brick or Stadium Series jersey" type="button">
                                     <span>
                                         <img alt="Brick" className="jersey-logo" src="/jerseys/brick.svg" width="24" height="24"/>
                                     </span>
@@ -35,37 +35,37 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                                         <img alt="Caps" className="jersey-logo" src="/jerseys/caps.svg" width="36" height="36"/>
                                     </span>
                                 </button>
-                                <button onClick={() => filterGoal(['Navy W'])} disabled={!canFilter(['Navy W'])} className="button jersey-button" title="Navy" aria-label="Navy jersey" type="button">
+                                <button onClick={() => filterGoal(['Navy W'])} disabled={!canFilter(['Navy W'])} className="button jersey-button" title={t('jersey.navy')} aria-label="Navy jersey" type="button">
                                     <img alt="Navy" className="jersey-logo" src="/jerseys/navy.svg" width="24" height="24"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Black Reverse Retro'])} disabled={!canFilter(['Black Reverse Retro'])} className="button jersey-button" title="Black Reverse Retro" aria-label="Black Reverse Retro jersey" type="button">
+                                <button onClick={() => filterGoal(['Black Reverse Retro'])} disabled={!canFilter(['Black Reverse Retro'])} className="button jersey-button" title={t('jersey.blackReverseRetro')} aria-label="Black Reverse Retro jersey" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                 </button>
-                                <button onClick={() => filterGoal(['Red Reverse Retro'])} disabled={!canFilter(['Red Reverse Retro'])} className="button jersey-button" title="Red Reverse Retro" aria-label="Red Reverse Retro jersey" type="button">
+                                <button onClick={() => filterGoal(['Red Reverse Retro'])} disabled={!canFilter(['Red Reverse Retro'])} className="button jersey-button" title={t('jersey.redReverseRetro')} aria-label="Red Reverse Retro jersey" type="button">
                                     <img alt="Screagle" className="jersey-logo" src="/jerseys/retro.svg" width="36" height="36"/>
                                 </button>
                             </div>
                             <div className="d-flex flex-column gap-2">
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 0))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title="Away" type="button">{t('search.away')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 1))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title="Home" type="button">{t('search.home')}</button>
-                                <button className="button" disabled={!canFilter(['Empty Net'])} onClick={() => filterGoal(['Empty Net'])} title="Empty Net" type="button">ENG</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="Game Winner" type="button">GWG</button>
-                                <button className="button" disabled={!canHatTrick} onClick={hatTrick} title="Hat Trick" type="button">{t('btn.hatTrick')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.period === 4))} onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="Overtime" type="button">OT</button>
-                                <button className="button" disabled={!canFilter(['5v3', 'PPG'])} onClick={() => filterGoal(['5v3', 'PPG'])} title="Power Play" type="button">PPG</button>
-                                <button className="button" disabled={!canFilter(['Teammate'])} onClick={() => filterGoal(['Teammate'])} title="Teammate" type="button">{t('btn.teammate')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.a1 === undefined))} onClick={() => randomGoal(jsonData.filter(item => item.a1 === undefined))} title="Unassisted" type="button">{t('btn.unassisted')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 0))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0))} title={t('search.away')} type="button">{t('search.away')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 1))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title={t('search.home')} type="button">{t('search.home')}</button>
+                                <button className="button" disabled={!canFilter(['Empty Net'])} onClick={() => filterGoal(['Empty Net'])} title="ENG" type="button">ENG</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="GWG" type="button">GWG</button>
+                                <button className="button" disabled={!canHatTrick} onClick={hatTrick} title={t('btn.hatTrick')} type="button">{t('btn.hatTrick')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.period === 4))} onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="OT" type="button">OT</button>
+                                <button className="button" disabled={!canFilter(['5v3', 'PPG'])} onClick={() => filterGoal(['5v3', 'PPG'])} title="PPG" type="button">PPG</button>
+                                <button className="button" disabled={!canFilter(['Teammate'])} onClick={() => filterGoal(['Teammate'])} title={t('btn.teammate')} type="button">{t('btn.teammate')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.a1 === undefined))} onClick={() => randomGoal(jsonData.filter(item => item.a1 === undefined))} title={t('btn.unassisted')} type="button">{t('btn.unassisted')}</button>
                             </div>
                             <div className="d-flex flex-column gap-2">
-                                <button className="button" disabled={!canFilter(['Backhand'])} onClick={() => filterGoal(['Backhand'])} title="Backhand" type="button">{t('btn.backhand')}</button>
-                                <button className="button cup" disabled={!canRandom(jsonData.filter(item => item.year === 2018 && item.league === 2))} onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title="Cup Run" type="button">{t('btn.cupRun')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.a1 === "Nicklas Backstrom"))} onClick={() => randomGoal(jsonData.filter(item => item.a1 === "Nicklas Backstrom"))} title="From Nicklas Backstrom" type="button">{t('btn.fromNick')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title="In Canada" type="button">{t('btn.inCanada')}</button>
-                                <button className="button" disabled={!canFilter(['Post'])} onClick={() => filterGoal(['Post'])} title="Post" type="button">{t('btn.post')}</button>
-                                <button className="button" disabled={!canFilter(['Rookie'])} onClick={() => filterGoal(['Rookie'])} title="Rookie" type="button">{t('btn.rookie')}</button>
-                                <button className="button" disabled={!canFilter(['Slapshot'])} onClick={() => filterGoal(['Slapshot'])} title="Slapshot" type="button">{t('btn.slapshot')}</button>
-                                <button className="button" disabled={!canFilter(['Tip'])} onClick={() => filterGoal(['Tip'])} title="Tip" type="button">{t('btn.tip')}</button>
-                                <button className="button" disabled={!canRandom(jsonData.filter(item => youngGunsPlayers.includes(item.a1) && youngGunsPlayers.includes(item.a2)))} onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.a1) && youngGunsPlayers.includes(item.a2)))} title="Young Guns" type="button">{t('btn.youngGuns')}</button>
+                                <button className="button" disabled={!canFilter(['Backhand'])} onClick={() => filterGoal(['Backhand'])} title={t('btn.backhand')} type="button">{t('btn.backhand')}</button>
+                                <button className="button cup" disabled={!canRandom(jsonData.filter(item => item.year === 2018 && item.league === 2))} onClick={() => randomGoal(jsonData.filter(item => item.year === 2018 && item.league === 2))} title={t('btn.cupRun')} type="button">{t('btn.cupRun')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.a1 === "Nicklas Backstrom"))} onClick={() => randomGoal(jsonData.filter(item => item.a1 === "Nicklas Backstrom"))} title={t('btn.fromNick')} type="button">{t('btn.fromNick')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} onClick={() => randomGoal(jsonData.filter(item => item.hoa === 0 && canadianTeams.includes(item.team)))} title={t('btn.inCanada')} type="button">{t('btn.inCanada')}</button>
+                                <button className="button" disabled={!canFilter(['Post'])} onClick={() => filterGoal(['Post'])} title={t('btn.post')} type="button">{t('btn.post')}</button>
+                                <button className="button" disabled={!canFilter(['Rookie'])} onClick={() => filterGoal(['Rookie'])} title={t('btn.rookie')} type="button">{t('btn.rookie')}</button>
+                                <button className="button" disabled={!canFilter(['Slapshot'])} onClick={() => filterGoal(['Slapshot'])} title={t('btn.slapshot')} type="button">{t('btn.slapshot')}</button>
+                                <button className="button" disabled={!canFilter(['Tip'])} onClick={() => filterGoal(['Tip'])} title={t('btn.tip')} type="button">{t('btn.tip')}</button>
+                                <button className="button" disabled={!canRandom(jsonData.filter(item => youngGunsPlayers.includes(item.a1) && youngGunsPlayers.includes(item.a2)))} onClick={() => randomGoal(jsonData.filter(item => youngGunsPlayers.includes(item.a1) && youngGunsPlayers.includes(item.a2)))} title={t('btn.youngGuns')} type="button">{t('btn.youngGuns')}</button>
                             </div>
                         </div>
                     </Accordion.Body>
@@ -151,7 +151,7 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <button className="button px-2 px-md-3 text-start" id="reset" onClick={reset} title="Reset" type="button">{t('search.reset')}</button>
+            <button className="button px-2 px-md-3 text-start" id="reset" onClick={reset} title={t('search.reset')} type="button">{t('search.reset')}</button>
         </div>
     )
 }

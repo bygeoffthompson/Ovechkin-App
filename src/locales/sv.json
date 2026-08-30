@@ -80,6 +80,11 @@
     "Stanley Cup Finals": "Stanley Cup-final"
   },
   "goal": { "win": "Vinst", "loss": "Förlust", "vote": "Rösta", "voted": "Röstad" },
+  "jersey": {
+    "capitol": "Kapitoliet", "screagle": "Screagle", "red": "Röd", "white": "Vit",
+    "throwback": "Retro", "brickStadium": "Brick / Stadion", "navy": "Mörkblå",
+    "blackReverseRetro": "Svart Retro", "redReverseRetro": "Röd Retro"
+  },
   "btn": {
     "backhand": "Backhand", "cupRun": "Cupresa", "fromNick": "Från Nick", "hatTrick": "Hattrick",
     "inCanada": "I Kanada", "post": "Stolpe", "rookie": "Rookie",

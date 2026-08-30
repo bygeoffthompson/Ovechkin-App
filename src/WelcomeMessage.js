@@ -26,7 +26,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect}) {
                 <span className="h6 m-0">{t('welcome.otd')}</span><span className="badge p-2">{month}/{day}</span>
                 {onThisDayGoals.length > 0 && <p className="m-0">{t('welcome.year')}</p>}
                 {onThisDayGoals.length > 0 ? onThisDayGoals.map(goal => (
-                    <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title="On This Day" type="button">
+                    <button className="button" key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title={`${goal.year} ${t(`leagueLabel.${goal.league}`)}`} type="button">
                         {goal.year} {t(`leagueLabel.${goal.league}`)}
                     </button>
                 )) : (

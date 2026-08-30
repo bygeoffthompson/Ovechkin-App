@@ -80,6 +80,11 @@
     "Stanley Cup Finals": "Finale Coupe Stanley"
   },
   "goal": { "win": "Victoire", "loss": "Défaite", "vote": "Voter", "voted": "Voté" },
+  "jersey": {
+    "capitol": "Capitole", "screagle": "Screagle", "red": "Rouge", "white": "Blanc",
+    "throwback": "Rétro", "brickStadium": "Brick / Stade", "navy": "Marine",
+    "blackReverseRetro": "Rétro Inversé Noir", "redReverseRetro": "Rétro Inversé Rouge"
+  },
   "btn": {
     "backhand": "Revers", "cupRun": "Pour la Coupe", "fromNick": "De Nick", "hatTrick": "Hat-trick",
     "inCanada": "Au Canada", "post": "Poteau", "rookie": "Recrue",

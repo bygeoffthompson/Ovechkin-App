@@ -80,6 +80,11 @@
     "Stanley Cup Finals": "Финал Кубка Стэнли"
   },
   "goal": { "win": "Победа", "loss": "Поражение", "vote": "Голосовать", "voted": "Проголосовано" },
+  "jersey": {
+    "capitol": "Капитолий", "screagle": "Screagle", "red": "Красный", "white": "Белый",
+    "throwback": "Ретро", "brickStadium": "Брик / Стадион", "navy": "Тёмно-синий",
+    "blackReverseRetro": "Чёрное ретро", "redReverseRetro": "Красное ретро"
+  },
   "btn": {
     "backhand": "Бэкхенд", "cupRun": "За Кубком", "fromNick": "От Ника", "hatTrick": "Хет-трик",
     "inCanada": "В Канаде", "post": "Штанга", "rookie": "Новичок",

@@ -80,6 +80,11 @@
     "Stanley Cup Finals": "Stanley Cup -finaali"
   },
   "goal": { "win": "Voitto", "loss": "Tappio", "vote": "Äänestä", "voted": "Äänestetty" },
+  "jersey": {
+    "capitol": "Kapitoli", "screagle": "Screagle", "red": "Punainen", "white": "Valkoinen",
+    "throwback": "Retro", "brickStadium": "Brick / Stadion", "navy": "Tummansininen",
+    "blackReverseRetro": "Musta Retro", "redReverseRetro": "Punainen Retro"
+  },
   "btn": {
     "backhand": "Rystylyönti", "cupRun": "Cup-ajelu", "fromNick": "Nickiltä", "hatTrick": "Hattutemppu",
     "inCanada": "Kanadassa", "post": "Tolppa", "rookie": "Aloittelija",
