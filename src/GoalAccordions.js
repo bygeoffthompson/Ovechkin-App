@@ -67,7 +67,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                 <button
                                     className={`align-items-center d-flex small vote ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
                                     disabled={String(result.goal) === votedGoalId}
-                                    onClick={() => onVote(String(result.goal))} title="Vote"
+                                    data-ga="Vote" onClick={() => onVote(String(result.goal))} title="Vote"
                                 >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
                             </div>
 

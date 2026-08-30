@@ -42,6 +42,7 @@
 
                 data.forEach(item => {
                     if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
+                    if (!LEAGUE[item.league]) return;
                     const row = tableBody.insertRow();
                     const goalCell = row.insertCell();
                     const link = document.createElement('a');

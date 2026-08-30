@@ -259,9 +259,9 @@ function App() {
         <div onClick={(e) => {
                 const btn = e.target.closest('button')
                 if (!btn) return
-                const title = btn.title
-                if (!title) return
-                gaRef.current?.event({ category: 'Click', action: 'Button Click', label: title })
+                const data_ga = btn.dataset.ga
+                if (!data_ga) return
+                gaRef.current?.event({ category: 'Click', action: 'Button Click', label: data_ga })
             }}>
             <LeagueFilters
                 leagueCounts={leagueCounts}

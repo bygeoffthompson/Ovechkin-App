@@ -39,12 +39,12 @@ export default function LeagueFilters({ leagueCounts, isAnimating, anim, activeL
     return (
         <div className="d-flex flex-wrap align-items-stretch column-gap-2 row-gap-3 mb-3">
             {LEAGUES.map(({ key, title }) => (
-                <button key={key} className="button counter" disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
+                <button key={key} className="button counter" data-ga={title} disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={title} type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[key]}>{anim(leagueCounts[key])}</div>
                     <div>{t(`leagueLabel.${key}`)}</div>
                 </button>
             ))}
-            <button className="button" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
+            <button className="button" data-ga="Total" disabled={isAnimating || activeLeagueGoals.length === 0} onClick={() => randomGoal(activeLeagueGoals)} title="Total" type="button">
                 <span className="h2 m-0" data-goals={activeLeagueGoals.length}>{isAnimating ? anim(activeLeagueGoals.length) : activeLeagueGoals.length}</span>
             </button>
             {(() => {
