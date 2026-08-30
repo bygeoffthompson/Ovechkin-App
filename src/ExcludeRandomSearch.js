@@ -153,7 +153,7 @@ export default function ExcludeRandomSearch({ jsonData, searchText, filters, fil
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <button className="button ps-2 ps-md-3" onClick={reset} title="Reset" type="button">Reset</button>
+            <button className="button ps-2 ps-md-3" id="reset" onClick={reset} title="Reset" type="button">Reset</button>
         </div>
     )
 }

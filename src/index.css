@@ -271,12 +271,15 @@ form {
     }
 }
 
-[data-league='NHL Regular'] .goal-count {
-  color: #F34133;
+[data-league='NHL Regular'] {
+    .goal-count {
+        color: #F34133;
+    }
 }
 
 [data-league='KHL'] {
-    .badge {
+    .accordion-item .badge,
+    .fd-piece {
         background: #0033A0;
     }
 
@@ -291,8 +294,43 @@ form {
     }
 }
 
-[data-league='NHL Playoffs'] .goal-count {
-    color: #C28E4D;
+[data-league='All Star'] {
+    .digit {
+        color: #111;
+    }
+
+    .fd-bottom {
+        border-color: #111;
+    }
+
+    .fd-piece {
+        background: #FF4F00;
+    }
+}
+
+[data-league='NHL Playoffs'] {
+    .digit {
+        color: #111;
+    }
+
+    .fd-bottom {
+        border-color: #111;
+    }
+
+    .fd-piece {
+        background: #C28E4D;
+    }
+
+    .goal-count {
+        color: #C28E4D;
+    }
+}
+
+[data-league='Olympics'],
+[data-league*='World'] {
+    .fd-piece {
+        background: #111;
+    }
 }
 
 .button {
@@ -388,7 +426,7 @@ form {
         background: #FFF;
     }
 
-    &[title='Reset'] {
+    &#reset {
         background: transparent !important;
         box-shadow: none !important;
         color: initial !important;
@@ -505,9 +543,14 @@ input {
 
 #flip-counter {
     font-family: system-ui;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        width: auto;
+    }
 }
 
-#flip-dot {
+.fd-dot {
     background: #C81020;
     min-width: 0;
     width: 2rem;
