@@ -155,11 +155,12 @@ function App() {
     const terms = [
         ...searchText.split('+').map(t => t.trim().toUpperCase()).filter(Boolean),
         filters.team,
-        filters.location,
+        filters.location && (filters.location === 'Home' ? t('search.home') : t('search.away')),
         filters.period && PERIOD_NAME[filters.period],
         filters.month && t(`months.${filters.month}`),
-        filters.season,
+        filters.season && (filters.season === 'Season -1' ? t('search.draft') : `${t('search.season')} ${filters.season.replace('Season ', '')}`),
         filters.year,
+        filters.league && t(`leagueLabel.${filters.league}`),
     ].filter(Boolean)
     const resultCount = sortedResults.length
     const showResults = hatTrickMode || resultCount > 1 || terms.length > 0
