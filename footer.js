@@ -21,7 +21,7 @@
             if (href === pathname || (href === '/' && (pathname === '/' || pathname === '/index.html'))) continue;
             if (!first) {
                 var sep = document.createElement('span');
-                sep.className = 'd-none d-sm-block';
+                sep.className = 'd-none d-md-block';
                 sep.textContent = '|';
                 footer.appendChild(sep);
             }
