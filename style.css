@@ -96,3 +96,41 @@ th {
 tr:nth-child(odd) td {
     background: rgba(41,41,41,.1);
 }
+
+.goal-trophy {
+    top: 10%;
+
+    @media (min-width: 350px) {
+        font-size: 2rem;
+    }
+
+    @media (min-width: 576px) {
+        top: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 3.5rem;
+    }
+
+    @media (min-width: 1200px) {
+        top: 3rem;
+    }
+}
+
+.vote-trophy {
+    color: #111;
+
+    svg {
+        height: auto;
+        max-width: 25vw;
+        width: 100%;
+
+        @media (min-width: 576px) {
+            max-width: 250px;
+        }
+    }
+
+    &:last-of-type {
+        color: #FFF;
+    }
+}

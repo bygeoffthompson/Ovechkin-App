@@ -36,12 +36,10 @@
                 const response = await fetch('/goals.json');
                 const data = await response.json();
 
-                const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' };
-
                 const seen = new Set();
                 const entries = [];
                 data.forEach(item => {
-                    if (item.league === 7) return;
+                    if (!window.i18nLeague?.(item.league)) return;
                     for (const name of [item.goalie, item.a1, item.a2]) {
                         if (name && !seen.has(name)) {
                             seen.add(name);
@@ -64,7 +62,7 @@
                     link.href = '/?' + name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
                     playerCell.appendChild(link);
 
-                    row.insertCell().textContent = LEAGUE[league] || league;
+                    row.insertCell().textContent = window.i18nLeague(league);
 
                     const dateCell = row.insertCell();
                     dateCell.setAttribute('data-order', year * 10000 + month * 100 + day);
