@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Voting | Ovechkin App</title>
+    <title>Vote | Ovechkin App</title>
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
@@ -11,15 +11,15 @@
     <meta name="author" content="Geoff Thompson">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ovechkin App">
-    <meta property="og:url" content="https://www.ovechkin.app/voting.html">
-    <meta property="og:title" content="Voting | Ovechkin App">
+    <meta property="og:url" content="https://www.ovechkin.app/vote.html">
+    <meta property="og:title" content="Vote | Ovechkin App">
     <meta property="og:description" content="A record of visitor's votes for their favorite Ovechkin goals.">
     <meta property="og:image" content="https://www.ovechkin.app/ovechkin.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Voting | Ovechkin App">
+    <meta name="twitter:title" content="Vote | Ovechkin App">
     <meta name="twitter:description" content="A record of visitor's votes for their favorite Ovechkin goals.">
     <meta name="twitter:image" content="https://www.ovechkin.app/ovechkin.jpg">
-    <link rel="canonical" href="https://www.ovechkin.app/voting.html">
+    <link rel="canonical" href="https://www.ovechkin.app/vote.html">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="manifest" href="/manifest.json">
@@ -40,6 +40,7 @@
                 entries.sort((a, b) => b.count - a.count || a.id - b.id);
                 const labels = entries.map(e => e.id);
                 const data = entries.map(e => e.count);
+                const medals = [...new Set(data)].sort((a, b) => b - a);
                 new Chart(document.getElementById('votes-chart'), {
                     type: 'bar',
                     data: {
@@ -47,7 +48,12 @@
                         datasets: [{
                             label: 'Votes',
                             data,
-                            backgroundColor: '#C81020',
+                            backgroundColor: data.map(v => {
+                                if (v === medals[0]) return '#EEBC1D';
+                                if (v === medals[1]) return '#D6D6D6';
+                                if (v === medals[2]) return '#977547';
+                                return '#C81020';
+                            }),
                         }]
                     },
                     options: {
@@ -78,15 +84,15 @@
   <body>
   <div class="container">
     <header class="my-4">
-      <h1 data-i18n="vote-1">Ovechkin App Voting</h1>
-      <p data-i18n="vote-2">A record of visitor's votes for their favorite Ovechkin goals.</p>
-      <p data-i18n="vote-3">Vote for your favorite goal with the [Vote] button that displays above goal videos.</p>
+      <h1 data-i18n="vote-1">Ovechkin App Vote</h1>
+      <p data-i18n="vote-2">A record of visitor votes for Ovechkin goals.</p>
+      <p data-i18n="vote-3">Vote for your favorite goal with the [Vote] button that displays above videos.</p>
     </header>
     <main>
         <canvas id="votes-chart"></canvas>
     </main>
   </div>
-  <footer class="align-items-start align-items-sm-center d-flex flex-column flex-sm-row gap-2 py-4 py-sm-3"></footer>
+  <footer class="align-items-start align-items-md-center d-flex flex-column flex-md-row gap-2 py-4 py-sm-3"></footer>
   <script src="/footer.js"></script>
   <script src="/i18n-static.js"></script>
   </body>

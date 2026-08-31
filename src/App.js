@@ -37,6 +37,7 @@ function App() {
 
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
+    const [activeGoal, setActiveGoal] = useState('')
     const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
 
@@ -165,7 +166,11 @@ function App() {
     const resultCount = sortedResults.length
     const showResults = hatTrickMode || resultCount > 1 || terms.length > 0
     const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
-    const onActiveGoal = useCallback((goal) => { setSearchGoal(goal !== '' ? String(goal) : '') }, [])
+    const onActiveGoal = useCallback((goal) => {
+        const val = goal !== '' ? String(goal) : ''
+        setActiveGoal(val)
+        if (!hasTextQuery) setSearchGoal(val)
+    }, [hasTextQuery])
 
     useUrlQuery(setSearchGoal, setSearchText)
 
@@ -270,7 +275,7 @@ function App() {
                 activeLeagueGoals={activeLeagueGoals}
                 randomGoal={randomGoal}
                 jsonData={jsonData}
-                searchGoal={searchGoal}
+                searchGoal={hasTextQuery ? activeGoal : searchGoal}
             />
             <div className="align-items-start d-flex flex-column-reverse flex-lg-row gap-3 justify-content-between mb-3">
                 <RandomSearch
