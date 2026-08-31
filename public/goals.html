@@ -31,8 +31,6 @@
         gtag('config', 'G-K4X7EL6PW3');
     </script>
     <script>
-        const LEAGUE = { 1: 'NHL Regular', 2: 'NHL Playoffs', 3: 'KHL', 4: 'Olympics', 5: 'World Championships', 6: 'World Cup' };
-
         async function fetchDataAndCreateTable() {
             try {
                 const response = await fetch('/goals.json');
@@ -42,7 +40,8 @@
 
                 data.forEach(item => {
                     if (typeof item.goal !== 'number' || !isFinite(item.goal)) return;
-                    if (!LEAGUE[item.league]) return;
+                    const leagueLabel = window.i18nLeague?.(item.league);
+                    if (!leagueLabel) return;
                     const row = tableBody.insertRow();
                     const goalCell = row.insertCell();
                     const link = document.createElement('a');
@@ -50,7 +49,7 @@
                     link.href = '/?' + item.goal;
                     goalCell.appendChild(link);
                     const seasonCell = row.insertCell();
-                    seasonCell.textContent = LEAGUE[item.league] || item.league;
+                    seasonCell.textContent = leagueLabel;
                     const dateCell = row.insertCell();
                     dateCell.textContent = item.month + '/' + item.day + '/' + item.year;
                     const goalieCell = row.insertCell();
