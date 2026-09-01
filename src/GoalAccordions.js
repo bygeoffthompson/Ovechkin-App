@@ -17,9 +17,10 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
     useEffect(() => {
         const result = sortedResults[parseInt(activeKey)]
         const leagueLabel = result != null ? LEAGUE[result.league] : null
-        if (leagueLabel) document.body.setAttribute('data-league', leagueLabel)
+        const el = document.getElementById('league-filters')
+        if (el) leagueLabel ? el.setAttribute('data-league', leagueLabel) : el.removeAttribute('data-league')
     }, [activeKey, sortedResults])
-    useEffect(() => () => document.body.removeAttribute('data-league'), [])
+    useEffect(() => () => document.getElementById('league-filters')?.removeAttribute('data-league'), [])
     return (
         <>
             {tooShort && <div className="alert alert-light" role="alert"><span className="h6">{t('search.twoChars')}</span></div>}

@@ -37,7 +37,7 @@ function FlipDigit({ ch }) {
 export default function LeagueFilters({ leagueCounts, isAnimating, anim, activeLeagueGoals, randomGoal, jsonData, searchGoal }) {
     const {t} = useTranslation()
     return (
-        <div className="d-flex flex-wrap align-items-stretch column-gap-2 row-gap-3 mb-3">
+        <div className="d-flex flex-wrap align-items-stretch column-gap-2 row-gap-3 mb-3" id="league-filters">
             {LEAGUES.map(({ key, title }) => (
                 <button key={key} className="button counter" data-ga={title} disabled={isAnimating} onClick={() => randomGoal(jsonData.filter(item => item.league === key))} title={t(`leagueLabel.${key}`)} type="button">
                     <div className="h4 m-0" data-goals={leagueCounts[key]}>{anim(leagueCounts[key])}</div>

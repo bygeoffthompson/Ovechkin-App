@@ -278,13 +278,9 @@ form {
 }
 
 [data-league='KHL'] {
-    .accordion-item .badge,
+    .fd-flap,
     .fd-piece {
         background: #0033A0;
-    }
-
-    .fd-flap {
-        background: #002980;
     }
 
     &.goal-count {
@@ -307,10 +303,7 @@ form {
         border-color: #111;
     }
 
-    .fd-piece {
-        background: #C28E4D;
-    }
-
+    .fd-piece,
     .fd-flap {
         background: #A17237;
     }
