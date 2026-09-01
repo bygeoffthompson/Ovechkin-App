@@ -92,8 +92,8 @@
             'players-3': '#', 'players-4': 'Player', 'players-5': 'League', 'players-6': 'Date',
 
             'vote-1': 'Ovechkin App Vote',
-            'vote-2': 'A record of visitor votes for Ovechkin goals.',
-            'vote-3': 'Vote for your favorite goal with the [Vote] button that displays above videos.',
+            'vote-2': 'A record of visitor votes for favorite Ovechkin goals.',
+            'vote-3': 'Vote for your favorite with the [Vote] button that displays above every video.',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Playoffs', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olympics', 'leagueLabel-5': 'Worlds', 'leagueLabel-6': 'World Cup',
@@ -181,8 +181,8 @@
             'players-3': '#', 'players-4': 'Jugador', 'players-5': 'Liga', 'players-6': 'Fecha',
 
             'vote-1': 'Ovechkin App Voto',
-            'vote-2': 'Un registro de votos de visitantes por goles de Ovechkin.',
-            'vote-3': 'Vota por tu gol favorito con el botón [Votar] que aparece encima de los videos.',
+            'vote-2': 'Un registro de votos de visitantes por los goles favoritos de Ovechkin.',
+            'vote-3': 'Vota por tu favorito con el botón [Votar] que aparece encima de cada video.',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Eliminatorios', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olimpiadas', 'leagueLabel-5': 'Mundiales', 'leagueLabel-6': 'Copa',
@@ -270,8 +270,8 @@
             'players-3': '#', 'players-4': 'Joueur', 'players-5': 'Ligue', 'players-6': 'Date',
 
             'vote-1': 'Vote Ovechkin App',
-            'vote-2': "Un historique des votes des visiteurs pour les buts d'Ovechkin.",
-            'vote-3': "Votez pour votre but préféré avec le bouton [Voter] qui s'affiche au-dessus des vidéos.",
+            'vote-2': "Un historique des votes des visiteurs pour leurs buts favoris d'Ovechkin.",
+            'vote-3': "Votez pour votre favori avec le bouton [Voter] qui s'affiche au-dessus de chaque vidéo.",
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Séries', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'JO', 'leagueLabel-5': 'Mondiaux', 'leagueLabel-6': 'Coupe',
@@ -359,8 +359,8 @@
             'players-3': '#', 'players-4': 'Игрок', 'players-5': 'Лига', 'players-6': 'Дата',
 
             'vote-1': 'Голосование Ovechkin App',
-            'vote-2': 'Запись голосов посетителей за голы Овечкина.',
-            'vote-3': 'Голосуйте за любимый гол с помощью кнопки [Голосовать], которая отображается над видео.',
+            'vote-2': 'Запись голосов посетителей за любимые голы Овечкина.',
+            'vote-3': 'Голосуйте за любимый с помощью кнопки [Голосовать], которая отображается над каждым видео.',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Плей-офф', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Олимпиада', 'leagueLabel-5': 'ЧМ', 'leagueLabel-6': 'Кубок',
@@ -448,8 +448,8 @@
             'players-3': '#', 'players-4': 'Spelare', 'players-5': 'Liga', 'players-6': 'Datum',
 
             'vote-1': 'Ovechkin App Röst',
-            'vote-2': 'En registrering av besökares röster för Ovechkins mål.',
-            'vote-3': 'Rösta på ditt favoritmål med knappen [Rösta] som visas ovanför videorna.',
+            'vote-2': 'En registrering av besökares röster för favoritmål av Ovechkin.',
+            'vote-3': 'Rösta på din favorit med knappen [Rösta] som visas ovanför varje video.',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Slutspel', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'OS', 'leagueLabel-5': 'VM', 'leagueLabel-6': 'WC',
@@ -537,8 +537,8 @@
             'players-3': '#', 'players-4': 'Pelaaja', 'players-5': 'Liiga', 'players-6': 'Päivämäärä',
 
             'vote-1': 'Ovechkin App Äänestys',
-            'vote-2': 'Kirjaus vierailijoiden äänistä Ovechkinin maaleista.',
-            'vote-3': 'Äänestä suosikkimaaliasi [Äänestä]-painikkeella, joka näkyy videoiden yläpuolella.',
+            'vote-2': 'Kirjaus vierailijoiden äänistä suosikkimaaleja Ovechkinilta.',
+            'vote-3': 'Äänestä suosikkiasi [Äänestä]-painikkeella, joka näkyy jokaisen videon yläpuolella.',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Pudotuspelit', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olympia', 'leagueLabel-5': 'MM', 'leagueLabel-6': 'World Cup',
