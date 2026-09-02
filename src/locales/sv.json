@@ -19,7 +19,9 @@
     "goal": "Mål",
     "otd": "IDG",
     "year": "År",
-    "noGoals": "Inga Mål"
+    "noGoals": "Inga Mål",
+    "voted": "Du röstade på Mål {{goalId}}",
+    "votePrompt": "Rösta på din favorit"
   },
   "noResults": {
     "title": "Inga Resultat",

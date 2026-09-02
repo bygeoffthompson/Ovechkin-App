@@ -19,7 +19,9 @@
     "goal": "Maali",
     "otd": "TÄNÄÄN",
     "year": "Vuosi",
-    "noGoals": "Ei Maaleja"
+    "noGoals": "Ei Maaleja",
+    "voted": "Äänestit Maalia {{goalId}}",
+    "votePrompt": "Äänestä suosikkiasi"
   },
   "noResults": {
     "title": "Ei Tuloksia",

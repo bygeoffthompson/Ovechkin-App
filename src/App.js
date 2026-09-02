@@ -306,7 +306,7 @@ function App() {
                         onVote={vote}
                         onActiveGoal={onActiveGoal}
                     />
-                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} /> : <NoResults />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} votedGoalId={votedGoalId} /> : <NoResults />)}
                 </div>
             </div>
         </div>

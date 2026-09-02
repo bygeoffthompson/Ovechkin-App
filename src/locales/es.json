@@ -19,7 +19,9 @@
     "goal": "Gol",
     "otd": "HOY",
     "year": "Año",
-    "noGoals": "Sin Goles"
+    "noGoals": "Sin Goles",
+    "voted": "Votaste por el Gol {{goalId}}",
+    "votePrompt": "Vota por tu favorito"
   },
   "noResults": {
     "title": "Sin Resultados",

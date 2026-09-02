@@ -19,7 +19,9 @@
     "goal": "But",
     "otd": "AJD",
     "year": "Année",
-    "noGoals": "Aucun But"
+    "noGoals": "Aucun But",
+    "voted": "Vous avez voté pour le But {{goalId}}",
+    "votePrompt": "Votez pour votre favori"
   },
   "noResults": {
     "title": "Aucun Résultat",

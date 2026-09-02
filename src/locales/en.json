@@ -19,7 +19,9 @@
     "goal": "Goal",
     "otd": "OTD",
     "year": "Year",
-    "noGoals": "No Goals"
+    "noGoals": "No Goals",
+    "voted": "You voted for Goal {{goalId}}",
+    "votePrompt": "Vote for your favorite"
   },
   "noResults": {
     "title": "No Results",

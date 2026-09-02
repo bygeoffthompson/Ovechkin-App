@@ -2,7 +2,7 @@ import {useTranslation} from 'react-i18next'
 import {useOnThisDay} from './useOnThisDay'
 import {random, LEAGUE} from './constants'
 
-export default function WelcomeMessage({jsonData, onGoalSelect}) {
+export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId}) {
     const {t} = useTranslation()
     const { onThisDayGoals, month, day, dotwName, dotwMatches } = useOnThisDay(jsonData)
     return (
@@ -12,6 +12,9 @@ export default function WelcomeMessage({jsonData, onGoalSelect}) {
                 <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
                 <p className="m-0">{t('welcome.clickToSearch')}</p>
             </div>
+            <hr className="my-3"/>
+            {votedGoalId && <><p className="m-0">{t('welcome.voted', { goalId: votedGoalId })}</p></>}
+            {!votedGoalId && <p className="m-0">{t('welcome.votePrompt')}</p>}
             <hr className="my-3"/>
             <div className="align-items-center d-flex flex-row flex-wrap gap-3 mb-3">
                 <span className="h6 m-0">{t('welcome.dotw')}</span>
