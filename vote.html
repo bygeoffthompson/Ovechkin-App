@@ -49,7 +49,6 @@
                 });
                 const labels = entries.map(e => e.id);
                 const data = entries.map(e => e.count);
-                const medals = [...new Set(data)].sort((a, b) => b - a);
                 new Chart(document.getElementById('votes-chart'), {
                     type: 'bar',
                     data: {
@@ -57,10 +56,10 @@
                         datasets: [{
                             label: 'Votes',
                             data,
-                            backgroundColor: data.map(v => {
-                                if (v === medals[0]) return '#EEBC1D';
-                                if (v === medals[1]) return '#D6D6D6';
-                                if (v === medals[2]) return '#977547';
+                            backgroundColor: data.map((_, i) => {
+                                if (i === 0) return '#EEBC1D';
+                                if (i === 1) return '#D6D6D6';
+                                if (i === 2) return '#977547';
                                 return '#C81020';
                             }),
                         }]
@@ -94,8 +93,8 @@
   <div class="container">
     <header class="my-4">
       <h1 data-i18n="vote-1">Ovechkin App Vote</h1>
-      <p data-i18n="vote-2">A record of visitor votes for Ovechkin goals.</p>
-      <p data-i18n="vote-3">Vote for your favorite goal with the [Vote] button that displays above videos.</p>
+      <p data-i18n="vote-2">A record of visitor votes for favorite Ovechkin goals.</p>
+      <p><span data-i18n="vote-3">Vote for your favorite with this button in the bottom of videos</span> -> <button class="fw-bold pe-none small" data-i18n="footer-9">Vote</button></p>
     </header>
     <main>
         <canvas class="mb-5" id="votes-chart"></canvas>
