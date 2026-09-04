@@ -71,13 +71,13 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                     ? <YoutubeFrame videoId={videoId} start={start} end={end} />
                                     : <div className="iframe w-100" />
                                 }
-                                <div className="align-items-end bottom-0 d-flex justify-content-start position-absolute start-0 w-100">
-                                    <strong className="border border-1 border-dark link px-1 small text-bg-dark">ovechkin.app/?{result.goal}</strong>
+                                <div className="align-items-stretch bottom-0 d-flex justify-content-start position-absolute start-0 w-100">
                                     <button
                                         className={`fw-bold small ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
                                         disabled={String(result.goal) === votedGoalId}
                                         data-ga="Vote" onClick={() => onVote(String(result.goal))} title="Vote"
                                     >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
+                                    <strong className="align-items-center border border-1 border-dark d-flex link px-1 small text-bg-dark">ovechkin.app/?{result.goal}</strong>
                                 </div>
                             </div>
                         </Accordion.Body>
