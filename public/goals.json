@@ -7986,12 +7986,12 @@
         "day": 19,
         "year": 2013,
         "type": "PPG",
+        "btn1": "Post",
         "league": 1,
         "hoa": 0,
         "period": 2,
         "time": "8:14",
         "jersey": "Throwback",
-        "btn1": "Post",
         "result": 0
     },
     {
@@ -8004,6 +8004,7 @@
         "month": 3,
         "day": 21,
         "year": 2013,
+        "btn1": "Post",
         "league": 1,
         "hoa": 0,
         "period": 3,
