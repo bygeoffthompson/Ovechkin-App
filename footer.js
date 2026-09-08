@@ -15,21 +15,24 @@
         var footer = document.querySelector('footer');
         if (!footer) return;
         var pathname = window.location.pathname;
-        var first = true;
+
+        var select = document.createElement('select');
+
         for (var i = 0; i < LINKS.length; i++) {
-            var href = LINKS[i].href;
-            if (href === pathname || (href === '/' && (pathname === '/' || pathname === '/index.html'))) continue;
-            if (!first) {
-                var sep = document.createElement('span');
-                sep.className = 'd-none d-md-block';
-                sep.textContent = '|';
-                footer.appendChild(sep);
-            }
-            first = false;
-            var a = document.createElement('a');
-            a.href = href;
-            a.setAttribute('data-i18n', LINKS[i].key);
-            footer.appendChild(a);
+            var link = LINKS[i];
+            var isCurrent = link.href === pathname ||
+                (link.href === '/' && (pathname === '/' || pathname === '/index.html'));
+            var option = document.createElement('option');
+            option.value = link.href;
+            option.setAttribute('data-i18n', link.key);
+            if (isCurrent) option.selected = true;
+            select.appendChild(option);
         }
+
+        select.addEventListener('change', function () {
+            window.location.href = this.value;
+        });
+
+        footer.appendChild(select);
     });
 })();
