@@ -93,14 +93,14 @@
 
             'vote-1': 'Ovechkin App Vote',
             'vote-2': 'A record of visitor votes for favorite Ovechkin goals.',
-            'vote-3': 'for your favorite using the button at the bottom of videos',
+            'vote-3': 'for your favorite using the button at the bottom of videos', 'vote-4': 'Voted',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Playoffs', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olympics', 'leagueLabel-5': 'Worlds', 'leagueLabel-6': 'World Cup',
 
             'footer-1': 'Home', 'footer-2': 'About', 'footer-3': 'Assists', 'footer-4': 'Goals',
             'footer-5': 'Goalies', 'footer-6': 'Graph', 'footer-7': 'Help', 'footer-8': 'Players', 'footer-9': 'Vote',
-            'footer-explore': 'Explore', 'footer-language': 'Language'
+            'footer-webpage': 'Webpage', 'footer-language': 'Language'
         },
         es: {
             '404-1': 'Página No Encontrada',
@@ -183,14 +183,14 @@
 
             'vote-1': 'Ovechkin App Voto',
             'vote-2': 'Un registro de votos de visitantes por los goles favoritos de Ovechkin.',
-            'vote-3': 'por tu favorito usando el botón en la parte inferior de los videos',
+            'vote-3': 'por tu favorito usando el botón en la parte inferior de los videos', 'vote-4': 'Votado',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Eliminatorios', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olimpiadas', 'leagueLabel-5': 'Mundiales', 'leagueLabel-6': 'Copa',
 
             'footer-1': 'Inicio', 'footer-2': 'Acerca de', 'footer-3': 'Asistencias', 'footer-4': 'Goles',
             'footer-5': 'Porteros', 'footer-6': 'Gráfica', 'footer-7': 'Ayuda', 'footer-8': 'Jugadores', 'footer-9': 'Votar',
-            'footer-explore': 'Explorar', 'footer-language': 'Idioma'
+            'footer-webpage': 'Página web', 'footer-language': 'Idioma'
         },
         fr: {
             '404-1': 'Page Introuvable',
@@ -273,14 +273,14 @@
 
             'vote-1': 'Vote Ovechkin App',
             'vote-2': "Un historique des votes des visiteurs pour leurs buts favoris d'Ovechkin.",
-            'vote-3': 'pour votre favori avec le bouton en bas des vidéos',
+            'vote-3': 'pour votre favori avec le bouton en bas des vidéos', 'vote-4': 'Voté',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Séries', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'JO', 'leagueLabel-5': 'Mondiaux', 'leagueLabel-6': 'Coupe',
 
             'footer-1': 'Accueil', 'footer-2': 'À propos', 'footer-3': 'Passes', 'footer-4': 'Buts',
             'footer-5': 'Gardiens', 'footer-6': 'Graphique', 'footer-7': 'Aide', 'footer-8': 'Joueurs', 'footer-9': 'Vote',
-            'footer-explore': 'Explorer', 'footer-language': 'Langue'
+            'footer-webpage': 'Page web', 'footer-language': 'Langue'
         },
         ru: {
             '404-1': 'Страница Не Найдена',
@@ -363,14 +363,14 @@
 
             'vote-1': 'Голосование Ovechkin App',
             'vote-2': 'Запись голосов посетителей за любимые голы Овечкина.',
-            'vote-3': 'за любимый с помощью кнопки в нижней части видео',
+            'vote-3': 'за любимый с помощью кнопки в нижней части видео', 'vote-4': 'Проголосовано',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Плей-офф', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Олимпиада', 'leagueLabel-5': 'ЧМ', 'leagueLabel-6': 'Кубок',
 
             'footer-1': 'Главная', 'footer-2': 'О нас', 'footer-3': 'Передачи', 'footer-4': 'Голы',
             'footer-5': 'Вратари', 'footer-6': 'График', 'footer-7': 'Помощь', 'footer-8': 'Игроки', 'footer-9': 'Голосовать',
-            'footer-explore': 'Навигация', 'footer-language': 'Язык'
+            'footer-webpage': 'Веб-страница', 'footer-language': 'Язык'
         },
         sv: {
             '404-1': 'Sidan Hittades Inte',
@@ -453,14 +453,14 @@
 
             'vote-1': 'Ovechkin App Röst',
             'vote-2': 'En registrering av besökares röster för favoritmål av Ovechkin.',
-            'vote-3': 'på din favorit med knappen längst ned i videorna',
+            'vote-3': 'på din favorit med knappen längst ned i videorna', 'vote-4': 'Röstad',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Slutspel', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'OS', 'leagueLabel-5': 'VM', 'leagueLabel-6': 'WC',
 
             'footer-1': 'Hem', 'footer-2': 'Om', 'footer-3': 'Assistpoäng', 'footer-4': 'Mål',
             'footer-5': 'Målvakter', 'footer-6': 'Graf', 'footer-7': 'Hjälp', 'footer-8': 'Spelare', 'footer-9': 'Rösta',
-            'footer-explore': 'Utforska', 'footer-language': 'Språk'
+            'footer-webpage': 'Webbsida', 'footer-language': 'Språk'
         },
         fi: {
             '404-1': 'Sivua Ei Löydy',
@@ -543,14 +543,14 @@
 
             'vote-1': 'Ovechkin App Äänestys',
             'vote-2': 'Kirjaus vierailijoiden äänistä suosikkimaaleja Ovechkinilta.',
-            'vote-3': 'suosikkiasi painikkeella videoiden alaosassa',
+            'vote-3': 'suosikkiasi painikkeella videoiden alaosassa', 'vote-4': 'Äänestetty',
 
             'leagueLabel-1': 'NHL', 'leagueLabel-2': 'Pudotuspelit', 'leagueLabel-3': 'KHL',
             'leagueLabel-4': 'Olympia', 'leagueLabel-5': 'MM', 'leagueLabel-6': 'World Cup',
 
             'footer-1': 'Etusivu', 'footer-2': 'Tietoja', 'footer-3': 'Syötöt', 'footer-4': 'Maalit',
             'footer-5': 'Maalivahdit', 'footer-6': 'Kaavio', 'footer-7': 'Ohje', 'footer-8': 'Pelaajat', 'footer-9': 'Äänestä',
-            'footer-explore': 'Selaa', 'footer-language': 'Kieli'
+            'footer-webpage': 'Verkkosivu', 'footer-language': 'Kieli'
         }
     };
 

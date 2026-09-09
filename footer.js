@@ -17,12 +17,12 @@
         var pathname = window.location.pathname;
 
         var label = document.createElement('label');
-        label.htmlFor = 'footer-menu';
+        label.htmlFor = 'explore';
         label.className = 'small text-uppercase';
-        label.setAttribute('data-i18n', 'footer-explore');
+        label.setAttribute('data-i18n', 'footer-webpage');
 
         var select = document.createElement('select');
-        select.id = 'footer-menu';
+        select.id = 'explore';
 
         for (var i = 0; i < LINKS.length; i++) {
             var link = LINKS[i];
