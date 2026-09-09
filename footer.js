@@ -16,7 +16,13 @@
         if (!footer) return;
         var pathname = window.location.pathname;
 
+        var label = document.createElement('label');
+        label.htmlFor = 'footer-menu';
+        label.className = 'small text-uppercase';
+        label.setAttribute('data-i18n', 'footer-explore');
+
         var select = document.createElement('select');
+        select.id = 'footer-menu';
 
         for (var i = 0; i < LINKS.length; i++) {
             var link = LINKS[i];
@@ -33,6 +39,11 @@
             window.location.href = this.value;
         });
 
-        footer.appendChild(select);
+        var group = document.createElement('div');
+        group.className = 'd-flex gap-2 align-items-center';
+        group.appendChild(label);
+        group.appendChild(select);
+
+        footer.appendChild(group);
     });
 })();
