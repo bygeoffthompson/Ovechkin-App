@@ -183,13 +183,11 @@ function App() {
 
     const handleText = useCallback((e) => {
         setSearchGoal('')
-
         setSearchText(e.target.value)
     }, [])
 
     const handleGoalNumber = useCallback((e) => {
         setSearchText('')
-
         setFilters(DEFAULT_FILTERS)
         const val = e.target.value
         setSearchGoal(val)
@@ -203,7 +201,6 @@ function App() {
     const reset = useCallback(() => {
         setSearchText('')
         setSearchGoal('')
-
         setSortOrder('asc')
         setFilters(DEFAULT_FILTERS)
     }, [])
@@ -211,7 +208,6 @@ function App() {
     function outdoor() {
         setFilters(DEFAULT_FILTERS)
         setSearchText('')
-
         const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
@@ -241,7 +237,6 @@ function App() {
         if (result.length === 0) return
         setSearchGoal(pickRandom(result).goal)
     }
-
 
     if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>
     if (!data) return <div className="alert alert-light" role="alert">{t('app.loading')}</div>
