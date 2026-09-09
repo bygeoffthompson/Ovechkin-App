@@ -99,7 +99,8 @@
             'leagueLabel-4': 'Olympics', 'leagueLabel-5': 'Worlds', 'leagueLabel-6': 'World Cup',
 
             'footer-1': 'Home', 'footer-2': 'About', 'footer-3': 'Assists', 'footer-4': 'Goals',
-            'footer-5': 'Goalies', 'footer-6': 'Graph', 'footer-7': 'Help', 'footer-8': 'Players', 'footer-9': 'Vote'
+            'footer-5': 'Goalies', 'footer-6': 'Graph', 'footer-7': 'Help', 'footer-8': 'Players', 'footer-9': 'Vote',
+            'footer-explore': 'Explore', 'footer-language': 'Language'
         },
         es: {
             '404-1': 'Página No Encontrada',
@@ -188,7 +189,8 @@
             'leagueLabel-4': 'Olimpiadas', 'leagueLabel-5': 'Mundiales', 'leagueLabel-6': 'Copa',
 
             'footer-1': 'Inicio', 'footer-2': 'Acerca de', 'footer-3': 'Asistencias', 'footer-4': 'Goles',
-            'footer-5': 'Porteros', 'footer-6': 'Gráfica', 'footer-7': 'Ayuda', 'footer-8': 'Jugadores', 'footer-9': 'Votar'
+            'footer-5': 'Porteros', 'footer-6': 'Gráfica', 'footer-7': 'Ayuda', 'footer-8': 'Jugadores', 'footer-9': 'Votar',
+            'footer-explore': 'Explorar', 'footer-language': 'Idioma'
         },
         fr: {
             '404-1': 'Page Introuvable',
@@ -277,7 +279,8 @@
             'leagueLabel-4': 'JO', 'leagueLabel-5': 'Mondiaux', 'leagueLabel-6': 'Coupe',
 
             'footer-1': 'Accueil', 'footer-2': 'À propos', 'footer-3': 'Passes', 'footer-4': 'Buts',
-            'footer-5': 'Gardiens', 'footer-6': 'Graphique', 'footer-7': 'Aide', 'footer-8': 'Joueurs', 'footer-9': 'Vote'
+            'footer-5': 'Gardiens', 'footer-6': 'Graphique', 'footer-7': 'Aide', 'footer-8': 'Joueurs', 'footer-9': 'Vote',
+            'footer-explore': 'Explorer', 'footer-language': 'Langue'
         },
         ru: {
             '404-1': 'Страница Не Найдена',
@@ -366,7 +369,8 @@
             'leagueLabel-4': 'Олимпиада', 'leagueLabel-5': 'ЧМ', 'leagueLabel-6': 'Кубок',
 
             'footer-1': 'Главная', 'footer-2': 'О нас', 'footer-3': 'Передачи', 'footer-4': 'Голы',
-            'footer-5': 'Вратари', 'footer-6': 'График', 'footer-7': 'Помощь', 'footer-8': 'Игроки', 'footer-9': 'Голосовать'
+            'footer-5': 'Вратари', 'footer-6': 'График', 'footer-7': 'Помощь', 'footer-8': 'Игроки', 'footer-9': 'Голосовать',
+            'footer-explore': 'Навигация', 'footer-language': 'Язык'
         },
         sv: {
             '404-1': 'Sidan Hittades Inte',
@@ -455,7 +459,8 @@
             'leagueLabel-4': 'OS', 'leagueLabel-5': 'VM', 'leagueLabel-6': 'WC',
 
             'footer-1': 'Hem', 'footer-2': 'Om', 'footer-3': 'Assistpoäng', 'footer-4': 'Mål',
-            'footer-5': 'Målvakter', 'footer-6': 'Graf', 'footer-7': 'Hjälp', 'footer-8': 'Spelare', 'footer-9': 'Rösta'
+            'footer-5': 'Målvakter', 'footer-6': 'Graf', 'footer-7': 'Hjälp', 'footer-8': 'Spelare', 'footer-9': 'Rösta',
+            'footer-explore': 'Utforska', 'footer-language': 'Språk'
         },
         fi: {
             '404-1': 'Sivua Ei Löydy',
@@ -544,7 +549,8 @@
             'leagueLabel-4': 'Olympia', 'leagueLabel-5': 'MM', 'leagueLabel-6': 'World Cup',
 
             'footer-1': 'Etusivu', 'footer-2': 'Tietoja', 'footer-3': 'Syötöt', 'footer-4': 'Maalit',
-            'footer-5': 'Maalivahdit', 'footer-6': 'Kaavio', 'footer-7': 'Ohje', 'footer-8': 'Pelaajat', 'footer-9': 'Äänestä'
+            'footer-5': 'Maalivahdit', 'footer-6': 'Kaavio', 'footer-7': 'Ohje', 'footer-8': 'Pelaajat', 'footer-9': 'Äänestä',
+            'footer-explore': 'Selaa', 'footer-language': 'Kieli'
         }
     };
 
@@ -571,8 +577,8 @@
 
         var label = document.createElement('label');
         label.setAttribute('for', 'language');
-        label.textContent = 'Language';
-        label.hidden = true;
+        label.textContent = t('footer-language', lang);
+        label.className = 'small text-uppercase';
 
         var select = document.createElement('select');
         select.id = 'language';
@@ -592,9 +598,13 @@
         sep.className = 'd-none d-md-block';
         sep.textContent = '|';
 
-        footer.insertBefore(sep, footer.firstChild);
-        footer.insertBefore(select, footer.firstChild);
-        footer.insertBefore(label, footer.firstChild);
+        var group = document.createElement('div');
+        group.className = 'd-flex gap-2 align-items-center flex-md-row-reverse';
+        group.appendChild(label);
+        group.appendChild(select);
+
+        footer.appendChild(sep);
+        footer.appendChild(group);
     }
 
     var LEAGUE_KEYS = { 1: 'leagueLabel-1', 2: 'leagueLabel-2', 3: 'leagueLabel-3', 4: 'leagueLabel-4', 5: 'leagueLabel-5', 6: 'leagueLabel-6' };
