@@ -38,7 +38,6 @@ function App() {
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
     const [activeGoal, setActiveGoal] = useState('')
-    const [hatTrickMode, setHatTrickMode] = useState(false)
     const [sortOrder, setSortOrder] = useState('asc')
 
     const { anim, isAnimating } = useGoalCounter()
@@ -128,9 +127,8 @@ function App() {
         const idx = jsonData.findIndex(item => item.goal === goalQuery)
         if (idx === -1) return []
         const item = jsonData[idx]
-        if (hatTrickMode) return jsonData.slice(Math.max(0, idx - 2), idx + 1)
         return [item]
-    }, [jsonData, searchGoal, hatTrickMode])
+    }, [jsonData, searchGoal])
 
     const resultFilters = useMemo(() => textResults.length === 0 ? null : buildFilterSets(textResults), [textResults])
 
@@ -141,7 +139,7 @@ function App() {
 
     const searchResults = hasTextQuery ? textResults : goalResults
     const isIdle = !hasTextQuery && !searchGoal
-    const showSort = !hatTrickMode && searchResults.length > 1
+    const showSort = searchResults.length > 1
 
     const sortedResults = useMemo(() => {
         return [...searchResults].sort((first, last) => {
@@ -164,8 +162,8 @@ function App() {
         filters.league && t(`leagueLabel.${filters.league}`),
     ].filter(Boolean)
     const resultCount = sortedResults.length
-    const showResults = hatTrickMode || resultCount > 1 || terms.length > 0
-    const onGoalSelect = useCallback((g) => { setSearchGoal(g); setHatTrickMode(false) }, [])
+    const showResults = resultCount > 1 || terms.length > 0
+    const onGoalSelect = useCallback((g) => { setSearchGoal(g) }, [])
     const onActiveGoal = useCallback((goal) => {
         const val = goal !== '' ? String(goal) : ''
         setActiveGoal(val)
@@ -185,13 +183,13 @@ function App() {
 
     const handleText = useCallback((e) => {
         setSearchGoal('')
-        setHatTrickMode(false)
+
         setSearchText(e.target.value)
     }, [])
 
     const handleGoalNumber = useCallback((e) => {
         setSearchText('')
-        setHatTrickMode(false)
+
         setFilters(DEFAULT_FILTERS)
         const val = e.target.value
         setSearchGoal(val)
@@ -205,7 +203,7 @@ function App() {
     const reset = useCallback(() => {
         setSearchText('')
         setSearchGoal('')
-        setHatTrickMode(false)
+
         setSortOrder('asc')
         setFilters(DEFAULT_FILTERS)
     }, [])
@@ -213,7 +211,7 @@ function App() {
     function outdoor() {
         setFilters(DEFAULT_FILTERS)
         setSearchText('')
-        setHatTrickMode(false)
+
         const input = parseInt(searchGoal, 10)
         let goal
         if (input === 440) goal = 598
@@ -232,30 +230,18 @@ function App() {
     }
 
     function randomGoal(filtered) {
-        setFilters(DEFAULT_FILTERS); setSearchText(''); setHatTrickMode(false)
+        setFilters(DEFAULT_FILTERS); setSearchText('')
         if (filtered.length === 0) return
         setSearchGoal(pickRandom(filtered).goal)
     }
 
     function filterGoal(match) {
-        setFilters(DEFAULT_FILTERS); setSearchText(''); setHatTrickMode(false)
+        setFilters(DEFAULT_FILTERS); setSearchText('')
         const result = jsonData.filter(item => Object.values(item).some(value => match.includes(value)))
         if (result.length === 0) return
         setSearchGoal(pickRandom(result).goal)
     }
 
-    function hatTrick() {
-        setFilters(DEFAULT_FILTERS)
-        setSearchText('')
-        const hatTrickGoals = jsonData.filter(item =>
-            [item.btn1, item.btn2, item.btn3].includes('Hat Trick')
-        )
-        if (hatTrickGoals.length === 0) return
-        const picked = pickRandom(hatTrickGoals)
-        setHatTrickMode(true)
-        setSortOrder('desc')
-        setSearchGoal(picked.goal)
-    }
 
     if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>
     if (!data) return <div className="alert alert-light" role="alert">{t('app.loading')}</div>
@@ -290,7 +276,6 @@ function App() {
                     filterGoal={filterGoal}
                     randomGoal={randomGoal}
                     outdoor={outdoor}
-                    hatTrick={hatTrick}
                     reset={reset}
                     searchGoal={searchGoal}
                     handleGoalNumber={handleGoalNumber}

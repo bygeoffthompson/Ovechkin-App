@@ -2,7 +2,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import {useTranslation} from 'react-i18next'
 import {TEAMS, canadianTeams, youngGunsPlayers, LEAGUE_ORDER} from './constants'
 
-export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, handleText, handleFilter, filterGoal, randomGoal, outdoor, hatTrick, reset, searchGoal, handleGoalNumber, leagueCounts }) {
+export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, handleText, handleFilter, filterGoal, randomGoal, outdoor, reset, searchGoal, handleGoalNumber, leagueCounts }) {
     const {t} = useTranslation()
     return (
         <div className="d-flex flex-column w-100" id="random-search">
@@ -50,7 +50,7 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                                 <button className="button" data-ga="Home" onClick={() => randomGoal(jsonData.filter(item => item.hoa === 1))} title={t('search.home')} type="button">{t('search.home')}</button>
                                 <button className="button" data-ga="ENG" onClick={() => filterGoal(['Empty Net'])} title="ENG" type="button">ENG</button>
                                 <button className="button" data-ga="GWG" onClick={() => randomGoal(jsonData.filter(item => Object.values(item).includes('GWG') || item.period === 4))} title="GWG" type="button">GWG</button>
-                                <button className="button" data-ga="Hat Trick" onClick={hatTrick} title={t('btn.hatTrick')} type="button">{t('btn.hatTrick')}</button>
+                                <button className="button" data-ga="Hat Trick" onClick={() => filterGoal(['Hat Trick'])} title={t('btn.hatTrick')} type="button">{t('btn.hatTrick')}</button>
                                 <button className="button" data-ga="OT" onClick={() => randomGoal(jsonData.filter(item => item.period === 4))} title="OT" type="button">OT</button>
                                 <button className="button" data-ga="PPG" onClick={() => filterGoal(['5v3', 'PPG'])} title="PPG" type="button">PPG</button>
                                 <button className="button" data-ga="Teammate" onClick={() => filterGoal(['Teammate'])} title={t('btn.teammate')} type="button">{t('btn.teammate')}</button>
