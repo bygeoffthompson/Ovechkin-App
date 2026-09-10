@@ -7,7 +7,7 @@ export function useGoalCounter() {
         const start = performance.now()
         let raf
         const frame = (now) => {
-            const p = Math.max(0, Math.min((now - start) / 1000, 1))
+            const p = Math.max(0, Math.min((now - start) / 500, 1))
             setProgress(p)
             if (p < 1) raf = requestAnimationFrame(frame)
         }

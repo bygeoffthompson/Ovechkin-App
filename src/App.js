@@ -176,8 +176,8 @@ function App() {
         if (textResults.length === 0) return
         gaRef.current?.event({
             category: 'Results',
-            action: 'Open Goal Accordion',
-            label: textResults[0].goal.toString()
+            action: 'Opened Goals',
+            label: textResults[0].goal.toString().replace(/^(\d+)/, n => n.padStart(3, '0'))
         })
     }, [textResults])
 
