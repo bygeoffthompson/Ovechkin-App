@@ -268,10 +268,6 @@ form {
 }
 
 [data-league='NHL Regular'] {
-    .fd-bottom {
-        border-color: rgba(200, 16, 32, .5);
-    }
-
     .goal-count {
         color: #F34133;
     }
@@ -319,6 +315,10 @@ form {
 
 [data-league='Olympics'],
 [data-league*='World'] {
+    .fd-bottom {
+        border-color: rgba(17, 17, 17, .5);
+    }
+
     .fd-piece {
         background: #111;
     }
@@ -574,7 +574,7 @@ input {
 }
 
 .fd-bottom {
-    border-top: 1px solid rgba(17, 17, 17, .5);
+    border-top: 1px solid rgba(200, 16, 32, .5);
 }
 
 .fd-bottom > span {
