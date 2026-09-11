@@ -110,21 +110,21 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                             </select>
                         </div>
                         <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
-                            <label htmlFor="month">{t('search.month')}</label>
-                            <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => handleFilter('month', e.target.value)}>
+                            <label htmlFor="season">{t('search.season')}</label>
+                            <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => handleFilter('season', e.target.value)}>
                                 <option value=""></option>
-                                {Array.from({length: 12}, (_, i) => (
-                                    <option key={i+1} value={i+1} disabled={!filterOptions.months.has(i+1)}>{t(`months.${i+1}`)}</option>
+                                {seasonOptions.map(n => (
+                                    <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n === -1 ? t('search.draft') : n === 0 ? t('search.draftPlusOne') : n === 1 ? t('btn.rookie') : n}</option>
                                 ))}
                             </select>
                         </div>
                         <div className="align-items-start d-flex flex-column flex-sm-row gap-3 w-100">
                             <div className="align-items-center d-flex flex-row gap-3 justify-content-between w-100">
-                                <label htmlFor="season">{t('search.season')}</label>
-                                <select className="form-select py-1" id="season" name="Season" value={filters.season} onChange={(e) => handleFilter('season', e.target.value)}>
+                                <label htmlFor="month">{t('search.month')}</label>
+                                <select className="form-select py-1" id="month" name="Month" value={filters.month} onChange={(e) => handleFilter('month', e.target.value)}>
                                     <option value=""></option>
-                                    {seasonOptions.map(n => (
-                                        <option key={n} value={`Season ${n}`} disabled={!filterOptions.seasons.has(n)}>{n === -1 ? t('search.draft') : n}</option>
+                                    {Array.from({length: 12}, (_, i) => (
+                                        <option key={i+1} value={i+1} disabled={!filterOptions.months.has(i+1)}>{t(`months.${i+1}`)}</option>
                                     ))}
                                 </select>
                             </div>

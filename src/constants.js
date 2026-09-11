@@ -32,7 +32,8 @@ export function buildFilterSets(items) {
 
 export const canadianTeams = ['Calgary Flames', 'Edmonton Oilers', 'Montreal Canadiens', 'Ottawa Senators', 'Toronto Maple Leafs', 'Vancouver Canucks', 'Winnipeg Jets']
 export const youngGunsPlayers = ['Alex Semin', 'Mike Green', 'Nicklas Backstrom']
-export const itemSeason = (item) => item.year - (item.month >= 10 ? 2004 : 2005)
+const DRAFT_PLUS_ONE_GOALS = new Set([1.01, 0.02, 0.03, 0.04, 0.05, 0.06])
+export const itemSeason = (item) => item.goal === 0.01 ? -1 : DRAFT_PLUS_ONE_GOALS.has(item.goal) ? 0 : item.year - (item.month >= 10 ? 2004 : 2005)
 export const itemDotw = (item) => new Date(item.year, item.month - 1, item.day).getDay() + 1
 
 export function random(min, max) {

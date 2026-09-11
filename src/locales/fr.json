@@ -106,6 +106,7 @@
     "league": "Ligue",
     "reset": "Réinitialiser",
     "draft": "Draft",
+    "draftPlusOne": "Draft +1",
     "twoChars": "La recherche nécessite 2 caractères"
   }
 }

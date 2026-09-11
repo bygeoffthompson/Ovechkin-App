@@ -106,6 +106,7 @@
     "league": "Liga",
     "reset": "Återställ",
     "draft": "Draft",
+    "draftPlusOne": "Draft +1",
     "twoChars": "Sökning kräver 2 tecken"
   }
 }

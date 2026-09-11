@@ -106,6 +106,7 @@
     "league": "Liiga",
     "reset": "Nollaa",
     "draft": "Draft",
+    "draftPlusOne": "Draft +1",
     "twoChars": "Haku vaatii 2 merkkiä"
   }
 }

@@ -157,7 +157,7 @@ function App() {
         filters.location && (filters.location === 'Home' ? t('search.home') : t('search.away')),
         filters.period && PERIOD_NAME[filters.period],
         filters.month && t(`months.${filters.month}`),
-        filters.season && (filters.season === 'Season -1' ? t('search.draft') : `${t('search.season')} ${filters.season.replace('Season ', '')}`),
+        filters.season && (filters.season === 'Season -1' ? t('search.draft') : filters.season === 'Season 0' ? t('search.draftPlusOne') : filters.season === 'Season 1' ? t('btn.rookie') : `${t('search.season')} ${filters.season.replace('Season ', '')}`),
         filters.year,
         filters.league && t(`leagueLabel.${filters.league}`),
     ].filter(Boolean)
