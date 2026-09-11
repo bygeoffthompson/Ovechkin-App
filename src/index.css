@@ -268,6 +268,10 @@ form {
 }
 
 [data-league='NHL Regular'] {
+    .fd-bottom {
+        border-color: rgba(200, 16, 32, .5);
+    }
+
     .goal-count {
         color: #F34133;
     }
@@ -277,6 +281,10 @@ form {
     .fd-flap,
     .fd-piece {
         background: #0033A0;
+    }
+
+    .fd-bottom {
+        border-color: rgba(0, 51, 160, .5);
     }
 
     &.goal-count {
@@ -296,7 +304,7 @@ form {
     }
 
     .fd-bottom {
-        border-color: #111;
+        border-color: rgba(255, 193, 7, .5);
     }
 
     .fd-piece,
@@ -516,16 +524,11 @@ input {
     border-radius: .25rem;
     height: 100%;
     min-height: 60px;
-    width: 50px;
+    width: 46px;
 }
 
 #flip-counter {
     font-family: system-ui;
-    width: 100%;
-
-    @media (min-width: 1024px) {
-        width: auto;
-    }
 }
 
 .fd-dot {
@@ -571,7 +574,7 @@ input {
 }
 
 .fd-bottom {
-    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-top: 1px solid rgba(17, 17, 17, .5);
 }
 
 .fd-bottom > span {

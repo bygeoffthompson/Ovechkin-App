@@ -61,7 +61,7 @@ export default function LeagueFilters({ leagueCounts, isAnimating, anim, activeL
                     if (ch === '.') items.push(<span key="sep" className="d-inline-block fd-dot fd-piece flip-digit fw-bold h4 text-center shadow text-white"><strong className="digit">.</strong></span>)
                     else items.push(<FlipDigit key={`r${rIdx--}`} ch={ch} />)
                 }
-                return <div className="align-items-stretch d-flex gap-1 justify-content-start user-select-none" id="flip-counter" aria-label={formatted ? `Goal ${formatted}` : ''}>{items}</div>
+                return <div className="align-items-stretch d-flex gap-1 justify-content-start user-select-none w-auto" id="flip-counter" aria-label={formatted ? `Goal ${formatted}` : ''}>{items}</div>
             })()}
         </div>
     )
