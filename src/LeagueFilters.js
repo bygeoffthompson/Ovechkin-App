@@ -5,8 +5,8 @@ import {LEAGUE_ORDER, LEAGUE_META} from './constants'
 const LEAGUES = LEAGUE_ORDER.map(key => ({ key, ...LEAGUE_META[key] }))
 
 function FlipDigit({ ch }) {
-    const prevRef = useRef(ch)
-    const [prev, setPrev] = useState(ch)
+    const prevRef = useRef('')
+    const [prev, setPrev] = useState('')
     const [animKey, setAnimKey] = useState(0)
     const [animating, setAnimating] = useState(false)
 
