@@ -33,12 +33,19 @@ function App() {
         fetch('goals.json').then(r => r.json()).then(setData).catch(setError)
     }, [])
 
+    useEffect(() => {
+        function onDocClick() { document.body.classList.remove('button-focus') }
+        document.addEventListener('click', onDocClick)
+        return () => document.removeEventListener('click', onDocClick)
+    }, [])
+
     const jsonData = useMemo(() => (data ?? []).filter(item => item.league !== 7), [data])
 
     const [searchGoal, setSearchGoal] = useState('')
     const [searchText, setSearchText] = useState('')
     const [activeGoal, setActiveGoal] = useState('')
     const [sortOrder, setSortOrder] = useState('asc')
+    const [accordionKey, setAccordionKey] = useState(null)
 
     const { anim, isAnimating } = useGoalCounter()
     const { votedGoalId, vote } = useVote()
@@ -238,6 +245,15 @@ function App() {
         setSearchGoal(pickRandom(result).goal)
     }
 
+    function handleClickLink() {
+        setTimeout(() => document.body.classList.add('button-focus'), 0)
+    }
+
+    function handleSearchLink() {
+        setAccordionKey('search')
+        setTimeout(() => document.getElementById('search-text-1')?.focus(), 350)
+    }
+
     if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>
     if (!data) return <div className="alert alert-light" role="alert">{t('app.loading')}</div>
 
@@ -275,6 +291,8 @@ function App() {
                     searchGoal={searchGoal}
                     handleGoalNumber={handleGoalNumber}
                     leagueCounts={leagueCounts}
+                    accordionKey={accordionKey}
+                    setAccordionKey={setAccordionKey}
                 />
                 <div className="d-flex flex-column goal-results w-100">
                     <Results showResults={showResults} terms={terms} resultCount={resultCount} showSort={showSort} sortOrder={sortOrder} setSortOrder={setSortOrder} />
@@ -286,7 +304,7 @@ function App() {
                         onVote={vote}
                         onActiveGoal={onActiveGoal}
                     />
-                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} votedGoalId={votedGoalId} /> : <NoResults />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} votedGoalId={votedGoalId} onClickLink={handleClickLink} onSearchLink={handleSearchLink} /> : <NoResults />)}
                 </div>
             </div>
         </div>

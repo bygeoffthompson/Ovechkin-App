@@ -85,6 +85,12 @@
     "11": "November",
     "12": "December"
   },
+  "click": {
+    "click": "Click",
+    "or": "or",
+    "search": "search",
+    "toWatchGoals": "to watch goals"
+  },
   "search": {
     "random": "Random",
     "search": "Search",

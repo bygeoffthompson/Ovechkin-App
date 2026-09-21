@@ -2,11 +2,11 @@ import Accordion from 'react-bootstrap/Accordion'
 import {useTranslation} from 'react-i18next'
 import {TEAMS, canadianTeams, youngGunsPlayers, LEAGUE_ORDER} from './constants'
 
-export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, handleText, handleFilter, filterGoal, randomGoal, outdoor, reset, searchGoal, handleGoalNumber, leagueCounts }) {
+export default function RandomSearch({ jsonData, searchText, filters, filterOptions, seasonOptions, yearOptions, handleText, handleFilter, filterGoal, randomGoal, outdoor, reset, searchGoal, handleGoalNumber, leagueCounts, accordionKey, setAccordionKey }) {
     const {t} = useTranslation()
     return (
         <div className="d-flex flex-column w-100" id="random-search">
-            <Accordion className="mb-1 shadow-lg">
+            <Accordion activeKey={accordionKey} onSelect={setAccordionKey} className="mb-1 shadow-lg">
                 <Accordion.Item eventKey="random">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">{t('search.random')}</Accordion.Button></div>
                     <Accordion.Body className="p-3 text-bg-light">

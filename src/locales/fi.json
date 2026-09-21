@@ -85,6 +85,12 @@
     "11": "Marraskuu",
     "12": "Joulukuu"
   },
+  "click": {
+    "click": "Napsauta",
+    "or": "tai",
+    "search": "hae",
+    "toWatchGoals": "katsoaksesi maaleja"
+  },
   "search": {
     "random": "Satunnainen",
     "search": "Hae",

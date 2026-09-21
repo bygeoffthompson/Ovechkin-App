@@ -85,6 +85,12 @@
     "11": "Noviembre",
     "12": "Diciembre"
   },
+  "click": {
+    "click": "Haz clic",
+    "or": "o",
+    "search": "busca",
+    "toWatchGoals": "para ver los goles"
+  },
   "search": {
     "random": "Aleatorio",
     "search": "Buscar",

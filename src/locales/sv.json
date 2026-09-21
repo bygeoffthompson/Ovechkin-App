@@ -85,6 +85,12 @@
     "11": "November",
     "12": "December"
   },
+  "click": {
+    "click": "Klicka",
+    "or": "eller",
+    "search": "sök",
+    "toWatchGoals": "för att se mål"
+  },
   "search": {
     "random": "Slumpmässig",
     "search": "Sök",

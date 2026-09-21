@@ -2,7 +2,7 @@ import {useTranslation} from 'react-i18next'
 import {useOnThisDay} from './useOnThisDay'
 import {random, LEAGUE} from './constants'
 
-export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId}) {
+export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onClickLink, onSearchLink}) {
     const {t} = useTranslation()
     const { onThisDayGoals, month, day, dotwName, dotwMatches } = useOnThisDay(jsonData)
     return (
@@ -10,11 +10,8 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId}) {
             <p className="alert-heading h1 mb-3">{t('welcome.title')}</p>
             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                 <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
-                <p className="m-0">{t('welcome.clickToSearch')}</p>
+                <p className="m-0"><a href="#" onClick={e => { e.preventDefault(); onClickLink() }}>{t('click.click')}</a> <span>{t('click.or')}</span> <a href="#" onClick={e => { e.preventDefault(); onSearchLink() }}>{t('click.search')}</a> <span>{t('click.toWatchGoals')}</span></p>
             </div>
-            <hr className="my-3"/>
-            {votedGoalId && <><p className="m-0">{t('welcome.voted', { goalId: votedGoalId })}</p></>}
-            {!votedGoalId && <p className="m-0">{t('welcome.votePrompt')}</p>}
             <hr className="my-3"/>
             {onThisDayGoals.length > 0 ? (
                 <div className="align-items-center d-flex flex-row flex-wrap gap-3">
@@ -36,6 +33,9 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId}) {
                     }}>{dotwName} {t('welcome.goal')}</button>
                 </div>
             )}
+            <hr className="my-3"/>
+            {votedGoalId && <><p className="m-0">{t('welcome.voted', { goalId: votedGoalId })}</p></>}
+            {!votedGoalId && <p className="m-0">{t('welcome.votePrompt')}</p>}
         </div>
     )
 }
