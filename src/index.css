@@ -51,11 +51,7 @@ form {
 
 .goal-count {
     span {
-        font-size: 1.25rem;
-
-        @media (min-width: 576px) {
-            font-size: 2rem;
-        }
+        font-size: 2rem;
     }
 }
 
