@@ -10,7 +10,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
             <p className="alert-heading h1 mb-3">{t('welcome.title')}</p>
             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                 <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
-                <p className="m-0"><a href="#" onClick={e => { e.preventDefault(); onClickLink() }}>{t('click.click')}</a> <span>{t('click.or')}</span> <a href="#" onClick={e => { e.preventDefault(); onSearchLink() }}>{t('click.search')}</a> <span>{t('click.toWatchGoals')}</span></p>
+                <p className="align-items-center d-flex gap-1 m-0"><button type="button" className="btn btn-link p-0" onClick={onClickLink}>{t('click.click')}</button> <span>{t('click.or')}</span> <button type="button" className="btn btn-link p-0" onClick={onSearchLink}>{t('click.search')}</button> <span>{t('click.toWatchGoals')}</span></p>
             </div>
             <hr className="my-3"/>
             {onThisDayGoals.length > 0 ? (

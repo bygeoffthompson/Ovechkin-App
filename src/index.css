@@ -69,6 +69,10 @@ form {
     background-color: rgba(207, 226, 255, 0.5);
 }
 
+.btn-link {
+    font-size: 1.125rem !important;
+}
+
 .button-focus {
     &:before {
         background: rgba(17, 17, 17, .8);
