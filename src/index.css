@@ -69,6 +69,10 @@ form {
   cursor: default;
 }
 
+.bg-accordion {
+    background-color: rgba(207, 226, 255, 0.5);
+}
+
 .link {
     z-index: 2;
 }

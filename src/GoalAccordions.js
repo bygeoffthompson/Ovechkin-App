@@ -56,7 +56,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                             </Accordion.Button>
                         </div>
                         <Accordion.Body className="p-0">
-                            <div className="align-items-start align-items-sm-center d-flex flex-wrap gap-1 p-2">
+                            <div className="align-items-start align-items-sm-center bg-accordion d-flex flex-wrap gap-1 p-2">
                                 {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
                                 {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
                                 {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
