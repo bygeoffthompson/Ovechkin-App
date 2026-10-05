@@ -18,7 +18,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
             </div>
             <hr className="my-3"/>
             <div className="alert alert-warning d-inline-block m-0" role="alert">
-                The Current NHL Season Will Be Ovechkin's Last
+                This NHL Season Will Be Ovechkin's Last
             </div>
             <hr className="my-3"/>
             {onThisDayGoals.length > 0 ? (
