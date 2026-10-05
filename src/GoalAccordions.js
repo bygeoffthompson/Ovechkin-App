@@ -35,7 +35,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} eventKey={key}>
-                        <div className="accordion-header">
+                        <div className="accordion-header overflow-hidden">
                             <Accordion.Button data-league={LEAGUE[result.league]} onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Opened Goals', label: result.goal.toString().replace(/^(\d+)/, n => n.padStart(3, '0')) })} }}>
                                 <div className="align-items-center d-flex gap-1 justify-content-start w-100">
                                     <strong className="align-items-center d-flex goal-count">
