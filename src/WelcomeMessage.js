@@ -17,7 +17,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
                     <span>{t('click.toWatchGoals')}</span></p>
             </div>
             <hr className="my-3"/>
-            <div className="alert alert-warning d-inline-block m-0" role="alert">
+            <div className="alert alert-danger d-inline-block m-0" role="alert">
                 This NHL Season Will Be Ovechkin's Last
             </div>
             <hr className="my-3"/>
