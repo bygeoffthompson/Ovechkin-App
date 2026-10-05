@@ -9,8 +9,16 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
         <div className="alert alert-secondary border-radius-0 shadow-lg text-bg-light w-100" role="alert">
             <p className="alert-heading h1 mb-3">{t('welcome.title')}</p>
             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
-                <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30" />
-                <p className="align-items-center d-flex gap-1 m-0"><button type="button" className="btn btn-link p-0" onClick={onClickLink}>{t('click.click')}</button> <span>{t('click.or')}</span> <button type="button" className="btn btn-link p-0" onClick={onSearchLink}>{t('click.search')}</button> <span>{t('click.toWatchGoals')}</span></p>
+                <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30"/>
+                <p className="align-items-center d-flex gap-1 m-0">
+                    <button type="button" className="btn btn-link p-0" onClick={onClickLink}>{t('click.click')}</button>
+                    <span>{t('click.or')}</span>
+                    <button type="button" className="btn btn-link p-0" onClick={onSearchLink}>{t('click.search')}</button>
+                    <span>{t('click.toWatchGoals')}</span></p>
+            </div>
+            <hr className="my-3"/>
+            <div className="alert alert-warning d-inline-block m-0" role="alert">
+                The Current NHL Season Will Be Ovechkin's Last
             </div>
             <hr className="my-3"/>
             {onThisDayGoals.length > 0 ? (
@@ -18,7 +26,8 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
                     <span className="h6 m-0">{t('welcome.otd')}</span><span className="badge p-2">{month}/{day}</span>
                     <p className="m-0">{t('welcome.year')}</p>
                     {onThisDayGoals.map(goal => (
-                        <button className="button" data-ga={`${goal.year} ${LEAGUE[goal.league]}`} key={goal.goal} onClick={() => onGoalSelect(goal.goal)} title={`${goal.year} ${t(`leagueLabel.${goal.league}`)}`} type="button">
+                        <button className="button" data-ga={`${goal.year} ${LEAGUE[goal.league]}`} key={goal.goal} onClick={() => onGoalSelect(goal.goal)}
+                                title={`${goal.year} ${t(`leagueLabel.${goal.league}`)}`} type="button">
                             {goal.year} {t(`leagueLabel.${goal.league}`)}
                         </button>
                     ))}
@@ -27,14 +36,15 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
                 <div className="align-items-center d-flex flex-row flex-wrap gap-3">
                     <span className="h6 m-0">{t('welcome.dotw')}</span>
                     {t('welcome.watchA')}
-                    <button className="button dotw" data-ga={`${dotwName} Goal`} disabled={dotwMatches.length === 0} title={`${dotwName} ${t('welcome.goal')}`} type="button" onClick={() => {
-                        if (!dotwMatches.length) return
-                        onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
-                    }}>{dotwName} {t('welcome.goal')}</button>
+                    <button className="button dotw" data-ga={`${dotwName} Goal`} disabled={dotwMatches.length === 0} title={`${dotwName} ${t('welcome.goal')}`} type="button"
+                            onClick={() => {
+                                if (!dotwMatches.length) return
+                                onGoalSelect(dotwMatches[random(0, dotwMatches.length - 1)].goal)
+                            }}>{dotwName} {t('welcome.goal')}</button>
                 </div>
             )}
             <hr className="my-3"/>
-            {votedGoalId && <><p className="m-0">{t('welcome.voted', { goalId: votedGoalId })}</p></>}
+            {votedGoalId && <><p className="m-0">{t('welcome.voted', {goalId: votedGoalId})}</p></>}
             {!votedGoalId && <p className="m-0">{t('welcome.votePrompt')}</p>}
         </div>
     )
