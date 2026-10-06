@@ -85,8 +85,6 @@
             'help-70': 'Ovechkin App accepts URL queries to return specific goals',
             'help-71': 'or a set of filtered search results',
 
-            'index-1': 'Relive the Red Lights',
-
             'players-1': 'Players in the Ovechkin App',
             'players-2': 'A chronological list of every player in Ovechkin App.',
             'players-3': '#', 'players-4': 'Player', 'players-5': 'League', 'players-6': 'Date',
@@ -174,8 +172,6 @@
             'help-69': 'Consultas URL',
             'help-70': 'Ovechkin App acepta consultas URL para devolver goles específicos',
             'help-71': 'o un conjunto de resultados filtrados',
-
-            'index-1': 'Revive las Luces Rojas',
 
             'players-1': 'Jugadores en Ovechkin App',
             'players-2': 'Una lista cronológica de cada jugador en Ovechkin App.',
@@ -265,8 +261,6 @@
             'help-70': 'Ovechkin App accepte des requêtes URL pour retourner des buts spécifiques',
             'help-71': 'ou un ensemble de résultats filtrés',
 
-            'index-1': 'Revivez les Lumières Rouges',
-
             'players-1': 'Joueurs dans Ovechkin App',
             'players-2': 'Une liste chronologique de chaque joueur dans Ovechkin App.',
             'players-3': '#', 'players-4': 'Joueur', 'players-5': 'Ligue', 'players-6': 'Date',
@@ -354,8 +348,6 @@
             'help-69': 'URL-запросы',
             'help-70': 'Ovechkin App принимает URL-запросы для возврата конкретных голов',
             'help-71': 'или набора отфильтрованных результатов',
-
-            'index-1': 'Снова переживи красные огни',
 
             'players-1': 'Игроки в Ovechkin App',
             'players-2': 'Хронологический список всех игроков в Ovechkin App.',
@@ -445,8 +437,6 @@
             'help-70': 'Ovechkin App accepterar URL-frågor för att returnera specifika mål',
             'help-71': 'eller en uppsättning filtrerade sökresultat',
 
-            'index-1': 'Återupplev de röda ljusen',
-
             'players-1': 'Spelare i Ovechkin App',
             'players-2': 'En kronologisk lista över varje spelare i Ovechkin App.',
             'players-3': '#', 'players-4': 'Spelare', 'players-5': 'Liga', 'players-6': 'Datum',
@@ -534,8 +524,6 @@
             'help-69': 'URL-kyselyt',
             'help-70': 'Ovechkin App hyväksyy URL-kyselyitä palauttaakseen tiettyjä maaleja',
             'help-71': 'tai joukon suodatettuja hakutuloksia',
-
-            'index-1': 'Elä uudelleen punaiset valot',
 
             'players-1': 'Pelaajat Ovechkin App:ssä',
             'players-2': 'Kronologinen luettelo kaikista pelaajista Ovechkin App:ssä.',
