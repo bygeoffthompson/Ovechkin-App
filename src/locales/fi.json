@@ -21,7 +21,9 @@
     "year": "Vuosi",
     "noGoals": "Ei Maaleja",
     "voted": "Äänestit Maalia {{goalId}}",
-    "votePrompt": "Äänestä suosikkiasi"
+    "votePrompt": "Äänestä suosikkiasi",
+    "lastSeason": "Tämä NHL-kausi On Ovechkinin Viimeinen",
+    "readMore": "Lue Lisää"
   },
   "noResults": {
     "title": "Ei Tuloksia",

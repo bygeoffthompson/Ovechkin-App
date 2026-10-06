@@ -21,7 +21,9 @@
     "year": "Year",
     "noGoals": "No Goals",
     "voted": "You voted for Goal {{goalId}}",
-    "votePrompt": "Vote for your favorite"
+    "votePrompt": "Vote for your favorite",
+    "lastSeason": "This NHL Season Will Be Ovechkin's Last",
+    "readMore": "Read More"
   },
   "noResults": {
     "title": "No Results",

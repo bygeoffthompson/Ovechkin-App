@@ -21,7 +21,9 @@
     "year": "År",
     "noGoals": "Inga Mål",
     "voted": "Du röstade på Mål {{goalId}}",
-    "votePrompt": "Rösta på din favorit"
+    "votePrompt": "Rösta på din favorit",
+    "lastSeason": "Denna NHL-säsong Blir Ovechkins Sista",
+    "readMore": "Läs Mer"
   },
   "noResults": {
     "title": "Inga Resultat",
