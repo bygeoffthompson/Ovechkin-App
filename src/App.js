@@ -45,7 +45,7 @@ function App() {
     const [searchText, setSearchText] = useState('')
     const [activeGoal, setActiveGoal] = useState('')
     const [sortOrder, setSortOrder] = useState('asc')
-    const [accordionKey, setAccordionKey] = useState(null)
+    const [accordionKey, setAccordionKey] = useState('random')
 
     const { anim, isAnimating } = useGoalCounter()
     const { votedGoalId, vote } = useVote()
