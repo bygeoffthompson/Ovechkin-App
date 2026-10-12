@@ -19880,17 +19880,18 @@
         "goal": 930,
         "link": "/-_LbhXAHzmM?si=ANrXnehiam5x5zPx",
         "team": "Seattle Kraken",
+        "goalie": "Joey Daccord",
         "a1": "Ilya Protas",
         "a2": "Aliaksei Protas",
         "month": 10,
         "day": 11,
         "year": 2026,
-        "search": "Start",
+        "search": "Once Start",
         "league": 1,
         "hoa": 1,
         "period": 1,
         "time": "16:47",
         "jersey": "Red",
-        "result": 1
+        "result": 0
     }
 ]
