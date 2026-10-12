@@ -1,26 +1,26 @@
 # Ovechkin App
 
-> The definitive database of every Alex Ovechkin career goal. Ovechkin App catalogs all 1,070 goals across every league and competition Ovechkin has played in, from his first professional goal in 2004 through the present.
+> The definitive database of every Alex Ovechkin career goal. Ovechkin App catalogs all 1,071 goals across every league and competition Ovechkin has played in, from his first professional goal in 2004 through the present.
 
 ## Key Facts
 
-- 929 NHL regular season goals (all-time NHL record, surpassing Wayne Gretzky's 894)
+- 930 NHL regular season goals (all-time NHL record, surpassing Wayne Gretzky's 894)
 - 77 NHL playoff goals
 - 35 World Championship goals
 - 19 KHL goals
 - 8 Olympic goals
 - 2 World Cup goals
-- 1,070 total career goals cataloged
+- 1,071 total career goals cataloged
 
 First career goal: April 24, 2004 vs. Denmark (Jan Jensen) — World Championships
 First NHL goal: October 5, 2005 vs. Columbus Blue Jackets (Pascal Leclaire) — Goal #1
-Most recent NHL goal: April 11, 2026 vs. Pittsburgh Penguins — Goal #929
+Most recent NHL goal: October 11, 2026 vs. Seattle Kraken (Joey Daccord) — Goal #930
 
 ## Data
 
 Each goal record includes: goal number, date (month/day/year), opponent team, goalie, primary assist, secondary assist, league, period, home/away, jersey worn, day of week, season, and special tags (GWG, PPG, SHG, overtime, empty net, hat trick, milestone, etc.).
 
-- /goals.json — Full dataset (1,070 goal objects, JSON)
+- /goals.json — Full dataset (1,071 goal objects, JSON)
 - /goals.html — Complete sortable goal list (goal number, league, date, goalie, opponent, home/away, period)
 - /goalies.html — Every goalie scored against with first date, last date, NHL/international/KHL breakdown, and total
 - /assists.html — Every player who assisted on an Ovechkin goal with primary, secondary, and total assist counts
@@ -29,7 +29,7 @@ Each goal record includes: goal number, date (month/day/year), opponent team, go
 
 ## Goal Numbering
 
-NHL regular season goals are numbered 1–929. Non-NHL goals are interleaved as decimals: the integer part is the NHL goal number they fall between, and the decimal encodes the competition sequence. For example: 0.01 is World Championship Goal #1 (2004), 36.04 is Olympic Goal #4 (2006), 897.75 is Playoff Goal #75.
+NHL regular season goals are numbered 1–930. Non-NHL goals are interleaved as decimals: the integer part is the NHL goal number they fall between, and the decimal encodes the competition sequence. For example: 0.01 is World Championship Goal #1 (2004), 36.04 is Olympic Goal #4 (2006), 897.75 is Playoff Goal #75.
 
 ## URL Queries
 
