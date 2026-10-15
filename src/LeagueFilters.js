@@ -56,7 +56,7 @@ export default function LeagueFilters({ leagueCounts, isAnimating, anim, activeL
                 const padCount = Math.max(0, 3 - digitCount)
                 const items = []
                 let rIdx = digitCount + padCount - 1
-                for (let i = 0; i < padCount; i++) items.push(<FlipDigit key={`r${rIdx--}`} ch={!formatted ? 'OVI'[i] : ''} />)
+                for (let i = 0; i < padCount; i++) items.push(<FlipDigit key={`r${rIdx--}`} ch={!formatted ? 'GR8'[i] : ''} />)
                 for (const ch of formatted) {
                     if (ch === '.') items.push(<span key="sep" className="d-inline-block fd-dot fd-piece flip-digit fw-bold h4 text-center shadow text-white"><strong className="digit">.</strong></span>)
                     else items.push(<FlipDigit key={`r${rIdx--}`} ch={ch} />)
