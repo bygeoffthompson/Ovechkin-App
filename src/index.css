@@ -86,10 +86,6 @@ form {
     }
 }
 
-.link {
-    z-index: 2;
-}
-
 .text-bg-danger {
     background: #C81020 !important;
 }

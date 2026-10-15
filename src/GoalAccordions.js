@@ -56,7 +56,18 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                             </Accordion.Button>
                         </div>
                         <Accordion.Body className="p-0">
+                            <div className="position-relative">
+                                {activeKey === key
+                                    ? <YoutubeFrame videoId={videoId} start={start} end={end} />
+                                    : <div className="iframe w-100" />
+                                }
+                            </div>
                             <div className="align-items-start align-items-sm-center bg-accordion d-flex flex-wrap gap-1 p-2">
+                                <button
+                                    className={`fw-bold small ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
+                                    disabled={String(result.goal) === votedGoalId}
+                                    data-ga="Vote" onClick={() => onVote(String(result.goal))} title="Vote"
+                                >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
                                 {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
                                 {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
                                 {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
@@ -65,20 +76,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                 <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
                                 {result.a1 && <span className="assist badge">{result.a1}</span>}
                                 {result.a2 && <span className="assist badge">{result.a2}</span>}
-                            </div>
-                            <div className="position-relative">
-                                {activeKey === key
-                                    ? <YoutubeFrame videoId={videoId} start={start} end={end} />
-                                    : <div className="iframe w-100" />
-                                }
-                                <div className="align-items-stretch bottom-0 d-flex justify-content-start position-absolute start-0 w-100">
-                                    <button
-                                        className={`fw-bold small ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
-                                        disabled={String(result.goal) === votedGoalId}
-                                        data-ga="Vote" onClick={() => onVote(String(result.goal))} title="Vote"
-                                    >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
-                                    <strong className="align-items-center border border-1 border-dark d-flex link px-1 small text-bg-dark">ovechkin.app/?{result.goal}</strong>
-                                </div>
+                                <span className="badge text-bg-light">ovechkin.app/?{result.goal}</span>
                             </div>
                         </Accordion.Body>
                     </Accordion.Item>
