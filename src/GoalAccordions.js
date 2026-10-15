@@ -49,8 +49,7 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                     <div className="align-items-center d-flex justify-content-center team-logo">
                                         <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
                                     </div>
-                                    {result.goalie && <span className="d-none d-sm-inline fw-bold h6 m-0">{result.goalie}</span>}
-                                    <span className="badge date">{result.month}/{result.day}/{result.year}</span>
+                                    {result.goalie && <span className="fw-bold h6 m-0">{result.goalie}</span>}
                                 </div>
                             {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
                             </Accordion.Button>
@@ -63,20 +62,21 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                 }
                             </div>
                             <div className="align-items-start align-items-sm-center bg-accordion d-flex flex-wrap gap-1 p-2">
+                                <span className="badge text-bg-danger">{result.month}/{result.day}/{result.year}</span>
+                                {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
+                                {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
+                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
+                                <span className="badge text-bg-secondary">{result.time}</span>
+                                <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
+
+                                {result.a1 && <span className="assist badge">{result.a1}</span>}
+                                {result.a2 && <span className="assist badge">{result.a2}</span>}
+                                <span className="badge text-bg-light">ovechkin.app/?{result.goal}</span>
                                 <button
                                     className={`fw-bold small ${String(result.goal) === votedGoalId ? 'text-bg-danger' : ''}`}
                                     disabled={String(result.goal) === votedGoalId}
                                     data-ga="Vote" onClick={() => onVote(String(result.goal))} title="Vote"
                                 >{String(result.goal) === votedGoalId ? t('goal.voted') : t('goal.vote')}</button>
-                                {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
-                                {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
-                                {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                <span className="badge text-bg-secondary">{result.time}</span>
-                                <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
-                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
-                                {result.a1 && <span className="assist badge">{result.a1}</span>}
-                                {result.a2 && <span className="assist badge">{result.a2}</span>}
-                                <span className="badge text-bg-light">ovechkin.app/?{result.goal}</span>
                             </div>
                         </Accordion.Body>
                     </Accordion.Item>
