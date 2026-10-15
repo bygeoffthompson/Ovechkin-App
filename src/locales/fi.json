@@ -13,7 +13,8 @@
   },
   "welcome": {
     "title": "Tervetuloa",
-    "clickToSearch": "Napsauta tai hae katsoaksesi maaleja",
+    "clickOrSearch": "Napsauta tai hae",
+    "toWatchGoals": "katsoaksesi maaleja",
     "dotw": "VPVÄ",
     "watchA": "Katso",
     "goal": "Maali",
@@ -86,12 +87,6 @@
     "10": "Lokakuu",
     "11": "Marraskuu",
     "12": "Joulukuu"
-  },
-  "click": {
-    "click": "Napsauta",
-    "or": "tai",
-    "search": "hae",
-    "toWatchGoals": "katsoaksesi maaleja"
   },
   "search": {
     "random": "Satunnainen",

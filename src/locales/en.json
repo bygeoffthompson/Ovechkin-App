@@ -13,7 +13,8 @@
   },
   "welcome": {
     "title": "Welcome",
-    "clickToSearch": "Click or search to watch goals",
+    "clickOrSearch": "Click or search",
+    "toWatchGoals": "to watch goals",
     "dotw": "DOTW",
     "watchA": "Watch a",
     "goal": "Goal",
@@ -86,12 +87,6 @@
     "10": "October",
     "11": "November",
     "12": "December"
-  },
-  "click": {
-    "click": "Click",
-    "or": "or",
-    "search": "search",
-    "toWatchGoals": "to watch goals"
   },
   "search": {
     "random": "Random",

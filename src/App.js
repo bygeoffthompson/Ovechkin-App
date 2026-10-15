@@ -245,13 +245,9 @@ function App() {
         setSearchGoal(pickRandom(result).goal)
     }
 
-    function handleClickLink() {
-        setTimeout(() => document.body.classList.add('button-focus'), 0)
-    }
-
     function handleSearchLink() {
         setAccordionKey('search')
-        setTimeout(() => document.getElementById('search-text-1')?.focus(), 350)
+        setTimeout(() => document.body.classList.add('button-focus'), 350)
     }
 
     if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>
@@ -304,7 +300,7 @@ function App() {
                         onVote={vote}
                         onActiveGoal={onActiveGoal}
                     />
-                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} votedGoalId={votedGoalId} onClickLink={handleClickLink} onSearchLink={handleSearchLink} /> : <NoResults />)}
+                    {noResults && (isIdle ? <WelcomeMessage jsonData={jsonData} onGoalSelect={onGoalSelect} votedGoalId={votedGoalId} onSearchLink={handleSearchLink} /> : <NoResults />)}
                 </div>
             </div>
         </div>

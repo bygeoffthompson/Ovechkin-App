@@ -13,7 +13,8 @@
   },
   "welcome": {
     "title": "Välkommen",
-    "clickToSearch": "Klicka eller sök för att se mål",
+    "clickOrSearch": "Klicka eller sök",
+    "toWatchGoals": "för att se mål",
     "dotw": "VDAG",
     "watchA": "Se ett",
     "goal": "Mål",
@@ -86,12 +87,6 @@
     "10": "Oktober",
     "11": "November",
     "12": "December"
-  },
-  "click": {
-    "click": "Klicka",
-    "or": "eller",
-    "search": "sök",
-    "toWatchGoals": "för att se mål"
   },
   "search": {
     "random": "Slumpmässig",

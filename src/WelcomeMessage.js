@@ -2,7 +2,7 @@ import {useTranslation} from 'react-i18next'
 import {useOnThisDay} from './useOnThisDay'
 import {random, LEAGUE} from './constants'
 
-export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onClickLink, onSearchLink}) {
+export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onSearchLink}) {
     const {t} = useTranslation()
     const { onThisDayGoals, month, day, dotwName, dotwMatches } = useOnThisDay(jsonData)
     return (
@@ -11,10 +11,8 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onC
             <div className="align-items-start d-flex flex-column flex-sm-row gap-2">
                 <img alt="Recording Light" height="30" src="/gifs/record-light.gif" width="30"/>
                 <p className="align-items-center d-flex gap-1 m-0">
-                    <button type="button" className="btn btn-link p-0" onClick={onClickLink}>{t('click.click')}</button>
-                    <span>{t('click.or')}</span>
-                    <button type="button" className="btn btn-link p-0" onClick={onSearchLink}>{t('click.search')}</button>
-                    <span>{t('click.toWatchGoals')}</span></p>
+                    <button type="button" className="btn btn-link p-0" onClick={onSearchLink}>{t('welcome.clickOrSearch')}</button>
+                    <span>{t('welcome.toWatchGoals')}</span></p>
             </div>
             <hr className="my-3"/>
             <div className="alert alert-danger d-inline-block m-0" role="alert">

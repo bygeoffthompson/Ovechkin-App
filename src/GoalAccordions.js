@@ -55,12 +55,10 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                             </Accordion.Button>
                         </div>
                         <Accordion.Body className="p-0">
-                            <div className="position-relative">
-                                {activeKey === key
-                                    ? <YoutubeFrame videoId={videoId} start={start} end={end} />
-                                    : <div className="iframe w-100" />
-                                }
-                            </div>
+                            {activeKey === key
+                                ? <YoutubeFrame videoId={videoId} start={start} end={end} />
+                                : <div className="iframe w-100" />
+                            }
                             <div className="align-items-start align-items-sm-center bg-accordion d-flex flex-wrap gap-1 p-2">
                                 <span className="badge text-bg-danger">{result.month}/{result.day}/{result.year}</span>
                                 {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
@@ -68,7 +66,6 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                 <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
                                 <span className="badge text-bg-secondary">{result.time}</span>
                                 <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
-
                                 {result.a1 && <span className="assist badge">{result.a1}</span>}
                                 {result.a2 && <span className="assist badge">{result.a2}</span>}
                                 <span className="badge text-bg-light">ovechkin.app/?{result.goal}</span>

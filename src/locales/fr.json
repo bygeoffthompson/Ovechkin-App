@@ -13,7 +13,8 @@
   },
   "welcome": {
     "title": "Bienvenue",
-    "clickToSearch": "Cliquez ou recherchez pour regarder les buts",
+    "clickOrSearch": "Cliquez ou recherchez",
+    "toWatchGoals": "pour regarder les buts",
     "dotw": "JDLS",
     "watchA": "Voir un",
     "goal": "But",
@@ -86,12 +87,6 @@
     "10": "Octobre",
     "11": "Novembre",
     "12": "Décembre"
-  },
-  "click": {
-    "click": "Cliquez",
-    "or": "ou",
-    "search": "recherchez",
-    "toWatchGoals": "pour regarder les buts"
   },
   "search": {
     "random": "Aléatoire",

@@ -72,13 +72,13 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                 </Accordion.Item>
                 <Accordion.Item eventKey="search">
                     <div className="accordion-header"><Accordion.Button className="fw-bold">{t('search.search')}</Accordion.Button></div>
-                    <Accordion.Body className="text-bg-light">
-                    <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()}>
+                    <Accordion.Body className="p-0 text-bg-light">
+                    <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()} id="search-accordion">
                         <div className="align-items-center d-flex flex-row gap-3">
                             <label htmlFor="goal-number">{t('search.goalNumber')}</label>
                             <input className="text-center" id="goal-number" min={0} max={leagueCounts?.[1]} placeholder="#" step="any" type="number" value={searchGoal} onChange={handleGoalNumber}/>
                         </div>
-                        <div className="align-items-center d-flex flex-row gap-3">
+                        <div className="align-items-center d-flex flex-row gap-3" id="search-click">
                             <label htmlFor="search-text-1">{t('search.text')}</label>
                             <input id="search-text-1" type="text" placeholder={t('search.searchPlaceholder')} value={searchText} onChange={handleText}/>
                         </div>

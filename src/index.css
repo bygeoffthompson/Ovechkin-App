@@ -4,6 +4,23 @@
     }
 }
 
+#search-accordion {
+    padding: 1rem 0;
+
+    > div {
+        padding: 0 .625rem;
+
+        @media (min-width: 768px) {
+            padding: 0 1.25rem;
+        }
+    }
+}
+
+#search-click {
+    position: relative;
+    z-index: 3;
+}
+
 .alert {
     border-radius: 0 !important;
 }
@@ -79,6 +96,10 @@ form {
         position: absolute;
         width: 100%;
         z-index: 2;
+    }
+
+    #search-click {
+        background: #FFF;
     }
 }
 
