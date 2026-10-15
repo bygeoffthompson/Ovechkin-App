@@ -16,7 +16,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onS
             </div>
             <hr className="my-3"/>
             <div className="alert alert-danger d-inline-block m-0" role="alert">
-                <span>{t('welcome.lastSeason')}</span> (<a href="https://www.nhl.com/capitals/news/alex-ovechkin-announces-2026-27-will-be-his-final-nhl-season" rel="noreferrer" target="_blank">{t('welcome.readMore')}</a>)
+                {t('welcome.lastSeason')} (<a href="https://www.nhl.com/capitals/news/alex-ovechkin-announces-2026-27-will-be-his-final-nhl-season" rel="noreferrer" target="_blank">{t('welcome.readMore')}</a>)
             </div>
             <hr className="my-3"/>
             {onThisDayGoals.length > 0 ? (
@@ -42,7 +42,7 @@ export default function WelcomeMessage({jsonData, onGoalSelect, votedGoalId, onS
                 </div>
             )}
             <hr className="my-3"/>
-            {votedGoalId && <><p className="m-0">{t('welcome.voted', {goalId: votedGoalId})}</p></>}
+            {votedGoalId && <p className="m-0">{t('welcome.voted', {goalId: votedGoalId})}</p>}
             {!votedGoalId && <p className="m-0">{t('welcome.votePrompt')}</p>}
         </div>
     )

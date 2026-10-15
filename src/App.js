@@ -251,7 +251,7 @@ function App() {
 
     function handleSearchLink() {
         setAccordionKey('search')
-        setTimeout(() => document.body.classList.add('button-focus'), 350)
+        setTimeout(() => document.body.classList.add('button-focus'), 0)
     }
 
     if (error) return <div className="alert alert-danger" role="alert">{t('app.error')}</div>

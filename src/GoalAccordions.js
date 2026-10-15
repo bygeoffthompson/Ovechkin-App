@@ -35,25 +35,23 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                     const [goalInt, goalDec] = result.goal.toString().split('.')
                     return (
                     <Accordion.Item key={result.goal} data-jersey={result.jersey} eventKey={key}>
-                        <div className="accordion-header overflow-hidden">
-                            <Accordion.Button data-league={LEAGUE[result.league]} onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Opened Goals', label: result.goal.toString().replace(/^(\d+)/, n => n.padStart(3, '0')) })} }}>
-                                <div className="align-items-center d-flex gap-1 justify-content-start w-100">
-                                    <strong className="align-items-center d-flex goal-count">
-                                        {result.league !== 1 && result.league !== 2 && <small className="fw-bold me-1">{t(`leagueLabel.${result.league}`)}</small>}
-                                        <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
-                                    </strong>
-                                    <div className="align-items-center d-flex justify-content-center">
-                                        <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="40" height="40"/>
-                                        <strong className="position-absolute type">{result.type}</strong>
-                                    </div>
-                                    <div className="align-items-center d-flex justify-content-center team-logo">
-                                        <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
-                                    </div>
-                                    {result.goalie && <span className="fw-bold h6 m-0">{result.goalie}</span>}
+                        <Accordion.Button className="overflow-hidden" data-league={LEAGUE[result.league]} onClick={(e) => { if (e.currentTarget.getAttribute('aria-expanded') === 'false') { ga.current?.event({ category: 'Results', action: 'Opened Goals', label: result.goal.toString().replace(/^(\d+)/, n => n.padStart(3, '0')) })} }}>
+                            <div className="align-items-center d-flex gap-1 justify-content-start w-100">
+                                <strong className="align-items-center d-flex goal-count">
+                                    {result.league !== 1 && result.league !== 2 && <small className="fw-bold me-1">{t(`leagueLabel.${result.league}`)}</small>}
+                                    <span>{goalDec ? (goalDec.length === 1 ? goalDec + '0' : goalDec) : (result.league ? goalInt : '')}</span>
+                                </strong>
+                                <div className="align-items-center d-flex justify-content-center">
+                                    <img alt="Goal Siren icon" src="/icons/goal-siren.svg" width="40" height="40"/>
+                                    <strong className="position-absolute type">{result.type}</strong>
                                 </div>
+                                <div className="align-items-center d-flex justify-content-center team-logo">
+                                    <img alt={result.team} className="logo" src={'/teams/' + result.team + '.svg'} width="48" height="48" title={result.team}/>
+                                </div>
+                                {result.goalie && <span className="fw-bold h6 m-0">{result.goalie}</span>}
+                            </div>
                             {index > 0 && <strong className="bottom-0 indexer p-1 position-absolute">{index + 1}</strong>}
-                            </Accordion.Button>
-                        </div>
+                        </Accordion.Button>
                         <Accordion.Body className="p-0">
                             {activeKey === key
                                 ? <YoutubeFrame videoId={videoId} start={start} end={end} />

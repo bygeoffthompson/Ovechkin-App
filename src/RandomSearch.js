@@ -8,7 +8,7 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
         <div className="d-flex flex-column w-100" id="random-search">
             <Accordion activeKey={accordionKey} onSelect={setAccordionKey} className="mb-1 shadow-lg">
                 <Accordion.Item eventKey="random">
-                    <div className="accordion-header"><Accordion.Button className="fw-bold">{t('search.random')}</Accordion.Button></div>
+                    <Accordion.Button className="fw-bold">{t('search.random')}</Accordion.Button>
                     <Accordion.Body className="p-3 text-bg-light">
                         <div className="align-items-start buttons-group d-flex flex-row gap-2">
                             <div className="d-flex flex-column gap-2">
@@ -71,7 +71,7 @@ export default function RandomSearch({ jsonData, searchText, filters, filterOpti
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="search">
-                    <div className="accordion-header"><Accordion.Button className="fw-bold">{t('search.search')}</Accordion.Button></div>
+                    <Accordion.Button className="fw-bold">{t('search.search')}</Accordion.Button>
                     <Accordion.Body className="p-0 text-bg-light">
                     <form className="align-items-start d-flex flex-column gap-3" onSubmit={(e) => e.preventDefault()} id="search-accordion">
                         <div className="align-items-center d-flex flex-row gap-3">
