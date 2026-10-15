@@ -71,9 +71,9 @@ export default function GoalAccordions({ sortedResults, tooShort, ga, votedGoalI
                                 {result.goalie && <span className="d-inline d-sm-none h6 m-0">{result.goalie}</span>}
                                 {result.series && <span className="badge text-bg-warning">{t(`series.${result.series}`)}</span>}
                                 {result.game && <span className="badge text-bg-warning">G{result.game}</span>}
-                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
                                 <span className="badge text-bg-secondary">{result.time}</span>
                                 <span className="badge text-bg-secondary">{PERIOD_NAME[result.period] ?? result.period}</span>
+                                <span className={`badge ${result.result === 1 ? 'text-bg-success' : 'text-bg-dark'}`}>{result.result === 1 ? t('goal.win') : result.result === 0 ? t('goal.loss') : null}</span>
                                 {result.a1 && <span className="assist badge">{result.a1}</span>}
                                 {result.a2 && <span className="assist badge">{result.a2}</span>}
                                 <span className="badge text-bg-light">ovechkin.app/?{result.goal}</span>
