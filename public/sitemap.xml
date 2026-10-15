@@ -6,7 +6,7 @@
 
         <loc>https://www.ovechkin.app</loc>
 
-        <lastmod>2026-8-30</lastmod>
+        <lastmod>2026-10-14</lastmod>
 
         <changefreq>monthly</changefreq>
 
@@ -16,37 +16,13 @@
 
     <url>
 
-        <loc>https://www.ovechkin.app/about.html</loc>
-
-        <lastmod>2026-6-24</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
-        <loc>https://www.ovechkin.app/assists.html</loc>
-
-        <lastmod>2026-6-24</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
         <loc>https://www.ovechkin.app/goals.html</loc>
 
-        <lastmod>2026-6-24</lastmod>
+        <lastmod>2026-10-14</lastmod>
 
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
 
-        <priority>0.5</priority>
+        <priority>0.8</priority>
 
     </url>
 
@@ -54,11 +30,35 @@
 
         <loc>https://www.ovechkin.app/goalies.html</loc>
 
-        <lastmod>2026-6-27</lastmod>
+        <lastmod>2026-10-14</lastmod>
 
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
 
-        <priority>0.5</priority>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.ovechkin.app/assists.html</loc>
+
+        <lastmod>2026-10-14</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.ovechkin.app/players.html</loc>
+
+        <lastmod>2026-10-14</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
 
     </url>
 
@@ -66,7 +66,31 @@
 
         <loc>https://www.ovechkin.app/graph.html</loc>
 
-        <lastmod>2026-7-26</lastmod>
+        <lastmod>2026-10-14</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.ovechkin.app/vote.html</loc>
+
+        <lastmod>2026-10-14</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.ovechkin.app/about.html</loc>
+
+        <lastmod>2026-10-14</lastmod>
 
         <changefreq>monthly</changefreq>
 
@@ -78,43 +102,7 @@
 
         <loc>https://www.ovechkin.app/help.html</loc>
 
-        <lastmod>2026-8-30</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
-        <loc>https://www.ovechkin.app/llms.txt</loc>
-
-        <lastmod>2026-6-27</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
-        <loc>https://www.ovechkin.app/players.html</loc>
-
-        <lastmod>2026-8-17</lastmod>
-
-        <changefreq>monthly</changefreq>
-
-        <priority>0.5</priority>
-
-    </url>
-
-    <url>
-
-        <loc>https://www.ovechkin.app/vote.html</loc>
-
-        <lastmod>2026-8-30</lastmod>
+        <lastmod>2026-10-14</lastmod>
 
         <changefreq>monthly</changefreq>
 

@@ -1,6 +1,7 @@
 {
   "short_name": "Ovechkin App",
   "name": "Ovechkin App",
+  "description": "Search, watch, and share every Alex Ovechkin goal ever scored.",
   "icons": [
     {
       "src": "favicon.ico",
