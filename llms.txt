@@ -4,7 +4,7 @@
 
 ## Key Facts
 
-- 930 NHL regular season goals (all-time NHL record, surpassing Wayne Gretzky's 894)
+- 930 NHL regular season goals (all-time NHL record)
 - 77 NHL playoff goals
 - 35 World Championship goals
 - 19 KHL goals
@@ -24,6 +24,9 @@ Each goal record includes: goal number, date (month/day/year), opponent team, go
 - /goals.html — Complete sortable goal list (goal number, league, date, goalie, opponent, home/away, period)
 - /goalies.html — Every goalie scored against with first date, last date, NHL/international/KHL breakdown, and total
 - /assists.html — Every player who assisted on an Ovechkin goal with primary, secondary, and total assist counts
+- /players.html — Complete chronological index of every player who appears in an Ovechkin goal record (goalies and assisters combined), sorted by first appearance date
+- /graph.html — Interactive chart and timeline of Ovechkin's NHL goals, filterable by season, opponent, goal type, and more
+- /vote.html — Fan-voted leaderboard ranking Ovechkin goals by visitor votes, with top-3 trophy display and bar chart
 - /about.html — Site overview and goal totals by league
 - /help.html — Search syntax, league names, goal numbering convention, and URL query format
 
