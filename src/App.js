@@ -19,6 +19,10 @@ function App() {
     const gaRef = useRef(null)
 
     useEffect(() => {
+        document.getElementById('html-load')?.remove()
+    }, [])
+
+    useEffect(() => {
         if (window.location.hostname !== 'localhost') {
             window.addEventListener('load', () => {
                 import('react-ga4').then(({default: ReactGA}) => {
