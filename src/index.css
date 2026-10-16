@@ -47,6 +47,7 @@
 
 .iframe {
     aspect-ratio: 16 / 9;
+    background: #111;
 }
 
 .text-red {
